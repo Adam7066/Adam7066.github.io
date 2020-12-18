@@ -1,0 +1,112 @@
+baseurl: https://blog.smallten.tk/
+languageCode: en-us
+title: 小十的部落格
+theme: hugo-theme-stack
+paginate: 10
+
+# Change it to your Disqus shortname before using
+disqusShortname: hugo-theme-stack
+
+# Theme i18n support
+# Available values: en, fr, id, ja, ko, pt-br, zh-cn
+DefaultContentLanguage: en
+
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
+
+params:
+    mainSections:
+        - post
+    featuredImageField: image
+    rssFullContent: true
+
+    dateFormat:
+        published: Jan 02, 2006
+        lastUpdated: Jan 02, 2006 15:04 MST
+
+    sidebar:
+        emoji:
+        subtitle: 教學、資訊分享、生活記趣
+        avatar:
+            local: true
+            src: img/header.png
+
+    article:
+        math: true
+        license:
+            enabled: false
+            default: Licensed under CC BY-NC-SA 4.0
+
+    comments:
+        enabled: false
+        provider: disqus
+        utterances:
+            repo:
+            issueTerm: pathname
+            label:
+            theme: preferred-color-scheme
+
+    widgets:
+        enabled:
+            - archives
+            - tag-cloud
+
+        archives:
+            limit: 5
+            path: archives
+
+        tagCloud:
+            limit: 10
+
+    opengraph:
+        twitter:
+            site:
+            card: summary_large_image
+
+    defaultImage:
+        opengraph:
+            enabled: false
+            local: false
+            src:
+
+menu:
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          pre: home
+
+        - identifier: about
+          name: About
+          url: about
+          weight: -90
+          pre: user
+
+        - identifier: archives
+          name: Archives
+          url: archives
+          weight: -70
+          pre: archives
+
+        - identifier: search
+          name: Search
+          url: search
+          weight: -60
+          pre: search
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+
+        - name: categories
+          weight: 200
+
+markup:
+    highlight:
+        noClasses: false
