@@ -4,8 +4,6 @@ title: 小十的部落格
 theme: hugo-theme-stack
 paginate: 10
 
-googleAnalytics: "G-8XPP7CN10W"
-
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
 
