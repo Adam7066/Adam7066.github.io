@@ -1,4 +1,269 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Dec 2020 01:16:06 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>First Hugo Blog</title><link>https://blog.smallten.tk/p/first-hugo-blog/</link><pubDate>Fri, 18 Dec 2020 01:16:06 +0800</pubDate><guid>https://blog.smallten.tk/p/first-hugo-blog/</guid><description>&lt;h1 id="第一個-hugo-blog">第一個 Hugo Blog&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 23 Dec 2020 19:38:14 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(一)-08：Pointer</title><link>https://blog.smallten.tk/p/computer_programming_1-08/</link><pubDate>Wed, 23 Dec 2020 19:38:14 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_1-08/</guid><description>&lt;h1 id="pointer">Pointer&lt;/h1>
+&lt;ul>
+&lt;li>許多人不喜歡C是因為有「指標」&lt;/li>
+&lt;li>這可能是C中最困難的一個部分&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>指標是一個變數，其值為記憶體位置
+&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01.png" data-size="624x482">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01.png" width="624" height="482" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>宣告：&lt;code>int32_t *p&lt;/code>
+&lt;ul>
+&lt;li>p 是一個指標&lt;/li>
+&lt;li>指向的記憶體區塊被視為整數&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>初始化：&lt;code>int32_t *p = NULL&lt;/code>&lt;/li>
+&lt;li>address operator &lt;code>&amp;amp;&lt;/code>：返回其變數的記憶體位置
+&lt;ul>
+&lt;li>如果想要印出記憶體位置，你可以使用&lt;code>%p&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>indirection operator &lt;code>*&lt;/code>：也被稱為dereferencing operator，返回指向對象的值
+&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02.png" data-size="560x482">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02.png" width="560" height="482" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別&lt;/li>
+&lt;/ul>
+&lt;h3 id="傳參數至函式">傳參數至函式&lt;/h3>
+&lt;ul>
+&lt;li>在C語言中，argument passing 稱為 call-by-value
+&lt;ul>
+&lt;li>電腦將會分配另一個記憶體區塊&lt;/li>
+&lt;li>複製輸入的參數到記憶體區塊&lt;/li>
+&lt;li>函式將會在新的記憶體區塊執行&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>這就是為什麼修改函式中的變數，並不會修改到原本外部的變數了。&lt;/li>
+&lt;li>在C++有另一種傳送方式稱為 call-by-reference，這邊我們不多加介紹。&lt;/li>
+&lt;li>普遍來說，傳址會比傳值更快。&lt;/li>
+&lt;/ul>
+&lt;h3 id="陣列與指標">陣列與指標&lt;/h3>
+&lt;ul>
+&lt;li>在大部分的情況下，我們可以把array視為第一個元素的指標
+&lt;ul>
+&lt;li>現在你應該明白為什麼陣列的值會在函式中被修改&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>為了避免模棱兩可(搞混)，我較喜歡&lt;code>&amp;amp;(array[0])&lt;/code>而不是&lt;code>array&lt;/code>、&lt;code>&amp;amp;array&lt;/code>&lt;/li>
+&lt;li>然而你不能寫出 &lt;code>array = &amp;amp;a&lt;/code>&lt;/li>
+&lt;li>int32_t
+&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03.png" data-size="1376x525">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03.png" width="1376" height="525" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>int16_t
+&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04.png" data-size="1376x525">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04.png" width="1376" height="525" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>int8_t
+&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05.png" data-size="1376x525">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05.png" width="1376" height="525" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>&lt;code>ptr++&lt;/code>
+&lt;ul>
+&lt;li>移動的大小是根據指標的型別&lt;/li>
+&lt;li>這在要讀取每一byte的詳細資料時非常好用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>事實上，&lt;code>array[n] = *(ptr + n)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="endian-issue">Endian Issue&lt;/h3>
+&lt;p>&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06.png" data-size="868x368">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06.png" width="868" height="368" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;h3 id="函式指標">函式指標&lt;/h3>
+&lt;ul>
+&lt;li>指標不過是一個記憶體位址。&lt;/li>
+&lt;li>當我們宣告某種類型的指標時，這意味著電腦將將訪問記憶體並根據給定的類型解釋存儲在該位址的值。&lt;/li>
+&lt;li>您是否知道函式也存儲在記憶體中？&lt;/li>
+&lt;li>使用函式指標時，返回的型別和參數應該要和實際的定義相同。
+&lt;ul>
+&lt;li>Really??為什麼在編譯時不會產生errors?&lt;/li>
+&lt;li>這是個檢查definition的好習慣。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>回呼函式 (Callback function)&lt;/li>
+&lt;li>你可以用陣列來儲存函式指標
+&lt;code>void (*f[3])(int32_t) = {f1, f2, f3};&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>使用了函式指標的例子
+&lt;ul>
+&lt;li>Menu Driven&lt;/li>
+&lt;li>Driver
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="k">struct&lt;/span> &lt;span class="n">file_operations&lt;/span> &lt;span class="n">scull_fops&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">owner&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">THIS_MODULE&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">llseek&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">scull_llseek&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">read&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">scull_read&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">write&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">scull_write&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">ioctl&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">scull_ioctl&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">open&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">scull_open&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">release&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">scull_release&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="p">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Firewall&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="k">static&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">hook_func&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="k">const&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">nf_hook_ops&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">ops&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="k">struct&lt;/span> &lt;span class="n">sk_buff&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">skb&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="k">const&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">net_device&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">in&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="k">const&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">net_device&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">out&lt;/span> &lt;span class="p">,&lt;/span>
+&lt;span class="kt">int&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">okfn&lt;/span>&lt;span class="p">)(&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">sk_buff&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="記憶體管理">記憶體管理&lt;/h3>
+&lt;ul>
+&lt;li>記憶體管理
+&lt;ul>
+&lt;li>分配記憶體當你宣告一個變數&lt;/li>
+&lt;li>垃圾回收 ( GC )&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>為什麼許多現代的程式語言不支援記憶體管理
+&lt;ul>
+&lt;li>軟體工程師是人類&lt;/li>
+&lt;li>人是不可被信任的&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>然而，如果軟體工程師知道他們在做什麼，那麼他們可以更有效率的管理記憶體&lt;/li>
+&lt;li>如果不考慮記憶體，請使用陣列&lt;/li>
+&lt;li>如果你想陣列的大小可以被動態的改變，那麼去讀 C++ 並學習如何使用 container&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="malloc">malloc&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="n">ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">malloc&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>malloc()&lt;/code> 分配 size bytes 並回傳一個指向所分配的記憶體的指標&lt;/li>
+&lt;li>記憶體沒有初始化&lt;/li>
+&lt;li>若要初始化，請使用 &lt;code>memset&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;string.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="n">memset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="calloc">calloc&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="n">ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">calloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>在現代的 C 中，你應該使用 &lt;code>calloc&lt;/code>&lt;/li>
+&lt;li>第一個參數：多少個區塊你想去分配?&lt;/li>
+&lt;li>第二個參數：每個區塊的大小。&lt;/li>
+&lt;li>記憶體被初始化成 &lt;code>0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 id="free">free&lt;/h4>
+&lt;p>&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07.png" data-size="600x313">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07.png" width="600" height="313" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>free(ptr)&lt;/code>：釋放 &lt;code>ptr&lt;/code> 指向的記憶體空間，該記憶體空間必須是由之前使用 &lt;code>malloc()、calloc()、realloc()&lt;/code> 所回傳的。&lt;/li>
+&lt;li>此外，若已經 &lt;code>free(ptr)&lt;/code>，再次使用會發生未定義行為。&lt;/li>
+&lt;/ul>
+&lt;h3 id="double-pointer">Double Pointer&lt;/h3>
+&lt;p>&lt;figure>
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08.png" data-size="751x683">
+&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_1024x0_resize_box_2.png 1024w"
+src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08.png" width="751" height="683" loading="lazy"
+alt="&amp;nbsp;">
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>使用場景：
+&lt;ul>
+&lt;li>在函式中分配記憶體&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">table&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">pp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">){&lt;/span>
+&lt;span class="o">*&lt;/span>&lt;span class="n">pp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">calloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">&amp;lt;=&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">){&lt;/span>
+&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="o">&amp;lt;=&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="p">){&lt;/span>
+&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">pp&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(){&lt;/span>
+&lt;span class="n">int32_t&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="n">scanf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%d&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">number&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="n">int32_t&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="n">table&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">ptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">number&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>分配一個二維陣列&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">size_t&lt;/span> &lt;span class="n">size_row&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_column&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Please enter two integers for row and column: &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="n">scanf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;%lu %lu&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">size_row&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">size_column&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="n">int32_t&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="n">ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">calloc&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">),&lt;/span> &lt;span class="n">size_row&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">size_row&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">ptr&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">calloc&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="p">),&lt;/span> &lt;span class="n">size_column&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">size_column&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">ptr&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">(&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">size_row&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">size_column&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;%4d &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">ptr&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="小工具">小工具&lt;/h3>
+&lt;h4 id="cdecl">cdecl&lt;/h4>
+&lt;ul>
+&lt;li>安裝：&lt;code>sudo apt install cdecl&lt;/code>&lt;/li>
+&lt;li>使用：&lt;code>cdecl&lt;/code> -&amp;gt; &lt;code>explain int ***a;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 id="資源查看">資源查看&lt;/h4>
+&lt;ul>
+&lt;li>top / htop&lt;/li>
+&lt;li>vmstat ( 較輕量化 )
+&lt;ul>
+&lt;li>&lt;code>vmstat -n 1&lt;/code> ( &lt;code>-n 1&lt;/code> 為一秒輸出一次 )&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>First Hugo Blog</title><link>https://blog.smallten.tk/p/first-hugo-blog/</link><pubDate>Fri, 18 Dec 2020 01:16:06 +0800</pubDate><guid>https://blog.smallten.tk/p/first-hugo-blog/</guid><description>&lt;h1 id="第一個-hugo-blog">第一個 Hugo Blog&lt;/h1>
 &lt;p>  由於秉持著「人生總折騰」的道理，我來轉移 Blog 了(誤///)，好啦，其實是單純希望有個穩定且又能全天候供應的 Blog 而已，由於我的隊友兩人分別使用了 Hexo 及 Hugo ，因此一開始讓我有點難抉擇，但最終我還是選擇了 Hugo 。&lt;/p>
 &lt;p>  至於第二個選擇的難關就是主題了，挑了好久都沒看到順眼的，差點就要聽吳文元說的沒有喜歡的就自己寫呀(怕///)，最終還是挑到了一個稍微滿意的主題 &lt;a class="link" href="https://themes.gohugo.io/hugo-theme-stack/" target="_blank" rel="noopener"
 >Stack&lt;/a>。&lt;/p>
