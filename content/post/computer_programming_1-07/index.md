@@ -30,7 +30,7 @@ categories:
 #### 氣泡排序法
 ```c
 for(int i = 0; i < n; ++i) {
-    for(int j = i; j < n; ++i) {
+    for(int j = i; j < n; ++j) {
         if(a[j] < a[i]) {
             a[i] = a[i] ^ a[j];
             a[j] = a[i] ^ a[j];
