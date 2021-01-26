@@ -23,7 +23,7 @@ categories:
 # define
 - 是遇處理指令，不是C的詞(statement)
 - 我們可以使用 `#define` 去做巨集(MACRO)
-    - 當開發時NACRO有些像function，然而對電腦而言他們是不同的。
+    - 當開發時MACRO有些像function，然而對電腦而言他們是不同的。
     - 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。
     - 函式擁有自己的標記。
 # 基本排序
