@@ -71,10 +71,7 @@ params:
             src:
     
     colorScheme:
-        # Display toggle
         toggle: true
-
-        # Available values: auto, light, dark
         default: auto
 
     imageProcessing:
@@ -82,6 +79,8 @@ params:
             enabled: true
         content:
             enabled: true
+    
+    custom_css: ["css/copy-to-clipboard.css"]
 
 menu:
     main:
@@ -120,8 +119,8 @@ related:
         - name: categories
           weight: 200
 
+pygmentsUseClasses: true
 markup:
     highlight:
         lineNos: true
         lineNumbersInTable: false
-        style: dracula
