@@ -114,7 +114,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
     --heading-border-size: 4px;
 
-    --link-background-color: 90, 240, 250; //189, 195, 199;
+    --link-background-color: rgb(90, 240, 250); //189, 195, 199;
     --link-background-opacity: 0.5;
     --link-background-opacity-hover: 0.7;
 
@@ -129,7 +129,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
     [data-scheme="dark"] {
         --code-background-color: #272822;
-        --code-text-color: rgba(255, 255, 255, 0.9);
+        --code-text-color: #ef3982; //rgba(255, 255, 255, 0.9);
 
         --table-border-color: #717171;
         --tr-even-background-color: #545454;
