@@ -6,11 +6,13 @@
 &lt;hr>
 &lt;ul>
 &lt;li>指標是一個變數，其值為記憶體位置
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01.png" data-size="624x482">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01.png" width="624" height="482" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 129; flex-basis: 310px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01.png" data-size="624x482">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_1024x0_resize_box_2.png 1024w"
+width="624"
+height="482"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>宣告：&lt;code>int32_t *p&lt;/code>
@@ -26,11 +28,13 @@ alt="&amp;nbsp;">
 &lt;/ul>
 &lt;/li>
 &lt;li>indirection operator &lt;code>*&lt;/code>：也被稱為dereferencing operator，返回指向對象的值
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02.png" data-size="560x482">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02.png" width="560" height="482" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 116; flex-basis: 278px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02.png" data-size="560x482">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_1024x0_resize_box_2.png 1024w"
+width="560"
+height="482"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別&lt;/li>
@@ -58,27 +62,33 @@ alt="&amp;nbsp;">
 &lt;li>為了避免模棱兩可(搞混)，我較喜歡&lt;code>&amp;amp;(array[0])&lt;/code>而不是&lt;code>array&lt;/code>、&lt;code>&amp;amp;array&lt;/code>&lt;/li>
 &lt;li>然而你不能寫出 &lt;code>array = &amp;amp;a&lt;/code>&lt;/li>
 &lt;li>int32_t
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03.png" data-size="1376x525">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03.png" width="1376" height="525" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 262; flex-basis: 629px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03.png" data-size="1376x525">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_1024x0_resize_box_2.png 1024w"
+width="1376"
+height="525"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>int16_t
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04.png" data-size="1376x525">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04.png" width="1376" height="525" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 262; flex-basis: 629px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04.png" data-size="1376x525">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_1024x0_resize_box_2.png 1024w"
+width="1376"
+height="525"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>int8_t
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05.png" data-size="1376x525">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05.png" width="1376" height="525" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 262; flex-basis: 629px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05.png" data-size="1376x525">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_1024x0_resize_box_2.png 1024w"
+width="1376"
+height="525"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>&lt;code>ptr++&lt;/code>
@@ -90,11 +100,13 @@ alt="&amp;nbsp;">
 &lt;li>事實上，&lt;code>array[n] = *(ptr + n)&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="endian-issue">Endian Issue&lt;/h3>
-&lt;p>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06.png" data-size="868x368">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06.png" width="868" height="368" loading="lazy"
-alt="&amp;nbsp;">
+&lt;p>&lt;figure style="flex-grow: 235; flex-basis: 566px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06.png" data-size="868x368">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_1024x0_resize_box_2.png 1024w"
+width="868"
+height="368"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/p>
 &lt;h3 id="函式指標">函式指標&lt;/h3>
@@ -178,11 +190,13 @@ alt="&amp;nbsp;">
 &lt;li>記憶體被初始化成 &lt;code>0&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h4 id="free">free&lt;/h4>
-&lt;p>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07.png" data-size="600x313">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07.png" width="600" height="313" loading="lazy"
-alt="&amp;nbsp;">
+&lt;p>&lt;figure style="flex-grow: 191; flex-basis: 460px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07.png" data-size="600x313">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_1024x0_resize_box_2.png 1024w"
+width="600"
+height="313"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/p>
 &lt;ul>
@@ -190,11 +204,13 @@ alt="&amp;nbsp;">
 &lt;li>此外，若已經 &lt;code>free(ptr)&lt;/code>，再次使用會發生未定義行為。&lt;/li>
 &lt;/ul>
 &lt;h3 id="double-pointer">Double Pointer&lt;/h3>
-&lt;p>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08.png" data-size="751x683">
-&lt;img srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08.png" width="751" height="683" loading="lazy"
-alt="&amp;nbsp;">
+&lt;p>&lt;figure style="flex-grow: 109; flex-basis: 263px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08.png" data-size="751x683">&lt;img src="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08.png"
+srcset="https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_1024x0_resize_box_2.png 1024w"
+width="751"
+height="683"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/p>
 &lt;ul>
@@ -1225,11 +1241,13 @@ alt="&amp;nbsp;">
 &lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66&lt;/span> window&lt;span style="color:#ff79c6">.&lt;/span>mainloop()
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>最終成果圖
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/weather-02/weather-02-01.png" data-size="1204x667">
-&lt;img srcset="https://blog.smallten.tk/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/weather-02/weather-02-01.png" width="1204" height="667" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 180; flex-basis: 433px">
+&lt;a href="https://blog.smallten.tk/p/weather-02/weather-02-01.png" data-size="1204x667">&lt;img src="https://blog.smallten.tk/p/weather-02/weather-02-01.png"
+srcset="https://blog.smallten.tk/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_1024x0_resize_box_2.png 1024w"
+width="1204"
+height="667"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;/ul></description></item><item><title>簡易氣象站-01</title><link>https://blog.smallten.tk/p/weather-01/</link><pubDate>Sun, 12 Jul 2020 09:02:34 +0800</pubDate><guid>https://blog.smallten.tk/p/weather-01/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
@@ -1244,11 +1262,13 @@ alt="&amp;nbsp;">
 &lt;/ul>
 &lt;h1 id="教學開始">教學開始&lt;/h1>
 &lt;h2 id="連結電路">連結電路&lt;/h2>
-&lt;p>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/weather-01/weather-01-01.jpg" data-size="370x279">
-&lt;img srcset="https://blog.smallten.tk/p/weather-01/weather-01-01_hu48c71b804eacb5bf162295a0daa3992c_15962_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/weather-01/weather-01-01_hu48c71b804eacb5bf162295a0daa3992c_15962_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/weather-01/weather-01-01.jpg" width="370" height="279" loading="lazy"
-alt="&amp;nbsp;">
+&lt;p>&lt;figure style="flex-grow: 132; flex-basis: 318px">
+&lt;a href="https://blog.smallten.tk/p/weather-01/weather-01-01.jpg" data-size="370x279">&lt;img src="https://blog.smallten.tk/p/weather-01/weather-01-01.jpg"
+srcset="https://blog.smallten.tk/p/weather-01/weather-01-01_hu48c71b804eacb5bf162295a0daa3992c_15962_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/weather-01/weather-01-01_hu48c71b804eacb5bf162295a0daa3992c_15962_1024x0_resize_q75_box.jpg 1024w"
+width="370"
+height="279"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/p>
 &lt;h2 id="uno程式碼">Uno程式碼&lt;/h2>
@@ -1405,33 +1425,41 @@ alt="&amp;nbsp;">
 &lt;li>依照下方圖示連接腳位，並且設定Blynk App內的物件&lt;/li>
 &lt;/ol>
 &lt;h2 id="連接腳位">連接腳位&lt;/h2>
-&lt;p>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-04.jpg" data-size="1668x996">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-04_huc09fd31ce9bb786d1041f70ffa59556f_82083_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-04_huc09fd31ce9bb786d1041f70ffa59556f_82083_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-04/Arduino-04-04.jpg" width="1668" height="996" loading="lazy"
-alt="&amp;nbsp;">
+&lt;p>&lt;figure style="flex-grow: 167; flex-basis: 401px">
+&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-04.jpg" data-size="1668x996">&lt;img src="https://blog.smallten.tk/p/arduino-04/Arduino-04-04.jpg"
+srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-04_huc09fd31ce9bb786d1041f70ffa59556f_82083_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-04_huc09fd31ce9bb786d1041f70ffa59556f_82083_1024x0_resize_q75_box.jpg 1024w"
+width="1668"
+height="996"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/p>
 &lt;h2 id="設定blynk">設定Blynk&lt;/h2>
 &lt;ul>
 &lt;li>創建3個元件，分別為Button、Bluetooth、Joystick，並且依下圖進行設置
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-01.jpg" data-size="1080x2022">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-01_hue57180307d431242e42d97cfedf97de1_143362_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-01_hue57180307d431242e42d97cfedf97de1_143362_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-04/Arduino-04-01.jpg" width="1080" height="2022" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 53; flex-basis: 128px">
+&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-01.jpg" data-size="1080x2022">&lt;img src="https://blog.smallten.tk/p/arduino-04/Arduino-04-01.jpg"
+srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-01_hue57180307d431242e42d97cfedf97de1_143362_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-01_hue57180307d431242e42d97cfedf97de1_143362_1024x0_resize_q75_box.jpg 1024w"
+width="1080"
+height="2022"
+loading="lazy"
+>
 &lt;/a>
-&lt;/figure>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-02.jpg" data-size="907x196">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-02_hu2e7025b0c6a151426e93fe60ae1d9c1a_10112_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-02_hu2e7025b0c6a151426e93fe60ae1d9c1a_10112_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-04/Arduino-04-02.jpg" width="907" height="196" loading="lazy"
-alt="&amp;nbsp;">
+&lt;/figure>&lt;figure style="flex-grow: 462; flex-basis: 1110px">
+&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-02.jpg" data-size="907x196">&lt;img src="https://blog.smallten.tk/p/arduino-04/Arduino-04-02.jpg"
+srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-02_hu2e7025b0c6a151426e93fe60ae1d9c1a_10112_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-02_hu2e7025b0c6a151426e93fe60ae1d9c1a_10112_1024x0_resize_q75_box.jpg 1024w"
+width="907"
+height="196"
+loading="lazy"
+>
 &lt;/a>
-&lt;/figure>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-03.jpg" data-size="1080x2014">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-03_hucaa0b2ce0717571834e5be3d421346d7_167669_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-03_hucaa0b2ce0717571834e5be3d421346d7_167669_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-04/Arduino-04-03.jpg" width="1080" height="2014" loading="lazy"
-alt="&amp;nbsp;">
+&lt;/figure>&lt;figure style="flex-grow: 53; flex-basis: 128px">
+&lt;a href="https://blog.smallten.tk/p/arduino-04/Arduino-04-03.jpg" data-size="1080x2014">&lt;img src="https://blog.smallten.tk/p/arduino-04/Arduino-04-03.jpg"
+srcset="https://blog.smallten.tk/p/arduino-04/Arduino-04-03_hucaa0b2ce0717571834e5be3d421346d7_167669_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-04/Arduino-04-03_hucaa0b2ce0717571834e5be3d421346d7_167669_1024x0_resize_q75_box.jpg 1024w"
+width="1080"
+height="2014"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;/ul>
@@ -1556,23 +1584,29 @@ alt="&amp;nbsp;">
 &lt;h2 id="設定blynk">設定Blynk&lt;/h2>
 &lt;ul>
 &lt;li>請照下圖拉出三個物件，並設定其相關參數
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-03/Arduino-03-01.jpg" data-size="1080x2042">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-03/Arduino-03-01_hu27f7dc34c9db8fd2b063f3fba6be9864_75209_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-03/Arduino-03-01_hu27f7dc34c9db8fd2b063f3fba6be9864_75209_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-03/Arduino-03-01.jpg" width="1080" height="2042" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 52; flex-basis: 126px">
+&lt;a href="https://blog.smallten.tk/p/arduino-03/Arduino-03-01.jpg" data-size="1080x2042">&lt;img src="https://blog.smallten.tk/p/arduino-03/Arduino-03-01.jpg"
+srcset="https://blog.smallten.tk/p/arduino-03/Arduino-03-01_hu27f7dc34c9db8fd2b063f3fba6be9864_75209_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-03/Arduino-03-01_hu27f7dc34c9db8fd2b063f3fba6be9864_75209_1024x0_resize_q75_box.jpg 1024w"
+width="1080"
+height="2042"
+loading="lazy"
+>
 &lt;/a>
-&lt;/figure>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-03/Arduino-03-02.jpg" data-size="1080x2001">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-03/Arduino-03-02_hu27f7dc34c9db8fd2b063f3fba6be9864_82061_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-03/Arduino-03-02_hu27f7dc34c9db8fd2b063f3fba6be9864_82061_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-03/Arduino-03-02.jpg" width="1080" height="2001" loading="lazy"
-alt="&amp;nbsp;">
+&lt;/figure>&lt;figure style="flex-grow: 53; flex-basis: 129px">
+&lt;a href="https://blog.smallten.tk/p/arduino-03/Arduino-03-02.jpg" data-size="1080x2001">&lt;img src="https://blog.smallten.tk/p/arduino-03/Arduino-03-02.jpg"
+srcset="https://blog.smallten.tk/p/arduino-03/Arduino-03-02_hu27f7dc34c9db8fd2b063f3fba6be9864_82061_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-03/Arduino-03-02_hu27f7dc34c9db8fd2b063f3fba6be9864_82061_1024x0_resize_q75_box.jpg 1024w"
+width="1080"
+height="2001"
+loading="lazy"
+>
 &lt;/a>
-&lt;/figure>&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-03/Arduino-03-03.jpg" data-size="1080x2027">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-03/Arduino-03-03_hu27f7dc34c9db8fd2b063f3fba6be9864_83693_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-03/Arduino-03-03_hu27f7dc34c9db8fd2b063f3fba6be9864_83693_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-03/Arduino-03-03.jpg" width="1080" height="2027" loading="lazy"
-alt="&amp;nbsp;">
+&lt;/figure>&lt;figure style="flex-grow: 53; flex-basis: 127px">
+&lt;a href="https://blog.smallten.tk/p/arduino-03/Arduino-03-03.jpg" data-size="1080x2027">&lt;img src="https://blog.smallten.tk/p/arduino-03/Arduino-03-03.jpg"
+srcset="https://blog.smallten.tk/p/arduino-03/Arduino-03-03_hu27f7dc34c9db8fd2b063f3fba6be9864_83693_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-03/Arduino-03-03_hu27f7dc34c9db8fd2b063f3fba6be9864_83693_1024x0_resize_q75_box.jpg 1024w"
+width="1080"
+height="2027"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;/ul>
@@ -1780,28 +1814,34 @@ alt="&amp;nbsp;">
 &lt;ol>
 &lt;li>將下載好的FLIP安裝至電腦&lt;/li>
 &lt;li>確定電腦已安裝Arduino IDE，並已連接Uno板至電腦，可在裝置管理員查看狀態（如下圖）
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-01.png" data-size="976x715">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-01_hu90d6f7b7fa99914680e5f4bf53d16a63_121892_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-01_hu90d6f7b7fa99914680e5f4bf53d16a63_121892_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/arduino-02/Arduino-02-01.png" width="976" height="715" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 136; flex-basis: 327px">
+&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-01.png" data-size="976x715">&lt;img src="https://blog.smallten.tk/p/arduino-02/Arduino-02-01.png"
+srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-01_hu90d6f7b7fa99914680e5f4bf53d16a63_121892_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-01_hu90d6f7b7fa99914680e5f4bf53d16a63_121892_1024x0_resize_box_2.png 1024w"
+width="976"
+height="715"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>打開剛剛下載的UnoJoy資料夾下的檔案，並將它上傳進Uno板中 &lt;code>UnoJoy-master\UnoJoy\UnoJoyArduinoSample\UnoJoyArduinoSample.ino&lt;/code>&lt;/li>
 &lt;li>關閉Arduino IDE，進入DFU Mode，進入方式：用導線同時接觸下圖框起處的兩根針腳
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-02.jpg" data-size="1358x1014">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-02_hu8b11114da834c901b391eecfc0650259_230764_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-02_hu8b11114da834c901b391eecfc0650259_230764_1024x0_resize_q75_box.jpg 1024w"
-src="https://blog.smallten.tk/p/arduino-02/Arduino-02-02.jpg" width="1358" height="1014" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 133; flex-basis: 321px">
+&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-02.jpg" data-size="1358x1014">&lt;img src="https://blog.smallten.tk/p/arduino-02/Arduino-02-02.jpg"
+srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-02_hu8b11114da834c901b391eecfc0650259_230764_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-02_hu8b11114da834c901b391eecfc0650259_230764_1024x0_resize_q75_box.jpg 1024w"
+width="1358"
+height="1014"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>確認已進入 DFU Mode，如下圖
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-03.png" data-size="976x715">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-03_hudcfafbb358511a7db2186a1c644da5ec_110930_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-03_hudcfafbb358511a7db2186a1c644da5ec_110930_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/arduino-02/Arduino-02-03.png" width="976" height="715" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 136; flex-basis: 327px">
+&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-03.png" data-size="976x715">&lt;img src="https://blog.smallten.tk/p/arduino-02/Arduino-02-03.png"
+srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-03_hudcfafbb358511a7db2186a1c644da5ec_110930_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-03_hudcfafbb358511a7db2186a1c644da5ec_110930_1024x0_resize_box_2.png 1024w"
+width="976"
+height="715"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>
 &lt;ul>
@@ -1809,20 +1849,24 @@ alt="&amp;nbsp;">
 &lt;/ul>
 &lt;/li>
 &lt;li>打開UnoJoy資料夾，啟動TurnIntoAJoystick的批次檔，檔案路徑 &lt;code>UnoJoy-master\UnoJoy\TurnIntoAJoystick.bat&lt;/code>，執行成功結果如下圖
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-04.png" data-size="1222x638">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-04_hu995e3f612868d33bddd627def52639d4_26769_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-04_hu995e3f612868d33bddd627def52639d4_26769_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/arduino-02/Arduino-02-04.png" width="1222" height="638" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 191; flex-basis: 459px">
+&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-04.png" data-size="1222x638">&lt;img src="https://blog.smallten.tk/p/arduino-02/Arduino-02-04.png"
+srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-04_hu995e3f612868d33bddd627def52639d4_26769_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-04_hu995e3f612868d33bddd627def52639d4_26769_1024x0_resize_box_2.png 1024w"
+width="1222"
+height="638"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>至此已完成將Uno變成電腦搖桿，之後插上Uno板皆為UnoJoy Joystick，可在以下路徑查看 &lt;code>控制台\硬體和音效\裝置和印表機&lt;/code>&lt;/li>
 &lt;li>將搖桿的vrx和vry分別連接至Uno板的A0和A1，在 &lt;code>控制台\硬體和音效\裝置和印表機&lt;/code> 裡的UnoJoy Joystick圖示上右鍵-&amp;gt;遊戲控制器-&amp;gt;內容，可查看搖桿狀態，如下圖
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-05.png" data-size="595x651">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-05_hu70af4f0a87379970da1ec6ad06c206c4_21607_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-05_hu70af4f0a87379970da1ec6ad06c206c4_21607_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/arduino-02/Arduino-02-05.png" width="595" height="651" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 91; flex-basis: 219px">
+&lt;a href="https://blog.smallten.tk/p/arduino-02/Arduino-02-05.png" data-size="595x651">&lt;img src="https://blog.smallten.tk/p/arduino-02/Arduino-02-05.png"
+srcset="https://blog.smallten.tk/p/arduino-02/Arduino-02-05_hu70af4f0a87379970da1ec6ad06c206c4_21607_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-02/Arduino-02-05_hu70af4f0a87379970da1ec6ad06c206c4_21607_1024x0_resize_box_2.png 1024w"
+width="595"
+height="651"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;li>最後進入起動x360ce，新建立一個搖桿的設定檔，並選取模擬的位置，點選[Record]，依圖示移動搖桿方向即設定完成&lt;/li>
@@ -1863,11 +1907,13 @@ alt="&amp;nbsp;">
 >官網&lt;/a>&lt;/li>
 &lt;li>下載－&lt;a class="link" href="https://www.arduino.cc/en/software" target="_blank" rel="noopener"
 >官方載點&lt;/a>
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-01/arduino-01-01.png" data-size="1376x642">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-01/arduino-01-01_hu090779c2365445c0c56d62c8be35f1d9_133173_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-01/arduino-01-01_hu090779c2365445c0c56d62c8be35f1d9_133173_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/arduino-01/arduino-01-01.png" width="1376" height="642" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 214; flex-basis: 514px">
+&lt;a href="https://blog.smallten.tk/p/arduino-01/arduino-01-01.png" data-size="1376x642">&lt;img src="https://blog.smallten.tk/p/arduino-01/arduino-01-01.png"
+srcset="https://blog.smallten.tk/p/arduino-01/arduino-01-01_hu090779c2365445c0c56d62c8be35f1d9_133173_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-01/arduino-01-01_hu090779c2365445c0c56d62c8be35f1d9_133173_1024x0_resize_box_2.png 1024w"
+width="1376"
+height="642"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;/ul>
@@ -1876,11 +1922,13 @@ alt="&amp;nbsp;">
 &lt;li>先下載 &lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
 >VSCode&lt;/a>&lt;/li>
 &lt;li>再安裝 PlatformIO 的插件
-&lt;figure>
-&lt;a href="https://blog.smallten.tk/p/arduino-01/arduino-01-02.png" data-size="1920x1020">
-&lt;img srcset="https://blog.smallten.tk/p/arduino-01/arduino-01-02_hu7035091ccabc2dfaeaba4e637c83e092_290858_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-01/arduino-01-02_hu7035091ccabc2dfaeaba4e637c83e092_290858_1024x0_resize_box_2.png 1024w"
-src="https://blog.smallten.tk/p/arduino-01/arduino-01-02.png" width="1920" height="1020" loading="lazy"
-alt="&amp;nbsp;">
+&lt;figure style="flex-grow: 188; flex-basis: 451px">
+&lt;a href="https://blog.smallten.tk/p/arduino-01/arduino-01-02.png" data-size="1920x1020">&lt;img src="https://blog.smallten.tk/p/arduino-01/arduino-01-02.png"
+srcset="https://blog.smallten.tk/p/arduino-01/arduino-01-02_hu7035091ccabc2dfaeaba4e637c83e092_290858_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/arduino-01/arduino-01-02_hu7035091ccabc2dfaeaba4e637c83e092_290858_1024x0_resize_box_2.png 1024w"
+width="1920"
+height="1020"
+loading="lazy"
+>
 &lt;/a>
 &lt;/figure>&lt;/li>
 &lt;/ul></description></item></channel></rss>
