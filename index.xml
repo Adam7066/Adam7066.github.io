@@ -1,4 +1,732 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Feb 2021 04:06:17 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo-02：優化 Blog</title><link>https://blog.smallten.tk/p/hugo-02/</link><pubDate>Sun, 07 Feb 2021 04:06:17 +0800</pubDate><guid>https://blog.smallten.tk/p/hugo-02/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 02 Apr 2021 17:58:22 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-03：File Processing</title><link>https://blog.smallten.tk/p/computer_programming_2-03/</link><pubDate>Fri, 02 Apr 2021 17:58:22 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-03/</guid><description>&lt;h1 id="file">File&lt;/h1>
+&lt;ul>
+&lt;li>C 將每個檔案視為一個連續的 bytes stream&lt;/li>
+&lt;li>每個檔案以 &lt;code>end-of-file&lt;/code> 為結尾，這是由系統提供而不是文件。
+&lt;figure style="flex-grow: 812; flex-basis: 1948px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-01.jpg" data-size="812x100">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-01.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_1024x0_resize_q75_box.jpg 1024w"
+width="812"
+height="100"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system.&lt;/li>
+&lt;li>&lt;code>int feof(FILE *stream);&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="file-stream">File Stream&lt;/h2>
+&lt;ul>
+&lt;li>Streams 提供了更高級別的介面(interface)讓你存取資料。
+&lt;ul>
+&lt;li>&lt;code>fprintf&lt;/code>&lt;/li>
+&lt;li>&lt;code>fscanf&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>事實上，你已經使用過 file stream !
+&lt;ul>
+&lt;li>三種標準流
+&lt;ol>
+&lt;li>標準輸入 0 (standard input.)&lt;/li>
+&lt;li>標準輸出 1 (standard output.)&lt;/li>
+&lt;li>標準錯誤 2 (standard error.)&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>真的嗎? 哪時候呀?&lt;/li>
+&lt;li>&lt;code>scanf&lt;/code> -&amp;gt; scanf() 從標準輸入流中讀取輸入&lt;/li>
+&lt;li>&lt;code>scanf&lt;/code> 的實作
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">scanf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">fmt&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">...){&lt;/span>
+&lt;span class="ln">2&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">count&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">3&lt;/span> &lt;span class="n">va_list&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">va_start&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ap&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">fmt&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="n">count&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">vfscanf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">stdin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">fmt&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">6&lt;/span> &lt;span class="n">va_end&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ap&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">7&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">8&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="file-descriptor">File Descriptor&lt;/h2>
+&lt;ul>
+&lt;li>File descriptor 為輸出入的操作提供了原始的低級介面(interface)。&lt;/li>
+&lt;li>在 Linux 中，任何東西都可以被視為一個檔案。
+&lt;ul>
+&lt;li>Network socker&lt;/li>
+&lt;li>Device driver&lt;/li>
+&lt;li>Inter-process communication&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>支援哪些操作?
+&lt;ul>
+&lt;li>&lt;code>open&lt;/code>、&lt;code>read&lt;/code>、&lt;code>write&lt;/code>、&lt;code>close&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如果要控制某些詳細的設定，你需要使用 file descriptor 而不是 file stream。&lt;/li>
+&lt;/ul>
+&lt;h3 id="file-stream-vs-file-descriptor">File Stream vs. File Descriptor&lt;/h3>
+&lt;ul>
+&lt;li>Structure:
+&lt;ul>
+&lt;li>Stream: &lt;code>FILE *&lt;/code>&lt;/li>
+&lt;li>Descriptor: &lt;code>int&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>可以用 file stream 實現的，就一定可以用 file descriptor 實現，其逆不真。&lt;/li>
+&lt;li>File streams 有更多方便的介面(interface)給你使用。&lt;/li>
+&lt;/ul>
+&lt;h2 id="io-redirection">I/O Redirection&lt;/h2>
+&lt;h3 id="stdout">stdout&lt;/h3>
+&lt;p>&lt;figure style="flex-grow: 161; flex-basis: 386px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-02.jpg" data-size="890x552">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-02.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_1024x0_resize_q75_box.jpg 1024w"
+width="890"
+height="552"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>重導向 stdout 到一個檔案&lt;/li>
+&lt;li>如果檔案不存在就創建文件，否則就將其覆蓋&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>&amp;gt;&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>重導向 stdout 到一個檔案&lt;/li>
+&lt;li>如果檔案不存在就創建文件，否則就加在後方&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>&lt;code>&amp;gt;&lt;/code> filename&lt;/li>
+&lt;li>&lt;code>1&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>Redirect stdout to file &amp;ldquo;filename&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>&amp;gt;&amp;gt;&lt;/code> filename&lt;/li>
+&lt;li>&lt;code>1&amp;gt;&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>Redirect and append stdout to file &amp;ldquo;filename&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>2&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>Redirect stderr to file ”filename.”&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>2&amp;gt;&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>Redirect and append stderr to file ”filename.”&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>&amp;amp;&amp;gt;&lt;/code> filename
+&lt;ul>
+&lt;li>Redirect stdout, stderr to file ”filename.”&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="stdin">stdin&lt;/h3>
+&lt;p>&lt;code>$ . / abs &amp;lt; number.txt&lt;/code>&lt;/p>
+&lt;h1 id="text-file-processing">Text File Processing&lt;/h1>
+&lt;h3 id="fopen">fopen&lt;/h3>
+&lt;p>&lt;code>FILE *fopen(const char *path, const char *mode);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>path：檔案路徑&lt;/li>
+&lt;li>mode：
+&lt;ul>
+&lt;li>&lt;code>r&lt;/code>：read&lt;/li>
+&lt;li>&lt;code>w&lt;/code>：write&lt;/li>
+&lt;li>&lt;code>a&lt;/code>：append&lt;/li>
+&lt;li>更多的選項在手冊中&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Return：&lt;code>FILE *&lt;/code>
+&lt;ul>
+&lt;li>成功的話，FILE pointer 將被回傳&lt;/li>
+&lt;li>如果失敗的話，將回傳 NULL 並且 errno 被設置為表明 error&lt;/li>
+&lt;li>永遠記得確認回傳的 pointer!&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="fprintf">fprintf&lt;/h3>
+&lt;ul>
+&lt;li>幾乎和&lt;code>printf&lt;/code>相同，除了你需要給 FILE stream pointer。&lt;/li>
+&lt;/ul>
+&lt;h3 id="end-of-file-indicator">End-of-File Indicator&lt;/h3>
+&lt;ul>
+&lt;li>Linu/Mac OS X/UNIX：&lt;code>&amp;lt;Ctrl&amp;gt; d&lt;/code>&lt;/li>
+&lt;li>Windows：&lt;code>&amp;lt;Ctrl&amp;gt; z + enter&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="fclose">fclose&lt;/h3>
+&lt;p>&lt;code>int fclose(FILE *stream);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>fclose()&lt;/code>&lt;/li>
+&lt;li>The fclose() function flushes the stream pointed to by stream (writing any buffered output data using fflush(3)) and closes the underlying file descriptor.&lt;/li>
+&lt;li>也就是說，當你 close 時，在 buffer 中的資料將被寫入檔案&lt;/li>
+&lt;li>在開檔後記得關上它!! 因為有同時開檔的數量上限。&lt;/li>
+&lt;/ul>
+&lt;h3 id="fscanf">fscanf&lt;/h3>
+&lt;ul>
+&lt;li>操作就如同 &lt;code>fprintf&lt;/code>&lt;/li>
+&lt;li>當然，檔案應該被以 &lt;code>r&lt;/code> 的模式打開&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>當你使用 &lt;code>fprintf&lt;/code> 或 &lt;code>fscanf&lt;/code> 去處理文字檔時，它蘊含著你清楚地知道檔案的格式&lt;/li>
+&lt;li>在這些情況下，輸入的檢查也許就沒那麼重要了，對吧?
+&lt;ul>
+&lt;li>Yes：畢竟格式由你決定。&lt;/li>
+&lt;li>No：有些人可能會修改檔案，並使你讀取它。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="file-position-pointer">File Position Pointer&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 160; flex-basis: 386px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-03.jpg" data-size="784x487">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-03.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_1024x0_resize_q75_box.jpg 1024w"
+width="784"
+height="487"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>所以我們可以返回到開始的位置嗎??
+&lt;ul>
+&lt;li>為什麼我們需要這麼做? -&amp;gt; 影片倒放&lt;/li>
+&lt;li>當然，你可以關掉檔案並重開它。&lt;/li>
+&lt;li>但我們有另外的函式可以幫助我們 -&amp;gt; &lt;code>rewind&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="rewind">rewind&lt;/h3>
+&lt;p>&lt;code>void rewind(FILE *stream);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>將位置指回檔案的開頭。&lt;/li>
+&lt;li>那麼我們想要改變 file pointer 到任何地方呢? -&amp;gt; &lt;code>fseek&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="fseek">fseek&lt;/h3>
+&lt;p>&lt;code>int fseek(FILE *stream, long offset, int whence);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The fseek() function sets the file position indicator for the stream pointed to by stream. The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence.&lt;/li>
+&lt;li>&lt;code>SEEK_SET&lt;/code>：檔案開頭&lt;/li>
+&lt;li>&lt;code>SEEK_CUR&lt;/code>：當前位置&lt;/li>
+&lt;li>&lt;code>SEEK_END&lt;/code>：end-of-file&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>&lt;code>rewind()&lt;/code> 相當於 &lt;code>fseek(stream, 0L, SEEK_SET)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ftell">ftell&lt;/h3>
+&lt;p>&lt;code>long ftell(FILE *stream);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>告訴你當前所在的位置。&lt;/li>
+&lt;/ul>
+&lt;h1 id="binary-file-processing">Binary File Processing&lt;/h1>
+&lt;h2 id="binary-file">Binary File&lt;/h2>
+&lt;ul>
+&lt;li>文字檔以字元的方式儲存資料，然而並不是所有的檔案都是文字檔。例如，你可以用文字編輯器打開一張圖片。&lt;/li>
+&lt;li>此外文字檔的儲存效率並不高
+&lt;ul>
+&lt;li>需要多少大小去儲存數字 123 ?&lt;/li>
+&lt;li>Text File：3 bytes&lt;/li>
+&lt;li>Binary File：1 byte&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="fread">fread&lt;/h3>
+&lt;p>&lt;code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>從 FILE * 讀取 nmemb 個資料，每個 size bytes 長，並將它們儲存在 *ptr。&lt;/li>
+&lt;li>成功時回傳資料讀取的數量。如果失敗，或到達文件尾端時，則回傳是一短項計數 (或 0)&lt;/li>
+&lt;/ul>
+&lt;h3 id="fwrite">fwrite&lt;/h3>
+&lt;p>&lt;code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>從 *ptr 讀取 nmemb 個資料，每個 size bytes 長，並將它們儲存在 FILE *。&lt;/li>
+&lt;li>成功時回傳資料寫入的數量。如果失敗，或到達文件尾端時，則回傳是一短項計數 (或 0)&lt;/li>
+&lt;/ul>
+&lt;h2 id="bmp-file-format">BMP File Format&lt;/h2>
+&lt;ul>
+&lt;li>這裡將使用 bmp 檔作為示範
+&lt;ul>
+&lt;li>為什麼是 bmp 而不是 jpg ? -&amp;gt; 因為 bmp 是一種未被壓縮的照片格式。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a class="link" href="https://engineering.purdue.edu/ece264/17au/hw/HW15" target="_blank" rel="noopener"
+>連結&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="讀取-bmp-檔">讀取 bmp 檔&lt;/h3>
+&lt;ul>
+&lt;li>讀取 bmp file header 並印出資訊&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;string.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 6&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">_sBmpHeader&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="n">bm&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">reserve&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">offset&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">header_size&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">width&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">height&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">uint16_t&lt;/span> &lt;span class="n">planes&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="n">uint16_t&lt;/span> &lt;span class="n">bpp&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">compression&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">bitmap_size&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">hres&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">19&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">vres&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">20&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">used&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">21&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">important&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">22&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="n">__attribute__&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="n">__packed__&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln">23&lt;/span>
+&lt;span class="ln">24&lt;/span>&lt;span class="k">typedef&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">_sBmpHeader&lt;/span> &lt;span class="n">sBmpHeader&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">25&lt;/span>
+&lt;span class="ln">26&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">print_bmp_header&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">sBmpHeader&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">pHeader&lt;/span> &lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">27&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;ID: %c%c&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">bm&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">bm&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">28&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Size: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">size&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">29&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Reserve: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">reserve&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">30&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Offset: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">offset&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">31&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Header Size: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">header_size&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">32&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Width: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">width&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">33&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Height: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">height&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">34&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Planes: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">planes&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">35&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Bits Per Pixel: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">bpp&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">36&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Compression: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">compression&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">37&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Bitmap Data Size: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">bitmap_size&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">38&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;H-Resolution: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">hres&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">39&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;V-Resolution: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">vres&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">40&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Used Colors: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">used&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">41&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;Important Colors: %u&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pHeader&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">important&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">42&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">43&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln">44&lt;/span>
+&lt;span class="ln">45&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">46&lt;/span> &lt;span class="n">FILE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">pFile&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">47&lt;/span> &lt;span class="k">if&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">pFile&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fopen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;maldives_16.bmp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;rb&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">48&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;File could not be opened!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">49&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">50&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">51&lt;/span> &lt;span class="n">sBmpHeader&lt;/span> &lt;span class="n">header&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">52&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%lu&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">header&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln">53&lt;/span> &lt;span class="n">fread&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">header&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">54&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">54&lt;/span> &lt;span class="n">print_bmp_header&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">header&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">55&lt;/span> &lt;span class="n">fclose&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pFile&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">56&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">57&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改-bmp-檔">修改 bmp 檔&lt;/h3>
+&lt;ul>
+&lt;li>翻轉顏色&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="c1">// ...略...
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 3&lt;/span> &lt;span class="n">FILE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">pFile&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="n">FILE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">pFile2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="k">if&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">pFile&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fopen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;maldives.bmp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;rb&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 6&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;File could not be opened!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="k">if&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">pFile2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fopen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;maldives_gray.bmp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;wb&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;File could not be opened!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="n">sBmpHeader&lt;/span> &lt;span class="n">header&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">fread&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">header&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">header&lt;/span> &lt;span class="p">),&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="n">fwrite&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">header&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">header&lt;/span> &lt;span class="p">),&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile2&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="k">while&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">feof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pFile&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1024&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">modified&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1024&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln">19&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">count&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fread&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1024&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">20&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">count&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">){&lt;/span>
+&lt;span class="ln">21&lt;/span> &lt;span class="n">modified&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">255&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln">22&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">23&lt;/span> &lt;span class="n">fwrite&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">modified&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">count&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile2&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">24&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">25&lt;/span> &lt;span class="n">fclose&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">pFile&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">26&lt;/span> &lt;span class="n">fclose&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">pFile2&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">27&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">28&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>轉成灰階&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="c1">// ...略...
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">while&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">feof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pFile&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 3&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">999&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">modified&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">999&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">count&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fread&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">999&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 6&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">count&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="c1">// BGR
+&lt;/span>&lt;span class="ln"> 8&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">gray&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.299&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mf">0.587&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mf">0.114&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">original&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">modified&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">gray&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="n">fwrite&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">modified&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">count&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pFile2&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">14&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln">15&lt;/span>&lt;span class="c1">// ...略...
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h4 id="hex-編輯工具">Hex 編輯工具&lt;/h4>
+&lt;ul>
+&lt;li>Bless Hex Editor&lt;/li>
+&lt;li>GHex&lt;/li>
+&lt;/ul></description></item><item><title>程式設計(二)-02：Structure</title><link>https://blog.smallten.tk/p/computer_programming_2-02/</link><pubDate>Fri, 02 Apr 2021 16:24:46 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-02/</guid><description>&lt;h1 id="structure">Structure&lt;/h1>
+&lt;ul>
+&lt;li>Structures 就是將一堆相關的變數整合在一個名字下。
+&lt;ul>
+&lt;li>關鍵字：&lt;code>struct&lt;/code>&lt;/li>
+&lt;li>資料型別：&lt;code>struct _name_&lt;/code>&lt;/li>
+&lt;li>成員：在 struct 的大括號內宣告的變數。&lt;/li>
+&lt;li>同一個結構體下的成員名稱是唯一的。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">_sCard&lt;/span>&lt;span class="p">{&lt;/span>
+&lt;span class="ln">2&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">suit&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">face&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>初始化
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">_sCard&lt;/span> &lt;span class="n">a_card&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{.&lt;/span>&lt;span class="n">suit&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">face&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln">2&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">_sCard&lt;/span> &lt;span class="n">a_card&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>structure member operator -&amp;gt; &lt;code>.&lt;/code>&lt;/li>
+&lt;li>structure pointer operator -&amp;gt; &lt;code>-&amp;gt;&lt;/code>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="n">a_card_ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">a_card&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">2&lt;/span>&lt;span class="n">a_card_ptr&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">face&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="c1">// Equivalent to
+&lt;/span>&lt;span class="ln">4&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">a_card_ptr&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">face&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cpu-alignment">CPU Alignment&lt;/h2>
+&lt;ul>
+&lt;li>CPU 有時候會為了減少從記憶體呼叫變數的次數，而主動將變數的記憶體放在連續的地方。&lt;/li>
+&lt;li>為了避免 alignment，你可以使用以下兩種方法：
+&lt;ul>
+&lt;li>&lt;code>__attribute__((packed))&lt;/code>&lt;/li>
+&lt;li>pragma
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#pragma pack(push)
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#pragma pack(1)
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="cp">#pragma pack(pop)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="c1">// 法一
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">st&lt;/span>&lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 3&lt;/span> &lt;span class="p">...&lt;/span>
+&lt;span class="ln"> 4&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="n">__attribute__&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">packed&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln"> 5&lt;/span>&lt;span class="c1">// 法二
+&lt;/span>&lt;span class="ln"> 6&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="cp">#pragma pack(push)
+&lt;/span>&lt;span class="ln"> 7&lt;/span>&lt;span class="cp">#pragma pack(1)
+&lt;/span>&lt;span class="ln"> 8&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">st&lt;/span>&lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="p">...&lt;/span>
+&lt;span class="ln">10&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln">11&lt;/span>&lt;span class="cp">#pragma pack(pop)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Structure 不能包含自己，如果需要請用 pointer !
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">student&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">2&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="n">name&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">64&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln">3&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">age&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">gender&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">student&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">leader&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">6&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="typedef">typedef&lt;/h2>
+&lt;ul>
+&lt;li>由於軟體開發者盡可能的保持懶惰，因此他們嘗試縮短程式碼。&lt;/li>
+&lt;li>為了提高可讀性&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">typedef&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">card&lt;/span> &lt;span class="n">Card&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">2&lt;/span>&lt;span class="k">typedef&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">card&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">3&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">suit&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">face&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">5&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="n">Card&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="structure-with-functions">Structure With Functions&lt;/h2>
+&lt;ul>
+&lt;li>為什麼我們時常以傳址的方式傳送 Structures ?
+&lt;ul>
+&lt;li>因為效率&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>傳值 vs 傳址
+&lt;figure style="flex-grow: 129; flex-basis: 310px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-01.jpg" data-size="790x610">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-01.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-01_huda76dad72ba7eecf185e60c3e1f23f56_121265_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-01_huda76dad72ba7eecf185e60c3e1f23f56_121265_1024x0_resize_q75_box.jpg 1024w"
+width="790"
+height="610"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure> &lt;figure style="flex-grow: 129; flex-basis: 310px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-02.jpg" data-size="790x610">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-02.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-02_hu3cb647f66cd227f7a5d9066064b60b2a_78814_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-02/computer_programming_2-02-02_hu3cb647f66cd227f7a5d9066064b60b2a_78814_1024x0_resize_q75_box.jpg 1024w"
+width="790"
+height="610"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;/ul>
+&lt;h2 id="const">const&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// declare a as pointer to int
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// syntax error
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// declare a as const pointer to int
+&lt;/span>&lt;span class="ln">4&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// syntax error
+&lt;/span>&lt;span class="ln">5&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// declare a as pointer to const int
+&lt;/span>&lt;span class="ln">6&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// declare a as const pointer to const int
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Although C and C++ read mostly from top-to-bottom and left-to-right, pointer declarations read, in a sense, backwards.&lt;/li>
+&lt;/ul>
+&lt;h1 id="union">Union&lt;/h1>
+&lt;ul>
+&lt;li>Union 是所有成員共享相同記憶體空間的派生數據類型。&lt;/li>
+&lt;li>記憶體大小足以容納最大的成員。&lt;/li>
+&lt;li>實際應用&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">ip_addr&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">2&lt;/span> &lt;span class="n">uint8_t&lt;/span> &lt;span class="n">fam&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// socket family type
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="k">union&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">in_addr&lt;/span> &lt;span class="n">ipv4_sin_addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">in6_addr&lt;/span> &lt;span class="n">ipv6_sin_addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">6&lt;/span> &lt;span class="p">}&lt;/span>&lt;span class="n">addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">7&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bitwise-operation">Bitwise Operation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>&amp;amp;&lt;/code>：AND -&amp;gt; 0&amp;amp;0 = 0; 0&amp;amp;1 = 0; 1&amp;amp;0 = 0; 1&amp;amp;1 = 1.&lt;/li>
+&lt;li>&lt;code>|&lt;/code>：OR -&amp;gt; 0|0 = 0; 0|1 = 1; 1|0 = 1; 1|1 = 1.&lt;/li>
+&lt;li>&lt;code>^&lt;/code>：XOR -&amp;gt; 0^0 = 0; 0^1 = 1; 1^0 = 1; 1^1 = 0.&lt;/li>
+&lt;li>&lt;code>~&lt;/code>：Complement -&amp;gt; \(\text{\textasciitilde}4_{10}\) = \(\text{\textasciitilde}100_2\) = \(011_2\) = \(3_{10}\).&lt;/li>
+&lt;li>&lt;code>&amp;lt;&amp;lt;&lt;/code>：Left Shift 0012 &amp;laquo; 2 = 1002.&lt;/li>
+&lt;li>&lt;code>&amp;gt;&amp;gt;&lt;/code>：Right Shift 1002 &amp;raquo; 2 = 0012.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>為什麼我們需要 bitwise operation ?
+&lt;ul>
+&lt;li>在大多數情況下，按位運算比算術運算要快。
+&lt;ul>
+&lt;li>a = a * 2&lt;/li>
+&lt;li>a = a &amp;laquo; 1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>由於編譯器優化，這可能不是正確的。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Mask with better memory utilization.&lt;/li>
+&lt;li>Game Cheating Example
+&lt;ul>
+&lt;li>０１ ⽕炎術 １０ 電擊術&lt;/li>
+&lt;li>０２ 烈炎術 ２０ 落雷術&lt;/li>
+&lt;li>０４ 炎⿓術 ４０ 轟雷術&lt;/li>
+&lt;li>０８ 天⽕術 ８０ 神雷術&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="bit-fields">Bit Fields&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="k">typedef&lt;/span> &lt;span class="k">union&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 2&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 3&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b2&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b3&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 6&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b4&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b5&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b6&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b7&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="nl">b8&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="n">bits&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="kt">unsigned&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="n">byte&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">13&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="n">uByte&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>由於 alignment 問題，記憶體的空間可能不是安全的，這取決於你如何儲存你的資料。&lt;/li>
+&lt;li>實際上，bit fields 可能會增加編程時的難度。我不建議您使用此功能，但是，您需要了解此語法，因為其他人可能會使用它。&lt;/li>
+&lt;li>Do not take the address of a bit field.&lt;/li>
+&lt;/ul>
+&lt;h1 id="enumeration">Enumeration&lt;/h1>
+&lt;ul>
+&lt;li>A set of integer enumeration constants represented by identifiers.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="k">enum&lt;/span> &lt;span class="n">career&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 2&lt;/span> &lt;span class="n">SABER&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">LANCER&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ARCHER&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="ln"> 3&lt;/span> &lt;span class="n">RIDER&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">CASTER&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ASSASSIN&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="n">BERSAKER&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RULER&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="n">CAREER_MAX&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">31&lt;/span>
+&lt;span class="ln"> 6&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln"> 7&lt;/span>&lt;span class="k">typedef&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">player&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">64&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="k">enum&lt;/span> &lt;span class="n">career&lt;/span> &lt;span class="n">role&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">role2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">11&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="n">Player&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>你不能改變 enumeration constants 的值。&lt;/li>
+&lt;li>我是否可以使用 &lt;code>define&lt;/code> 或 &lt;code>const&lt;/code> 而不是 &lt;code>enum&lt;/code>?
+&lt;ul>
+&lt;li>是，可以的。&lt;/li>
+&lt;li>但他們有什麼不同呢?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>程式設計(二)-01：String</title><link>https://blog.smallten.tk/p/computer_programming_2-01/</link><pubDate>Fri, 02 Apr 2021 14:40:30 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-01/</guid><description>&lt;h1 id="字元">字元&lt;/h1>
+&lt;ul>
+&lt;li>在講字串之前我們先來看什麼是字元。&lt;/li>
+&lt;/ul>
+&lt;h3 id="ascii">ASCII&lt;/h3>
+&lt;ul>
+&lt;li>American Standard Code for Information Interchange.&lt;/li>
+&lt;li>電子通訊的字元編碼標準&lt;/li>
+&lt;li>基於英文字母，ASCII 將 128 個字元編碼成 7 個位元長。
+&lt;ul>
+&lt;li>95 個可印字元：A-Z, a-z, 0-9, 標點符號&lt;/li>
+&lt;li>不可印字元：換行符號&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>在電腦中我們使用 8-bit 的記憶體儲存字元。&lt;/li>
+&lt;li>在 C 語言中，使用 &lt;code>char&lt;/code> 這個型別。&lt;/li>
+&lt;li>&lt;code>%c&lt;/code> -&amp;gt; 輸出字元&lt;/li>
+&lt;li>&lt;code>%x&lt;/code> or &lt;code>%X&lt;/code> -&amp;gt; 印出 hex or HEX 的值。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>在以前，許多情況下，有些人使用 &lt;code>unsigned char&lt;/code> 作為 one byte 的資料型別，但現今你應該使用的是 &lt;code>uint8_t&lt;/code>。&lt;/li>
+&lt;li>請把 &lt;code>char&lt;/code> 留給字串，盡管事實上對電腦來說都是一樣的。&lt;/li>
+&lt;li>其他編碼：&lt;a class="link" href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E4%BA%94%E7%A2%BC" target="_blank" rel="noopener"
+>Big5&lt;/a>、&lt;a class="link" href="https://zh.wikipedia.org/wiki/UTF-8" target="_blank" rel="noopener"
+>UTF-8&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="字串">字串&lt;/h1>
+&lt;ul>
+&lt;li>事實上，字串就是一連串的可印字元。&lt;/li>
+&lt;li>這樣看起來很像陣列對吧? Yes!&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;figure style="flex-grow: 566; flex-basis: 1358px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-01/computer_programming_2-01-01.png" data-size="600x106">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-01/computer_programming_2-01-01.png"
+srcset="https://blog.smallten.tk/p/computer_programming_2-01/computer_programming_2-01-01_huf3482a54bca2f6c60bcb344eea1e67b5_7395_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_2-01/computer_programming_2-01-01_huf3482a54bca2f6c60bcb344eea1e67b5_7395_1024x0_resize_box_2.png 1024w"
+width="600"
+height="106"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>在 C 語言中，字串是一個字元指標，並以 &lt;code>'\0'&lt;/code> 為結尾。&lt;/li>
+&lt;li>常見的錯誤：
+&lt;ul>
+&lt;li>沒有分配足夠的空間&lt;/li>
+&lt;li>輸出一個不包含 &lt;code>'\0'&lt;/code> 的字串&lt;/li>
+&lt;li>在 C 的標準中，字元指標是不可修改的，如果要修改字串，必須儲存在字元陣列中。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="字串處理函式">字串處理函式&lt;/h2>
+&lt;ul>
+&lt;li>首先，這部分有印象就好，不用記，畢竟到這邊大家應該都有能力自己實作出來吧!&lt;/li>
+&lt;/ul>
+&lt;h3 id="字串轉整數">字串轉整數&lt;/h3>
+&lt;ul>
+&lt;li>很久很久以前
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">atoi&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">nptr&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="kt">long&lt;/span> &lt;span class="nf">atol&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">nptr&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>現今
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="c1">// string to double
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">double&lt;/span> &lt;span class="nf">strtod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">nptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">endptr&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">4&lt;/span>&lt;span class="c1">// string to long int
+&lt;/span>&lt;span class="ln">5&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">long&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="nf">strtol&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">nptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">endptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">base&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="輸出入函式">輸出入函式&lt;/h3>
+&lt;ul>
+&lt;li>輸出&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">putchar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 輸出字元
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">puts&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 輸出字串
+&lt;/span>&lt;span class="ln">4&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">snprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="kr">restrict&lt;/span> &lt;span class="n">buffer&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">bufsz&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="kr">restrict&lt;/span> &lt;span class="n">format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">...&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>輸入&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">getchar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 輸入字元
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">fgets&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">FILE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">stream&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 輸入字串
+&lt;/span>&lt;span class="ln">4&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">sscanf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="kr">restrict&lt;/span> &lt;span class="n">buffer&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="kr">restrict&lt;/span> &lt;span class="n">format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">...&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;ul>
+&lt;li>一些不推薦的函式，永遠不要用他們
+&lt;ul>
+&lt;li>&lt;code>char *gets(char *s);&lt;/code>&lt;/li>
+&lt;li>&lt;code>int sprintf(char *str, const char *format, ...);&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>有 buffer overflow 的風險&lt;/li>
+&lt;/ul>
+&lt;h3 id="字串操作函式">字串操作函式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strncpy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">dest&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">src&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 複製字串
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strncat&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">dest&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">src&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 串接字串
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;ul>
+&lt;li>和上述理由一樣，不要使用下方的函式
+&lt;ul>
+&lt;li>&lt;code>char *strcpy(char *dest,const char *src);&lt;/code>&lt;/li>
+&lt;li>&lt;code>char *strcat(char *dest,const char *src);&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="字串比較函式">字串比較函式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;string.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">strcmp&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">strncmp&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>如果s1（或其前n個字節）分別小於、匹配或大於s2，則函數將返回小於、等於或大於零的整數。&lt;/li>
+&lt;/ul>
+&lt;h3 id="字串搜尋函式">字串搜尋函式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;string.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strchr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 從頭找字元
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strrchr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 從尾找字元
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="c1">// 計算 s 的前綴有多少字元在 accept 中
+&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="nf">strspn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">accept&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 6&lt;/span>&lt;span class="c1">// 計算 s 的前綴有多少字元不在 reject 中
+&lt;/span>&lt;span class="ln"> 7&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="nf">strcspn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">reject&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 8&lt;/span>&lt;span class="c1">// 回傳在 accept 中的任何字元在 s 字串首次出現位置的指標
+&lt;/span>&lt;span class="ln"> 9&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strpbrk&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">accept&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">10&lt;/span>&lt;span class="c1">// 回傳 needle 在 haystack 中首次出現位置的指標
+&lt;/span>&lt;span class="ln">11&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strstr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">haystack&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">needle&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">12&lt;/span>&lt;span class="c1">// 依照 delim 中的字元分割 str
+&lt;/span>&lt;span class="ln">13&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strtok&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">delim&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="strtok-範例">strtok 範例&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="n">str&lt;/span>&lt;span class="p">[]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;the value of pi is 3.14&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">2&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">token&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">strtok&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="k">while&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%d: %s&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">token&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="n">token&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">strtok&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">NULL&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">6&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>為何第二次之後呼叫都是以 &lt;code>NULL&lt;/code> 作為輸入?
+&lt;ul>
+&lt;li>因為這是一個 &lt;code>static&lt;/code> 的變數。如果輸入 &lt;code>NULL&lt;/code>，該函式將繼續從最後一個位置切割字串。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>為甚麼我不能直接使用 &lt;code>const char *str&lt;/code>?
+&lt;ul>
+&lt;li>因為 &lt;code>strtok&lt;/code> 的實作，將會直接操作在輸入的字串上。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="其他字串函式">其他字串函式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;string.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="nf">strlen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 計算字串長度
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="c1">// 輸出錯誤訊息
+&lt;/span>&lt;span class="ln">4&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">strerror&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">errnum&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">5&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">perror&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>strerror&lt;/code> 搭配 &lt;code>errno&lt;/code> 使用 (&lt;code>#include &amp;lt;errno.h&amp;gt;&lt;/code>)&lt;/li>
+&lt;/ul></description></item><item><title>Hugo-02：優化 Blog</title><link>https://blog.smallten.tk/p/hugo-02/</link><pubDate>Sun, 07 Feb 2021 04:06:17 +0800</pubDate><guid>https://blog.smallten.tk/p/hugo-02/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
 &lt;ul>
 &lt;li>這部份是紀錄我修改的主題內容，並將 codeblocks 區塊美化，以及支援 &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
 >KaTex&lt;/a> 和 Google Analytics&lt;/li>
