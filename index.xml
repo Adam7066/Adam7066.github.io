@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 08 May 2021 17:23:11 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-04：File Processing-02</title><link>https://blog.smallten.tk/p/computer_programming_2-04/</link><pubDate>Sat, 08 May 2021 17:23:11 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-04/</guid><description>&lt;ul>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 12 Jul 2021 21:57:26 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-05：Variable Length Arguments List</title><link>https://blog.smallten.tk/p/computer_programming_2-05/</link><pubDate>Mon, 12 Jul 2021 21:57:26 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-05/</guid><description>&lt;h1 id="program-argument">Program Argument&lt;/h1>
+&lt;h3 id="argc-argv">argc, argv&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">4&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">argv&lt;/span>&lt;span class="p">[])&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;argc: %d&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">argc&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">6&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">argc&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="ln">7&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;argv[%d]: %s&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">argv&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="ln">8&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">9&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>誰呼叫了 main 函式?&lt;/li>
+&lt;li>誰提供了 &lt;code>argc&lt;/code> 和 &lt;code>argv&lt;/code> 到 main 函式?&lt;/li>
+&lt;li>Is &lt;code>main()&lt;/code> the actual starting entry point?
+&lt;ul>
+&lt;li>No! Actually, the process start from &lt;code>_start&lt;/code> which is defined in &lt;code>crt1.o&lt;/code>.&lt;/li>
+&lt;li>等等&amp;hellip; 我並沒有使用 &lt;code>crt1.o&lt;/code> 呀!&lt;/li>
+&lt;li>實際上是有的。請查看 &lt;code>gcc -v&lt;/code>
+&lt;code>$ nm /usr/lib/x86_64-linux-gnu/crt1.o&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Simplified C Linking Process
+&lt;figure style="flex-grow: 137; flex-basis: 329px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-05/computer_programming_2-05-01.jpg" data-size="903x657">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-05/computer_programming_2-05-01.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-05/computer_programming_2-05-01_hu609b65fe33cfb39abc5fd9afd4fd484b_119236_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-05/computer_programming_2-05-01_hu609b65fe33cfb39abc5fd9afd4fd484b_119236_1024x0_resize_q75_box.jpg 1024w"
+width="903"
+height="657"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>main() 是如何取得 argc, argv 的?
+&lt;ul>
+&lt;li>Actually, &lt;code>_start&lt;/code> will prepare argc and argv first.&lt;/li>
+&lt;li>Then &lt;code>_start&lt;/code> will register main function to &lt;code>__libc_start_main&lt;/code>.&lt;/li>
+&lt;li>&lt;code>_start&lt;/code> will call &lt;code>__libc_start_main&lt;/code> and &lt;code>__libc_start_main&lt;/code> will call main.&lt;/li>
+&lt;li>More details will be described in Assembly.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="getopt">getopt&lt;/h3>
+&lt;p>&lt;code>int getopt(int argc, char * const argv[], const char *optstring);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The getopt() function parses the command-line arguments. Its arguments argc and argv are the argument count and array as passed to the main() function on program invocation. An element of argv that starts with ’-’ (and is not exactly ”-” or ”–”) is an option element. The characters of this element (aside from the initial ’-’) are option characters. If getopt() is called repeatedly, it returns successively each of the option characters from each of the option elements.&lt;/li>
+&lt;li>提醒：這是一個 &lt;code>POSIX 標準&lt;/code>而不是 C 標準。&lt;/li>
+&lt;li>extern 變數
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">extern&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">optarg&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">2&lt;/span>&lt;span class="k">extern&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">optind&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">opterr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">optopt&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>這意味著我們可以在程式中使用這些變數。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;unistd.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 6&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">argv&lt;/span>&lt;span class="p">[])&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="k">while&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">getopt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">argv&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;ab:&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="k">switch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;a&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: -a&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;b&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: -b, %s&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">optarg&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;?&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: ?&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">19&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: unknown&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">20&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">21&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">22&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">23&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">24&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>optstring
+&lt;ul>
+&lt;li>optstring 是一個包含合法選項字符的字符串。&lt;/li>
+&lt;li>Example: &lt;code>&amp;quot;abc&amp;quot;&lt;/code> implies supporting &lt;code>-a&lt;/code>, &lt;code>-b&lt;/code>, &lt;code>-c&lt;/code>.&lt;/li>
+&lt;li>&lt;code>-ab&lt;/code>, &lt;code>-bc&lt;/code>, &lt;code>-ac&lt;/code>, &lt;code>-abc&lt;/code> are also supported.&lt;/li>
+&lt;li>如果這樣的字符後跟一個冒號，則意味著該選項需要一個參數。 &lt;code>optarg&lt;/code> 為參數值。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>回傳值
+&lt;ul>
+&lt;li>如果成功找到選項，則 getopt() 回傳選項字符。&lt;/li>
+&lt;li>如果所有命令行選項都已解析，則 getopt() 回傳 -1。&lt;/li>
+&lt;li>如果 getopt() 遇到不在 optstring 中的選項字符，則返回 &lt;code>'?'&lt;/code>。&lt;/li>
+&lt;li>如果 getopt() 遇到缺少參數的選項，則返回值取決於 optstring 中的第一個字符：
+&lt;ul>
+&lt;li>如果是&lt;code>':'&lt;/code>，則返回&lt;code>':'&lt;/code>；&lt;/li>
+&lt;li>否則返回&lt;code>'?'&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="getopt_long">getopt_long&lt;/h3>
+&lt;p>&lt;code>int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The getopt_long() function works like getopt() except that it also accepts long options, started with two dashes. If the program accepts only long options, then optstring should be specified as an empty string (””), not NULL. Long option names may be abbreviated if the abbreviation is unique or is an exact match for some defined option. A long option may take a parameter, of the form –arg=param or –arg param.&lt;/li>
+&lt;li>If longindex is not NULL, it points to a variable which is set to the index of the long option relative to longopts.&lt;/li>
+&lt;li>struct option
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">option&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">2&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">3&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">has_arg&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">flag&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">val&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">6&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>name: the name of the long option.&lt;/li>
+&lt;li>has_arg:
+&lt;ul>
+&lt;li>0: no arguments.&lt;/li>
+&lt;li>1: required arguments.&lt;/li>
+&lt;li>2: optional arguments.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>flag: specifies how results are returned for a long option.&lt;/li>
+&lt;li>val: the value to return, or to load into the variable pointed to by flag.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;unistd.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;getopt.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 6&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 7&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">option&lt;/span> &lt;span class="n">long_options&lt;/span>&lt;span class="p">[]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="s">&amp;#34;all&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="sc">&amp;#39;a&amp;#39;&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="s">&amp;#34;break&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="sc">&amp;#39;b&amp;#39;&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="s">&amp;#34;cancel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="sc">&amp;#39;c&amp;#39;&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;span class="ln">12&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln">13&lt;/span>
+&lt;span class="ln">14&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">argv&lt;/span>&lt;span class="p">[])&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">index&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="k">while&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">getopt_long&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">argv&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;abc:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">long_options&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">index&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;index: %d&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">index&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="k">switch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">19&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;a&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">20&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: -a&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">21&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">22&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;b&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">23&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: -b&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">24&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">25&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;c&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">26&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: -c, %s&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">optarg&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">27&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">28&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="sc">&amp;#39;?&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">29&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: ?&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">30&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">31&lt;/span> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">32&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;option: unknown&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">33&lt;/span> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">34&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">35&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">36&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">37&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="variable-length-arguments">Variable Length Arguments&lt;/h1>
+&lt;ul>
+&lt;li>可變長度參數是一項功能，允許函數接收任意數量的參數。&lt;/li>
+&lt;li>可變數量的參數由三個點表示 &lt;code>...&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdarg.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">va_start&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">va_list&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">last&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="n">type&lt;/span> &lt;span class="nf">va_arg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">va_list&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">type&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">4&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">va_end&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">va_list&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">5&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">va_copy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">va_list&lt;/span> &lt;span class="n">dest&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">va_list&lt;/span> &lt;span class="n">src&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Actually, they are macros instead of functions.&lt;/li>
+&lt;li>範例一： printargs.c
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdarg.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="cm">/* print all args one at a time until a negative argument is seen;
+&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="cm">all args are assumed to be of int type */&lt;/span>
+&lt;span class="ln"> 6&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">printargs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">arg1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">...)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="n">va_list&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="n">va_start&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">ap&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">arg1&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">arg1&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">va_arg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ap&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">int32_t&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s">&amp;#34;%d &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="n">va_end&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">ap&lt;/span> &lt;span class="p">);&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="n">putchar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">15&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln">16&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="n">printargs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">14&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">84&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">97&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">15&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">48&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="n">printargs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">84&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">51&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">19&lt;/span> &lt;span class="n">printargs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">20&lt;/span> &lt;span class="n">printargs&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">21&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">22&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>範例二： avg.c
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdarg.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">double&lt;/span> &lt;span class="nf">average&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">num&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">...)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="n">va_list&lt;/span> &lt;span class="n">valist&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 6&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="n">va_start&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">valist&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">num&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">num&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">va_arg&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">valist&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">int32_t&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">va_end&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">valist&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">double&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">num&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">12&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln">13&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Average of { 3, 4 } = %lf&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">average&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Average of { 5, 10, 15 } = %lf&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">average&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">15&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">17&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>程式設計(二)-04：File Processing-02</title><link>https://blog.smallten.tk/p/computer_programming_2-04/</link><pubDate>Sat, 08 May 2021 17:23:11 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-04/</guid><description>&lt;ul>
 &lt;li>如何顯示 BMP 檔 ?
 &lt;ul>
 &lt;li>有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。&lt;/li>
