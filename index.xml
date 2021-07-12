@@ -1,4 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 02 Apr 2021 17:58:22 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-03：File Processing</title><link>https://blog.smallten.tk/p/computer_programming_2-03/</link><pubDate>Fri, 02 Apr 2021 17:58:22 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-03/</guid><description>&lt;h1 id="file">File&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 08 May 2021 17:23:11 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-04：File Processing-02</title><link>https://blog.smallten.tk/p/computer_programming_2-04/</link><pubDate>Sat, 08 May 2021 17:23:11 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-04/</guid><description>&lt;ul>
+&lt;li>如何顯示 BMP 檔 ?
+&lt;ul>
+&lt;li>有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。&lt;/li>
+&lt;li>如何在螢幕上顯示圖像？
+&lt;ul>
+&lt;li>您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。&lt;/li>
+&lt;li>我的建議：Qt。但是，這是一個 C++ 框架。&lt;/li>
+&lt;li>了解如何使用 GUI 平台提供的功能顯示圖像。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="gtk">GTK&lt;/h1>
+&lt;ul>
+&lt;li>GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。&lt;/li>
+&lt;li>GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。
+&lt;ul>
+&lt;li>因此，不要告訴我 C 不能物件導向。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>安裝：sudo apt install libgtk-3-dev&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="sdl">SDL&lt;/h1>
+&lt;ul>
+&lt;li>Simple DirectMedia Layer&lt;/li>
+&lt;li>SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。
+&lt;ul>
+&lt;li>視頻&lt;/li>
+&lt;li>聲音的&lt;/li>
+&lt;li>輸入設備&lt;/li>
+&lt;li>光盤&lt;/li>
+&lt;li>螺紋&lt;/li>
+&lt;li>共享對象加載&lt;/li>
+&lt;li>聯網&lt;/li>
+&lt;li>計時器&lt;/li>
+&lt;li>3D圖形&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。&lt;/li>
+&lt;li>SDL 架構 / 範例
+&lt;figure style="flex-grow: 119; flex-basis: 285px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-01.jpg" data-size="789x663">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-01.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-01_hue4d52e9742e6093c8d24bd012990f19a_136214_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-01_hue4d52e9742e6093c8d24bd012990f19a_136214_1024x0_resize_q75_box.jpg 1024w"
+width="789"
+height="663"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure> &lt;figure style="flex-grow: 157; flex-basis: 378px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-02.jpg" data-size="799x506">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-02.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-02_hu34191f78c5c7c4ed21a8a17ff1a3ddc2_390701_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-02_hu34191f78c5c7c4ed21a8a17ff1a3ddc2_390701_1024x0_resize_q75_box.jpg 1024w"
+width="799"
+height="506"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>SDL Object
+&lt;ul>
+&lt;li>&lt;code>SDL_Window&lt;/code>：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。&lt;/li>
+&lt;li>&lt;code>SDL_Renderer&lt;/code>：處理所有渲染的結構。它與 &lt;code>SDL_Window&lt;/code> 綁定在一起，因此只能在該 &lt;code>SDL_Window&lt;/code> 中呈現。&lt;/li>
+&lt;li>&lt;code>SDL_Textures&lt;/code> 和 &lt;code>SDL_Surface&lt;/code>：&lt;code>SDL_Renderer&lt;/code> 渲染&lt;code>SDL_Texture&lt;/code>(存儲一個元素的像素資訊)。這是 &lt;code>SDL_Surface&lt;/code> 的新版本，他們幾乎相同。
+&lt;ul>
+&lt;li>重要的區別是 &lt;code>SDL_Surface&lt;/code> 使用軟件渲染（通過CPU），而 &lt;code>SDL_Texture&lt;/code> 使用硬件渲染（通過GPU）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>安裝：&lt;code>sudo apt-get install libsdl2-dev libsdl2-image-dev&lt;/code>&lt;/li>
+&lt;li>Makefile
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span class="ln">1&lt;/span>&lt;span class="nv">CFLAGS&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="sb">`&lt;/span>sdl2-config --libs --cflags&lt;span class="sb">`&lt;/span> -ggdb3 -O0 --std&lt;span class="o">=&lt;/span>c99 -Wall -lSDL2_image -lm
+&lt;span class="ln">2&lt;/span>&lt;span class="nf">all&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">example&lt;/span>.&lt;span class="n">c&lt;/span>
+&lt;span class="ln">3&lt;/span> gcc example.c -o example &lt;span class="k">$(&lt;/span>CFLAGS&lt;span class="k">)&lt;/span>
+&lt;span class="ln">4&lt;/span>&lt;span class="nf">clean&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">5&lt;/span> rm example
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="file-descriptor">File Descriptor&lt;/h1>
+&lt;ul>
+&lt;li>POSIX C Implementation
+&lt;ul>
+&lt;li>C 標准定義了語法和標準庫，但不規範實現。&lt;/li>
+&lt;li>所以在 Linux 中，fopen、fclose、printf、scanf、fprintf、fscanf、fread 和 fwrite 是通過低階 API 實現的：
+&lt;ul>
+&lt;li>open&lt;/li>
+&lt;li>read&lt;/li>
+&lt;li>write&lt;/li>
+&lt;li>close&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>現在，我們將使用這些較低級別的 API 來訪問文件。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="open-close">open, close&lt;/h3>
+&lt;p>&lt;code>int open(const char *pathname, int flags);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>Given a pathname for a file, open() returns a file descriptor, a small, nonnegative integer for use in subsequent system calls.&lt;/li>
+&lt;li>open() returns the new file descriptor, or -1 if an error occurred.&lt;/li>
+&lt;li>The argument flags must include one of the following access modes: &lt;code>O_RDONLY&lt;/code>, &lt;code>O_WRONLY&lt;/code>, or &lt;code>O_RDWR&lt;/code>.
+&lt;code>int close(int fd);&lt;/code>&lt;/li>
+&lt;li>close() closes a file descriptor, so that it no longer refers to any file and may be reused. close() returns zero on success. On error, -1 is returned, and errno is set appropriately.&lt;/li>
+&lt;li>For more flags, please read manual.&lt;/li>
+&lt;/ul>
+&lt;h3 id="read-write">read, write&lt;/h3>
+&lt;p>&lt;code>ssize_t read(int fd, void *buf, size_t count);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>read() attempts to read up to count bytes from file descriptor fd into the buffer starting at buf. On files that support seeking, the read operation commences at the current file offset, and the file offset is incremented by the number of bytes read. If the current file offset is at or past the end of file, no bytes are read, and read() returns zero.
+&lt;code>ssize_t write(int fd, const void *buf, size_t count);&lt;/code>&lt;/li>
+&lt;li>write() writes up to count bytes from the buffer pointed buf to the file referred to by the file descriptor fd.&lt;/li>
+&lt;li>How about seek? use &lt;code>lseek&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="fstat">fstat&lt;/h3>
+&lt;p>&lt;code>int fstat(int fd, struct stat *buf);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>These functions return information about a file, in the buffer pointed to by buf.&lt;/li>
+&lt;/ul>
+&lt;h1 id="mmap">mmap&lt;/h1>
+&lt;p>&lt;figure style="flex-grow: 135; flex-basis: 324px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-03.png" data-size="504x373">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-03.png"
+srcset="https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-03_huc7b7701c1b95c48223e934783f4e517f_25210_480x0_resize_box_2.png 480w, https://blog.smallten.tk/p/computer_programming_2-04/computer_programming_2-04-03_huc7b7701c1b95c48223e934783f4e517f_25210_1024x0_resize_box_2.png 1024w"
+width="504"
+height="373"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;code>void *mmap(void *addr, size_t length, int prot, int flags,int fd, off_t offset);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>mmap() creates a new mapping in the virtual address space of the calling process. The starting address for the new mapping is specified in addr. The length argument specifies the length of the mapping.&lt;/li>
+&lt;li>If addr is NULL, then the kernel chooses the address at which to create the mapping.&lt;/li>
+&lt;li>現在您可以將返回地址視為一個大陣列，您可以直接訪問數據，包括修改數值。&lt;/li>
+&lt;li>在使用 mmap 後，請記得要 &lt;code>munmap&lt;/code>。&lt;/li>
+&lt;li>&lt;code>mmap()&lt;/code> 不是標準 C 的函式&lt;/li>
+&lt;li>&lt;code>MapViewOfFile&lt;/code> function is somewhat equivalent to mmap in Windows.&lt;/li>
+&lt;/ul></description></item><item><title>程式設計(二)-03：File Processing-01</title><link>https://blog.smallten.tk/p/computer_programming_2-03/</link><pubDate>Fri, 02 Apr 2021 17:58:22 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-03/</guid><description>&lt;h1 id="file">File&lt;/h1>
 &lt;ul>
 &lt;li>C 將每個檔案視為一個連續的 bytes stream&lt;/li>
 &lt;li>每個檔案以 &lt;code>end-of-file&lt;/code> 為結尾，這是由系統提供而不是文件。
