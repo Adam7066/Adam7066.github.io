@@ -1,0 +1,213 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="linuxlist.h  1#pragma once 2 3struct list_head { 4 struct list_head *next, *prev; 5}; 6 7#define LIST_HEAD_INIT(name) { &amp;amp;(name), &amp;amp;(name) } 8 9#define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name) 10 11/* 12* Insert a new entry between two known consecutive entries. 13* 14* This is only for internal list manipulation where we know 15* the prev/next entries already! 16*/ 17static inline void __list_add(struct list_head *new, 18 struct list_head *prev, 19 struct list_head *next) { 20 next-&amp;gt;prev = new; 21 new-&amp;gt;next = next; 22 new-&amp;gt;prev = prev; 23 prev-&amp;gt;next = new; 24} 25 26/** 27* list_add - add a new entry 28* @new: new entry to be added 29* @head: list head to add it after 30* 31* Insert a new entry after the specified head."><title>程式設計(二)-08：Linux List</title><link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-08/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-08：Linux List"><meta property="og:description" content="linuxlist.h  1#pragma once 2 3struct list_head { 4 struct list_head *next, *prev; 5}; 6 7#define LIST_HEAD_INIT(name) { &amp;amp;(name), &amp;amp;(name) } 8 9#define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name) 10 11/* 12* Insert a new entry between two known consecutive entries. 13* 14* This is only for internal list manipulation where we know 15* the prev/next entries already! 16*/ 17static inline void __list_add(struct list_head *new, 18 struct list_head *prev, 19 struct list_head *next) { 20 next-&amp;gt;prev = new; 21 new-&amp;gt;next = next; 22 new-&amp;gt;prev = prev; 23 prev-&amp;gt;next = new; 24} 25 26/** 27* list_add - add a new entry 28* @new: new entry to be added 29* @head: list head to add it after 30* 31* Insert a new entry after the specified head."><meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-08/"><meta property="og:site_name" content="小十的部落格"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-07-13T22:25:50+08:00"><meta property="article:modified_time" content="2021-07-13T22:25:50+08:00"><meta name=twitter:title content="程式設計(二)-08：Linux List"><meta name=twitter:description content="linuxlist.h  1#pragma once 2 3struct list_head { 4 struct list_head *next, *prev; 5}; 6 7#define LIST_HEAD_INIT(name) { &amp;amp;(name), &amp;amp;(name) } 8 9#define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name) 10 11/* 12* Insert a new entry between two known consecutive entries. 13* 14* This is only for internal list manipulation where we know 15* the prev/next entries already! 16*/ 17static inline void __list_add(struct list_head *new, 18 struct list_head *prev, 19 struct list_head *next) { 20 next-&amp;gt;prev = new; 21 new-&amp;gt;next = next; 22 new-&amp;gt;prev = prev; 23 prev-&amp;gt;next = new; 24} 25 26/** 27* list_add - add a new entry 28* @new: new entry to be added 29* @head: list head to add it after 30* 31* Insert a new entry after the specified head."><script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css><link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><link rel=manifest href=/favicon/site.webmanifest><link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"></head><body><script>(function(){const colorSchemeKey='StackColorScheme';if(!localStorage.getItem(colorSchemeKey)){localStorage.setItem(colorSchemeKey,"auto");}})();</script><script>(function(){const colorSchemeKey='StackColorScheme';const colorSchemeItem=localStorage.getItem(colorSchemeKey);const supportDarkMode=window.matchMedia('(prefers-color-scheme: dark)').matches===true;if(colorSchemeItem=='dark'||colorSchemeItem==='auto'&&supportDarkMode){document.body.dataset.scheme='dark';}else{document.body.dataset.scheme='light';}})();</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/header_hu4cfb69605c22b48cecb92135d5094273_5680_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></figure><h1 class=site-name><a href=https://blog.smallten.tk/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>程式設計(二)</a></header><h2 class=article-title><a href=/p/computer_programming_2-08/>程式設計(二)-08：Linux List</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jul 13, 2021</time></footer></div></header><section class=article-content><ul><li>linuxlist.h</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln>  1</span><span class=cp>#pragma once
+</span><span class=ln>  2</span><span class=cp></span>
+<span class=ln>  3</span><span class=k>struct</span> <span class=n>list_head</span> <span class=p>{</span>
+<span class=ln>  4</span>    <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>next</span><span class=p>,</span> <span class=o>*</span><span class=n>prev</span><span class=p>;</span>
+<span class=ln>  5</span><span class=p>};</span>
+<span class=ln>  6</span>
+<span class=ln>  7</span><span class=cp>#define LIST_HEAD_INIT(name) { &amp;(name), &amp;(name) }
+</span><span class=ln>  8</span><span class=cp></span>
+<span class=ln>  9</span><span class=cp>#define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name)
+</span><span class=ln> 10</span><span class=cp></span>
+<span class=ln> 11</span><span class=cm>/*
+</span><span class=ln> 12</span><span class=cm> * Insert a new entry between two known consecutive entries.
+</span><span class=ln> 13</span><span class=cm> *
+</span><span class=ln> 14</span><span class=cm> * This is only for internal list manipulation where we know
+</span><span class=ln> 15</span><span class=cm> * the prev/next entries already!
+</span><span class=ln> 16</span><span class=cm> */</span>
+<span class=ln> 17</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>void</span> <span class=nf>__list_add</span><span class=p>(</span><span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>new</span><span class=p>,</span>
+<span class=ln> 18</span>                              <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>prev</span><span class=p>,</span>
+<span class=ln> 19</span>                              <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>next</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 20</span>    <span class=n>next</span><span class=o>-&gt;</span><span class=n>prev</span> <span class=o>=</span> <span class=n>new</span><span class=p>;</span>
+<span class=ln> 21</span>    <span class=n>new</span><span class=o>-&gt;</span><span class=n>next</span> <span class=o>=</span> <span class=n>next</span><span class=p>;</span>
+<span class=ln> 22</span>    <span class=n>new</span><span class=o>-&gt;</span><span class=n>prev</span> <span class=o>=</span> <span class=n>prev</span><span class=p>;</span>
+<span class=ln> 23</span>    <span class=n>prev</span><span class=o>-&gt;</span><span class=n>next</span> <span class=o>=</span> <span class=n>new</span><span class=p>;</span>
+<span class=ln> 24</span><span class=p>}</span>
+<span class=ln> 25</span>
+<span class=ln> 26</span><span class=cm>/**
+</span><span class=ln> 27</span><span class=cm> * list_add - add a new entry
+</span><span class=ln> 28</span><span class=cm> * @new: new entry to be added
+</span><span class=ln> 29</span><span class=cm> * @head: list head to add it after
+</span><span class=ln> 30</span><span class=cm> *
+</span><span class=ln> 31</span><span class=cm> * Insert a new entry after the specified head.
+</span><span class=ln> 32</span><span class=cm> * This is good for implementing stacks.
+</span><span class=ln> 33</span><span class=cm> */</span>
+<span class=ln> 34</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>void</span> <span class=nf>list_add</span><span class=p>(</span><span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>new</span><span class=p>,</span> <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>head</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 35</span>    <span class=n>__list_add</span><span class=p>(</span><span class=n>new</span><span class=p>,</span> <span class=n>head</span><span class=p>,</span> <span class=n>head</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>);</span>
+<span class=ln> 36</span><span class=p>}</span>
+<span class=ln> 37</span>
+<span class=ln> 38</span>
+<span class=ln> 39</span><span class=cm>/**
+</span><span class=ln> 40</span><span class=cm> * list_add_tail - add a new entry
+</span><span class=ln> 41</span><span class=cm> * @new: new entry to be added
+</span><span class=ln> 42</span><span class=cm> * @head: list head to add it before
+</span><span class=ln> 43</span><span class=cm> *
+</span><span class=ln> 44</span><span class=cm> * Insert a new entry before the specified head.
+</span><span class=ln> 45</span><span class=cm> * This is useful for implementing queues.
+</span><span class=ln> 46</span><span class=cm> */</span>
+<span class=ln> 47</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>void</span> <span class=nf>list_add_tail</span><span class=p>(</span><span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>new</span><span class=p>,</span> <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>head</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 48</span>    <span class=n>__list_add</span><span class=p>(</span><span class=n>new</span><span class=p>,</span> <span class=n>head</span><span class=o>-&gt;</span><span class=n>prev</span><span class=p>,</span> <span class=n>head</span><span class=p>);</span>
+<span class=ln> 49</span><span class=p>}</span>
+<span class=ln> 50</span>
+<span class=ln> 51</span><span class=cm>/*
+</span><span class=ln> 52</span><span class=cm> * Delete a list entry by making the prev/next entries
+</span><span class=ln> 53</span><span class=cm> * point to each other.
+</span><span class=ln> 54</span><span class=cm> *
+</span><span class=ln> 55</span><span class=cm> * This is only for internal list manipulation where we know
+</span><span class=ln> 56</span><span class=cm> * the prev/next entries already!
+</span><span class=ln> 57</span><span class=cm> */</span>
+<span class=ln> 58</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>void</span> <span class=nf>__list_del</span><span class=p>(</span><span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span> <span class=n>prev</span><span class=p>,</span> <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span> <span class=n>next</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 59</span>    <span class=n>next</span><span class=o>-&gt;</span><span class=n>prev</span> <span class=o>=</span> <span class=n>prev</span><span class=p>;</span>
+<span class=ln> 60</span>    <span class=n>prev</span><span class=o>-&gt;</span><span class=n>next</span> <span class=o>=</span> <span class=n>next</span><span class=p>;</span>
+<span class=ln> 61</span><span class=p>}</span>
+<span class=ln> 62</span>
+<span class=ln> 63</span><span class=cm>/**
+</span><span class=ln> 64</span><span class=cm> * list_del - deletes entry from list.
+</span><span class=ln> 65</span><span class=cm> * @entry: the element to delete from the list.
+</span><span class=ln> 66</span><span class=cm> * Note: list_empty() on entry does not return true after this, the entry is
+</span><span class=ln> 67</span><span class=cm> * in an undefined state.
+</span><span class=ln> 68</span><span class=cm> */</span>
+<span class=ln> 69</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>void</span> <span class=nf>__list_del_entry</span><span class=p>(</span><span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>entry</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 70</span>    <span class=k>if</span> <span class=p>(</span><span class=n>entry</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span>
+<span class=ln> 71</span>        <span class=k>return</span><span class=p>;</span>
+<span class=ln> 72</span>
+<span class=ln> 73</span>    <span class=n>__list_del</span><span class=p>(</span><span class=n>entry</span><span class=o>-&gt;</span><span class=n>prev</span><span class=p>,</span> <span class=n>entry</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>);</span>
+<span class=ln> 74</span><span class=p>}</span>
+<span class=ln> 75</span>
+<span class=ln> 76</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>void</span> <span class=nf>list_del</span><span class=p>(</span><span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>entry</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 77</span>    <span class=n>__list_del_entry</span><span class=p>(</span><span class=n>entry</span><span class=p>);</span>
+<span class=ln> 78</span>    <span class=n>entry</span><span class=o>-&gt;</span><span class=n>next</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+<span class=ln> 79</span>    <span class=n>entry</span><span class=o>-&gt;</span><span class=n>prev</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+<span class=ln> 80</span><span class=p>}</span>
+<span class=ln> 81</span>
+<span class=ln> 82</span><span class=cm>/**
+</span><span class=ln> 83</span><span class=cm> * list_empty - tests whether a list is empty
+</span><span class=ln> 84</span><span class=cm> * @head: the list to test.
+</span><span class=ln> 85</span><span class=cm> */</span>
+<span class=ln> 86</span><span class=k>static</span> <span class=kr>inline</span> <span class=kt>int</span> <span class=nf>list_empty</span><span class=p>(</span><span class=k>const</span> <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>head</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln> 87</span>    <span class=k>return</span> <span class=n>head</span> <span class=o>-&gt;</span> <span class=n>next</span> <span class=o>==</span> <span class=n>head</span><span class=p>;</span>
+<span class=ln> 88</span><span class=p>}</span>
+<span class=ln> 89</span>
+<span class=ln> 90</span><span class=cp>#define offsetof(TYPE, MEMBER) ((size_t)&amp;((TYPE *)0)-&gt;MEMBER)
+</span><span class=ln> 91</span><span class=cp></span>
+<span class=ln> 92</span><span class=cp>#define container_of(ptr, type, member) ({				\
+</span><span class=ln> 93</span><span class=cp>	void *__mptr = (void *)(ptr);					\
+</span><span class=ln> 94</span><span class=cp>	((type *)(__mptr - offsetof(type, member))); })
+</span><span class=ln> 95</span><span class=cp></span>
+<span class=ln> 96</span><span class=cm>/**
+</span><span class=ln> 97</span><span class=cm> * list_entry - get the struct for this entry
+</span><span class=ln> 98</span><span class=cm> * @ptr:	the &amp;struct list_head pointer.
+</span><span class=ln> 99</span><span class=cm> * @type:	the type of the struct this is embedded in.
+</span><span class=ln>100</span><span class=cm> * @member:	the name of the list_head within the struct.
+</span><span class=ln>101</span><span class=cm> */</span>
+<span class=ln>102</span><span class=cp>#define list_entry(ptr, type, member) \
+</span><span class=ln>103</span><span class=cp>    container_of(ptr, type, member)
+</span><span class=ln>104</span><span class=cp></span>
+<span class=ln>105</span><span class=cm>/**
+</span><span class=ln>106</span><span class=cm> * list_first_entry - get the first element from a list
+</span><span class=ln>107</span><span class=cm> * @ptr:	the list head to take the element from.
+</span><span class=ln>108</span><span class=cm> * @type:	the type of the struct this is embedded in.
+</span><span class=ln>109</span><span class=cm> * @member:	the name of the list_head within the struct.
+</span><span class=ln>110</span><span class=cm> *
+</span><span class=ln>111</span><span class=cm> * Note, that list is expected to be not empty.
+</span><span class=ln>112</span><span class=cm> */</span>
+<span class=ln>113</span><span class=cp>#define list_first_entry(ptr, type, member) \
+</span><span class=ln>114</span><span class=cp>    list_entry((ptr)-&gt;next, type, member)
+</span><span class=ln>115</span><span class=cp></span>
+<span class=ln>116</span><span class=cm>/**
+</span><span class=ln>117</span><span class=cm> * list_last_entry - get the last element from a list
+</span><span class=ln>118</span><span class=cm> * @ptr:	the list head to take the element from.
+</span><span class=ln>119</span><span class=cm> * @type:	the type of the struct this is embedded in.
+</span><span class=ln>120</span><span class=cm> * @member:	the name of the list_head within the struct.
+</span><span class=ln>121</span><span class=cm> *
+</span><span class=ln>122</span><span class=cm> * Note, that list is expected to be not empty.
+</span><span class=ln>123</span><span class=cm> */</span>
+<span class=ln>124</span><span class=cp>#define list_last_entry(ptr, type, member) \
+</span><span class=ln>125</span><span class=cp>    list_entry((ptr)-&gt;prev, type, member)
+</span><span class=ln>126</span><span class=cp></span>
+<span class=ln>127</span><span class=cm>/**
+</span><span class=ln>128</span><span class=cm> * list_for_each	-	iterate over a list
+</span><span class=ln>129</span><span class=cm> * @pos:	the &amp;struct list_head to use as a loop cursor.
+</span><span class=ln>130</span><span class=cm> * @head:	the head for your list.
+</span><span class=ln>131</span><span class=cm> */</span>
+<span class=ln>132</span><span class=cp>#define list_for_each(pos, head) \
+</span><span class=ln>133</span><span class=cp>    for (pos = (head)-&gt;next; pos != (head); pos = pos-&gt;next)
+</span><span class=ln>134</span><span class=cp></span>
+<span class=ln>135</span><span class=cm>/**
+</span><span class=ln>136</span><span class=cm> * list_for_each_prev	-	iterate over a list backwards
+</span><span class=ln>137</span><span class=cm> * @pos:	the &amp;struct list_head to use as a loop cursor.
+</span><span class=ln>138</span><span class=cm> * @head:	the head for your list.
+</span><span class=ln>139</span><span class=cm> */</span>
+<span class=ln>140</span><span class=cp>#define list_for_each_prev(pos, head) \
+</span><span class=ln>141</span><span class=cp>    for (pos = (head)-&gt;prev; pos != (head); pos = pos-&gt;prev)
+</span></code></pre></div><ul><li>main.c</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span><span class=ln> 2</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span><span class=ln> 3</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
+</span><span class=ln> 4</span><span class=cp>#include</span> <span class=cpf>&lt;time.h&gt;</span><span class=cp>
+</span><span class=ln> 5</span><span class=cp>#include</span> <span class=cpf>&#34;linuxlist.h&#34;</span><span class=cp>
+</span><span class=ln> 6</span><span class=cp></span><span class=k>typedef</span> <span class=k>struct</span> <span class=n>_sCharacter</span> <span class=p>{</span>
+<span class=ln> 7</span>    <span class=n>int32_t</span> <span class=n>id</span><span class=p>;</span>
+<span class=ln> 8</span>    <span class=kt>char</span>    <span class=n>name</span><span class=p>[</span><span class=mi>32</span><span class=p>];</span>
+<span class=ln> 9</span>    <span class=n>int32_t</span> <span class=n>hp</span><span class=p>;</span>
+<span class=ln>10</span>    <span class=n>int32_t</span> <span class=n>mp</span><span class=p>;</span>
+<span class=ln>11</span>    <span class=n>int32_t</span> <span class=n>exp</span><span class=p>;</span>
+<span class=ln>12</span>    <span class=n>int32_t</span> <span class=n>atk</span><span class=p>;</span>
+<span class=ln>13</span>    <span class=n>int32_t</span> <span class=n>def</span><span class=p>;</span>
+<span class=ln>14</span>    <span class=n>int32_t</span> <span class=n>ats</span><span class=p>;</span>
+<span class=ln>15</span>    <span class=n>int32_t</span> <span class=n>adf</span><span class=p>;</span>
+<span class=ln>16</span>    <span class=n>int32_t</span> <span class=n>spd</span><span class=p>;</span>
+<span class=ln>17</span>
+<span class=ln>18</span>    <span class=k>struct</span> <span class=n>list_head</span> <span class=n>list</span><span class=p>;</span>
+<span class=ln>19</span><span class=p>}</span> <span class=n>sCharacter</span><span class=p>;</span>
+<span class=ln>20</span><span class=n>sCharacter</span> <span class=o>*</span><span class=nf>allocCharacter</span><span class=p>(</span><span class=n>int32_t</span> <span class=n>id</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln>21</span>    <span class=n>sCharacter</span> <span class=o>*</span><span class=n>newComer</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>sCharacter</span><span class=p>));</span>
+<span class=ln>22</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>id</span> <span class=o>=</span> <span class=n>id</span><span class=p>;</span>
+<span class=ln>23</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>name</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>26</span> <span class=o>+</span> <span class=sc>&#39;A&#39;</span><span class=p>;</span>
+<span class=ln>24</span>    <span class=k>for</span><span class=p>(</span><span class=n>int32_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>1</span> <span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=mi>6</span> <span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span>
+<span class=ln>25</span>        <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>name</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>26</span> <span class=o>+</span> <span class=sc>&#39;a&#39;</span><span class=p>;</span>
+<span class=ln>26</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>hp</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>27</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>mp</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>28</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>exp</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>29</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>atk</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>30</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>def</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>31</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>ats</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>32</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>adf</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>33</span>    <span class=n>newComer</span><span class=o>-&gt;</span><span class=n>spd</span> <span class=o>=</span> <span class=n>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>100</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
+<span class=ln>34</span>
+<span class=ln>35</span>    <span class=k>return</span> <span class=n>newComer</span><span class=p>;</span>
+<span class=ln>36</span><span class=p>}</span>
+<span class=ln>37</span><span class=kt>void</span> <span class=nf>printCharacter</span><span class=p>(</span><span class=n>sCharacter</span> <span class=o>*</span><span class=n>one</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln>38</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%04d) &#34;</span><span class=p>,</span> <span class=n>one</span><span class=o>-&gt;</span><span class=n>id</span><span class=p>);</span>
+<span class=ln>39</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%8s &#34;</span><span class=p>,</span> <span class=n>one</span><span class=o>-&gt;</span><span class=n>name</span><span class=p>);</span>
+<span class=ln>40</span>    <span class=k>for</span><span class=p>(</span><span class=n>int32_t</span> <span class=o>*</span><span class=n>ptr</span> <span class=o>=</span> <span class=o>&amp;</span><span class=p>(</span><span class=n>one</span><span class=o>-&gt;</span><span class=n>hp</span><span class=p>);</span> <span class=n>ptr</span> <span class=o>&lt;=</span> <span class=o>&amp;</span><span class=p>(</span><span class=n>one</span><span class=o>-&gt;</span><span class=n>spd</span><span class=p>);</span> <span class=n>ptr</span><span class=o>++</span><span class=p>)</span>
+<span class=ln>41</span>        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%3d &#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>ptr</span><span class=p>);</span>
+<span class=ln>42</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+<span class=ln>43</span>    <span class=k>return</span><span class=p>;</span>
+<span class=ln>44</span><span class=p>}</span>
+<span class=ln>45</span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+<span class=ln>46</span>    <span class=n>LIST_HEAD</span><span class=p>(</span><span class=n>char_list_head</span><span class=p>);</span>
+<span class=ln>47</span>    <span class=n>srand</span><span class=p>(</span><span class=n>time</span><span class=p>(</span><span class=mi>0</span><span class=p>));</span>
+<span class=ln>48</span>    <span class=k>for</span><span class=p>(</span><span class=n>int32_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=mi>1000</span> <span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln>49</span>        <span class=n>sCharacter</span> <span class=o>*</span><span class=n>newComer</span> <span class=o>=</span> <span class=n>allocCharacter</span><span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+<span class=ln>50</span>        <span class=n>list_add</span><span class=p>(</span><span class=o>&amp;</span><span class=p>(</span><span class=n>newComer</span><span class=o>-&gt;</span><span class=n>list</span><span class=p>),</span> <span class=o>&amp;</span><span class=n>char_list_head</span><span class=p>);</span>
+<span class=ln>51</span>    <span class=p>}</span>
+<span class=ln>52</span>    <span class=k>struct</span> <span class=n>list_head</span> <span class=o>*</span><span class=n>listptr</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+<span class=ln>53</span>    <span class=n>list_for_each</span><span class=p>(</span><span class=n>listptr</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>char_list_head</span><span class=p>)</span> <span class=p>{</span>
+<span class=ln>54</span>        <span class=n>sCharacter</span> <span class=o>*</span><span class=n>cptr</span> <span class=o>=</span> <span class=n>list_entry</span><span class=p>(</span><span class=n>listptr</span><span class=p>,</span> <span class=n>sCharacter</span><span class=p>,</span> <span class=n>list</span><span class=p>);</span>
+<span class=ln>55</span>        <span class=n>printCharacter</span><span class=p>(</span><span class=n>cptr</span><span class=p>);</span>
+<span class=ln>56</span>    <span class=p>}</span>
+<span class=ln>57</span>    <span class=cm>/*
+</span><span class=ln>58</span><span class=cm>    list_for_each_prev(listptr, &amp;char_list_head) {
+</span><span class=ln>59</span><span class=cm>        sCharacter *cptr = list_entry(listptr, sCharacter, list);
+</span><span class=ln>60</span><span class=cm>        printCharacter(cptr);
+</span><span class=ln>61</span><span class=cm>    }
+</span><span class=ln>62</span><span class=cm>    */</span>
+<span class=ln>63</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=ln>64</span><span class=p>}</span>
+</code></pre></div></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=StackLaTeX()></script><script>function StackLaTeX(){renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}]});}</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/computer_programming_2-07/><div class=article-details><h2 class=article-title>程式設計(二)-07：Some Tricks</h2></div></a></article><article><a href=/p/computer_programming_2-06/><div class=article-details><h2 class=article-title>程式設計(二)-06：Macro</h2></div></a></article><article><a href=/p/computer_programming_2-05/><div class=article-details><h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2></div></a></article><article><a href=/p/computer_programming_2-04/><div class=article-details><h2 class=article-title>程式設計(二)-04：File Processing-02</h2></div></a></article><article><a href=/p/computer_programming_2-03/><div class=article-details><h2 class=article-title>程式設計(二)-03：File Processing-01</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2021 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.0.1>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const customFont=document.createElement('link');customFont.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";customFont.type="text/css";customFont.rel="stylesheet";document.head.appendChild(customFont);}());</script><script src=/js/copy-to-clipboard.js></script></body></html>

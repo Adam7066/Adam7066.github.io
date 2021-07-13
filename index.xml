@@ -1,4 +1,585 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 12 Jul 2021 21:57:26 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-05：Variable Length Arguments List</title><link>https://blog.smallten.tk/p/computer_programming_2-05/</link><pubDate>Mon, 12 Jul 2021 21:57:26 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-05/</guid><description>&lt;h1 id="program-argument">Program Argument&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.tk/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 13 Jul 2021 22:25:50 +0800</lastBuildDate><atom:link href="https://blog.smallten.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(二)-08：Linux List</title><link>https://blog.smallten.tk/p/computer_programming_2-08/</link><pubDate>Tue, 13 Jul 2021 22:25:50 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-08/</guid><description>&lt;ul>
+&lt;li>linuxlist.h&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#pragma once
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 3&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">prev&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 5&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln"> 6&lt;/span>
+&lt;span class="ln"> 7&lt;/span>&lt;span class="cp">#define LIST_HEAD_INIT(name) { &amp;amp;(name), &amp;amp;(name) }
+&lt;/span>&lt;span class="ln"> 8&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 9&lt;/span>&lt;span class="cp">#define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name)
+&lt;/span>&lt;span class="ln"> 10&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 11&lt;/span>&lt;span class="cm">/*
+&lt;/span>&lt;span class="ln"> 12&lt;/span>&lt;span class="cm"> * Insert a new entry between two known consecutive entries.
+&lt;/span>&lt;span class="ln"> 13&lt;/span>&lt;span class="cm"> *
+&lt;/span>&lt;span class="ln"> 14&lt;/span>&lt;span class="cm"> * This is only for internal list manipulation where we know
+&lt;/span>&lt;span class="ln"> 15&lt;/span>&lt;span class="cm"> * the prev/next entries already!
+&lt;/span>&lt;span class="ln"> 16&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln"> 17&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">__list_add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="ln"> 18&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">prev&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="ln"> 19&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 20&lt;/span> &lt;span class="n">next&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">prev&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">new&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 21&lt;/span> &lt;span class="n">new&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">next&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 22&lt;/span> &lt;span class="n">new&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">prev&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">prev&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 23&lt;/span> &lt;span class="n">prev&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">new&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 24&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 25&lt;/span>
+&lt;span class="ln"> 26&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln"> 27&lt;/span>&lt;span class="cm"> * list_add - add a new entry
+&lt;/span>&lt;span class="ln"> 28&lt;/span>&lt;span class="cm"> * @new: new entry to be added
+&lt;/span>&lt;span class="ln"> 29&lt;/span>&lt;span class="cm"> * @head: list head to add it after
+&lt;/span>&lt;span class="ln"> 30&lt;/span>&lt;span class="cm"> *
+&lt;/span>&lt;span class="ln"> 31&lt;/span>&lt;span class="cm"> * Insert a new entry after the specified head.
+&lt;/span>&lt;span class="ln"> 32&lt;/span>&lt;span class="cm"> * This is good for implementing stacks.
+&lt;/span>&lt;span class="ln"> 33&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln"> 34&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">list_add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">head&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 35&lt;/span> &lt;span class="n">__list_add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 36&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 37&lt;/span>
+&lt;span class="ln"> 38&lt;/span>
+&lt;span class="ln"> 39&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln"> 40&lt;/span>&lt;span class="cm"> * list_add_tail - add a new entry
+&lt;/span>&lt;span class="ln"> 41&lt;/span>&lt;span class="cm"> * @new: new entry to be added
+&lt;/span>&lt;span class="ln"> 42&lt;/span>&lt;span class="cm"> * @head: list head to add it before
+&lt;/span>&lt;span class="ln"> 43&lt;/span>&lt;span class="cm"> *
+&lt;/span>&lt;span class="ln"> 44&lt;/span>&lt;span class="cm"> * Insert a new entry before the specified head.
+&lt;/span>&lt;span class="ln"> 45&lt;/span>&lt;span class="cm"> * This is useful for implementing queues.
+&lt;/span>&lt;span class="ln"> 46&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln"> 47&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">list_add_tail&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">head&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 48&lt;/span> &lt;span class="n">__list_add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">prev&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 49&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 50&lt;/span>
+&lt;span class="ln"> 51&lt;/span>&lt;span class="cm">/*
+&lt;/span>&lt;span class="ln"> 52&lt;/span>&lt;span class="cm"> * Delete a list entry by making the prev/next entries
+&lt;/span>&lt;span class="ln"> 53&lt;/span>&lt;span class="cm"> * point to each other.
+&lt;/span>&lt;span class="ln"> 54&lt;/span>&lt;span class="cm"> *
+&lt;/span>&lt;span class="ln"> 55&lt;/span>&lt;span class="cm"> * This is only for internal list manipulation where we know
+&lt;/span>&lt;span class="ln"> 56&lt;/span>&lt;span class="cm"> * the prev/next entries already!
+&lt;/span>&lt;span class="ln"> 57&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln"> 58&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">__list_del&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">prev&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">next&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 59&lt;/span> &lt;span class="n">next&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">prev&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">prev&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 60&lt;/span> &lt;span class="n">prev&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">next&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 61&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 62&lt;/span>
+&lt;span class="ln"> 63&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln"> 64&lt;/span>&lt;span class="cm"> * list_del - deletes entry from list.
+&lt;/span>&lt;span class="ln"> 65&lt;/span>&lt;span class="cm"> * @entry: the element to delete from the list.
+&lt;/span>&lt;span class="ln"> 66&lt;/span>&lt;span class="cm"> * Note: list_empty() on entry does not return true after this, the entry is
+&lt;/span>&lt;span class="ln"> 67&lt;/span>&lt;span class="cm"> * in an undefined state.
+&lt;/span>&lt;span class="ln"> 68&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln"> 69&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">__list_del_entry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 70&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">entry&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="ln"> 71&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 72&lt;/span>
+&lt;span class="ln"> 73&lt;/span> &lt;span class="n">__list_del&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">prev&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">entry&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 74&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 75&lt;/span>
+&lt;span class="ln"> 76&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">list_del&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 77&lt;/span> &lt;span class="n">__list_del_entry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 78&lt;/span> &lt;span class="n">entry&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 79&lt;/span> &lt;span class="n">entry&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">prev&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 80&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 81&lt;/span>
+&lt;span class="ln"> 82&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln"> 83&lt;/span>&lt;span class="cm"> * list_empty - tests whether a list is empty
+&lt;/span>&lt;span class="ln"> 84&lt;/span>&lt;span class="cm"> * @head: the list to test.
+&lt;/span>&lt;span class="ln"> 85&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln"> 86&lt;/span>&lt;span class="k">static&lt;/span> &lt;span class="kr">inline&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="nf">list_empty&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">head&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 87&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="n">head&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">next&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 88&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 89&lt;/span>
+&lt;span class="ln"> 90&lt;/span>&lt;span class="cp">#define offsetof(TYPE, MEMBER) ((size_t)&amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
+&lt;/span>&lt;span class="ln"> 91&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 92&lt;/span>&lt;span class="cp">#define container_of(ptr, type, member) ({ \
+&lt;/span>&lt;span class="ln"> 93&lt;/span>&lt;span class="cp"> void *__mptr = (void *)(ptr); \
+&lt;/span>&lt;span class="ln"> 94&lt;/span>&lt;span class="cp"> ((type *)(__mptr - offsetof(type, member))); })
+&lt;/span>&lt;span class="ln"> 95&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 96&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln"> 97&lt;/span>&lt;span class="cm"> * list_entry - get the struct for this entry
+&lt;/span>&lt;span class="ln"> 98&lt;/span>&lt;span class="cm"> * @ptr: the &amp;amp;struct list_head pointer.
+&lt;/span>&lt;span class="ln"> 99&lt;/span>&lt;span class="cm"> * @type: the type of the struct this is embedded in.
+&lt;/span>&lt;span class="ln">100&lt;/span>&lt;span class="cm"> * @member: the name of the list_head within the struct.
+&lt;/span>&lt;span class="ln">101&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln">102&lt;/span>&lt;span class="cp">#define list_entry(ptr, type, member) \
+&lt;/span>&lt;span class="ln">103&lt;/span>&lt;span class="cp"> container_of(ptr, type, member)
+&lt;/span>&lt;span class="ln">104&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln">105&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln">106&lt;/span>&lt;span class="cm"> * list_first_entry - get the first element from a list
+&lt;/span>&lt;span class="ln">107&lt;/span>&lt;span class="cm"> * @ptr: the list head to take the element from.
+&lt;/span>&lt;span class="ln">108&lt;/span>&lt;span class="cm"> * @type: the type of the struct this is embedded in.
+&lt;/span>&lt;span class="ln">109&lt;/span>&lt;span class="cm"> * @member: the name of the list_head within the struct.
+&lt;/span>&lt;span class="ln">110&lt;/span>&lt;span class="cm"> *
+&lt;/span>&lt;span class="ln">111&lt;/span>&lt;span class="cm"> * Note, that list is expected to be not empty.
+&lt;/span>&lt;span class="ln">112&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln">113&lt;/span>&lt;span class="cp">#define list_first_entry(ptr, type, member) \
+&lt;/span>&lt;span class="ln">114&lt;/span>&lt;span class="cp"> list_entry((ptr)-&amp;gt;next, type, member)
+&lt;/span>&lt;span class="ln">115&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln">116&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln">117&lt;/span>&lt;span class="cm"> * list_last_entry - get the last element from a list
+&lt;/span>&lt;span class="ln">118&lt;/span>&lt;span class="cm"> * @ptr: the list head to take the element from.
+&lt;/span>&lt;span class="ln">119&lt;/span>&lt;span class="cm"> * @type: the type of the struct this is embedded in.
+&lt;/span>&lt;span class="ln">120&lt;/span>&lt;span class="cm"> * @member: the name of the list_head within the struct.
+&lt;/span>&lt;span class="ln">121&lt;/span>&lt;span class="cm"> *
+&lt;/span>&lt;span class="ln">122&lt;/span>&lt;span class="cm"> * Note, that list is expected to be not empty.
+&lt;/span>&lt;span class="ln">123&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln">124&lt;/span>&lt;span class="cp">#define list_last_entry(ptr, type, member) \
+&lt;/span>&lt;span class="ln">125&lt;/span>&lt;span class="cp"> list_entry((ptr)-&amp;gt;prev, type, member)
+&lt;/span>&lt;span class="ln">126&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln">127&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln">128&lt;/span>&lt;span class="cm"> * list_for_each - iterate over a list
+&lt;/span>&lt;span class="ln">129&lt;/span>&lt;span class="cm"> * @pos: the &amp;amp;struct list_head to use as a loop cursor.
+&lt;/span>&lt;span class="ln">130&lt;/span>&lt;span class="cm"> * @head: the head for your list.
+&lt;/span>&lt;span class="ln">131&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln">132&lt;/span>&lt;span class="cp">#define list_for_each(pos, head) \
+&lt;/span>&lt;span class="ln">133&lt;/span>&lt;span class="cp"> for (pos = (head)-&amp;gt;next; pos != (head); pos = pos-&amp;gt;next)
+&lt;/span>&lt;span class="ln">134&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln">135&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;span class="ln">136&lt;/span>&lt;span class="cm"> * list_for_each_prev - iterate over a list backwards
+&lt;/span>&lt;span class="ln">137&lt;/span>&lt;span class="cm"> * @pos: the &amp;amp;struct list_head to use as a loop cursor.
+&lt;/span>&lt;span class="ln">138&lt;/span>&lt;span class="cm"> * @head: the head for your list.
+&lt;/span>&lt;span class="ln">139&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln">140&lt;/span>&lt;span class="cp">#define list_for_each_prev(pos, head) \
+&lt;/span>&lt;span class="ln">141&lt;/span>&lt;span class="cp"> for (pos = (head)-&amp;gt;prev; pos != (head); pos = pos-&amp;gt;prev)
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>main.c&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;time.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;#34;linuxlist.h&amp;#34;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 6&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="k">typedef&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">_sCharacter&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">id&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">32&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">hp&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">mp&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">exp&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">atk&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">def&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">ats&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">adf&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="n">int32_t&lt;/span> &lt;span class="n">spd&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">17&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">19&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="n">sCharacter&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">20&lt;/span>&lt;span class="n">sCharacter&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nf">allocCharacter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">id&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">21&lt;/span> &lt;span class="n">sCharacter&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">newComer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">calloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sCharacter&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln">22&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">id&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">id&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">23&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">26&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="sc">&amp;#39;A&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">24&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">6&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="ln">25&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">26&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="sc">&amp;#39;a&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">26&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">hp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">27&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">mp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">28&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">exp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">29&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">atk&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">30&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">def&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">31&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">ats&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">32&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">adf&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">33&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">spd&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">34&lt;/span>
+&lt;span class="ln">35&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="n">newComer&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">36&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln">37&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">printCharacter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sCharacter&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">one&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">38&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%04d) &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">one&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">39&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%8s &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">one&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">40&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">ptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">one&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">hp&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="n">ptr&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">one&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">spd&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="n">ptr&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="ln">41&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%3d &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">ptr&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">42&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">43&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">44&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln">45&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">46&lt;/span> &lt;span class="n">LIST_HEAD&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">char_list_head&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">47&lt;/span> &lt;span class="n">srand&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;span class="ln">48&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">int32_t&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">1000&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">49&lt;/span> &lt;span class="n">sCharacter&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">newComer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">allocCharacter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">50&lt;/span> &lt;span class="n">list_add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">newComer&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">list&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">char_list_head&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">51&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">52&lt;/span> &lt;span class="k">struct&lt;/span> &lt;span class="n">list_head&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">listptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">53&lt;/span> &lt;span class="n">list_for_each&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">char_list_head&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">54&lt;/span> &lt;span class="n">sCharacter&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">cptr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">list_entry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">listptr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sCharacter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">55&lt;/span> &lt;span class="n">printCharacter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cptr&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">56&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">57&lt;/span> &lt;span class="cm">/*
+&lt;/span>&lt;span class="ln">58&lt;/span>&lt;span class="cm"> list_for_each_prev(listptr, &amp;amp;char_list_head) {
+&lt;/span>&lt;span class="ln">59&lt;/span>&lt;span class="cm"> sCharacter *cptr = list_entry(listptr, sCharacter, list);
+&lt;/span>&lt;span class="ln">60&lt;/span>&lt;span class="cm"> printCharacter(cptr);
+&lt;/span>&lt;span class="ln">61&lt;/span>&lt;span class="cm"> }
+&lt;/span>&lt;span class="ln">62&lt;/span>&lt;span class="cm"> */&lt;/span>
+&lt;span class="ln">63&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">64&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>程式設計(二)-07：Some Tricks</title><link>https://blog.smallten.tk/p/computer_programming_2-07/</link><pubDate>Tue, 13 Jul 2021 21:39:10 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-07/</guid><description>&lt;h1 id="predefined-macros">Predefined Macros&lt;/h1>
+&lt;h2 id="standard-predefined-macros">Standard Predefined Macros&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 3&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;line: %d &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__LINE__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;file: %s &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__FILE__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;function: %s &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__FUNCTION__&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// gcc
+&lt;/span>&lt;span class="ln"> 6&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;function: %s &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__func__&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// C99
+&lt;/span>&lt;span class="ln"> 7&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;time: %s &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__TIME__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;date: %s &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__DATE__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;STDC: %d &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__STDC__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;STDC_VERSION: %ld &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__STDC_VERSION__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;TIMESTAMP: %s &lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">__TIMESTAMP__&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">13&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>我們可以怎麼使用這些 Macros ?
+&lt;ul>
+&lt;li>&lt;code>fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d. ver %s %s&amp;quot;, __FILE__, __LINE__, __DATE__, __TIME__);&lt;/code>&lt;/li>
+&lt;li>Define when Compiling
+&lt;ul>
+&lt;li>&lt;code>gcc -D__DEBUG__ debug.c&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">3&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello World!!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">4&lt;/span>&lt;span class="cp">#ifdef __DEBUG__
+&lt;/span>&lt;span class="ln">5&lt;/span>&lt;span class="cp">&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;debug!!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">6&lt;/span>&lt;span class="cp">#endif
+&lt;/span>&lt;span class="ln">7&lt;/span>&lt;span class="cp">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">8&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Other GCC Predefined MACROs
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html" target="_blank" rel="noopener"
+>Common Predefined Macros&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="comparing-unsigned-integers">Comparing Unsigned Integers&lt;/h1>
+&lt;ul>
+&lt;li>When comparisons between signed and unsigned integers, C will force the signed type to unsigned.&lt;/li>
+&lt;li>C99 and C11 section 6.3.1.8.&lt;/li>
+&lt;li>It is hard to debug since it looks so nature.&lt;/li>
+&lt;/ul>
+&lt;h1 id="call-functions-at-program-termination">Call Functions at Program Termination&lt;/h1>
+&lt;h3 id="atexit">atexit&lt;/h3>
+&lt;p>&lt;code>int atexit(void (*function)(void));&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>Register a Function to be Called at Normal Process Termination&lt;/li>
+&lt;li>The atexit() function registers the given function to be called at normal process termination, either via exit(3) or via return from the program’s main(). Functions so registered are called in the reverse order of their registration; no arguments are passed.&lt;/li>
+&lt;li>The atexit() function returns the value 0 if successful; otherwise it returns a nonzero value.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">foo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 4&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Goodbye Foo!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 5&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 6&lt;/span>&lt;span class="kt">void&lt;/span> &lt;span class="nf">bar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Goodbye Bar!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 8&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 9&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">wchar_t&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">argv&lt;/span>&lt;span class="p">[])&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">atexit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">bar&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">atexit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">foo&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">13&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="system-and-more">system and more&lt;/h1>
+&lt;h3 id="system-execute-a-shell-command">System: Execute a Shell Command&lt;/h3>
+&lt;p>&lt;code>int system(const char *command);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The system() library function uses fork(2) to create a child process that executes the shell command specified in command.&lt;/li>
+&lt;li>system() returns after the command has been completed.&lt;/li>
+&lt;/ul>
+&lt;h4 id="fork">fork&lt;/h4>
+&lt;ul>
+&lt;li>fork() creates a new process by duplicating the calling process.&lt;/li>
+&lt;li>This is an important function. However, I will not talk too much about this function but you will learn more in System Programming.
+&lt;figure style="flex-grow: 139; flex-basis: 335px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-07/computer_programming_2-07-01.jpg" data-size="599x429">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-07/computer_programming_2-07-01.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_1024x0_resize_q75_box.jpg 1024w"
+width="599"
+height="429"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>system() is a &lt;!-- raw HTML omitted -->blocking&lt;!-- raw HTML omitted --> function.
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">system&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;while true; do echo &amp;#39;Hit CTRL+C&amp;#39;; sleep 1; done&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">6&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>The system() returns &lt;code>-1&lt;/code> means &lt;!-- raw HTML omitted -->your system cannot fork another process instead of your command fails.&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>You can try a command to delete a non-existing file.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Every system call is &lt;!-- raw HTML omitted -->independent&lt;!-- raw HTML omitted -->.
+&lt;ul>
+&lt;li>So you cannot setup an environment variable and hope other other system calls use this variable.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="popen">popen&lt;/h3>
+&lt;p>&lt;code>FILE *popen(const char *command, const char *type);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The popen() function opens a process by creating a pipe, forking, and invoking the shell.&lt;/li>
+&lt;li>The popen() function returns NULL if the fork(2) or pipe(2) calls fail, or if it cannot allocate memory.&lt;/li>
+&lt;li>別忘了使用 &lt;code>pclose&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdint.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 5&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="n">buffer&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">512&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="ln"> 6&lt;/span> &lt;span class="n">FILE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">pPing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 7&lt;/span> &lt;span class="n">uint32_t&lt;/span> &lt;span class="n">counter&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln"> 8&lt;/span> &lt;span class="n">pPing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">popen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;ping -c 4 www.google.com&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;r&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pPing&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;error end&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="n">exit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="k">while&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">fgets&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">buffer&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">512&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pPing&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">counter&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;--- %d ---&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">counter&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%s&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">buffer&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="ln">18&lt;/span> &lt;span class="n">pclose&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pPing&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">19&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">20&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="assert">assert&lt;/h1>
+&lt;ul>
+&lt;li>In computer programming, an assertion is a statement that a &lt;!-- raw HTML omitted -->predicate&lt;!-- raw HTML omitted --> (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.&lt;/li>
+&lt;li>It can &lt;strong>help&lt;/strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.&lt;/li>
+&lt;li>If the assertion check is not in fact true, an assertion failure, &lt;!-- raw HTML omitted -->the program considers itself to be broken&lt;!-- raw HTML omitted --> and typically deliberately &lt;strong>crashes&lt;/strong> or throws an assertion failure exception.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;code>void assert(scalar expression);&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The macro assert() prints an error message to standard error and terminates the program by calling abort(3) if expression is false.&lt;/li>
+&lt;li>The purpose of this macro is to help programmers find bugs in their programs.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;assert.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">FILE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">fd&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="n">fd&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fopen&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;file.txt&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;r&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">6&lt;/span> &lt;span class="n">assert&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">fd&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">7&lt;/span> &lt;span class="n">fclose&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">fd&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">8&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">9&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>我可以簡單的使用 &lt;code>if-else&lt;/code> 去確認並回傳值。那為什麼還要使用 &lt;code>assert&lt;/code>?
+&lt;ul>
+&lt;li>這取決於您是否可以優雅地處理錯誤。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Note:
+&lt;ul>
+&lt;li>一般來說，&lt;code>assert&lt;/code> 被用在開發階段。&lt;/li>
+&lt;li>當發佈時，請移除所有 &lt;code>assert&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="qsort">qsort&lt;/h1>
+&lt;p>&lt;code>void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>The qsort() function sorts an array with nmemb elements of size size. The base argument points to the start of the array.&lt;/li>
+&lt;li>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. If two members compare as equal, their order in the sorted array is undefined.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln"> 1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="ln"> 4&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">values&lt;/span>&lt;span class="p">[]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">88&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">56&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">25&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;span class="ln"> 5&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">cmpfunc&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 6&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln"> 7&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="ln"> 8&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln"> 9&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">10&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Before sorting the list is:&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">11&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="ln">12&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%d &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">values&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="ln">13&lt;/span> &lt;span class="n">qsort&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">values&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">cmpfunc&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">14&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;After sorting the list is:&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">15&lt;/span> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">)&lt;/span>
+&lt;span class="ln">16&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%d &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">values&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="ln">17&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">18&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="libcurl">libcurl&lt;/h1>
+&lt;ul>
+&lt;li>安裝: &lt;code>sudo apt-get install libcurl4 libcurl4-openssl-dev&lt;/code>&lt;/li>
+&lt;li>使用: &lt;a class="link" href="https://curl.se/libcurl/c/example.html" target="_blank" rel="noopener"
+>Example codes&lt;/a>&lt;/li>
+&lt;li>編譯: &lt;code>gcc -I curl-7.63.0/include -L curl-7.63.0/lib/.libs/ opendata.c -lcurl&lt;/code> (需依照情況自行修改)
+&lt;ul>
+&lt;li>Makefile:
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="ln">1&lt;/span>&lt;span class="nv">CFLAGS&lt;/span> &lt;span class="o">=&lt;/span> -O3 -Wall
+&lt;span class="ln">2&lt;/span>&lt;span class="nv">INCLUDE&lt;/span> &lt;span class="o">=&lt;/span> -I curl-7.63.0/include
+&lt;span class="ln">3&lt;/span>&lt;span class="nv">LIB&lt;/span> &lt;span class="o">=&lt;/span> -L curl-7.63.0/lib/.libs/
+&lt;span class="ln">4&lt;/span>&lt;span class="nf">all&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">opendata&lt;/span>.&lt;span class="n">c&lt;/span>
+&lt;span class="ln">5&lt;/span> gcc &lt;span class="si">${&lt;/span>&lt;span class="nv">CFLAGS&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">INCLUDE&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">LIB&lt;/span>&lt;span class="si">}&lt;/span> opendata.c -o opendata -lcurl
+&lt;span class="ln">6&lt;/span>&lt;span class="nf">clean&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;span class="ln">7&lt;/span> rm -f opendata
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>程式設計(二)-06：Macro</title><link>https://blog.smallten.tk/p/computer_programming_2-06/</link><pubDate>Tue, 13 Jul 2021 20:47:06 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-06/</guid><description>&lt;h1 id="preprocessor-預處理器">Preprocessor 預處理器&lt;/h1>
+&lt;ul>
+&lt;li>在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。&lt;/li>
+&lt;li>Objective: Produce a source code file with preprocessing commands properly sorted out.
+&lt;figure style="flex-grow: 232; flex-basis: 558px">
+&lt;a href="https://blog.smallten.tk/p/computer_programming_2-06/computer_programming_2-06-01.jpg" data-size="896x385">&lt;img src="https://blog.smallten.tk/p/computer_programming_2-06/computer_programming_2-06-01.jpg"
+srcset="https://blog.smallten.tk/p/computer_programming_2-06/computer_programming_2-06-01_huf7812d2979363ef4f58bc7b553e0d967_57019_480x0_resize_q75_box.jpg 480w, https://blog.smallten.tk/p/computer_programming_2-06/computer_programming_2-06-01_huf7812d2979363ef4f58bc7b553e0d967_57019_1024x0_resize_q75_box.jpg 1024w"
+width="896"
+height="385"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/li>
+&lt;li>Preprocessor commands are known as &lt;!-- raw HTML omitted -->Directives&lt;!-- raw HTML omitted -->.&lt;/li>
+&lt;li>Preprocessor provides certain features, which are called &lt;!-- raw HTML omitted -->preprocessor directives&lt;!-- raw HTML omitted -->.&lt;/li>
+&lt;li>Preprocessor directive 以 &lt;code>#&lt;/code> 為開頭。(例如：&lt;code>#include &amp;lt;stdio.h&amp;gt;&lt;/code>)&lt;/li>
+&lt;li>Preprocessor directives 可以被放在程式中的任何地方。但建議放在開頭，並且每個必須獨立一行。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#define MACRO_DEMO 123
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="ln">4&lt;/span> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;demo:␣%d&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MACRO_DEMO&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="ln">5&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="ln">6&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>以 &lt;code>gcc -E main.c&lt;/code> 查看預處理後的狀態。&lt;/li>
+&lt;/ul>
+&lt;h1 id="macro-巨集">Macro 巨集&lt;/h1>
+&lt;ul>
+&lt;li>&lt;code>#define&lt;/code> is known as &lt;!-- raw HTML omitted -->macro expansion&lt;!-- raw HTML omitted -->.&lt;/li>
+&lt;li>General Form: &lt;code>#define macro_template macro_expansion&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="macro-expansion">Macro Expansion&lt;/h2>
+&lt;ul>
+&lt;li>Preprocessor searches for macro definition.&lt;/li>
+&lt;li>After finding macro definition, it searches the whole program for &lt;strong>macro_template&lt;/strong>.&lt;/li>
+&lt;li>&lt;!-- raw HTML omitted -->Replace&lt;!-- raw HTML omitted --> every &lt;strong>macro_template&lt;/strong> with &lt;strong>macro_expansion&lt;/strong>.
+&lt;ul>
+&lt;li>Replacement will not occur if the template is in a quoted string.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Notes:
+&lt;ul>
+&lt;li>通常 macro_template 會使用&lt;!-- raw HTML omitted -->大寫字母&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>不要使用分號 &lt;code>;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>為什麼要用巨集?
+&lt;ul>
+&lt;li>為了寫出更高效率的程式。&lt;/li>
+&lt;li>提高程式的可讀性。&lt;/li>
+&lt;li>定義的巨集名稱可作為其他定義的一部分。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>巨集可以像函式一樣擁有 arguments。&lt;/li>
+&lt;li>Notes：
+&lt;ul>
+&lt;li>在定義巨集時，參數和名稱之間不允許有空格。&lt;/li>
+&lt;li>Macro expansions 應該用括號括起來。&lt;/li>
+&lt;li>使用 &lt;code>\&lt;/code> 將巨集拆分為多行。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="macro-vs-function">Macro vs. Function&lt;/h2>
+&lt;h3 id="macro">Macro&lt;/h3>
+&lt;ul>
+&lt;li>單純替換&lt;/li>
+&lt;li>雖然你可能沒感覺，但比函式更快。&lt;/li>
+&lt;/ul>
+&lt;h3 id="function">Function&lt;/h3>
+&lt;ul>
+&lt;li>傳遞參數 -&amp;gt; 執行 -&amp;gt; 回傳結果&lt;/li>
+&lt;li>支援&lt;!-- raw HTML omitted -->遞迴&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;/ul>
+&lt;h2 id="inline-functions">inline Functions&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>inline&lt;/code> is a CPP keyword.&lt;/li>
+&lt;li>C includes this keyword from C99. Though GNU C (and some other compilers) had inline functions long before standard C.&lt;/li>
+&lt;li>Comparison:
+&lt;ol>
+&lt;li>inline is just a suggestion.&lt;/li>
+&lt;li>inline will check types.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>I will not talk too much about this keyword since it is different from CPP. I do not want to mislead you.&lt;/li>
+&lt;li>If you are interested in this topic, please read &lt;a class="link" href="http://www.greenend.org.uk/rjk/tech/inline.html" target="_blank" rel="noopener"
+>here&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="file-inclusion">File Inclusion&lt;/h1>
+&lt;ul>
+&lt;li>Why File Inclusion?
+&lt;ul>
+&lt;li>Divide a program in multiple files.
+&lt;ul>
+&lt;li>Each file contains related functions.&lt;/li>
+&lt;li>How to classify functions. Up to you.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Some functions or macros are required in lot of programs.
+&lt;ul>
+&lt;li>Put them in a file. Make them a library.&lt;/li>
+&lt;li>Include them when you need them.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>What does Inclusion Mean?
+&lt;ul>
+&lt;li>Nothing but simply &lt;!-- raw HTML omitted -->copy and paste&lt;!-- raw HTML omitted -->.&lt;/li>
+&lt;li>&lt;!-- raw HTML omitted -->Nested Inclusion&lt;!-- raw HTML omitted --> is supported.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="conditional-compilation">Conditional Compilation&lt;/h1>
+&lt;ul>
+&lt;li>Write one code to run on different environments.
+&lt;ul>
+&lt;li>&lt;code>#if&lt;/code>: if.&lt;/li>
+&lt;li>&lt;code>#else&lt;/code>: else.&lt;/li>
+&lt;li>&lt;code>#elif&lt;/code>: else if.&lt;/li>
+&lt;li>&lt;code>#endif&lt;/code>: end if.&lt;/li>
+&lt;li>&lt;code>#ifdef&lt;/code>: if defined.&lt;/li>
+&lt;li>&lt;code>#ifndef&lt;/code>: if not defined.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ifdef-and-endif">ifdef and endif&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#ifdef macroname
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">&lt;/span> &lt;span class="n">statement&lt;/span> &lt;span class="n">sequence&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;span class="ln">3&lt;/span>&lt;span class="cp">#endif
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>如果 macroname 被定義了，那麼 &lt;code>#ifdef&lt;/code> 和 &lt;code>#endif&lt;/code> 之間的程式將被執行。&lt;/li>
+&lt;li>範例：
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#ifndef TEST_H
+&lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#define TEST_H
+&lt;/span>&lt;span class="ln">3&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="p">...&lt;/span>
+&lt;span class="ln">4&lt;/span>&lt;span class="cp">#endif
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>但也可用 &lt;code>#pragma once&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>&lt;code>gcc -D OS_LINUX os_dependent.c&lt;/code>&lt;/li>
+&lt;li>&lt;code>-D&lt;/code>: Predefine name as a macro, with definition 1.&lt;/li>
+&lt;li>So one code can be executed on different OSs. What you need to do is to build your code with different definitions.&lt;/li>
+&lt;li>This is a very useful technique. Let’s see a real case (&lt;a class="link" href="https://github.com/DaveGamble/cJSON/blob/master/cJSON.h" target="_blank" rel="noopener"
+>cJSON&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>請自行去了解 &lt;code>#&lt;/code> 及 &lt;code>##&lt;/code> 在巨集中的作用。&lt;/li>
+&lt;/ul></description></item><item><title>程式設計(二)-05：Variable Length Arguments List</title><link>https://blog.smallten.tk/p/computer_programming_2-05/</link><pubDate>Mon, 12 Jul 2021 21:57:26 +0800</pubDate><guid>https://blog.smallten.tk/p/computer_programming_2-05/</guid><description>&lt;h1 id="program-argument">Program Argument&lt;/h1>
 &lt;h3 id="argc-argv">argc, argv&lt;/h3>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="ln">1&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
 &lt;/span>&lt;span class="ln">2&lt;/span>&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
