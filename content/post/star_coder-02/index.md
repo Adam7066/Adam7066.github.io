@@ -13,7 +13,7 @@ categories:
 # 題目
 - [Virtual Judge](https://vjudge.net/contest/446298)
 
-# 題解
+# 參考作法
 ## A - Flip Sort
 - 題目說明：
     - 給一堆數字，輸出要交換(只能相鄰交換)多少次，才能由小到大排好。
