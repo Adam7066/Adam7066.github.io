@@ -1,19 +1,128 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上  相關連結  Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦  教學開始 建立 Hugo Blog  安裝 Hugo  這裡以 Ubuntu 為示範 先至 Hugo Releases 下載自己所需的版本 1$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb # 記得依照檔案自行更改    創建一個 Hugo Site  這裡創建一個名為 blog 1$ cd ~ 2$ hugo new site blog # 可自行修改名稱    新增主題  這裡我選擇了 Stack 這個主題  1$ cd ~/blog/ 2$ git submodule add https://github."><title>Hugo-01：建立一個Hugo Blog</title><link rel=canonical href=https://blog.smallten.tk/p/hugo-01/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Hugo-01：建立一個Hugo Blog"><meta property="og:description" content="簡介  這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上  相關連結  Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦  教學開始 建立 Hugo Blog  安裝 Hugo  這裡以 Ubuntu 為示範 先至 Hugo Releases 下載自己所需的版本 1$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb # 記得依照檔案自行更改    創建一個 Hugo Site  這裡創建一個名為 blog 1$ cd ~ 2$ hugo new site blog # 可自行修改名稱    新增主題  這裡我選擇了 Stack 這個主題  1$ cd ~/blog/ 2$ git submodule add https://github."><meta property="og:url" content="https://blog.smallten.tk/p/hugo-01/"><meta property="og:site_name" content="小十的部落格"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Hugo"><meta property="article:published_time" content="2021-02-07T03:22:22+08:00"><meta property="article:modified_time" content="2021-02-07T03:22:22+08:00"><meta name=twitter:title content="Hugo-01：建立一個Hugo Blog"><meta name=twitter:description content="簡介  這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上  相關連結  Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦  教學開始 建立 Hugo Blog  安裝 Hugo  這裡以 Ubuntu 為示範 先至 Hugo Releases 下載自己所需的版本 1$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb # 記得依照檔案自行更改    創建一個 Hugo Site  這裡創建一個名為 blog 1$ cd ~ 2$ hugo new site blog # 可自行修改名稱    新增主題  這裡我選擇了 Stack 這個主題  1$ cd ~/blog/ 2$ git submodule add https://github."><script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css><link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><link rel=manifest href=/favicon/site.webmanifest><link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"></head><body><script>(function(){const colorSchemeKey='StackColorScheme';if(!localStorage.getItem(colorSchemeKey)){localStorage.setItem(colorSchemeKey,"auto");}})();</script><script>(function(){const colorSchemeKey='StackColorScheme';const colorSchemeItem=localStorage.getItem(colorSchemeKey);const supportDarkMode=window.matchMedia('(prefers-color-scheme: dark)').matches===true;if(colorSchemeItem=='dark'||colorSchemeItem==='auto'&&supportDarkMode){document.body.dataset.scheme='dark';}else{document.body.dataset.scheme='light';}})();</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/header_hu4cfb69605c22b48cecb92135d5094273_5680_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></figure><h1 class=site-name><a href=https://blog.smallten.tk/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><h2 class=article-title><a href=/p/hugo-01/>Hugo-01：建立一個Hugo Blog</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Feb 07, 2021</time></footer></div></header><section class=article-content><h1 id=簡介>簡介</h1><ul><li>這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上</li></ul><h1 id=相關連結>相關連結</h1><ul><li><a class=link href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> - Hugo 官網</li><li><a class=link href=https://themes.gohugo.io/ target=_blank rel=noopener>Hugo Themes</a> - 選擇自己喜歡的主題</li><li><a class=link href=https://github.com/gohugoio/hugo/releases target=_blank rel=noopener>Hugo Releases</a> - 下載 Hugo 並安裝進電腦</li></ul><h1 id=教學開始>教學開始</h1><h2 id=建立-hugo-blog>建立 Hugo Blog</h2><ol><li>安裝 Hugo<ul><li>這裡以 Ubuntu 為示範</li><li>先至 <a class=link href=https://github.com/gohugoio/hugo/releases target=_blank rel=noopener>Hugo Releases</a> 下載自己所需的版本<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb <span class=c1># 記得依照檔案自行更改</span>
-</code></pre></div></li></ul></li><li>創建一個 Hugo Site<ul><li>這裡創建一個名為 blog<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>cd</span> ~
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上  相關連結  Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦  教學開始 建立 Hugo Blog  安裝 Hugo  這裡以 Ubuntu 為示範 先至 Hugo Releases 下載自己所需的版本 1$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb # 記得依照檔案自行更改    創建一個 Hugo Site  這裡創建一個名為 blog 1$ cd ~ 2$ hugo new site blog # 可自行修改名稱    新增主題  這裡我選擇了 Stack 這個主題  1$ cd ~/blog/ 2$ git submodule add https://github."><title>Hugo-01：建立一個Hugo Blog</title>
+<link rel=canonical href=https://blog.smallten.tk/p/hugo-01/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Hugo-01：建立一個Hugo Blog">
+<meta property="og:description" content="簡介  這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上  相關連結  Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦  教學開始 建立 Hugo Blog  安裝 Hugo  這裡以 Ubuntu 為示範 先至 Hugo Releases 下載自己所需的版本 1$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb # 記得依照檔案自行更改    創建一個 Hugo Site  這裡創建一個名為 blog 1$ cd ~ 2$ hugo new site blog # 可自行修改名稱    新增主題  這裡我選擇了 Stack 這個主題  1$ cd ~/blog/ 2$ git submodule add https://github.">
+<meta property="og:url" content="https://blog.smallten.tk/p/hugo-01/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Hugo"><meta property="article:published_time" content="2021-02-07T03:22:22+08:00"><meta property="article:modified_time" content="2021-02-07T03:22:22+08:00">
+<meta name=twitter:title content="Hugo-01：建立一個Hugo Blog">
+<meta name=twitter:description content="簡介  這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上  相關連結  Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦  教學開始 建立 Hugo Blog  安裝 Hugo  這裡以 Ubuntu 為示範 先至 Hugo Releases 下載自己所需的版本 1$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb # 記得依照檔案自行更改    創建一個 Hugo Site  這裡創建一個名為 blog 1$ cd ~ 2$ hugo new site blog # 可自行修改名稱    新增主題  這裡我選擇了 Stack 這個主題  1$ cd ~/blog/ 2$ git submodule add https://github.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css>
+<link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png>
+<link rel=manifest href=/favicon/site.webmanifest>
+<link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<h2 class=article-title>
+<a href=/p/hugo-01/>Hugo-01：建立一個Hugo Blog</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Feb 07, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+1 min read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=簡介>簡介</h1>
+<ul>
+<li>這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上</li>
+</ul>
+<h1 id=相關連結>相關連結</h1>
+<ul>
+<li><a class=link href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> - Hugo 官網</li>
+<li><a class=link href=https://themes.gohugo.io/ target=_blank rel=noopener>Hugo Themes</a> - 選擇自己喜歡的主題</li>
+<li><a class=link href=https://github.com/gohugoio/hugo/releases target=_blank rel=noopener>Hugo Releases</a> - 下載 Hugo 並安裝進電腦</li>
+</ul>
+<h1 id=教學開始>教學開始</h1>
+<h2 id=建立-hugo-blog>建立 Hugo Blog</h2>
+<ol>
+<li>安裝 Hugo
+<ul>
+<li>這裡以 Ubuntu 為示範</li>
+<li>先至 <a class=link href=https://github.com/gohugoio/hugo/releases target=_blank rel=noopener>Hugo Releases</a> 下載自己所需的版本
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb <span class=c1># 記得依照檔案自行更改</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>創建一個 Hugo Site
+<ul>
+<li>這裡創建一個名為 blog
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>cd</span> ~
 <span class=ln>2</span>$ hugo new site blog <span class=c1># 可自行修改名稱</span>
-</code></pre></div></li></ul></li><li>新增主題<ul><li>這裡我選擇了 <a class=link href=https://themes.gohugo.io/hugo-theme-stack/ target=_blank rel=noopener>Stack</a> 這個主題</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>cd</span> ~/blog/
+</code></pre></div></li>
+</ul>
+</li>
+<li>新增主題
+<ul>
+<li>這裡我選擇了 <a class=link href=https://themes.gohugo.io/hugo-theme-stack/ target=_blank rel=noopener>Stack</a> 這個主題</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>cd</span> ~/blog/
 <span class=ln>2</span>$ git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
-</code></pre></div></li><li>跟著主題的教學文檔修改 config file</li><li>如要建立新文章時<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ hugo new post/test.md
-</code></pre></div><ul><li>此時會在 <code>content/post/</code> 下，建立新文章，檔名為 <code>test.md</code></li><li><code>draft</code>: 草稿</li><li><code>slug</code>: 此文章的 url (可自行建立)</li></ul></li><li>本機測試<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ hugo server -D
-</code></pre></div><ul><li><code>-D</code>: 將會連草稿都顯示出來</li></ul></li></ol><h2 id=部署到-github>部署到 GitHub</h2><ol><li>在 GitHub 上建立一個新的 Repository<ul><li>名稱為 <code>"Your account".github.io</code> (&ldquo;Your account&rdquo; 使用自己 GitHub 的名稱)</li></ul></li><li>將剛才建立好的 Blog 上到這個 Repo<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>cd</span> ~/blog/
+</code></pre></div></li>
+<li>跟著主題的教學文檔修改 config file</li>
+<li>如要建立新文章時
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ hugo new post/test.md
+</code></pre></div><ul>
+<li>此時會在 <code>content/post/</code> 下，建立新文章，檔名為 <code>test.md</code></li>
+<li><code>draft</code>: 草稿</li>
+<li><code>slug</code>: 此文章的 url (可自行建立)</li>
+</ul>
+</li>
+<li>本機測試
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ hugo server -D
+</code></pre></div><ul>
+<li><code>-D</code>: 將會連草稿都顯示出來</li>
+</ul>
+</li>
+</ol>
+<h2 id=部署到-github>部署到 GitHub</h2>
+<ol>
+<li>在 GitHub 上建立一個新的 Repository
+<ul>
+<li>名稱為 <code>"Your account".github.io</code> (&ldquo;Your account&rdquo; 使用自己 GitHub 的名稱)</li>
+</ul>
+</li>
+<li>將剛才建立好的 Blog 上到這個 Repo
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>cd</span> ~/blog/
 <span class=ln>2</span>$ git add --all
 <span class=ln>3</span>$ git commit -m <span class=s2>&#34;blog init&#34;</span>
 <span class=ln>4</span>$ git branch -M main
 <span class=ln>5</span>$ git remote add origin git@github.com... <span class=c1>#這裡使用了 ssh 的方式</span>
 <span class=ln>6</span>$ git push -u origin main
-</code></pre></div></li><li>使用 GitHub Actions<ul><li>建立一個一個 workflows 名叫 <code>hugo_publish.yml</code>，內容如下 (有些地方須自行依照情況修改)</li></ul><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=ln> 1</span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>github pages</span><span class=w>
+</code></pre></div></li>
+<li>使用 GitHub Actions
+<ul>
+<li>建立一個一個 workflows 名叫 <code>hugo_publish.yml</code>，內容如下 (有些地方須自行依照情況修改)</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln> 1</span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>github pages</span><span class=w>
 </span><span class=ln> 2</span><span class=w>
 </span><span class=ln> 3</span><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
 </span><span class=ln> 4</span><span class=w></span><span class=nt>push</span><span class=p>:</span><span class=w>
@@ -45,9 +154,93 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 </span><span class=ln>30</span><span class=w>        </span><span class=nt>github_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GITHUB_TOKEN }}</span><span class=w>
 </span><span class=ln>31</span><span class=w>        </span><span class=nt>publish_dir</span><span class=p>:</span><span class=w> </span><span class=l>./public</span><span class=w>
 </span><span class=ln>32</span><span class=w>        </span><span class=nt>cname</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;blog.smallten.tk&#39;</span><span class=w>
-</span></code></pre></div></li><li>修改 Repo 的設定<ul><li>先找到 GitHub Pages 的地方</li><li>將 Source 改成 <code>Branch: gh-pages</code></li><li>有 custom domain 的記得填入</li><li>Enforce HTTPS 打勾</li></ul></li><li>這樣就完成了，之後只要 push 時，便會自動更新網站了</li></ol></section><footer class=article-footer><section class=article-tags><a href=/tags/hugo/>Hugo</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=StackLaTeX()></script><script>function StackLaTeX(){renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}]});}</script></article><aside class=related-contents--wrapper></aside><footer class=site-footer><section class=copyright>&copy;
-2021 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.0.1>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+</span></code></pre></div></li>
+<li>修改 Repo 的設定
+<ul>
+<li>先找到 GitHub Pages 的地方</li>
+<li>將 Source 改成 <code>Branch: gh-pages</code></li>
+<li>有 custom domain 的記得填入</li>
+<li>Enforce HTTPS 打勾</li>
+</ul>
+</li>
+<li>這樣就完成了，之後只要 push 時，便會自動更新網站了</li>
+</ol>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/hugo/>Hugo</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const customFont=document.createElement('link');customFont.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";customFont.type="text/css";customFont.rel="stylesheet";document.head.appendChild(customFont);}());</script><script src=/js/copy-to-clipboard.js></script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#建立-hugo-blog>建立 Hugo Blog</a></li>
+<li><a href=#部署到-github>部署到 GitHub</a></li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<script src=/js/copy-to-clipboard.js></script>
+</body>
+</html>

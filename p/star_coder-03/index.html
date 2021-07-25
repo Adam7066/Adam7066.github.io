@@ -1,6 +1,67 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="主題  STL、併查集  併查集模板 1int dsu[MAX_N]; 2void init(int num) { 3 for(int i = 0; i &amp;lt;= num; ++i) 4 dsu[i] = i; 5} 6int Find(int x) { 7 if(x == dsu[x]) return x; 8 return dsu[x] = Find(dsu[x]); 9} 10void Union(int x, int y) { 11 int a = Find(x), b = Find(y); 12 if(a != b) dsu[a] = b; 13} 題目  Virtual Judge 題目列表與提示    題目 題目需求 採用結構 優先練習     UVa 673 括號匹配與 LIFO 操作 std::stack v   UVa 442 括號匹配與 LIFO 操作 std::stack    UVa 12100 遍歷和 FIFO 操作 std::queue (加上 std::priority_queue 效率更高) v   UVa 245 取出第 n 個以及插入頭端 std::list / std::deque / std::vector    UVa 1203 插入與取出最小值 std::priority_queue v   UVa 11995 模擬 stack, queue, priority_queue std::stack, std::queue, std::priority_queue v   UVa 10583 標準併查集操作 disjoint set v   UVa 11987 併查集的變化題(值得思考) disjoint set    UVa 1665 判斷連通塊數 disjoint set    UVa 230 字串排序與搜尋 std::map / std::set v   UVa 1592 字串比較（將字串轉成數值以加快比較） std::map       參考作法 A - Parentheses Balance 1#include &amp;lt;bits/stdc++."><title>StarCoder2021暑訓：Week02</title><link rel=canonical href=https://blog.smallten.tk/p/star_coder-03/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓：Week02"><meta property="og:description" content="主題  STL、併查集  併查集模板 1int dsu[MAX_N]; 2void init(int num) { 3 for(int i = 0; i &amp;lt;= num; ++i) 4 dsu[i] = i; 5} 6int Find(int x) { 7 if(x == dsu[x]) return x; 8 return dsu[x] = Find(dsu[x]); 9} 10void Union(int x, int y) { 11 int a = Find(x), b = Find(y); 12 if(a != b) dsu[a] = b; 13} 題目  Virtual Judge 題目列表與提示    題目 題目需求 採用結構 優先練習     UVa 673 括號匹配與 LIFO 操作 std::stack v   UVa 442 括號匹配與 LIFO 操作 std::stack    UVa 12100 遍歷和 FIFO 操作 std::queue (加上 std::priority_queue 效率更高) v   UVa 245 取出第 n 個以及插入頭端 std::list / std::deque / std::vector    UVa 1203 插入與取出最小值 std::priority_queue v   UVa 11995 模擬 stack, queue, priority_queue std::stack, std::queue, std::priority_queue v   UVa 10583 標準併查集操作 disjoint set v   UVa 11987 併查集的變化題(值得思考) disjoint set    UVa 1665 判斷連通塊數 disjoint set    UVa 230 字串排序與搜尋 std::map / std::set v   UVa 1592 字串比較（將字串轉成數值以加快比較） std::map       參考作法 A - Parentheses Balance 1#include &amp;lt;bits/stdc++."><meta property="og:url" content="https://blog.smallten.tk/p/star_coder-03/"><meta property="og:site_name" content="小十的部落格"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="UVA"><meta property="article:published_time" content="2021-07-24T08:26:57+08:00"><meta property="article:modified_time" content="2021-07-24T08:26:57+08:00"><meta name=twitter:title content="StarCoder2021暑訓：Week02"><meta name=twitter:description content="主題  STL、併查集  併查集模板 1int dsu[MAX_N]; 2void init(int num) { 3 for(int i = 0; i &amp;lt;= num; ++i) 4 dsu[i] = i; 5} 6int Find(int x) { 7 if(x == dsu[x]) return x; 8 return dsu[x] = Find(dsu[x]); 9} 10void Union(int x, int y) { 11 int a = Find(x), b = Find(y); 12 if(a != b) dsu[a] = b; 13} 題目  Virtual Judge 題目列表與提示    題目 題目需求 採用結構 優先練習     UVa 673 括號匹配與 LIFO 操作 std::stack v   UVa 442 括號匹配與 LIFO 操作 std::stack    UVa 12100 遍歷和 FIFO 操作 std::queue (加上 std::priority_queue 效率更高) v   UVa 245 取出第 n 個以及插入頭端 std::list / std::deque / std::vector    UVa 1203 插入與取出最小值 std::priority_queue v   UVa 11995 模擬 stack, queue, priority_queue std::stack, std::queue, std::priority_queue v   UVa 10583 標準併查集操作 disjoint set v   UVa 11987 併查集的變化題(值得思考) disjoint set    UVa 1665 判斷連通塊數 disjoint set    UVa 230 字串排序與搜尋 std::map / std::set v   UVa 1592 字串比較（將字串轉成數值以加快比較） std::map       參考作法 A - Parentheses Balance 1#include &amp;lt;bits/stdc++."><script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css><link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><link rel=manifest href=/favicon/site.webmanifest><link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"></head><body><script>(function(){const colorSchemeKey='StackColorScheme';if(!localStorage.getItem(colorSchemeKey)){localStorage.setItem(colorSchemeKey,"auto");}})();</script><script>(function(){const colorSchemeKey='StackColorScheme';const colorSchemeItem=localStorage.getItem(colorSchemeKey);const supportDarkMode=window.matchMedia('(prefers-color-scheme: dark)').matches===true;if(colorSchemeItem=='dark'||colorSchemeItem==='auto'&&supportDarkMode){document.body.dataset.scheme='dark';}else{document.body.dataset.scheme='light';}})();</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/header_hu4cfb69605c22b48cecb92135d5094273_5680_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></figure><h1 class=site-name><a href=https://blog.smallten.tk/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/starcoder/>StarCoder</a></header><h2 class=article-title><a href=/p/star_coder-03/>StarCoder2021暑訓：Week02</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jul 24, 2021</time></footer></div></header><section class=article-content><h1 id=主題>主題</h1><ul><li>STL、併查集</li></ul><h2 id=併查集模板>併查集模板</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=kt>int</span> <span class=n>dsu</span><span class=p>[</span><span class=n>MAX_N</span><span class=p>];</span>
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="主題  STL、併查集  併查集模板 1int dsu[MAX_N]; 2void init(int num) { 3 for(int i = 0; i &amp;lt;= num; ++i) 4 dsu[i] = i; 5} 6int Find(int x) { 7 if(x == dsu[x]) return x; 8 return dsu[x] = Find(dsu[x]); 9} 10void Union(int x, int y) { 11 int a = Find(x), b = Find(y); 12 if(a != b) dsu[a] = b; 13} 題目  Virtual Judge 題目列表與提示    題目 題目需求 採用結構 優先練習     UVa 673 括號匹配與 LIFO 操作 std::stack v   UVa 442 括號匹配與 LIFO 操作 std::stack    UVa 12100 遍歷和 FIFO 操作 std::queue (加上 std::priority_queue 效率更高) v   UVa 245 取出第 n 個以及插入頭端 std::list / std::deque / std::vector    UVa 1203 插入與取出最小值 std::priority_queue v   UVa 11995 模擬 stack, queue, priority_queue std::stack, std::queue, std::priority_queue v   UVa 10583 標準併查集操作 disjoint set v   UVa 11987 併查集的變化題(值得思考) disjoint set    UVa 1665 判斷連通塊數 disjoint set    UVa 230 字串排序與搜尋 std::map / std::set v   UVa 1592 字串比較（將字串轉成數值以加快比較） std::map       參考作法 A - Parentheses Balance 1#include &amp;lt;bits/stdc++."><title>StarCoder2021暑訓：Week02</title>
+<link rel=canonical href=https://blog.smallten.tk/p/star_coder-03/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓：Week02">
+<meta property="og:description" content="主題  STL、併查集  併查集模板 1int dsu[MAX_N]; 2void init(int num) { 3 for(int i = 0; i &amp;lt;= num; ++i) 4 dsu[i] = i; 5} 6int Find(int x) { 7 if(x == dsu[x]) return x; 8 return dsu[x] = Find(dsu[x]); 9} 10void Union(int x, int y) { 11 int a = Find(x), b = Find(y); 12 if(a != b) dsu[a] = b; 13} 題目  Virtual Judge 題目列表與提示    題目 題目需求 採用結構 優先練習     UVa 673 括號匹配與 LIFO 操作 std::stack v   UVa 442 括號匹配與 LIFO 操作 std::stack    UVa 12100 遍歷和 FIFO 操作 std::queue (加上 std::priority_queue 效率更高) v   UVa 245 取出第 n 個以及插入頭端 std::list / std::deque / std::vector    UVa 1203 插入與取出最小值 std::priority_queue v   UVa 11995 模擬 stack, queue, priority_queue std::stack, std::queue, std::priority_queue v   UVa 10583 標準併查集操作 disjoint set v   UVa 11987 併查集的變化題(值得思考) disjoint set    UVa 1665 判斷連通塊數 disjoint set    UVa 230 字串排序與搜尋 std::map / std::set v   UVa 1592 字串比較（將字串轉成數值以加快比較） std::map       參考作法 A - Parentheses Balance 1#include &amp;lt;bits/stdc++.">
+<meta property="og:url" content="https://blog.smallten.tk/p/star_coder-03/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="UVA"><meta property="article:published_time" content="2021-07-24T08:26:57+08:00"><meta property="article:modified_time" content="2021-07-24T08:26:57+08:00">
+<meta name=twitter:title content="StarCoder2021暑訓：Week02">
+<meta name=twitter:description content="主題  STL、併查集  併查集模板 1int dsu[MAX_N]; 2void init(int num) { 3 for(int i = 0; i &amp;lt;= num; ++i) 4 dsu[i] = i; 5} 6int Find(int x) { 7 if(x == dsu[x]) return x; 8 return dsu[x] = Find(dsu[x]); 9} 10void Union(int x, int y) { 11 int a = Find(x), b = Find(y); 12 if(a != b) dsu[a] = b; 13} 題目  Virtual Judge 題目列表與提示    題目 題目需求 採用結構 優先練習     UVa 673 括號匹配與 LIFO 操作 std::stack v   UVa 442 括號匹配與 LIFO 操作 std::stack    UVa 12100 遍歷和 FIFO 操作 std::queue (加上 std::priority_queue 效率更高) v   UVa 245 取出第 n 個以及插入頭端 std::list / std::deque / std::vector    UVa 1203 插入與取出最小值 std::priority_queue v   UVa 11995 模擬 stack, queue, priority_queue std::stack, std::queue, std::priority_queue v   UVa 10583 標準併查集操作 disjoint set v   UVa 11987 併查集的變化題(值得思考) disjoint set    UVa 1665 判斷連通塊數 disjoint set    UVa 230 字串排序與搜尋 std::map / std::set v   UVa 1592 字串比較（將字串轉成數值以加快比較） std::map       參考作法 A - Parentheses Balance 1#include &amp;lt;bits/stdc++.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css>
+<link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png>
+<link rel=manifest href=/favicon/site.webmanifest>
+<link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/starcoder/>
+StarCoder
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/star_coder-03/>StarCoder2021暑訓：Week02</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 24, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+11 min read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=主題>主題</h1>
+<ul>
+<li>STL、併查集</li>
+</ul>
+<h2 id=併查集模板>併查集模板</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=kt>int</span> <span class=n>dsu</span><span class=p>[</span><span class=n>MAX_N</span><span class=p>];</span>
 <span class=ln> 2</span><span class=kt>void</span> <span class=nf>init</span><span class=p>(</span><span class=kt>int</span> <span class=n>num</span><span class=p>)</span> <span class=p>{</span>
 <span class=ln> 3</span>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=n>num</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span>
 <span class=ln> 4</span>        <span class=n>dsu</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
@@ -13,7 +74,93 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>11</span>    <span class=kt>int</span> <span class=n>a</span> <span class=o>=</span> <span class=n>Find</span><span class=p>(</span><span class=n>x</span><span class=p>),</span> <span class=n>b</span> <span class=o>=</span> <span class=n>Find</span><span class=p>(</span><span class=n>y</span><span class=p>);</span>
 <span class=ln>12</span>    <span class=k>if</span><span class=p>(</span><span class=n>a</span> <span class=o>!=</span> <span class=n>b</span><span class=p>)</span> <span class=n>dsu</span><span class=p>[</span><span class=n>a</span><span class=p>]</span> <span class=o>=</span> <span class=n>b</span><span class=p>;</span>
 <span class=ln>13</span><span class=p>}</span>
-</code></pre></div><h1 id=題目>題目</h1><ul><li><a class=link href=https://vjudge.net/contest/447620 target=_blank rel=noopener>Virtual Judge</a></li><li>題目列表與提示<table><thead><tr><th>題目</th><th>題目需求</th><th>採用結構</th><th style=text-align:center>優先練習</th></tr></thead><tbody><tr><td>UVa 673</td><td>括號匹配與 LIFO 操作</td><td>std::stack</td><td style=text-align:center>v</td></tr><tr><td>UVa 442</td><td>括號匹配與 LIFO 操作</td><td>std::stack</td><td></td></tr><tr><td>UVa 12100</td><td>遍歷和 FIFO 操作</td><td>std::queue (加上 std::priority_queue 效率更高)</td><td style=text-align:center>v</td></tr><tr><td>UVa 245</td><td>取出第 n 個以及插入頭端</td><td>std::list / std::deque / std::vector</td><td></td></tr><tr><td>UVa 1203</td><td>插入與取出最小值</td><td>std::priority_queue</td><td style=text-align:center>v</td></tr><tr><td>UVa 11995</td><td>模擬 stack, queue, priority_queue</td><td>std::stack, std::queue, std::priority_queue</td><td style=text-align:center>v</td></tr><tr><td>UVa 10583</td><td>標準併查集操作</td><td>disjoint set</td><td style=text-align:center>v</td></tr><tr><td>UVa 11987</td><td>併查集的變化題(值得思考)</td><td>disjoint set</td><td></td></tr><tr><td>UVa 1665</td><td>判斷連通塊數</td><td>disjoint set</td><td></td></tr><tr><td>UVa 230</td><td>字串排序與搜尋</td><td>std::map / std::set</td><td style=text-align:center>v</td></tr><tr><td>UVa 1592</td><td>字串比較（將字串轉成數值以加快比較）</td><td>std::map</td><td></td></tr></tbody></table></li></ul><h1 id=參考作法>參考作法</h1><h2 id=a---parentheses-balance>A - Parentheses Balance</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h1 id=題目>題目</h1>
+<ul>
+<li><a class=link href=https://vjudge.net/contest/447620 target=_blank rel=noopener>Virtual Judge</a></li>
+<li>題目列表與提示
+<table>
+<thead>
+<tr>
+<th>題目</th>
+<th>題目需求</th>
+<th>採用結構</th>
+<th style=text-align:center>優先練習</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UVa 673</td>
+<td>括號匹配與 LIFO 操作</td>
+<td>std::stack</td>
+<td style=text-align:center>v</td>
+</tr>
+<tr>
+<td>UVa 442</td>
+<td>括號匹配與 LIFO 操作</td>
+<td>std::stack</td>
+<td></td>
+</tr>
+<tr>
+<td>UVa 12100</td>
+<td>遍歷和 FIFO 操作</td>
+<td>std::queue (加上 std::priority_queue 效率更高)</td>
+<td style=text-align:center>v</td>
+</tr>
+<tr>
+<td>UVa 245</td>
+<td>取出第 n 個以及插入頭端</td>
+<td>std::list / std::deque / std::vector</td>
+<td></td>
+</tr>
+<tr>
+<td>UVa 1203</td>
+<td>插入與取出最小值</td>
+<td>std::priority_queue</td>
+<td style=text-align:center>v</td>
+</tr>
+<tr>
+<td>UVa 11995</td>
+<td>模擬 stack, queue, priority_queue</td>
+<td>std::stack, std::queue, std::priority_queue</td>
+<td style=text-align:center>v</td>
+</tr>
+<tr>
+<td>UVa 10583</td>
+<td>標準併查集操作</td>
+<td>disjoint set</td>
+<td style=text-align:center>v</td>
+</tr>
+<tr>
+<td>UVa 11987</td>
+<td>併查集的變化題(值得思考)</td>
+<td>disjoint set</td>
+<td></td>
+</tr>
+<tr>
+<td>UVa 1665</td>
+<td>判斷連通塊數</td>
+<td>disjoint set</td>
+<td></td>
+</tr>
+<tr>
+<td>UVa 230</td>
+<td>字串排序與搜尋</td>
+<td>std::map / std::set</td>
+<td style=text-align:center>v</td>
+</tr>
+<tr>
+<td>UVa 1592</td>
+<td>字串比較（將字串轉成數值以加快比較）</td>
+<td>std::map</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h1 id=參考作法>參考作法</h1>
+<h2 id=a---parentheses-balance>A - Parentheses Balance</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 3</span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln> 4</span>    <span class=kt>int</span> <span class=n>n</span><span class=p>;</span>
@@ -38,7 +185,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>23</span>    <span class=p>}</span>
 <span class=ln>24</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>25</span><span class=p>}</span>
-</code></pre></div><h2 id=b---matrix-chain-multiplication>B - Matrix Chain Multiplication</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=b---matrix-chain-multiplication>B - Matrix Chain Multiplication</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 3</span><span class=k>struct</span> <span class=nc>Matrix</span> <span class=p>{</span>
 <span class=ln> 4</span>    <span class=kt>int</span> <span class=n>row</span><span class=p>,</span> <span class=n>col</span><span class=p>;</span>
@@ -79,7 +227,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>39</span>    <span class=p>}</span>
 <span class=ln>40</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>41</span><span class=p>}</span>
-</code></pre></div><h2 id=c---printer-queue>C - Printer Queue</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=c---printer-queue>C - Printer Queue</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 3</span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln> 4</span>    <span class=kt>int</span> <span class=n>T</span><span class=p>;</span>
@@ -116,7 +265,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>35</span>    <span class=p>}</span>
 <span class=ln>36</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>37</span><span class=p>}</span>
-</code></pre></div><h2 id=d---uncompress>D - Uncompress</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=d---uncompress>D - Uncompress</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 3</span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln> 4</span>    <span class=n>vector</span><span class=o>&lt;</span><span class=n>string</span><span class=o>&gt;</span> <span class=n>vs</span><span class=p>;</span>
@@ -148,7 +298,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>30</span>    <span class=p>}</span>
 <span class=ln>31</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>32</span><span class=p>}</span>
-</code></pre></div><h2 id=e---argus>E - Argus</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=e---argus>E - Argus</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 3</span><span class=k>using</span> <span class=n>tiii</span> <span class=o>=</span> <span class=n>tuple</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span><span class=p>;</span> <span class=c1>// time, query_num, period
 </span><span class=ln> 4</span><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
@@ -166,7 +317,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>16</span>    <span class=p>}</span>
 <span class=ln>17</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>18</span><span class=p>}</span>
-</code></pre></div><h2 id=f---i-can-guess-the-data-structure>F - I Can Guess the Data Structure!</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=f---i-can-guess-the-data-structure>F - I Can Guess the Data Structure!</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=ln> 3</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 4</span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
@@ -210,7 +362,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>42</span>    <span class=p>}</span>
 <span class=ln>43</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>44</span><span class=p>}</span>
-</code></pre></div><h2 id=g---ubiquitous-religions>G - Ubiquitous Religions</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=g---ubiquitous-religions>G - Ubiquitous Religions</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=ln> 3</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 4</span><span class=kt>int</span> <span class=n>dsu</span><span class=p>[</span><span class=mi>50005</span><span class=p>];</span>
@@ -244,7 +397,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>32</span>    <span class=p>}</span>
 <span class=ln>33</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>34</span><span class=p>}</span>
-</code></pre></div><h2 id=h---almost-union-find>H - Almost Union-Find</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=h---almost-union-find>H - Almost Union-Find</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=ln> 3</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 4</span><span class=kt>int</span> <span class=n>dsu</span><span class=p>[</span><span class=mi>200005</span><span class=p>],</span> <span class=n>num</span><span class=p>[</span><span class=mi>200005</span><span class=p>],</span> <span class=n>sum</span><span class=p>[</span><span class=mi>200005</span><span class=p>];</span>
@@ -295,7 +449,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>49</span>    <span class=p>}</span>
 <span class=ln>50</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>51</span><span class=p>}</span>
-</code></pre></div><h2 id=i---islands>I - Islands</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=i---islands>I - Islands</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=ln> 3</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 4</span><span class=kt>int</span> <span class=n>n</span><span class=p>,</span> <span class=n>m</span><span class=p>,</span> <span class=n>total</span><span class=p>,</span> <span class=n>dsu</span><span class=p>[</span><span class=mi>1000010</span><span class=p>];</span>
@@ -368,7 +523,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>71</span>    <span class=p>}</span>
 <span class=ln>72</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>73</span><span class=p>}</span>
-</code></pre></div><h2 id=j---borrowers>J - Borrowers</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=j---borrowers>J - Borrowers</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=ln> 3</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 4</span><span class=n>map</span><span class=o>&lt;</span><span class=n>string</span><span class=p>,</span> <span class=n>string</span><span class=o>&gt;</span> <span class=n>mss</span><span class=p>;</span>
@@ -428,7 +584,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>58</span>    <span class=p>}</span>
 <span class=ln>59</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>60</span><span class=p>}</span>
-</code></pre></div><h2 id=k---database>K - Database</h2><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></div><h2 id=k---database>K - Database</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=ln> 3</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=ln> 4</span><span class=n>map</span><span class=o>&lt;</span><span class=n>string</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>ID</span><span class=p>;</span>
@@ -478,9 +635,114 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>48</span>    <span class=p>}</span>
 <span class=ln>49</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>50</span><span class=p>}</span>
-</code></pre></div></section><footer class=article-footer><section class=article-tags><a href=/tags/uva/>UVA</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=StackLaTeX()></script><script>function StackLaTeX(){renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}]});}</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/star_coder-02/><div class=article-details><h2 class=article-title>StarCoder2021暑訓：Week01</h2></div></a></article><article><a href=/p/star_coder-01/><div class=article-details><h2 class=article-title>StarCoder2021暑訓</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
-2021 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.0.1>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+</code></pre></div>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/uva/>UVA</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/star_coder-02/>
+<div class=article-details>
+<h2 class=article-title>StarCoder2021暑訓：Week01</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/star_coder-01/>
+<div class=article-details>
+<h2 class=article-title>StarCoder2021暑訓</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const customFont=document.createElement('link');customFont.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";customFont.type="text/css";customFont.rel="stylesheet";document.head.appendChild(customFont);}());</script><script src=/js/copy-to-clipboard.js></script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#併查集模板>併查集模板</a></li>
+</ul>
+<ul>
+<li><a href=#a---parentheses-balance>A - Parentheses Balance</a></li>
+<li><a href=#b---matrix-chain-multiplication>B - Matrix Chain Multiplication</a></li>
+<li><a href=#c---printer-queue>C - Printer Queue</a></li>
+<li><a href=#d---uncompress>D - Uncompress</a></li>
+<li><a href=#e---argus>E - Argus</a></li>
+<li><a href=#f---i-can-guess-the-data-structure>F - I Can Guess the Data Structure!</a></li>
+<li><a href=#g---ubiquitous-religions>G - Ubiquitous Religions</a></li>
+<li><a href=#h---almost-union-find>H - Almost Union-Find</a></li>
+<li><a href=#i---islands>I - Islands</a></li>
+<li><a href=#j---borrowers>J - Borrowers</a></li>
+<li><a href=#k---database>K - Database</a></li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<script src=/js/copy-to-clipboard.js></script>
+</body>
+</html>

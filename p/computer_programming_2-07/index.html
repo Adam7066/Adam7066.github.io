@@ -1,6 +1,64 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Predefined Macros Standard Predefined Macros 1#include &amp;lt;stdio.h&amp;gt;2int main() { 3 printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); 4 printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); 5 printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc 6 printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 7 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); 8 printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); 9 printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); 10 printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); 11 printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); 12 return 0; 13}  我們可以怎麼使用這些 Macros ?  fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d."><title>程式設計(二)-07：Some Tricks</title><link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-07/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-07：Some Tricks"><meta property="og:description" content="Predefined Macros Standard Predefined Macros 1#include &amp;lt;stdio.h&amp;gt;2int main() { 3 printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); 4 printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); 5 printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc 6 printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 7 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); 8 printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); 9 printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); 10 printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); 11 printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); 12 return 0; 13}  我們可以怎麼使用這些 Macros ?  fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d."><meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-07/"><meta property="og:site_name" content="小十的部落格"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-07-13T21:39:10+08:00"><meta property="article:modified_time" content="2021-07-13T21:39:10+08:00"><meta name=twitter:title content="程式設計(二)-07：Some Tricks"><meta name=twitter:description content="Predefined Macros Standard Predefined Macros 1#include &amp;lt;stdio.h&amp;gt;2int main() { 3 printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); 4 printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); 5 printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc 6 printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 7 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); 8 printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); 9 printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); 10 printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); 11 printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); 12 return 0; 13}  我們可以怎麼使用這些 Macros ?  fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d."><script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css><link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><link rel=manifest href=/favicon/site.webmanifest><link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"></head><body><script>(function(){const colorSchemeKey='StackColorScheme';if(!localStorage.getItem(colorSchemeKey)){localStorage.setItem(colorSchemeKey,"auto");}})();</script><script>(function(){const colorSchemeKey='StackColorScheme';const colorSchemeItem=localStorage.getItem(colorSchemeKey);const supportDarkMode=window.matchMedia('(prefers-color-scheme: dark)').matches===true;if(colorSchemeItem=='dark'||colorSchemeItem==='auto'&&supportDarkMode){document.body.dataset.scheme='dark';}else{document.body.dataset.scheme='light';}})();</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/header_hu4cfb69605c22b48cecb92135d5094273_5680_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></figure><h1 class=site-name><a href=https://blog.smallten.tk/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>程式設計(二)</a></header><h2 class=article-title><a href=/p/computer_programming_2-07/>程式設計(二)-07：Some Tricks</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jul 13, 2021</time></footer></div></header><section class=article-content><h1 id=predefined-macros>Predefined Macros</h1><h2 id=standard-predefined-macros>Standard Predefined Macros</h2><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Predefined Macros Standard Predefined Macros 1#include &amp;lt;stdio.h&amp;gt;2int main() { 3 printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); 4 printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); 5 printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc 6 printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 7 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); 8 printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); 9 printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); 10 printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); 11 printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); 12 return 0; 13}  我們可以怎麼使用這些 Macros ?  fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d."><title>程式設計(二)-07：Some Tricks</title>
+<link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-07/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-07：Some Tricks">
+<meta property="og:description" content="Predefined Macros Standard Predefined Macros 1#include &amp;lt;stdio.h&amp;gt;2int main() { 3 printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); 4 printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); 5 printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc 6 printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 7 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); 8 printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); 9 printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); 10 printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); 11 printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); 12 return 0; 13}  我們可以怎麼使用這些 Macros ?  fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d.">
+<meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-07/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-07-13T21:39:10+08:00"><meta property="article:modified_time" content="2021-07-13T21:39:10+08:00">
+<meta name=twitter:title content="程式設計(二)-07：Some Tricks">
+<meta name=twitter:description content="Predefined Macros Standard Predefined Macros 1#include &amp;lt;stdio.h&amp;gt;2int main() { 3 printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); 4 printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); 5 printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc 6 printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 7 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); 8 printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); 9 printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); 10 printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); 11 printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); 12 return 0; 13}  我們可以怎麼使用這些 Macros ?  fprintf(stderr, &amp;quot;Internal␣error: at %s, line %d.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css>
+<link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png>
+<link rel=manifest href=/favicon/site.webmanifest>
+<link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>
+程式設計(二)
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/computer_programming_2-07/>程式設計(二)-07：Some Tricks</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 13, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+5 min read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=predefined-macros>Predefined Macros</h1>
+<h2 id=standard-predefined-macros>Standard Predefined Macros</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln> 3</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;line: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__LINE__</span><span class=p>);</span>
 <span class=ln> 4</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;file: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__FILE__</span><span class=p>);</span>
@@ -13,7 +71,15 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>11</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;TIMESTAMP: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__TIMESTAMP__</span><span class=p>);</span>
 <span class=ln>12</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>13</span><span class=p>}</span>
-</code></pre></div><ul><li>我們可以怎麼使用這些 Macros ?<ul><li><code>fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__);</code></li><li>Define when Compiling<ul><li><code>gcc -D__DEBUG__ debug.c</code></li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div><ul>
+<li>我們可以怎麼使用這些 Macros ?
+<ul>
+<li><code>fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__);</code></li>
+<li>Define when Compiling
+<ul>
+<li><code>gcc -D__DEBUG__ debug.c</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln>2</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln>3</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Hello World!!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
 <span class=ln>4</span><span class=cp>#ifdef __DEBUG__
@@ -21,7 +87,30 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>6</span><span class=cp>#endif
 </span><span class=ln>7</span><span class=cp></span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>8</span><span class=p>}</span>
-</code></pre></div></li></ul></li><li>Other GCC Predefined MACROs<ul><li><a class=link href=https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html target=_blank rel=noopener>Common Predefined Macros</a></li></ul></li></ul><h1 id=comparing-unsigned-integers>Comparing Unsigned Integers</h1><ul><li>When comparisons between signed and unsigned integers, C will force the signed type to unsigned.</li><li>C99 and C11 section 6.3.1.8.</li><li>It is hard to debug since it looks so nature.</li></ul><h1 id=call-functions-at-program-termination>Call Functions at Program Termination</h1><h3 id=atexit>atexit</h3><p><code>int atexit(void (*function)(void));</code></p><ul><li>Register a Function to be Called at Normal Process Termination</li><li>The atexit() function registers the given function to be called at normal process termination, either via exit(3) or via return from the program’s main(). Functions so registered are called in the reverse order of their registration; no arguments are passed.</li><li>The atexit() function returns the value 0 if successful; otherwise it returns a nonzero value.</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div></li>
+</ul>
+</li>
+<li>Other GCC Predefined MACROs
+<ul>
+<li><a class=link href=https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html target=_blank rel=noopener>Common Predefined Macros</a></li>
+</ul>
+</li>
+</ul>
+<h1 id=comparing-unsigned-integers>Comparing Unsigned Integers</h1>
+<ul>
+<li>When comparisons between signed and unsigned integers, C will force the signed type to unsigned.</li>
+<li>C99 and C11 section 6.3.1.8.</li>
+<li>It is hard to debug since it looks so nature.</li>
+</ul>
+<h1 id=call-functions-at-program-termination>Call Functions at Program Termination</h1>
+<h3 id=atexit>atexit</h3>
+<p><code>int atexit(void (*function)(void));</code></p>
+<ul>
+<li>Register a Function to be Called at Normal Process Termination</li>
+<li>The atexit() function registers the given function to be called at normal process termination, either via exit(3) or via return from the program’s main(). Functions so registered are called in the reverse order of their registration; no arguments are passed.</li>
+<li>The atexit() function returns the value 0 if successful; otherwise it returns a nonzero value.</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=ln> 3</span><span class=cp></span><span class=kt>void</span> <span class=nf>foo</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
 <span class=ln> 4</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Goodbye Foo!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
@@ -34,19 +123,57 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>11</span>    <span class=n>atexit</span><span class=p>(</span><span class=n>foo</span><span class=p>);</span>
 <span class=ln>12</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>13</span><span class=p>}</span>
-</code></pre></div><h1 id=system-and-more>system and more</h1><h3 id=system-execute-a-shell-command>System: Execute a Shell Command</h3><p><code>int system(const char *command);</code></p><ul><li>The system() library function uses fork(2) to create a child process that executes the shell command specified in command.</li><li>system() returns after the command has been completed.</li></ul><h4 id=fork>fork</h4><ul><li>fork() creates a new process by duplicating the calling process.</li><li>This is an important function. However, I will not talk too much about this function but you will learn more in System Programming.<figure style=flex-grow:139;flex-basis:335px><a href=/p/computer_programming_2-07/computer_programming_2-07-01.jpg data-size=599x429><img src=/p/computer_programming_2-07/computer_programming_2-07-01.jpg srcset="/p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_1024x0_resize_q75_box.jpg 1024w" width=599 height=429 loading=lazy></a></figure></li></ul><hr><ul><li>system() is a blocking function.<div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div><h1 id=system-and-more>system and more</h1>
+<h3 id=system-execute-a-shell-command>System: Execute a Shell Command</h3>
+<p><code>int system(const char *command);</code></p>
+<ul>
+<li>The system() library function uses fork(2) to create a child process that executes the shell command specified in command.</li>
+<li>system() returns after the command has been completed.</li>
+</ul>
+<h4 id=fork>fork</h4>
+<ul>
+<li>fork() creates a new process by duplicating the calling process.</li>
+<li>This is an important function. However, I will not talk too much about this function but you will learn more in System Programming.
+<figure style=flex-grow:139;flex-basis:335px>
+<a href=/p/computer_programming_2-07/computer_programming_2-07-01.jpg data-size=599x429><img src=/p/computer_programming_2-07/computer_programming_2-07-01.jpg srcset="/p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_1024x0_resize_q75_box.jpg 1024w" width=599 height=429 loading=lazy>
+</a>
+</figure></li>
+</ul>
+<hr>
+<ul>
+<li>system() is a blocking function.
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln>2</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=ln>3</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln>4</span>    <span class=n>system</span><span class=p>(</span><span class=s>&#34;while true; do echo &#39;Hit CTRL+C&#39;; sleep 1; done&#34;</span><span class=p>);</span>
 <span class=ln>5</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>6</span><span class=p>}</span>
-</code></pre></div></li><li>The system() returns <code>-1</code> means your system cannot fork another process instead of your command fails.<ul><li>You can try a command to delete a non-existing file.</li></ul></li><li>Every system call is independent.<ul><li>So you cannot setup an environment variable and hope other other system calls use this variable.</li></ul></li></ul><h3 id=popen>popen</h3><p><code>FILE *popen(const char *command, const char *type);</code></p><ul><li>The popen() function opens a process by creating a pipe, forking, and invoking the shell.</li><li>The popen() function returns NULL if the fork(2) or pipe(2) calls fail, or if it cannot allocate memory.</li><li>別忘了使用 <code>pclose</code>.</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div></li>
+<li>The system() returns <code>-1</code> means your system cannot fork another process instead of your command fails.
+<ul>
+<li>You can try a command to delete a non-existing file.</li>
+</ul>
+</li>
+<li>Every system call is independent.
+<ul>
+<li>So you cannot setup an environment variable and hope other other system calls use this variable.</li>
+</ul>
+</li>
+</ul>
+<h3 id=popen>popen</h3>
+<p><code>FILE *popen(const char *command, const char *type);</code></p>
+<ul>
+<li>The popen() function opens a process by creating a pipe, forking, and invoking the shell.</li>
+<li>The popen() function returns NULL if the fork(2) or pipe(2) calls fail, or if it cannot allocate memory.</li>
+<li>別忘了使用 <code>pclose</code>.</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=ln> 3</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=ln> 4</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln> 5</span>    <span class=kt>char</span>        <span class=n>buffer</span><span class=p>[</span><span class=mi>512</span><span class=p>];</span>
 <span class=ln> 6</span>    <span class=n>FILE</span>        <span class=o>*</span><span class=n>pPing</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-<span class=ln> 7</span>    <span class=n>uint32_t</span>    <span class=n>counter</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=ln> 7</span>    <span class=kt>uint32_t</span>    <span class=n>counter</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln> 8</span>    <span class=n>pPing</span> <span class=o>=</span> <span class=n>popen</span><span class=p>(</span><span class=s>&#34;ping -c 4 www.google.com&#34;</span><span class=p>,</span> <span class=s>&#34;r&#34;</span><span class=p>);</span>
 <span class=ln> 9</span>    <span class=k>if</span><span class=p>(</span><span class=n>pPing</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
 <span class=ln>10</span>        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;error end</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
@@ -60,7 +187,19 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>18</span>    <span class=n>pclose</span><span class=p>(</span><span class=n>pPing</span><span class=p>);</span>
 <span class=ln>19</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>20</span><span class=p>}</span>
-</code></pre></div><h1 id=assert>assert</h1><ul><li>In computer programming, an assertion is a statement that a predicate (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.</li><li>It can <strong>help</strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.</li><li>If the assertion check is not in fact true, an assertion failure, the program considers itself to be broken and typically deliberately <strong>crashes</strong> or throws an assertion failure exception.</li></ul><hr><p><code>void assert(scalar expression);</code></p><ul><li>The macro assert() prints an error message to standard error and terminates the program by calling abort(3) if expression is false.</li><li>The purpose of this macro is to help programmers find bugs in their programs.</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div><h1 id=assert>assert</h1>
+<ul>
+<li>In computer programming, an assertion is a statement that a predicate (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.</li>
+<li>It can <strong>help</strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.</li>
+<li>If the assertion check is not in fact true, an assertion failure, the program considers itself to be broken and typically deliberately <strong>crashes</strong> or throws an assertion failure exception.</li>
+</ul>
+<hr>
+<p><code>void assert(scalar expression);</code></p>
+<ul>
+<li>The macro assert() prints an error message to standard error and terminates the program by calling abort(3) if expression is false.</li>
+<li>The purpose of this macro is to help programmers find bugs in their programs.</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln>2</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
 </span><span class=ln>3</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln>4</span>    <span class=n>FILE</span> <span class=o>*</span><span class=n>fd</span><span class=p>;</span>
@@ -69,7 +208,26 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>7</span>    <span class=n>fclose</span> <span class=p>(</span><span class=n>fd</span><span class=p>);</span>
 <span class=ln>8</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>9</span><span class=p>}</span>
-</code></pre></div><ul><li>我可以簡單的使用 <code>if-else</code> 去確認並回傳值。那為什麼還要使用 <code>assert</code>?<ul><li>這取決於您是否可以優雅地處理錯誤。</li></ul></li><li>Note:<ul><li>一般來說，<code>assert</code> 被用在開發階段。</li><li>當發佈時，請移除所有 <code>assert</code>。</li></ul></li></ul><h1 id=qsort>qsort</h1><p><code>void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));</code></p><ul><li>The qsort() function sorts an array with nmemb elements of size size. The base argument points to the start of the array.</li><li>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. If two members compare as equal, their order in the sorted array is undefined.</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div><ul>
+<li>我可以簡單的使用 <code>if-else</code> 去確認並回傳值。那為什麼還要使用 <code>assert</code>?
+<ul>
+<li>這取決於您是否可以優雅地處理錯誤。</li>
+</ul>
+</li>
+<li>Note:
+<ul>
+<li>一般來說，<code>assert</code> 被用在開發階段。</li>
+<li>當發佈時，請移除所有 <code>assert</code>。</li>
+</ul>
+</li>
+</ul>
+<h1 id=qsort>qsort</h1>
+<p><code>void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));</code></p>
+<ul>
+<li>The qsort() function sorts an array with nmemb elements of size size. The base argument points to the start of the array.</li>
+<li>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. If two members compare as equal, their order in the sorted array is undefined.</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=ln> 3</span><span class=cp></span>
 <span class=ln> 4</span><span class=kt>int</span> <span class=n>values</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>88</span><span class=p>,</span> <span class=mi>56</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>25</span><span class=p>};</span>
@@ -87,16 +245,154 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>16</span>        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span> <span class=n>values</span><span class=p>[</span><span class=n>n</span><span class=p>]);</span>
 <span class=ln>17</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>18</span><span class=p>}</span>
-</code></pre></div><h1 id=libcurl>libcurl</h1><ul><li>安裝: <code>sudo apt-get install libcurl4 libcurl4-openssl-dev</code></li><li>使用: <a class=link href=https://curl.se/libcurl/c/example.html target=_blank rel=noopener>Example codes</a></li><li>編譯: <code>gcc -I curl-7.63.0/include -L curl-7.63.0/lib/.libs/ opendata.c -lcurl</code> (需依照情況自行修改)<ul><li>Makefile:<div class=highlight><pre class=chroma><code class=language-makefile data-lang=makefile><span class=ln>1</span><span class=nv>CFLAGS</span> <span class=o>=</span> -O3 -Wall
+</code></pre></div><h1 id=libcurl>libcurl</h1>
+<ul>
+<li>安裝: <code>sudo apt-get install libcurl4 libcurl4-openssl-dev</code></li>
+<li>使用: <a class=link href=https://curl.se/libcurl/c/example.html target=_blank rel=noopener>Example codes</a></li>
+<li>編譯: <code>gcc -I curl-7.63.0/include -L curl-7.63.0/lib/.libs/ opendata.c -lcurl</code> (需依照情況自行修改)
+<ul>
+<li>Makefile:
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=ln>1</span><span class=nv>CFLAGS</span> <span class=o>=</span> -O3 -Wall
 <span class=ln>2</span><span class=nv>INCLUDE</span> <span class=o>=</span> -I curl-7.63.0/include
 <span class=ln>3</span><span class=nv>LIB</span> <span class=o>=</span> -L curl-7.63.0/lib/.libs/
 <span class=ln>4</span><span class=nf>all</span><span class=o>:</span> <span class=n>opendata</span>.<span class=n>c</span>
 <span class=ln>5</span>    gcc <span class=si>${</span><span class=nv>CFLAGS</span><span class=si>}</span> <span class=si>${</span><span class=nv>INCLUDE</span><span class=si>}</span> <span class=si>${</span><span class=nv>LIB</span><span class=si>}</span> opendata.c -o opendata -lcurl
 <span class=ln>6</span><span class=nf>clean</span><span class=o>:</span>
 <span class=ln>7</span>    rm -f opendata
-</code></pre></div></li></ul></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=StackLaTeX()></script><script>function StackLaTeX(){renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}]});}</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/computer_programming_2-08/><div class=article-details><h2 class=article-title>程式設計(二)-08：Linux List</h2></div></a></article><article><a href=/p/computer_programming_2-06/><div class=article-details><h2 class=article-title>程式設計(二)-06：Macro</h2></div></a></article><article><a href=/p/computer_programming_2-05/><div class=article-details><h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2></div></a></article><article><a href=/p/computer_programming_2-04/><div class=article-details><h2 class=article-title>程式設計(二)-04：File Processing-02</h2></div></a></article><article><a href=/p/computer_programming_2-03/><div class=article-details><h2 class=article-title>程式設計(二)-03：File Processing-01</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
-2021 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.0.1>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/c/>C</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/computer_programming_2-08/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-08：Linux List</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-06/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-06：Macro</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-05/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-04/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-04：File Processing-02</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-03/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-03：File Processing-01</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const customFont=document.createElement('link');customFont.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";customFont.type="text/css";customFont.rel="stylesheet";document.head.appendChild(customFont);}());</script><script src=/js/copy-to-clipboard.js></script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#standard-predefined-macros>Standard Predefined Macros</a></li>
+</ul>
+<ul>
+<li>
+<ul>
+<li><a href=#atexit>atexit</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<ul>
+<li><a href=#system-execute-a-shell-command>System: Execute a Shell Command</a></li>
+<li><a href=#popen>popen</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<script src=/js/copy-to-clipboard.js></script>
+</body>
+</html>

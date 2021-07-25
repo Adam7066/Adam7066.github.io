@@ -1,6 +1,93 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error."><title>程式設計(二)-03：File Processing-01</title><link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-03/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-03：File Processing-01"><meta property="og:description" content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error."><meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-03/"><meta property="og:site_name" content="小十的部落格"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T17:58:22+08:00"><meta property="article:modified_time" content="2021-04-02T17:58:22+08:00"><meta name=twitter:title content="程式設計(二)-03：File Processing-01"><meta name=twitter:description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error."><script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css><link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><link rel=manifest href=/favicon/site.webmanifest><link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"></head><body><script>(function(){const colorSchemeKey='StackColorScheme';if(!localStorage.getItem(colorSchemeKey)){localStorage.setItem(colorSchemeKey,"auto");}})();</script><script>(function(){const colorSchemeKey='StackColorScheme';const colorSchemeItem=localStorage.getItem(colorSchemeKey);const supportDarkMode=window.matchMedia('(prefers-color-scheme: dark)').matches===true;if(colorSchemeItem=='dark'||colorSchemeItem==='auto'&&supportDarkMode){document.body.dataset.scheme='dark';}else{document.body.dataset.scheme='light';}})();</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/header_hu4cfb69605c22b48cecb92135d5094273_5680_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></figure><h1 class=site-name><a href=https://blog.smallten.tk/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>程式設計(二)</a></header><h2 class=article-title><a href=/p/computer_programming_2-03/>程式設計(二)-03：File Processing-01</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Apr 02, 2021</time></footer></div></header><section class=article-content><h1 id=file>File</h1><ul><li>C 將每個檔案視為一個連續的 bytes stream</li><li>每個檔案以 <code>end-of-file</code> 為結尾，這是由系統提供而不是文件。<figure style=flex-grow:812;flex-basis:1948px><a href=/p/computer_programming_2-03/computer_programming_2-03-01.jpg data-size=812x100><img src=/p/computer_programming_2-03/computer_programming_2-03-01.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_1024x0_resize_q75_box.jpg 1024w" width=812 height=100 loading=lazy></a></figure></li><li>It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system.</li><li><code>int feof(FILE *stream);</code></li></ul><h2 id=file-stream>File Stream</h2><ul><li>Streams 提供了更高級別的介面(interface)讓你存取資料。<ul><li><code>fprintf</code></li><li><code>fscanf</code></li></ul></li><li>事實上，你已經使用過 file stream !<ul><li>三種標準流<ol><li>標準輸入 0 (standard input.)</li><li>標準輸出 1 (standard output.)</li><li>標準錯誤 2 (standard error.)</li></ol></li><li>真的嗎? 哪時候呀?</li><li><code>scanf</code> -> scanf() 從標準輸入流中讀取輸入</li><li><code>scanf</code> 的實作<div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=kt>int</span> <span class=nf>scanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>fmt</span><span class=p>,</span> <span class=p>...){</span>
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error."><title>程式設計(二)-03：File Processing-01</title>
+<link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-03/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-03：File Processing-01">
+<meta property="og:description" content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
+<meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-03/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T17:58:22+08:00"><meta property="article:modified_time" content="2021-04-02T17:58:22+08:00">
+<meta name=twitter:title content="程式設計(二)-03：File Processing-01">
+<meta name=twitter:description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css>
+<link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png>
+<link rel=manifest href=/favicon/site.webmanifest>
+<link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>
+程式設計(二)
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/computer_programming_2-03/>程式設計(二)-03：File Processing-01</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Apr 02, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+5 min read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=file>File</h1>
+<ul>
+<li>C 將每個檔案視為一個連續的 bytes stream</li>
+<li>每個檔案以 <code>end-of-file</code> 為結尾，這是由系統提供而不是文件。
+<figure style=flex-grow:812;flex-basis:1948px>
+<a href=/p/computer_programming_2-03/computer_programming_2-03-01.jpg data-size=812x100><img src=/p/computer_programming_2-03/computer_programming_2-03-01.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_1024x0_resize_q75_box.jpg 1024w" width=812 height=100 loading=lazy>
+</a>
+</figure></li>
+<li>It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system.</li>
+<li><code>int feof(FILE *stream);</code></li>
+</ul>
+<h2 id=file-stream>File Stream</h2>
+<ul>
+<li>Streams 提供了更高級別的介面(interface)讓你存取資料。
+<ul>
+<li><code>fprintf</code></li>
+<li><code>fscanf</code></li>
+</ul>
+</li>
+<li>事實上，你已經使用過 file stream !
+<ul>
+<li>三種標準流
+<ol>
+<li>標準輸入 0 (standard input.)</li>
+<li>標準輸出 1 (standard output.)</li>
+<li>標準錯誤 2 (standard error.)</li>
+</ol>
+</li>
+<li>真的嗎? 哪時候呀?</li>
+<li><code>scanf</code> -> scanf() 從標準輸入流中讀取輸入</li>
+<li><code>scanf</code> 的實作
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=kt>int</span> <span class=nf>scanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>fmt</span><span class=p>,</span> <span class=p>...){</span>
 <span class=ln>2</span>    <span class=kt>int</span> <span class=n>count</span><span class=p>;</span>
 <span class=ln>3</span>    <span class=n>va_list</span> <span class=n>ap</span><span class=p>;</span>
 <span class=ln>4</span>    <span class=n>va_start</span><span class=p>(</span><span class=n>ap</span><span class=p>,</span> <span class=n>fmt</span><span class=p>);</span>
@@ -8,27 +95,238 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>6</span>    <span class=n>va_end</span><span class=p>(</span><span class=n>ap</span><span class=p>);</span>
 <span class=ln>7</span>    <span class=k>return</span><span class=p>(</span><span class=n>count</span><span class=p>);</span>
 <span class=ln>8</span><span class=p>}</span>
-</code></pre></div></li></ul></li></ul><h2 id=file-descriptor>File Descriptor</h2><ul><li>File descriptor 為輸出入的操作提供了原始的低級介面(interface)。</li><li>在 Linux 中，任何東西都可以被視為一個檔案。<ul><li>Network socker</li><li>Device driver</li><li>Inter-process communication</li></ul></li><li>支援哪些操作?<ul><li><code>open</code>、<code>read</code>、<code>write</code>、<code>close</code></li></ul></li><li>如果要控制某些詳細的設定，你需要使用 file descriptor 而不是 file stream。</li></ul><h3 id=file-stream-vs-file-descriptor>File Stream vs. File Descriptor</h3><ul><li>Structure:<ul><li>Stream: <code>FILE *</code></li><li>Descriptor: <code>int</code></li></ul></li><li>可以用 file stream 實現的，就一定可以用 file descriptor 實現，其逆不真。</li><li>File streams 有更多方便的介面(interface)給你使用。</li></ul><h2 id=io-redirection>I/O Redirection</h2><h3 id=stdout>stdout</h3><p><figure style=flex-grow:161;flex-basis:386px><a href=/p/computer_programming_2-03/computer_programming_2-03-02.jpg data-size=890x552><img src=/p/computer_programming_2-03/computer_programming_2-03-02.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_1024x0_resize_q75_box.jpg 1024w" width=890 height=552 loading=lazy></a></figure></p><ul><li><code>></code> filename<ul><li>重導向 stdout 到一個檔案</li><li>如果檔案不存在就創建文件，否則就將其覆蓋</li></ul></li><li><code>>></code> filename<ul><li>重導向 stdout 到一個檔案</li><li>如果檔案不存在就創建文件，否則就加在後方</li></ul></li></ul><hr><ul><li><code>></code> filename</li><li><code>1></code> filename<ul><li>Redirect stdout to file &ldquo;filename&rdquo;</li></ul></li><li><code>>></code> filename</li><li><code>1>></code> filename<ul><li>Redirect and append stdout to file &ldquo;filename&rdquo;</li></ul></li><li><code>2></code> filename<ul><li>Redirect stderr to file ”filename.”</li></ul></li><li><code>2>></code> filename<ul><li>Redirect and append stderr to file ”filename.”</li></ul></li><li><code>&></code> filename<ul><li>Redirect stdout, stderr to file ”filename.”</li></ul></li></ul><h3 id=stdin>stdin</h3><p><code>$ . / abs &lt; number.txt</code></p><h1 id=text-file-processing>Text File Processing</h1><h3 id=fopen>fopen</h3><p><code>FILE *fopen(const char *path, const char *mode);</code></p><ul><li>path：檔案路徑</li><li>mode：<ul><li><code>r</code>：read</li><li><code>w</code>：write</li><li><code>a</code>：append</li><li>更多的選項在手冊中</li></ul></li><li>Return：<code>FILE *</code><ul><li>成功的話，FILE pointer 將被回傳</li><li>如果失敗的話，將回傳 NULL 並且 errno 被設置為表明 error</li><li>永遠記得確認回傳的 pointer!</li></ul></li></ul><h3 id=fprintf>fprintf</h3><ul><li>幾乎和<code>printf</code>相同，除了你需要給 FILE stream pointer。</li></ul><h3 id=end-of-file-indicator>End-of-File Indicator</h3><ul><li>Linu/Mac OS X/UNIX：<code>&lt;Ctrl> d</code></li><li>Windows：<code>&lt;Ctrl> z + enter</code></li></ul><h3 id=fclose>fclose</h3><p><code>int fclose(FILE *stream);</code></p><ul><li><code>fclose()</code></li><li>The fclose() function flushes the stream pointed to by stream (writing any buffered output data using fflush(3)) and closes the underlying file descriptor.</li><li>也就是說，當你 close 時，在 buffer 中的資料將被寫入檔案</li><li>在開檔後記得關上它!! 因為有同時開檔的數量上限。</li></ul><h3 id=fscanf>fscanf</h3><ul><li>操作就如同 <code>fprintf</code></li><li>當然，檔案應該被以 <code>r</code> 的模式打開</li></ul><hr><ul><li>當你使用 <code>fprintf</code> 或 <code>fscanf</code> 去處理文字檔時，它蘊含著你清楚地知道檔案的格式</li><li>在這些情況下，輸入的檢查也許就沒那麼重要了，對吧?<ul><li>Yes：畢竟格式由你決定。</li><li>No：有些人可能會修改檔案，並使你讀取它。</li></ul></li></ul><h2 id=file-position-pointer>File Position Pointer</h2><p><figure style=flex-grow:160;flex-basis:386px><a href=/p/computer_programming_2-03/computer_programming_2-03-03.jpg data-size=784x487><img src=/p/computer_programming_2-03/computer_programming_2-03-03.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_1024x0_resize_q75_box.jpg 1024w" width=784 height=487 loading=lazy></a></figure></p><ul><li>所以我們可以返回到開始的位置嗎??<ul><li>為什麼我們需要這麼做? -> 影片倒放</li><li>當然，你可以關掉檔案並重開它。</li><li>但我們有另外的函式可以幫助我們 -> <code>rewind</code></li></ul></li></ul><h3 id=rewind>rewind</h3><p><code>void rewind(FILE *stream);</code></p><ul><li>將位置指回檔案的開頭。</li><li>那麼我們想要改變 file pointer 到任何地方呢? -> <code>fseek</code></li></ul><h3 id=fseek>fseek</h3><p><code>int fseek(FILE *stream, long offset, int whence);</code></p><ul><li>The fseek() function sets the file position indicator for the stream pointed to by stream. The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence.</li><li><code>SEEK_SET</code>：檔案開頭</li><li><code>SEEK_CUR</code>：當前位置</li><li><code>SEEK_END</code>：end-of-file</li></ul><hr><ul><li><code>rewind()</code> 相當於 <code>fseek(stream, 0L, SEEK_SET)</code></li></ul><h3 id=ftell>ftell</h3><p><code>long ftell(FILE *stream);</code></p><ul><li>告訴你當前所在的位置。</li></ul><h1 id=binary-file-processing>Binary File Processing</h1><h2 id=binary-file>Binary File</h2><ul><li>文字檔以字元的方式儲存資料，然而並不是所有的檔案都是文字檔。例如，你可以用文字編輯器打開一張圖片。</li><li>此外文字檔的儲存效率並不高<ul><li>需要多少大小去儲存數字 123 ?</li><li>Text File：3 bytes</li><li>Binary File：1 byte</li></ul></li></ul><h3 id=fread>fread</h3><p><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);</code></p><ul><li>從 FILE * 讀取 nmemb 個資料，每個 size bytes 長，並將它們儲存在 *ptr。</li><li>成功時回傳資料讀取的數量。如果失敗，或到達文件尾端時，則回傳是一短項計數 (或 0)</li></ul><h3 id=fwrite>fwrite</h3><p><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);</code></p><ul><li>從 *ptr 讀取 nmemb 個資料，每個 size bytes 長，並將它們儲存在 FILE *。</li><li>成功時回傳資料寫入的數量。如果失敗，或到達文件尾端時，則回傳是一短項計數 (或 0)</li></ul><h2 id=bmp-file-format>BMP File Format</h2><ul><li>這裡將使用 bmp 檔作為示範<ul><li>為什麼是 bmp 而不是 jpg ? -> 因為 bmp 是一種未被壓縮的照片格式。</li></ul></li><li><a class=link href=https://engineering.purdue.edu/ece264/17au/hw/HW15 target=_blank rel=noopener>連結</a></li></ul><h3 id=讀取-bmp-檔>讀取 bmp 檔</h3><ul><li>讀取 bmp file header 並印出資訊</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id=file-descriptor>File Descriptor</h2>
+<ul>
+<li>File descriptor 為輸出入的操作提供了原始的低級介面(interface)。</li>
+<li>在 Linux 中，任何東西都可以被視為一個檔案。
+<ul>
+<li>Network socker</li>
+<li>Device driver</li>
+<li>Inter-process communication</li>
+</ul>
+</li>
+<li>支援哪些操作?
+<ul>
+<li><code>open</code>、<code>read</code>、<code>write</code>、<code>close</code></li>
+</ul>
+</li>
+<li>如果要控制某些詳細的設定，你需要使用 file descriptor 而不是 file stream。</li>
+</ul>
+<h3 id=file-stream-vs-file-descriptor>File Stream vs. File Descriptor</h3>
+<ul>
+<li>Structure:
+<ul>
+<li>Stream: <code>FILE *</code></li>
+<li>Descriptor: <code>int</code></li>
+</ul>
+</li>
+<li>可以用 file stream 實現的，就一定可以用 file descriptor 實現，其逆不真。</li>
+<li>File streams 有更多方便的介面(interface)給你使用。</li>
+</ul>
+<h2 id=io-redirection>I/O Redirection</h2>
+<h3 id=stdout>stdout</h3>
+<p><figure style=flex-grow:161;flex-basis:386px>
+<a href=/p/computer_programming_2-03/computer_programming_2-03-02.jpg data-size=890x552><img src=/p/computer_programming_2-03/computer_programming_2-03-02.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_1024x0_resize_q75_box.jpg 1024w" width=890 height=552 loading=lazy>
+</a>
+</figure></p>
+<ul>
+<li><code>></code> filename
+<ul>
+<li>重導向 stdout 到一個檔案</li>
+<li>如果檔案不存在就創建文件，否則就將其覆蓋</li>
+</ul>
+</li>
+<li><code>>></code> filename
+<ul>
+<li>重導向 stdout 到一個檔案</li>
+<li>如果檔案不存在就創建文件，否則就加在後方</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>></code> filename</li>
+<li><code>1></code> filename
+<ul>
+<li>Redirect stdout to file &ldquo;filename&rdquo;</li>
+</ul>
+</li>
+<li><code>>></code> filename</li>
+<li><code>1>></code> filename
+<ul>
+<li>Redirect and append stdout to file &ldquo;filename&rdquo;</li>
+</ul>
+</li>
+<li><code>2></code> filename
+<ul>
+<li>Redirect stderr to file ”filename.”</li>
+</ul>
+</li>
+<li><code>2>></code> filename
+<ul>
+<li>Redirect and append stderr to file ”filename.”</li>
+</ul>
+</li>
+<li><code>&></code> filename
+<ul>
+<li>Redirect stdout, stderr to file ”filename.”</li>
+</ul>
+</li>
+</ul>
+<h3 id=stdin>stdin</h3>
+<p><code>$ . / abs &lt; number.txt</code></p>
+<h1 id=text-file-processing>Text File Processing</h1>
+<h3 id=fopen>fopen</h3>
+<p><code>FILE *fopen(const char *path, const char *mode);</code></p>
+<ul>
+<li>path：檔案路徑</li>
+<li>mode：
+<ul>
+<li><code>r</code>：read</li>
+<li><code>w</code>：write</li>
+<li><code>a</code>：append</li>
+<li>更多的選項在手冊中</li>
+</ul>
+</li>
+<li>Return：<code>FILE *</code>
+<ul>
+<li>成功的話，FILE pointer 將被回傳</li>
+<li>如果失敗的話，將回傳 NULL 並且 errno 被設置為表明 error</li>
+<li>永遠記得確認回傳的 pointer!</li>
+</ul>
+</li>
+</ul>
+<h3 id=fprintf>fprintf</h3>
+<ul>
+<li>幾乎和<code>printf</code>相同，除了你需要給 FILE stream pointer。</li>
+</ul>
+<h3 id=end-of-file-indicator>End-of-File Indicator</h3>
+<ul>
+<li>Linu/Mac OS X/UNIX：<code>&lt;Ctrl> d</code></li>
+<li>Windows：<code>&lt;Ctrl> z + enter</code></li>
+</ul>
+<h3 id=fclose>fclose</h3>
+<p><code>int fclose(FILE *stream);</code></p>
+<ul>
+<li><code>fclose()</code></li>
+<li>The fclose() function flushes the stream pointed to by stream (writing any buffered output data using fflush(3)) and closes the underlying file descriptor.</li>
+<li>也就是說，當你 close 時，在 buffer 中的資料將被寫入檔案</li>
+<li>在開檔後記得關上它!! 因為有同時開檔的數量上限。</li>
+</ul>
+<h3 id=fscanf>fscanf</h3>
+<ul>
+<li>操作就如同 <code>fprintf</code></li>
+<li>當然，檔案應該被以 <code>r</code> 的模式打開</li>
+</ul>
+<hr>
+<ul>
+<li>當你使用 <code>fprintf</code> 或 <code>fscanf</code> 去處理文字檔時，它蘊含著你清楚地知道檔案的格式</li>
+<li>在這些情況下，輸入的檢查也許就沒那麼重要了，對吧?
+<ul>
+<li>Yes：畢竟格式由你決定。</li>
+<li>No：有些人可能會修改檔案，並使你讀取它。</li>
+</ul>
+</li>
+</ul>
+<h2 id=file-position-pointer>File Position Pointer</h2>
+<p><figure style=flex-grow:160;flex-basis:386px>
+<a href=/p/computer_programming_2-03/computer_programming_2-03-03.jpg data-size=784x487><img src=/p/computer_programming_2-03/computer_programming_2-03-03.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_1024x0_resize_q75_box.jpg 1024w" width=784 height=487 loading=lazy>
+</a>
+</figure></p>
+<ul>
+<li>所以我們可以返回到開始的位置嗎??
+<ul>
+<li>為什麼我們需要這麼做? -> 影片倒放</li>
+<li>當然，你可以關掉檔案並重開它。</li>
+<li>但我們有另外的函式可以幫助我們 -> <code>rewind</code></li>
+</ul>
+</li>
+</ul>
+<h3 id=rewind>rewind</h3>
+<p><code>void rewind(FILE *stream);</code></p>
+<ul>
+<li>將位置指回檔案的開頭。</li>
+<li>那麼我們想要改變 file pointer 到任何地方呢? -> <code>fseek</code></li>
+</ul>
+<h3 id=fseek>fseek</h3>
+<p><code>int fseek(FILE *stream, long offset, int whence);</code></p>
+<ul>
+<li>The fseek() function sets the file position indicator for the stream pointed to by stream. The new position, measured in bytes, is obtained by adding offset bytes to the position specified by whence.</li>
+<li><code>SEEK_SET</code>：檔案開頭</li>
+<li><code>SEEK_CUR</code>：當前位置</li>
+<li><code>SEEK_END</code>：end-of-file</li>
+</ul>
+<hr>
+<ul>
+<li><code>rewind()</code> 相當於 <code>fseek(stream, 0L, SEEK_SET)</code></li>
+</ul>
+<h3 id=ftell>ftell</h3>
+<p><code>long ftell(FILE *stream);</code></p>
+<ul>
+<li>告訴你當前所在的位置。</li>
+</ul>
+<h1 id=binary-file-processing>Binary File Processing</h1>
+<h2 id=binary-file>Binary File</h2>
+<ul>
+<li>文字檔以字元的方式儲存資料，然而並不是所有的檔案都是文字檔。例如，你可以用文字編輯器打開一張圖片。</li>
+<li>此外文字檔的儲存效率並不高
+<ul>
+<li>需要多少大小去儲存數字 123 ?</li>
+<li>Text File：3 bytes</li>
+<li>Binary File：1 byte</li>
+</ul>
+</li>
+</ul>
+<h3 id=fread>fread</h3>
+<p><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);</code></p>
+<ul>
+<li>從 FILE * 讀取 nmemb 個資料，每個 size bytes 長，並將它們儲存在 *ptr。</li>
+<li>成功時回傳資料讀取的數量。如果失敗，或到達文件尾端時，則回傳是一短項計數 (或 0)</li>
+</ul>
+<h3 id=fwrite>fwrite</h3>
+<p><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);</code></p>
+<ul>
+<li>從 *ptr 讀取 nmemb 個資料，每個 size bytes 長，並將它們儲存在 FILE *。</li>
+<li>成功時回傳資料寫入的數量。如果失敗，或到達文件尾端時，則回傳是一短項計數 (或 0)</li>
+</ul>
+<h2 id=bmp-file-format>BMP File Format</h2>
+<ul>
+<li>這裡將使用 bmp 檔作為示範
+<ul>
+<li>為什麼是 bmp 而不是 jpg ? -> 因為 bmp 是一種未被壓縮的照片格式。</li>
+</ul>
+</li>
+<li><a class=link href=https://engineering.purdue.edu/ece264/17au/hw/HW15 target=_blank rel=noopener>連結</a></li>
+</ul>
+<h3 id=讀取-bmp-檔>讀取 bmp 檔</h3>
+<ul>
+<li>讀取 bmp file header 並印出資訊</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=ln> 2</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=ln> 3</span><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
 </span><span class=ln> 4</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=ln> 5</span><span class=cp></span>
 <span class=ln> 6</span><span class=k>struct</span> <span class=n>_sBmpHeader</span> <span class=p>{</span>
 <span class=ln> 7</span>    <span class=kt>char</span> <span class=n>bm</span><span class=p>[</span><span class=mi>2</span><span class=p>];</span>
-<span class=ln> 8</span>    <span class=n>uint32_t</span> <span class=n>size</span><span class=p>;</span>
-<span class=ln> 9</span>    <span class=n>uint32_t</span> <span class=n>reserve</span><span class=p>;</span>
-<span class=ln>10</span>    <span class=n>uint32_t</span> <span class=n>offset</span><span class=p>;</span>
-<span class=ln>11</span>    <span class=n>uint32_t</span> <span class=n>header_size</span><span class=p>;</span>
-<span class=ln>12</span>    <span class=n>int32_t</span> <span class=n>width</span><span class=p>;</span>
-<span class=ln>13</span>    <span class=n>int32_t</span> <span class=n>height</span><span class=p>;</span>
-<span class=ln>14</span>    <span class=n>uint16_t</span> <span class=n>planes</span><span class=p>;</span>
-<span class=ln>15</span>    <span class=n>uint16_t</span> <span class=n>bpp</span><span class=p>;</span>
-<span class=ln>16</span>    <span class=n>uint32_t</span> <span class=n>compression</span><span class=p>;</span>
-<span class=ln>17</span>    <span class=n>uint32_t</span> <span class=n>bitmap_size</span><span class=p>;</span>
-<span class=ln>18</span>    <span class=n>int32_t</span> <span class=n>hres</span><span class=p>;</span>
-<span class=ln>19</span>    <span class=n>int32_t</span> <span class=n>vres</span><span class=p>;</span>
-<span class=ln>20</span>    <span class=n>uint32_t</span> <span class=n>used</span><span class=p>;</span>
-<span class=ln>21</span>    <span class=n>uint32_t</span> <span class=n>important</span><span class=p>;</span>
+<span class=ln> 8</span>    <span class=kt>uint32_t</span> <span class=n>size</span><span class=p>;</span>
+<span class=ln> 9</span>    <span class=kt>uint32_t</span> <span class=n>reserve</span><span class=p>;</span>
+<span class=ln>10</span>    <span class=kt>uint32_t</span> <span class=n>offset</span><span class=p>;</span>
+<span class=ln>11</span>    <span class=kt>uint32_t</span> <span class=n>header_size</span><span class=p>;</span>
+<span class=ln>12</span>    <span class=kt>int32_t</span> <span class=n>width</span><span class=p>;</span>
+<span class=ln>13</span>    <span class=kt>int32_t</span> <span class=n>height</span><span class=p>;</span>
+<span class=ln>14</span>    <span class=kt>uint16_t</span> <span class=n>planes</span><span class=p>;</span>
+<span class=ln>15</span>    <span class=kt>uint16_t</span> <span class=n>bpp</span><span class=p>;</span>
+<span class=ln>16</span>    <span class=kt>uint32_t</span> <span class=n>compression</span><span class=p>;</span>
+<span class=ln>17</span>    <span class=kt>uint32_t</span> <span class=n>bitmap_size</span><span class=p>;</span>
+<span class=ln>18</span>    <span class=kt>int32_t</span> <span class=n>hres</span><span class=p>;</span>
+<span class=ln>19</span>    <span class=kt>int32_t</span> <span class=n>vres</span><span class=p>;</span>
+<span class=ln>20</span>    <span class=kt>uint32_t</span> <span class=n>used</span><span class=p>;</span>
+<span class=ln>21</span>    <span class=kt>uint32_t</span> <span class=n>important</span><span class=p>;</span>
 <span class=ln>22</span><span class=p>}</span><span class=n>__attribute__</span> <span class=p>((</span><span class=n>__packed__</span><span class=p>));</span>
 <span class=ln>23</span>
 <span class=ln>24</span><span class=k>typedef</span> <span class=k>struct</span> <span class=n>_sBmpHeader</span> <span class=n>sBmpHeader</span><span class=p>;</span>
@@ -65,7 +363,11 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>55</span>    <span class=n>fclose</span><span class=p>(</span><span class=n>pFile</span><span class=p>);</span>
 <span class=ln>56</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>57</span><span class=p>}</span>
-</code></pre></div><h3 id=修改-bmp-檔>修改 bmp 檔</h3><ul><li>翻轉顏色</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=c1>// ...略...
+</code></pre></div><h3 id=修改-bmp-檔>修改 bmp 檔</h3>
+<ul>
+<li>翻轉顏色</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=c1>// ...略...
 </span><span class=ln> 2</span><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 <span class=ln> 3</span>    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
 <span class=ln> 4</span>    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile2</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
@@ -81,8 +383,8 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>14</span>    <span class=n>fread</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>header</span> <span class=p>),</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
 <span class=ln>15</span>    <span class=n>fwrite</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>header</span> <span class=p>),</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span> <span class=p>);</span>
 <span class=ln>16</span>    <span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
-<span class=ln>17</span>        <span class=n>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-<span class=ln>18</span>        <span class=n>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+<span class=ln>17</span>        <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+<span class=ln>18</span>        <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
 <span class=ln>19</span>        <span class=n>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>fread</span><span class=p>(</span> <span class=n>original</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1024</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
 <span class=ln>20</span>        <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>){</span>
 <span class=ln>21</span>            <span class=n>modified</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>255</span> <span class=o>-</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
@@ -93,14 +395,17 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>26</span>    <span class=n>fclose</span><span class=p>(</span> <span class=n>pFile2</span> <span class=p>);</span>
 <span class=ln>27</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=ln>28</span><span class=p>}</span>
-</code></pre></div><ul><li>轉成灰階</li></ul><div class=highlight><pre class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=c1>// ...略...
+</code></pre></div><ul>
+<li>轉成灰階</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=c1>// ...略...
 </span><span class=ln> 2</span><span class=c1></span><span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
-<span class=ln> 3</span>    <span class=n>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-<span class=ln> 4</span>    <span class=n>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+<span class=ln> 3</span>    <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+<span class=ln> 4</span>    <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
 <span class=ln> 5</span>    <span class=n>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>fread</span><span class=p>(</span> <span class=n>original</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>999</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
 <span class=ln> 6</span>    <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=n>i</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
 <span class=ln> 7</span>        <span class=c1>// BGR
-</span><span class=ln> 8</span><span class=c1></span>        <span class=n>uint8_t</span> <span class=n>gray</span> <span class=o>=</span> <span class=mf>0.299</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.587</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.114</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span><span class=ln> 8</span><span class=c1></span>        <span class=kt>uint8_t</span> <span class=n>gray</span> <span class=o>=</span> <span class=mf>0.299</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.587</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.114</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
 <span class=ln> 9</span>        <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>)</span> <span class=p>{</span>
 <span class=ln>10</span>            <span class=n>modified</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>gray</span><span class=p>;</span>
 <span class=ln>11</span>        <span class=p>}</span>
@@ -108,9 +413,170 @@ gtag('js',new Date());gtag('config','G-RPR56CRPCG');</script><link rel=styleshee
 <span class=ln>13</span>    <span class=n>fwrite</span><span class=p>(</span><span class=n>modified</span><span class=p>,</span> <span class=n>count</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span><span class=p>);</span>    
 <span class=ln>14</span><span class=p>}</span>
 <span class=ln>15</span><span class=c1>// ...略...
-</span></code></pre></div><hr><h4 id=hex-編輯工具>Hex 編輯工具</h4><ul><li>Bless Hex Editor</li><li>GHex</li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous onload=StackLaTeX()></script><script>function StackLaTeX(){renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}]});}</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/computer_programming_2-08/><div class=article-details><h2 class=article-title>程式設計(二)-08：Linux List</h2></div></a></article><article><a href=/p/computer_programming_2-07/><div class=article-details><h2 class=article-title>程式設計(二)-07：Some Tricks</h2></div></a></article><article><a href=/p/computer_programming_2-06/><div class=article-details><h2 class=article-title>程式設計(二)-06：Macro</h2></div></a></article><article><a href=/p/computer_programming_2-05/><div class=article-details><h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2></div></a></article><article><a href=/p/computer_programming_2-04/><div class=article-details><h2 class=article-title>程式設計(二)-04：File Processing-02</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
-2021 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.0.1>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+</span></code></pre></div><hr>
+<h4 id=hex-編輯工具>Hex 編輯工具</h4>
+<ul>
+<li>Bless Hex Editor</li>
+<li>GHex</li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/c/>C</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/computer_programming_2-08/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-08：Linux List</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-07/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-07：Some Tricks</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-06/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-06：Macro</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-05/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-04/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-04：File Processing-02</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const customFont=document.createElement('link');customFont.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";customFont.type="text/css";customFont.rel="stylesheet";document.head.appendChild(customFont);}());</script><script src=/js/copy-to-clipboard.js></script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#file-stream>File Stream</a></li>
+<li><a href=#file-descriptor>File Descriptor</a>
+<ul>
+<li><a href=#file-stream-vs-file-descriptor>File Stream vs. File Descriptor</a></li>
+</ul>
+</li>
+<li><a href=#io-redirection>I/O Redirection</a>
+<ul>
+<li><a href=#stdout>stdout</a></li>
+<li><a href=#stdin>stdin</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<ul>
+<li><a href=#fopen>fopen</a></li>
+<li><a href=#fprintf>fprintf</a></li>
+<li><a href=#end-of-file-indicator>End-of-File Indicator</a></li>
+<li><a href=#fclose>fclose</a></li>
+<li><a href=#fscanf>fscanf</a></li>
+</ul>
+</li>
+<li><a href=#file-position-pointer>File Position Pointer</a>
+<ul>
+<li><a href=#rewind>rewind</a></li>
+<li><a href=#fseek>fseek</a></li>
+<li><a href=#ftell>ftell</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href=#binary-file>Binary File</a>
+<ul>
+<li><a href=#fread>fread</a></li>
+<li><a href=#fwrite>fwrite</a></li>
+</ul>
+</li>
+<li><a href=#bmp-file-format>BMP File Format</a>
+<ul>
+<li><a href=#讀取-bmp-檔>讀取 bmp 檔</a></li>
+<li><a href=#修改-bmp-檔>修改 bmp 檔</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<script src=/js/copy-to-clipboard.js></script>
+</body>
+</html>
