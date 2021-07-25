@@ -154,3 +154,10 @@ tags:
     {{ if not .Site.IsServer }}{{ partial "google_analytics.html" . }}{{ end }}
     ```
     - 這裡的 `if` 是避免在 local 測試時的數據也被紀錄下來
+> Hugo 於 0.82.0 版本已更新了[對 GA4 的支援](https://gohugo.io/templates/internal/#google-analytics)，使用方法如下
+1. 同上
+2. 在 `config.yaml` 中設定 `googleAnalytics: G-`
+3. 修改 `layouts/partials/head/custom.html`
+    ```html
+    {{ template "_internal/google_analytics.html" . }}
+    ```

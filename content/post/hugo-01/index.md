@@ -31,6 +31,7 @@ tags:
     - 這裡我選擇了 [Stack](https://themes.gohugo.io/hugo-theme-stack/) 這個主題
     ```bash
     $ cd ~/blog/
+    $ git init
     $ git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
     ```
 4. 跟著主題的教學文檔修改 config file
@@ -60,41 +61,8 @@ tags:
     $ git push -u origin main
     ```
 3. 使用 GitHub Actions
-    - 建立一個一個 workflows 名叫 `hugo_publish.yml`，內容如下 (有些地方須自行依照情況修改)
-    ```yml
-    name: github pages
-
-    on:
-        push:
-            branches:    
-                - main
-            paths: ["content/**", ".github/workflows/hugo_publish.yml", "config.yaml", "layouts/**", "static/**"]   
-
-    jobs:
-        deploy:
-            runs-on: ubuntu-20.04
-            steps:
-                - uses: actions/checkout@v2
-                    with:
-                        submodules: true  # Fetch Hugo themes (true OR recursive)
-                        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-                - name: Setup Hugo
-                    uses: peaceiris/actions-hugo@v2
-                    with:
-                        hugo-version: '0.79.0'
-                        extended: true
-
-                - name: Build
-                    run: hugo --minify
-
-                - name: Deploy
-                    uses: peaceiris/actions-gh-pages@v3
-                    with:
-                        github_token: ${{ secrets.GITHUB_TOKEN }}
-                        publish_dir: ./public
-                        cname: 'blog.smallten.tk'
-    ```
+    - 建立一個 workflows 名叫 `hugo_publish.yml` (有些地方須自行依照情況修改)
+    - 內容：[hugo_publish.yml](https://github.com/Adam7066/Adam7066.github.io/blob/master/.github/workflows/hugo_publish.yml)
 4. 修改 Repo 的設定
     - 先找到 GitHub Pages 的地方
     - 將 Source 改成 `Branch: gh-pages`
