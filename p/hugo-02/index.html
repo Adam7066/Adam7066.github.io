@@ -200,6 +200,16 @@ extended">
 </ul>
 </li>
 </ol>
+<blockquote>
+<p>Hugo 於 0.82.0 版本已更新了<a class=link href=https://gohugo.io/templates/internal/#google-analytics target=_blank rel=noopener>對 GA4 的支援</a>，使用方法如下</p>
+</blockquote>
+<ol>
+<li>同上</li>
+<li>在 <code>config.yaml</code> 中設定 <code>googleAnalytics: G-</code></li>
+<li>修改 <code>layouts/partials/head/custom.html</code>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=ln>1</span>{{ template &#34;_internal/google_analytics.html&#34; . }}
+</code></pre></div></li>
+</ol>
 </section>
 <footer class=article-footer>
 <section class=article-tags>

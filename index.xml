@@ -1367,7 +1367,7 @@ loading="lazy"
 &lt;tr>
 &lt;td>併查集 disjoint set&lt;/td>
 &lt;td>有效率地合併兩個集合、有效率地查詢兩個元素是否屬於同一集合&lt;/td>
-&lt;td>無。&lt;a class="link" href="../star_coder-03/" >模板&lt;/a>&lt;/td>
+&lt;td>無。&lt;a class="link" href="../star_coder-03/#%e4%bd%b5%e6%9f%a5%e9%9b%86%e6%a8%a1%e6%9d%bf" >模板&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>平衡搜尋樹&lt;/td>
@@ -3264,6 +3264,17 @@ loading="lazy"
 &lt;li>這裡的 &lt;code>if&lt;/code> 是避免在 local 測試時的數據也被紀錄下來&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Hugo 於 0.82.0 版本已更新了&lt;a class="link" href="https://gohugo.io/templates/internal/#google-analytics" target="_blank" rel="noopener"
+>對 GA4 的支援&lt;/a>，使用方法如下&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>同上&lt;/li>
+&lt;li>在 &lt;code>config.yaml&lt;/code> 中設定 &lt;code>googleAnalytics: G-&lt;/code>&lt;/li>
+&lt;li>修改 &lt;code>layouts/partials/head/custom.html&lt;/code>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="ln">1&lt;/span>{{ template &amp;#34;_internal/google_analytics.html&amp;#34; . }}
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol></description></item><item><title>Hugo-01：建立一個Hugo Blog</title><link>https://blog.smallten.tk/p/hugo-01/</link><pubDate>Sun, 07 Feb 2021 03:22:22 +0800</pubDate><guid>https://blog.smallten.tk/p/hugo-01/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
 &lt;ul>
 &lt;li>這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上&lt;/li>
@@ -3303,7 +3314,8 @@ loading="lazy"
 >Stack&lt;/a> 這個主題&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="ln">1&lt;/span>$ &lt;span class="nb">cd&lt;/span> ~/blog/
-&lt;span class="ln">2&lt;/span>$ git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+&lt;span class="ln">2&lt;/span>$ git init
+&lt;span class="ln">3&lt;/span>$ git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>跟著主題的教學文檔修改 config file&lt;/li>
 &lt;li>如要建立新文章時
@@ -3338,41 +3350,11 @@ loading="lazy"
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>使用 GitHub Actions
 &lt;ul>
-&lt;li>建立一個一個 workflows 名叫 &lt;code>hugo_publish.yml&lt;/code>，內容如下 (有些地方須自行依照情況修改)&lt;/li>
+&lt;li>建立一個 workflows 名叫 &lt;code>hugo_publish.yml&lt;/code> (有些地方須自行依照情況修改)&lt;/li>
+&lt;li>內容：&lt;a class="link" href="https://github.com/Adam7066/Adam7066.github.io/blob/master/.github/workflows/hugo_publish.yml" target="_blank" rel="noopener"
+>hugo_publish.yml&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="ln"> 1&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 2&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 3&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 5&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 6&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">main&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 7&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">paths&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;content/**&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;.github/workflows/hugo_publish.yml&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;config.yaml&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;layouts/**&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;static/**&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 8&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln"> 9&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">10&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">11&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">12&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">13&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">14&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">15&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">16&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">17&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">18&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">19&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">20&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">21&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;0.79.0&amp;#39;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">22&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">extended&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">23&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">24&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">25&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">26&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">27&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">28&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">29&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">30&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">31&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="ln">32&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">cname&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;blog.smallten.tk&amp;#39;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>修改 Repo 的設定
 &lt;ul>
 &lt;li>先找到 GitHub Pages 的地方&lt;/li>
