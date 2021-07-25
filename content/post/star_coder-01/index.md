@@ -48,7 +48,7 @@ categories:
     |堆疊 stack|支援後進先出 (LIFO) 的存取模式|std::stack|
     |佇列 queue|支援先進先出 (FIFO) 的存取模式|std::queue|
     |堆積 heap (優先隊列 priority_queue)|支援 O(logN) 的插入和 O(logN) 取出最大/小值|std::priority_queue|
-    |併查集 disjoint set|有效率地合併兩個集合、有效率地查詢兩個元素是否屬於同一集合|無。[模板](../star_coder-03/)|
+    |併查集 disjoint set|有效率地合併兩個集合、有效率地查詢兩個元素是否屬於同一集合|無。[模板](../star_coder-03/#併查集模板)|
     |平衡搜尋樹|記錄 (鍵, 值) 對應關係，支援 O(logN) 的插入和查詢|std::map|
     |平衡搜尋樹|實現「集合」，支援 O(logN) 的插入和查詢|std::set|
 - 線上教材
