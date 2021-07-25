@@ -125,35 +125,35 @@ extended">
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln> 1</span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>github pages</span><span class=w>
 </span><span class=ln> 2</span><span class=w>
 </span><span class=ln> 3</span><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
-</span><span class=ln> 4</span><span class=w></span><span class=nt>push</span><span class=p>:</span><span class=w>
-</span><span class=ln> 5</span><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>    
-</span><span class=ln> 6</span><span class=w>    </span>- <span class=l>main</span><span class=w>
-</span><span class=ln> 7</span><span class=w>    </span><span class=nt>paths</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;content/**&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;.github/workflows/hugo_publish.yml&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;config.yaml&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;layouts/**&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;static/**&#34;</span><span class=p>]</span><span class=w>
+</span><span class=ln> 4</span><span class=w>    </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span><span class=ln> 5</span><span class=w>        </span><span class=nt>branches</span><span class=p>:</span><span class=w>    
+</span><span class=ln> 6</span><span class=w>            </span>- <span class=l>main</span><span class=w>
+</span><span class=ln> 7</span><span class=w>        </span><span class=nt>paths</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;content/**&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;.github/workflows/hugo_publish.yml&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;config.yaml&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;layouts/**&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;static/**&#34;</span><span class=p>]</span><span class=w>   
 </span><span class=ln> 8</span><span class=w>
 </span><span class=ln> 9</span><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
-</span><span class=ln>10</span><span class=w></span><span class=nt>deploy</span><span class=p>:</span><span class=w>
-</span><span class=ln>11</span><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-20.04</span><span class=w>
-</span><span class=ln>12</span><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
-</span><span class=ln>13</span><span class=w>    </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
-</span><span class=ln>14</span><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span><span class=ln>15</span><span class=w>        </span><span class=nt>submodules</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>  </span><span class=c># Fetch Hugo themes (true OR recursive)</span><span class=w>
-</span><span class=ln>16</span><span class=w>        </span><span class=nt>fetch-depth</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>    </span><span class=c># Fetch all history for .GitInfo and .Lastmod</span><span class=w>
+</span><span class=ln>10</span><span class=w>    </span><span class=nt>deploy</span><span class=p>:</span><span class=w>
+</span><span class=ln>11</span><span class=w>        </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-20.04</span><span class=w>
+</span><span class=ln>12</span><span class=w>        </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span><span class=ln>13</span><span class=w>            </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
+</span><span class=ln>14</span><span class=w>                </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span><span class=ln>15</span><span class=w>                    </span><span class=nt>submodules</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>  </span><span class=c># Fetch Hugo themes (true OR recursive)</span><span class=w>
+</span><span class=ln>16</span><span class=w>                    </span><span class=nt>fetch-depth</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>    </span><span class=c># Fetch all history for .GitInfo and .Lastmod</span><span class=w>
 </span><span class=ln>17</span><span class=w>
-</span><span class=ln>18</span><span class=w>    </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Setup Hugo</span><span class=w>
-</span><span class=ln>19</span><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-hugo@v2</span><span class=w>
-</span><span class=ln>20</span><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span><span class=ln>21</span><span class=w>        </span><span class=nt>hugo-version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;0.79.0&#39;</span><span class=w>
-</span><span class=ln>22</span><span class=w>        </span><span class=nt>extended</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=ln>18</span><span class=w>            </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Setup Hugo</span><span class=w>
+</span><span class=ln>19</span><span class=w>                </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-hugo@v2</span><span class=w>
+</span><span class=ln>20</span><span class=w>                </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span><span class=ln>21</span><span class=w>                    </span><span class=nt>hugo-version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;0.79.0&#39;</span><span class=w>
+</span><span class=ln>22</span><span class=w>                    </span><span class=nt>extended</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
 </span><span class=ln>23</span><span class=w>
-</span><span class=ln>24</span><span class=w>    </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
-</span><span class=ln>25</span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>hugo --minify</span><span class=w>
+</span><span class=ln>24</span><span class=w>            </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
+</span><span class=ln>25</span><span class=w>                </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>hugo --minify</span><span class=w>
 </span><span class=ln>26</span><span class=w>
-</span><span class=ln>27</span><span class=w>    </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Deploy</span><span class=w>
-</span><span class=ln>28</span><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-gh-pages@v3</span><span class=w>
-</span><span class=ln>29</span><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span><span class=ln>30</span><span class=w>        </span><span class=nt>github_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GITHUB_TOKEN }}</span><span class=w>
-</span><span class=ln>31</span><span class=w>        </span><span class=nt>publish_dir</span><span class=p>:</span><span class=w> </span><span class=l>./public</span><span class=w>
-</span><span class=ln>32</span><span class=w>        </span><span class=nt>cname</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;blog.smallten.tk&#39;</span><span class=w>
+</span><span class=ln>27</span><span class=w>            </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Deploy</span><span class=w>
+</span><span class=ln>28</span><span class=w>                </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-gh-pages@v3</span><span class=w>
+</span><span class=ln>29</span><span class=w>                </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span><span class=ln>30</span><span class=w>                    </span><span class=nt>github_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GITHUB_TOKEN }}</span><span class=w>
+</span><span class=ln>31</span><span class=w>                    </span><span class=nt>publish_dir</span><span class=p>:</span><span class=w> </span><span class=l>./public</span><span class=w>
+</span><span class=ln>32</span><span class=w>                    </span><span class=nt>cname</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;blog.smallten.tk&#39;</span><span class=w>
 </span></code></pre></div></li>
 <li>修改 Repo 的設定
 <ul>
