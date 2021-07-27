@@ -10,7 +10,7 @@ categories:
 |:--:|:--:|:--:|
 |一|搜尋、排序、貪心|[Link](../star_coder-02/)|
 |二|STL、併查集|[Link](../star_coder-03/)|
-|三|||
+|三|圖、狀態搜尋、拓樸排序、尤拉路|[Link](../star_coder-04)|
 |四|||
 |五|||
 |六|||
@@ -65,3 +65,25 @@ categories:
     |--|--|
     |[堆積 (heap)](https://www.cs.usfca.edu/~galles/visualization/Heap.html)|最小堆積的插入與取值動畫（圖形結構與陣列內容）：推薦！|
     |[併查集](https://www.cs.usfca.edu/~galles/visualization/DisjointSets.html)|併查集的 union/find 操作動畫（圖形結構與陣列內容）：推薦！|
+## 第三週 - 圖、狀態搜尋、拓樸排序、尤拉路
+- 線上教材
+    |教材|說明|
+    |--|--|
+    |[師大碼賽客：狀態搜尋](https://drive.google.com/file/d/1J4BtOA5YqNyHE98rqk_zQgi6VNxYK4Xy/view?usp=sharing)|仲軒學長的教學講義（手把手教學與題目解說）|
+    |[師大碼賽客：基礎圖論](https://drive.google.com/file/d/1OLcHlQUihszlwzOkPa4YLcQItx-Wo1A6/view?fbclid=IwAR0TRCxnPXiveMLZd_bgg2_JT2Fz8mnYcZcZrwyYAp0kus8MEiv9oVDnYFU)|健愷學長的教學講義（有拓樸序和尤拉路）|
+    |[台大資訊之芽：圖](https://www.csie.ntu.edu.tw/~sprout/algo2019/ppt_pdf/week04/graph.pdf)|圖的實作/搜尋/二分圖判定|
+    |[建中培訓 (第 1/2/5 節)](https://tioj.ck.tp.edu.tw/uploads/attachment/5/13/3.pdf)|第5節有拓樸排序|
+    |[成大培訓 (單元 4)：圖/DFS/BFS](https://nckuacm.github.io/2019/)|有一些練習題|
+- 線上影片
+    |影片|說明|
+    |--|--|
+    |[台大陳縕儂老師：圖](https://youtu.be/kQu6JS4HWbs)|40 分鐘學圖的概念、實作與一筆畫問題|
+    |[台大陳縕儂老師：BFS](https://youtu.be/l8VG83k3b6g)|60 分鐘（主要講證明）|
+    |[台大陳縕儂老師：DFS/連通/拓樸排序](https://youtu.be/F_20YOiLKBI)|60 分鐘|
+- 演算法視覺化
+    |演算法|說明|
+    |--|--|
+    |[BFS](https://www.cs.usfca.edu/~galles/visualization/BFS.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
+    |[DFS](https://www.cs.usfca.edu/~galles/visualization/DFS.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
+    |[連通 (connected component)](https://www.cs.usfca.edu/~galles/visualization/ConnectedComponent.html)|搭配樹狀圖/陣列實作/串列實作|
+    |[拓樸排序](https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html)|搭配樹狀圖/陣列實作/串列實作|
