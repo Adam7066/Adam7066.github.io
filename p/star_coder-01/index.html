@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三     四     五     六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4."><title>StarCoder2021暑訓</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四     五     六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4."><title>StarCoder2021暑訓</title>
 <link rel=canonical href=https://blog.smallten.tk/p/star_coder-01/>
 <link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓">
-<meta property="og:description" content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三     四     五     六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
+<meta property="og:description" content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四     五     六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
 <meta property="og:url" content="https://blog.smallten.tk/p/star_coder-01/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2021-07-14T22:52:11+08:00"><meta property="article:modified_time" content="2021-07-14T22:52:11+08:00">
 <meta name=twitter:title content="StarCoder2021暑訓">
-<meta name=twitter:description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三     四     五     六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
+<meta name=twitter:description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四     五     六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
@@ -78,8 +78,8 @@ StarCoder
 </tr>
 <tr>
 <td style=text-align:center>三</td>
-<td style=text-align:center></td>
-<td></td>
+<td style=text-align:center>圖、狀態搜尋、拓樸排序、尤拉路</td>
+<td style=text-align:center><a class=link href=../star_coder-04>Link</a></td>
 </tr>
 <tr>
 <td style=text-align:center>四</td>
@@ -305,6 +305,93 @@ StarCoder
 </table>
 </li>
 </ul>
+<h2 id=第三週---圖狀態搜尋拓樸排序尤拉路>第三週 - 圖、狀態搜尋、拓樸排序、尤拉路</h2>
+<ul>
+<li>線上教材
+<table>
+<thead>
+<tr>
+<th>教材</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=link href="https://drive.google.com/file/d/1J4BtOA5YqNyHE98rqk_zQgi6VNxYK4Xy/view?usp=sharing" target=_blank rel=noopener>師大碼賽客：狀態搜尋</a></td>
+<td>仲軒學長的教學講義（手把手教學與題目解說）</td>
+</tr>
+<tr>
+<td><a class=link href="https://drive.google.com/file/d/1OLcHlQUihszlwzOkPa4YLcQItx-Wo1A6/view?fbclid=IwAR0TRCxnPXiveMLZd_bgg2_JT2Fz8mnYcZcZrwyYAp0kus8MEiv9oVDnYFU" target=_blank rel=noopener>師大碼賽客：基礎圖論</a></td>
+<td>健愷學長的教學講義（有拓樸序和尤拉路）</td>
+</tr>
+<tr>
+<td><a class=link href=https://www.csie.ntu.edu.tw/~sprout/algo2019/ppt_pdf/week04/graph.pdf target=_blank rel=noopener>台大資訊之芽：圖</a></td>
+<td>圖的實作/搜尋/二分圖判定</td>
+</tr>
+<tr>
+<td><a class=link href=https://tioj.ck.tp.edu.tw/uploads/attachment/5/13/3.pdf target=_blank rel=noopener>建中培訓 (第 1/2/5 節)</a></td>
+<td>第5節有拓樸排序</td>
+</tr>
+<tr>
+<td><a class=link href=https://nckuacm.github.io/2019/ target=_blank rel=noopener>成大培訓 (單元 4)：圖/DFS/BFS</a></td>
+<td>有一些練習題</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>線上影片
+<table>
+<thead>
+<tr>
+<th>影片</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=link href=https://youtu.be/kQu6JS4HWbs target=_blank rel=noopener>台大陳縕儂老師：圖</a></td>
+<td>40 分鐘學圖的概念、實作與一筆畫問題</td>
+</tr>
+<tr>
+<td><a class=link href=https://youtu.be/l8VG83k3b6g target=_blank rel=noopener>台大陳縕儂老師：BFS</a></td>
+<td>60 分鐘（主要講證明）</td>
+</tr>
+<tr>
+<td><a class=link href=https://youtu.be/F_20YOiLKBI target=_blank rel=noopener>台大陳縕儂老師：DFS/連通/拓樸排序</a></td>
+<td>60 分鐘</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>演算法視覺化
+<table>
+<thead>
+<tr>
+<th>演算法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=link href=https://www.cs.usfca.edu/~galles/visualization/BFS.html target=_blank rel=noopener>BFS</a></td>
+<td>搭配樹狀圖/陣列實作/串列實作：推薦！</td>
+</tr>
+<tr>
+<td><a class=link href=https://www.cs.usfca.edu/~galles/visualization/DFS.html target=_blank rel=noopener>DFS</a></td>
+<td>搭配樹狀圖/陣列實作/串列實作：推薦！</td>
+</tr>
+<tr>
+<td><a class=link href=https://www.cs.usfca.edu/~galles/visualization/ConnectedComponent.html target=_blank rel=noopener>連通 (connected component)</a></td>
+<td>搭配樹狀圖/陣列實作/串列實作</td>
+</tr>
+<tr>
+<td><a class=link href=https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html target=_blank rel=noopener>拓樸排序</a></td>
+<td>搭配樹狀圖/陣列實作/串列實作</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
 </section>
 <footer class=article-footer>
 </footer>
@@ -314,6 +401,13 @@ StarCoder
 <h2 class=section-title>Related contents</h2>
 <div class=related-contents>
 <div class="flex article-list--tile">
+<article>
+<a href=/p/star_coder-04/>
+<div class=article-details>
+<h2 class=article-title>StarCoder2021暑訓：Week03</h2>
+</div>
+</a>
+</article>
 <article>
 <a href=/p/star_coder-03/>
 <div class=article-details>
@@ -389,6 +483,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <ul>
 <li><a href=#第一週---搜尋排序貪心>第一週 - 搜尋、排序、貪心</a></li>
 <li><a href=#第二週---stl併查集>第二週 - STL、併查集</a></li>
+<li><a href=#第三週---圖狀態搜尋拓樸排序尤拉路>第三週 - 圖、狀態搜尋、拓樸排序、尤拉路</a></li>
 </ul>
 </nav>
 </div>
