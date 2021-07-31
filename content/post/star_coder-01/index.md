@@ -70,7 +70,7 @@ categories:
     |教材|說明|
     |--|--|
     |[師大碼賽客：狀態搜尋](https://drive.google.com/file/d/1J4BtOA5YqNyHE98rqk_zQgi6VNxYK4Xy/view?usp=sharing)|仲軒學長的教學講義（手把手教學與題目解說）|
-    |[師大碼賽客：基礎圖論](https://drive.google.com/file/d/1OLcHlQUihszlwzOkPa4YLcQItx-Wo1A6/view?fbclid=IwAR0TRCxnPXiveMLZd_bgg2_JT2Fz8mnYcZcZrwyYAp0kus8MEiv9oVDnYFU)|健愷學長的教學講義（有拓樸序和尤拉路）|
+    |[師大碼賽客：基礎圖論](https://drive.google.com/file/d/1sFEu6V7Sk5RpT01SSH4P7RBOdYHXPioe/view?usp=sharing)|健愷學長的教學講義（有拓樸序和尤拉路）|
     |[台大資訊之芽：圖](https://www.csie.ntu.edu.tw/~sprout/algo2019/ppt_pdf/week04/graph.pdf)|圖的實作/搜尋/二分圖判定|
     |[建中培訓 (第 1/2/5 節)](https://tioj.ck.tp.edu.tw/uploads/attachment/5/13/3.pdf)|第5節有拓樸排序|
     |[成大培訓 (單元 4)：圖/DFS/BFS](https://nckuacm.github.io/2019/)|有一些練習題|
