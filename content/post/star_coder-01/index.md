@@ -11,7 +11,7 @@ categories:
 |一|搜尋、排序、貪心|[Link](../star_coder-02/)|
 |二|STL、併查集|[Link](../star_coder-03/)|
 |三|圖、狀態搜尋、拓樸排序、尤拉路|[Link](../star_coder-04)|
-|四|||
+|四|動態規劃|[Link](../star_coder-05)|
 |五|||
 |六|||
 |七|||
@@ -87,3 +87,22 @@ categories:
     |[DFS](https://www.cs.usfca.edu/~galles/visualization/DFS.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
     |[連通 (connected component)](https://www.cs.usfca.edu/~galles/visualization/ConnectedComponent.html)|搭配樹狀圖/陣列實作/串列實作|
     |[拓樸排序](https://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html)|搭配樹狀圖/陣列實作/串列實作|
+## 第四週 - 動態規劃
+- 線上教材
+    |教材|說明|
+    |--|--|
+    |[師大碼賽客：基礎 DP](https://drive.google.com/file/d/1i2jVK5B-mlC12hx_qAGMnYd0Q0eYLzMy/view?usp=sharing)|品新學長的教學講義（涵蓋重要經典題型與題解）|
+    |[台大資訊之芽：DP 概念](https://www.csie.ntu.edu.tw/~sprout/algo2019/ppt_pdf/week07/dynamic_programming_1.pdf)、[LIS/LCS](https://www.csie.ntu.edu.tw/~sprout/algo2019/ppt_pdf/week07/dynamic_programming_2_1.pdf)、[零錢/背包](https://www.csie.ntu.edu.tw/~sprout/algo2019/ppt_pdf/week09/dynamic_programming_2_2.pdf)|三段講義|
+    |[成大培訓 (單元 9)：DP (背包/LIS/LCS)](https://nckuacm.github.io/2019/)|有一些練習題|
+    |[sa072686 的筆記](https://hackmd.io/@sa072686/DP?type=view)|有很多習題與解答。|
+- 線上影片
+    |影片|說明|
+    |--|--|
+    |[台大陳縕儂老師：DP 概念](https://youtu.be/Ovh1Pgrxc-o)|20 分鐘影片：以費氏數列解釋 DP 概念|
+    |[台大陳縕儂老師：矩陣連乘 (區間 DP)](https://youtu.be/baurdahvESA)|30 分鐘|
+- 演算法視覺化
+    |演算法|說明|
+    |--|--|
+    |[LIS](https://algorithm-visualizer.org/dynamic-programming/longest-increasing-subsequence)|O(n2) 程式步進動畫|
+    |[LCS](https://algorithm-visualizer.org/dynamic-programming/longest-common-subsequence)|O(n2) 程式步進動畫|
+    |[背包](https://algorithm-visualizer.org/dynamic-programming/knapsack-problem)|O(NW) 程式步進動畫|
