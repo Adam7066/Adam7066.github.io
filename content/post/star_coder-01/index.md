@@ -12,7 +12,7 @@ categories:
 |二|STL、併查集|[Link](../star_coder-03/)|
 |三|圖、狀態搜尋、拓樸排序、尤拉路|[Link](../star_coder-04)|
 |四|動態規劃|[Link](../star_coder-05)|
-|五|||
+|五|最小生成樹|[Link](../star_coder-06)|
 |六|||
 |七|||
 |八|||
@@ -106,3 +106,22 @@ categories:
     |[LIS](https://algorithm-visualizer.org/dynamic-programming/longest-increasing-subsequence)|O(n2) 程式步進動畫|
     |[LCS](https://algorithm-visualizer.org/dynamic-programming/longest-common-subsequence)|O(n2) 程式步進動畫|
     |[背包](https://algorithm-visualizer.org/dynamic-programming/knapsack-problem)|O(NW) 程式步進動畫|
+
+## 第五週 - 最小生成樹
+- 線上教材
+    |教材|說明|
+    |--|--|
+    |[師大碼賽客：MST](https://drive.google.com/file/d/1GRIOvPBGcm2655oochxr6sgtNiRvFdft/view?usp=sharing)|智鈞學長的教學講義與題解（本集也包含拓撲排序和尤拉路）|
+    |[成大培訓 (單元 11)：Graph](https://nckuacm.github.io/2019/)|速成、有一些練習題|
+    |[演算法筆記：生成樹](http://web.ntnu.edu.tw/~algo/SpanningTree.html)|師大資工最有名的個人網站XD|
+- 線上影片
+    |影片|說明|
+    |--|--|
+    |[資訊之芽：最小生成樹](https://youtu.be/NXfNZa3rKD0)|30分鐘|
+- 演算法視覺化
+    |演算法|說明|
+    |--|--|
+    |[Kruskal’s](https://www.cs.usfca.edu/~galles/visualization/Kruskal.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
+    |[Kruskal’s](https://algorithm-visualizer.org/greedy/kruskals-minimum-spanning-tree)|搭配程式碼|
+    |[Prim’s](https://www.cs.usfca.edu/~galles/visualization/Prim.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
+    |[Prim’s](https://algorithm-visualizer.org/greedy/prims-minimum-spanning-tree)|搭配程式碼|
