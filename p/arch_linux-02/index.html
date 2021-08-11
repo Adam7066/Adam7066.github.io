@@ -1,0 +1,184 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="前言  在 Arch Linux-01：系統安裝 中，已經介紹了如何完整的安裝一個基礎的 Arch Linux 系統，而這部分將去介紹一些基本的設定或是驅動的安裝。
+教學開始 新增使用者  由於不應該一直使用 root 帳號，因此我們來新增一個使用者吧。   新增使用者：useradd -m &amp;lt;user&amp;gt; ( &amp;lt;user&amp;gt; 為你要新增的用戶名稱，請自行更改 ) 設置密碼：passwd &amp;lt;user&amp;gt;  Sudo  Sudo Wiki 安裝：pacman -S sudo 將使用者加入：usermod -aG wheel &amp;lt;user&amp;gt; 使用 visudo  由於預設使用 vi，但我們之前是用安裝 vim，因此臨時的更改它吧：EDITOR=vim visudo 進去後，找到 %wheel ALL=(ALL) ALL 這行，然後消掉註解並且儲存離開。    Xorg  Xorg Wiki 安裝 ：pacman -S xorg-server 驅動安裝  查看顯卡類型：lspci -v | grep -A1 -e VGA -e 3D 安裝對應驅動，請依照情況自行更改 以下為我的筆電的安裝方式 (參考至此文章) 開啟 multilib 倉庫：vim /etc/pacman."><title>Arch Linux-02：基本設置</title>
+<link rel=canonical href=https://blog.smallten.tk/p/arch_linux-02/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Arch Linux-02：基本設置">
+<meta property="og:description" content="前言  在 Arch Linux-01：系統安裝 中，已經介紹了如何完整的安裝一個基礎的 Arch Linux 系統，而這部分將去介紹一些基本的設定或是驅動的安裝。
+教學開始 新增使用者  由於不應該一直使用 root 帳號，因此我們來新增一個使用者吧。   新增使用者：useradd -m &amp;lt;user&amp;gt; ( &amp;lt;user&amp;gt; 為你要新增的用戶名稱，請自行更改 ) 設置密碼：passwd &amp;lt;user&amp;gt;  Sudo  Sudo Wiki 安裝：pacman -S sudo 將使用者加入：usermod -aG wheel &amp;lt;user&amp;gt; 使用 visudo  由於預設使用 vi，但我們之前是用安裝 vim，因此臨時的更改它吧：EDITOR=vim visudo 進去後，找到 %wheel ALL=(ALL) ALL 這行，然後消掉註解並且儲存離開。    Xorg  Xorg Wiki 安裝 ：pacman -S xorg-server 驅動安裝  查看顯卡類型：lspci -v | grep -A1 -e VGA -e 3D 安裝對應驅動，請依照情況自行更改 以下為我的筆電的安裝方式 (參考至此文章) 開啟 multilib 倉庫：vim /etc/pacman.">
+<meta property="og:url" content="https://blog.smallten.tk/p/arch_linux-02/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arch Linux"><meta property="article:published_time" content="2021-08-11T17:26:15+08:00"><meta property="article:modified_time" content="2021-08-11T17:26:15+08:00">
+<meta name=twitter:title content="Arch Linux-02：基本設置">
+<meta name=twitter:description content="前言  在 Arch Linux-01：系統安裝 中，已經介紹了如何完整的安裝一個基礎的 Arch Linux 系統，而這部分將去介紹一些基本的設定或是驅動的安裝。
+教學開始 新增使用者  由於不應該一直使用 root 帳號，因此我們來新增一個使用者吧。   新增使用者：useradd -m &amp;lt;user&amp;gt; ( &amp;lt;user&amp;gt; 為你要新增的用戶名稱，請自行更改 ) 設置密碼：passwd &amp;lt;user&amp;gt;  Sudo  Sudo Wiki 安裝：pacman -S sudo 將使用者加入：usermod -aG wheel &amp;lt;user&amp;gt; 使用 visudo  由於預設使用 vi，但我們之前是用安裝 vim，因此臨時的更改它吧：EDITOR=vim visudo 進去後，找到 %wheel ALL=(ALL) ALL 這行，然後消掉註解並且儲存離開。    Xorg  Xorg Wiki 安裝 ：pacman -S xorg-server 驅動安裝  查看顯卡類型：lspci -v | grep -A1 -e VGA -e 3D 安裝對應驅動，請依照情況自行更改 以下為我的筆電的安裝方式 (參考至此文章) 開啟 multilib 倉庫：vim /etc/pacman.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css>
+<link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png>
+<link rel=manifest href=/favicon/site.webmanifest>
+<link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<h2 class=article-title>
+<a href=/p/arch_linux-02/>Arch Linux-02：基本設置</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Aug 11, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+1 min read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=前言>前言</h1>
+<p>  在 <a class=link href=../arch_linux-01>Arch Linux-01：系統安裝</a> 中，已經介紹了如何完整的安裝一個基礎的 Arch Linux 系統，而這部分將去介紹一些基本的設定或是驅動的安裝。</p>
+<h1 id=教學開始>教學開始</h1>
+<h2 id=新增使用者>新增使用者</h2>
+<ul>
+<li>由於不應該一直使用 root 帳號，因此我們來新增一個使用者吧。</li>
+</ul>
+<ol>
+<li>新增使用者：<code>useradd -m &lt;user></code> ( <code>&lt;user></code> 為你要新增的用戶名稱，請自行更改 )</li>
+<li>設置密碼：<code>passwd &lt;user></code></li>
+</ol>
+<h2 id=sudo>Sudo</h2>
+<ul>
+<li><a class=link href=https://wiki.archlinux.org/title/sudo target=_blank rel=noopener>Sudo Wiki</a></li>
+<li>安裝：<code>pacman -S sudo</code></li>
+<li>將使用者加入：<code>usermod -aG wheel &lt;user></code></li>
+<li>使用 visudo
+<ul>
+<li>由於預設使用 vi，但我們之前是用安裝 vim，因此臨時的更改它吧：<code>EDITOR=vim visudo</code></li>
+<li>進去後，找到 <code>%wheel ALL=(ALL) ALL</code> 這行，然後消掉註解並且儲存離開。</li>
+</ul>
+</li>
+</ul>
+<h2 id=xorg>Xorg</h2>
+<ul>
+<li><a class=link href=https://wiki.archlinux.org/title/xorg target=_blank rel=noopener>Xorg Wiki</a></li>
+<li>安裝 ：<code>pacman -S xorg-server</code></li>
+<li><a class=link href=https://wiki.archlinux.org/title/xorg#Driver_installation target=_blank rel=noopener>驅動安裝</a>
+<ul>
+<li>查看顯卡類型：<code>lspci -v | grep -A1 -e VGA -e 3D</code></li>
+<li>安裝對應驅動，請依照情況自行更改</li>
+<li>以下為我的筆電的安裝方式 (<a class=link href=https://blog.sakuya.love/archives/linuxgpu/ target=_blank rel=noopener>參考至此文章</a>)</li>
+<li>開啟 multilib 倉庫：<code>vim /etc/pacman.conf</code>
+<ul>
+<li>找到下方兩行，並消掉註解
+<pre><code>[multilib]
+Include = /etc/pacman.d/mirrorlist
+</code></pre></li>
+</ul>
+</li>
+<li>安裝 mesa 包：<code>pacman -S mesa lib32-mesa</code></li>
+<li>若之前已安裝 xf86-video-intel，請卸載掉：<code>pacman -Rsc xf86-video-intel</code></li>
+<li>nvidia 驅動：<code>pacman -S nvidia lib32-nvidia-utils</code></li>
+<li>安装 nvidia-prime：<code>pacman -S nvidia-prime</code> (<a class=link href=https://wiki.archlinux.org/title/PRIME#PRIME_render_offload target=_blank rel=noopener>Prime Wiki</a>)</li>
+<li>重新啟動：<code>reboot</code></li>
+</ul>
+</li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/arch-linux/>Arch Linux</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#新增使用者>新增使用者</a></li>
+<li><a href=#sudo>Sudo</a></li>
+<li><a href=#xorg>Xorg</a></li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<script src=/js/copy-to-clipboard.js></script>
+</body>
+</html>
