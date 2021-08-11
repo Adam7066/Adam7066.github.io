@@ -68,7 +68,7 @@ params:
             path: archives
 
         tagCloud:
-            limit: 10
+            limit: 20
 
     opengraph:
         twitter:
