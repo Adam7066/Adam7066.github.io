@@ -150,16 +150,24 @@ extended">
 </li>
 <li>配置系統
 <ul>
-<li>生成 fstab 文件
+<li>
+<p>生成 fstab 文件</p>
 <ul>
 <li><code>genfstab -U /mnt >> /mnt/etc/fstab</code></li>
 <li>檢查生成的 fstab 文件：<code>cat /mnt/etc/fstab</code></li>
 </ul>
 </li>
-<li>切換到裝好的系統：<code>arch-chroot /mnt</code></li>
-<li>設定時區：<code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></li>
-<li>同步硬體時鐘：<code>hwclock --systohc</code></li>
-<li>在地化
+<li>
+<p>切換到裝好的系統：<code>arch-chroot /mnt</code></p>
+</li>
+<li>
+<p>設定時區：<code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p>
+</li>
+<li>
+<p>同步硬體時鐘：<code>hwclock --systohc</code></p>
+</li>
+<li>
+<p>在地化</p>
 <ul>
 <li><code>vim /etc/locale.gen</code>
 <ul>
@@ -174,7 +182,8 @@ extended">
 </li>
 </ul>
 </li>
-<li>配置網路
+<li>
+<p>配置網路</p>
 <ul>
 <li>創建 hostname 文件：<code>vim /etc/hostname</code>
 <ul>
@@ -188,13 +197,28 @@ extended">
 </code></pre></li>
 </ul>
 </li>
-<li>安裝網路工具
+<li>
+<p>設定 DHCP</p>
 <ul>
-<li><code>pacman -S net-tools dhclient dhcp wpa_supplicant wireless_tools</code></li>
-<li><code>systemctl enable dhcpcd.service</code></li>
+<li><code>vim /etc/systemd/network/20-wired.network</code>，內容如下
+<ul>
+<li><code>enp1s0</code> 為網卡名稱，請用 <code>ip a</code> 自行查看更改</li>
+</ul>
+<pre><code>[Match]
+Name=enp1s0
+
+[Network]
+DHCP=yes
+</code></pre></li>
+<li>啟用：<code>systemctl enable --now systemd-networkd.service</code></li>
 </ul>
 </li>
-<li>修改 root 密碼：<code>passwd</code></li>
+<li>
+<p>啟用 DNS：<code>systemctl enable --now systemd-resolved</code></p>
+</li>
+<li>
+<p>修改 root 密碼：<code>passwd</code></p>
+</li>
 </ul>
 </li>
 <li>開機引導，這邊我們使用 <a class=link href=https://wiki.archlinux.org/title/systemd-boot target=_blank rel=noopener>systemd-boot</a>

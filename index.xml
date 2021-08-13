@@ -115,7 +115,7 @@ zsh-autosuggestions
 &lt;li>1password：&lt;code>yay -S 1password&lt;/code>&lt;/li>
 &lt;li>Neofetch： &lt;code>pacman -S neofetch&lt;/code>&lt;/li>
 &lt;li>&lt;a class="link" href="https://wiki.archlinux.org/title/GNOME/Keyring" target="_blank" rel="noopener"
->Kerying&lt;/a>：&lt;code>pacman -S gnome-keyring&lt;/code>
+>Keyring&lt;/a>：&lt;code>pacman -S gnome-keyring&lt;/code>
 &lt;ul>
 &lt;li>Seahorse：&lt;code>pacman -S seahorse&lt;/code>&lt;/li>
 &lt;/ul>
@@ -369,16 +369,24 @@ Include = /etc/pacman.d/mirrorlist
 &lt;/li>
 &lt;li>配置系統
 &lt;ul>
-&lt;li>生成 fstab 文件
+&lt;li>
+&lt;p>生成 fstab 文件&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab&lt;/code>&lt;/li>
 &lt;li>檢查生成的 fstab 文件：&lt;code>cat /mnt/etc/fstab&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>切換到裝好的系統：&lt;code>arch-chroot /mnt&lt;/code>&lt;/li>
-&lt;li>設定時區：&lt;code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime&lt;/code>&lt;/li>
-&lt;li>同步硬體時鐘：&lt;code>hwclock --systohc&lt;/code>&lt;/li>
-&lt;li>在地化
+&lt;li>
+&lt;p>切換到裝好的系統：&lt;code>arch-chroot /mnt&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>設定時區：&lt;code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>同步硬體時鐘：&lt;code>hwclock --systohc&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在地化&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>vim /etc/locale.gen&lt;/code>
 &lt;ul>
@@ -393,7 +401,8 @@ Include = /etc/pacman.d/mirrorlist
 &lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>配置網路
+&lt;li>
+&lt;p>配置網路&lt;/p>
 &lt;ul>
 &lt;li>創建 hostname 文件：&lt;code>vim /etc/hostname&lt;/code>
 &lt;ul>
@@ -407,13 +416,27 @@ Include = /etc/pacman.d/mirrorlist
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>安裝網路工具
+&lt;li>
+&lt;p>設定 DHCP&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>pacman -S net-tools dhclient dhcp wpa_supplicant wireless_tools&lt;/code>&lt;/li>
-&lt;li>&lt;code>systemctl enable dhcpcd.service&lt;/code>&lt;/li>
+&lt;li>&lt;code>vim /etc/systemd/network/20-wired.network&lt;/code>，內容如下
+&lt;ul>
+&lt;li>&lt;code>enp1s0&lt;/code> 為網卡名稱，請用 &lt;code>ip a&lt;/code> 自行查看更改&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>[Match]
+Name=enp1s0
+[Network]
+DHCP=yes
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>啟用：&lt;code>systemctl enable --now systemd-networkd.service&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>修改 root 密碼：&lt;code>passwd&lt;/code>&lt;/li>
+&lt;li>
+&lt;p>啟用 DNS：&lt;code>systemctl enable --now systemd-resolved&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>修改 root 密碼：&lt;code>passwd&lt;/code>&lt;/p>
+&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>開機引導，這邊我們使用 &lt;a class="link" href="https://wiki.archlinux.org/title/systemd-boot" target="_blank" rel="noopener"
