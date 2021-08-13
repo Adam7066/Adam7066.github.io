@@ -78,9 +78,19 @@ tags:
             ::1		localhost
             127.0.1.1	myhostname.localdomain	myhostname
             ```
-    - 安裝網路工具
-        - `pacman -S net-tools dhclient dhcp wpa_supplicant wireless_tools`
-        - `systemctl enable dhcpcd.service`
+    - 設定 DHCP
+        - `vim /etc/systemd/network/20-wired.network`，內容如下
+            - `enp1s0` 為網卡名稱，請用 `ip a` 自行查看更改
+            ```
+            [Match]
+            Name=enp1s0
+
+            [Network]
+            DHCP=yes
+            ```
+        - 啟用：`systemctl enable --now systemd-networkd.service`
+    - 啟用 DNS：`systemctl enable --now systemd-resolved`
+
     - 修改 root 密碼：`passwd`
 8. 開機引導，這邊我們使用 [systemd-boot](https://wiki.archlinux.org/title/systemd-boot)
     - 將 systemd-boot 安裝到 efi 分區：`bootctl --path=/boot install`
