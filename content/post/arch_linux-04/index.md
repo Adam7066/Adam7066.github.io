@@ -94,7 +94,7 @@ makepkg -si
 - Google Chrome：`yay -S google-chrome`
 - 1password：`yay -S 1password`
 - Neofetch： `pacman -S neofetch`
-- [Kerying](https://wiki.archlinux.org/title/GNOME/Keyring)：`pacman -S gnome-keyring`
+- [Keyring](https://wiki.archlinux.org/title/GNOME/Keyring)：`pacman -S gnome-keyring`
     - Seahorse：`pacman -S seahorse`
 - [Visual Studio Code](https://wiki.archlinux.org/title/Visual_Studio_Code)：`yay -S visual-studio-code-bin`
 - Discord：`pacman -S discord`
