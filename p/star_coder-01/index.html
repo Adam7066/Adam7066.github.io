@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4."><title>StarCoder2021暑訓</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link   七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4."><title>StarCoder2021暑訓</title>
 <link rel=canonical href=https://blog.smallten.tk/p/star_coder-01/>
 <link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓">
-<meta property="og:description" content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
+<meta property="og:description" content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link   七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
 <meta property="og:url" content="https://blog.smallten.tk/p/star_coder-01/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2021-07-14T22:52:11+08:00"><meta property="article:modified_time" content="2021-07-14T22:52:11+08:00">
 <meta name=twitter:title content="StarCoder2021暑訓">
-<meta name=twitter:description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六     七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
+<meta name=twitter:description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link   七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
@@ -93,8 +93,8 @@ StarCoder
 </tr>
 <tr>
 <td style=text-align:center>六</td>
-<td style=text-align:center></td>
-<td></td>
+<td style=text-align:center>最短路徑</td>
+<td style=text-align:center><a class=link href=../star_coder-07>Link</a></td>
 </tr>
 <tr>
 <td style=text-align:center>七</td>
@@ -538,6 +538,89 @@ StarCoder
 </table>
 </li>
 </ul>
+<h2 id=第六週---最短路徑>第六週 - 最短路徑</h2>
+<ul>
+<li>線上教材
+<table>
+<thead>
+<tr>
+<th>教材</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=link href="https://drive.google.com/file/d/1-xLiguIFiUyvvQSbe5mJ40P10UaKDm_C/view?usp=sharing" target=_blank rel=noopener>師大碼賽客：最短路</a></td>
+<td>品新學長的教學講義與題解</td>
+</tr>
+<tr>
+<td><a class=link href=http://web.ntnu.edu.tw/~algo/Path.html target=_blank rel=noopener>演算法筆記:路徑</a></td>
+<td><a class=link href=http://web.ntnu.edu.tw/~algo/Path.html#4 target=_blank rel=noopener>Dijkstra’s</a>、<a class=link href=http://web.ntnu.edu.tw/~algo/Path2.html#2 target=_blank rel=noopener>BellmanFord</a>、<a class=link href=http://web.ntnu.edu.tw/~algo/Path2.html#6 target=_blank rel=noopener>Floyd-Warshall</a></td>
+</tr>
+<tr>
+<td><a class=link href=https://nckuacm.github.io/2019/ target=_blank rel=noopener>成大培訓 (單元 11)：Graph</a></td>
+<td><a class=link href="https://hackmd.io/@3xOSPTI6QMGdj6jgMMe08w/SkCtEVcq4?type=view#Single-Source-Shortest-Paths" target=_blank rel=noopener>速成</a>、<a class=link href="https://hackmd.io/@3xOSPTI6QMGdj6jgMMe08w/rJSy4HZoN?type=view" target=_blank rel=noopener>有一些練習題</a></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>線上影片
+<table>
+<thead>
+<tr>
+<th>影片</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=link href=https://youtu.be/2CHyUZ9ZCao target=_blank rel=noopener>台大陳縕儂老師：最短路</a></td>
+<td>15分鐘簡介</td>
+</tr>
+<tr>
+<td><a class=link href=https://youtu.be/oxaKYsQaFxk target=_blank rel=noopener>台大陳縕儂老師：Bellman-Ford</a></td>
+<td>30 分鐘介紹</td>
+</tr>
+<tr>
+<td><a class=link href=https://youtu.be/1Q0Y8qmG8is target=_blank rel=noopener>台大陳縕儂老師：Dijkstra’s</a></td>
+<td>20 分鐘介紹</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>演算法視覺化
+<table>
+<thead>
+<tr>
+<th>演算法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=link href=https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html target=_blank rel=noopener>Dijkstra’s</a></td>
+<td>搭配樹狀圖/陣列實作/串列實作：推薦！</td>
+</tr>
+<tr>
+<td><a class=link href=https://algorithm-visualizer.org/greedy/dijkstras-shortest-path target=_blank rel=noopener>Dijkstra’s</a></td>
+<td>搭配程式碼</td>
+</tr>
+<tr>
+<td><a class=link href=https://algorithm-visualizer.org/dynamic-programming/bellman-fords-shortest-path target=_blank rel=noopener>Bellman-Ford</a></td>
+<td>搭配程式碼</td>
+</tr>
+<tr>
+<td><a class=link href=https://www.cs.usfca.edu/~galles/visualization/Floyd.html target=_blank rel=noopener>Floyd-Warshall</a></td>
+<td>搭配樹狀圖/陣列實作/串列實作：推薦！</td>
+</tr>
+<tr>
+<td><a class=link href=https://algorithm-visualizer.org/dynamic-programming/floyd-warshalls-shortest-path target=_blank rel=noopener>Floyd-Warshall</a></td>
+<td>搭配程式嗎</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
 </section>
 <footer class=article-footer>
 </footer>
@@ -547,6 +630,13 @@ StarCoder
 <h2 class=section-title>Related contents</h2>
 <div class=related-contents>
 <div class="flex article-list--tile">
+<article>
+<a href=/p/star_coder-07/>
+<div class=article-details>
+<h2 class=article-title>StarCoder2021暑訓：Week06</h2>
+</div>
+</a>
+</article>
 <article>
 <a href=/p/star_coder-06/>
 <div class=article-details>
@@ -572,13 +662,6 @@ StarCoder
 <a href=/p/star_coder-03/>
 <div class=article-details>
 <h2 class=article-title>StarCoder2021暑訓：Week02</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/star_coder-02/>
-<div class=article-details>
-<h2 class=article-title>StarCoder2021暑訓：Week01</h2>
 </div>
 </a>
 </article>
@@ -646,6 +729,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#第三週---圖狀態搜尋拓樸排序尤拉路>第三週 - 圖、狀態搜尋、拓樸排序、尤拉路</a></li>
 <li><a href=#第四週---動態規劃>第四週 - 動態規劃</a></li>
 <li><a href=#第五週---最小生成樹>第五週 - 最小生成樹</a></li>
+<li><a href=#第六週---最短路徑>第六週 - 最短路徑</a></li>
 </ul>
 </nav>
 </div>
