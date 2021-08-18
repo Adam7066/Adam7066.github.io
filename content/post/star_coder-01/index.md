@@ -13,7 +13,7 @@ categories:
 |三|圖、狀態搜尋、拓樸排序、尤拉路|[Link](../star_coder-04)|
 |四|動態規劃|[Link](../star_coder-05)|
 |五|最小生成樹|[Link](../star_coder-06)|
-|六|||
+|六|最短路徑|[Link](../star_coder-07)|
 |七|||
 |八|||
 
@@ -125,3 +125,25 @@ categories:
     |[Kruskal’s](https://algorithm-visualizer.org/greedy/kruskals-minimum-spanning-tree)|搭配程式碼|
     |[Prim’s](https://www.cs.usfca.edu/~galles/visualization/Prim.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
     |[Prim’s](https://algorithm-visualizer.org/greedy/prims-minimum-spanning-tree)|搭配程式碼|
+
+## 第六週 - 最短路徑
+- 線上教材
+    |教材|說明|
+    |--|--|
+    |[師大碼賽客：最短路](https://drive.google.com/file/d/1-xLiguIFiUyvvQSbe5mJ40P10UaKDm_C/view?usp=sharing)|品新學長的教學講義與題解|
+    |[演算法筆記:路徑](http://web.ntnu.edu.tw/~algo/Path.html)|[Dijkstra’s](http://web.ntnu.edu.tw/~algo/Path.html#4)、[BellmanFord](http://web.ntnu.edu.tw/~algo/Path2.html#2)、[Floyd-Warshall](http://web.ntnu.edu.tw/~algo/Path2.html#6)|
+    |[成大培訓 (單元 11)：Graph](https://nckuacm.github.io/2019/)|[速成](https://hackmd.io/@3xOSPTI6QMGdj6jgMMe08w/SkCtEVcq4?type=view#Single-Source-Shortest-Paths)、[有一些練習題](https://hackmd.io/@3xOSPTI6QMGdj6jgMMe08w/rJSy4HZoN?type=view)|
+- 線上影片
+    |影片|說明|
+    |--|--|
+    |[台大陳縕儂老師：最短路](https://youtu.be/2CHyUZ9ZCao)|15分鐘簡介|
+    |[台大陳縕儂老師：Bellman-Ford](https://youtu.be/oxaKYsQaFxk)|30 分鐘介紹|
+    |[台大陳縕儂老師：Dijkstra’s](https://youtu.be/1Q0Y8qmG8is)|20 分鐘介紹|
+- 演算法視覺化
+    |演算法|說明|
+    |--|--|
+    |[Dijkstra’s](https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
+    |[Dijkstra’s](https://algorithm-visualizer.org/greedy/dijkstras-shortest-path)|搭配程式碼|
+    |[Bellman-Ford](https://algorithm-visualizer.org/dynamic-programming/bellman-fords-shortest-path)|搭配程式碼|
+    |[Floyd-Warshall](https://www.cs.usfca.edu/~galles/visualization/Floyd.html)|搭配樹狀圖/陣列實作/串列實作：推薦！|
+    |[Floyd-Warshall](https://algorithm-visualizer.org/dynamic-programming/floyd-warshalls-shortest-path)|搭配程式嗎|
