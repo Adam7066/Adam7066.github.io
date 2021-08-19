@@ -97,4 +97,32 @@ makepkg -si
 - [Keyring](https://wiki.archlinux.org/title/GNOME/Keyring)：`pacman -S gnome-keyring`
     - Seahorse：`pacman -S seahorse`
 - [Visual Studio Code](https://wiki.archlinux.org/title/Visual_Studio_Code)：`yay -S visual-studio-code-bin`
+    - 增加在資料夾上右鍵開啟的選項：`vim /usr/share/kservices5/vscodehere.desktop`
+        ```
+        [Desktop Entry]
+        Type=Service
+        X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+        MimeType=inode/directory;
+        X-KDE-Priority=TopLevel
+        Actions=openVSCodeHere;
+        X-KDE-AuthorizeAction=shell_access
+
+        [Desktop Action openVSCodeHere]
+        TryExec=code
+        Exec=code %f
+        Icon=visual-studio-code
+
+        Name=Open VS Code Here
+        Comment=Opens a VS Code Instance in the current folder
+        ```
 - Discord：`pacman -S discord`
+- [LibreOffice](https://wiki.archlinux.org/title/LibreOffice)：`pacman -S libreoffice-still libreoffice-still-zh-tw`
+- Hugo-Extended：`yay -S hugo-bin`
+- UxPlay：用於 iPad 的螢幕共享
+    - 安裝：
+        ```bash
+        yay -S uxplay-git
+        systemctl start avahi-daemon.service
+        systemctl enable avahi-daemon.service
+        ```
+    - 使用：`uxplay`
