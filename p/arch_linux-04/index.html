@@ -165,8 +165,40 @@ ibus-daemon -drxR
 <li>Seahorse：<code>pacman -S seahorse</code></li>
 </ul>
 </li>
-<li><a class=link href=https://wiki.archlinux.org/title/Visual_Studio_Code target=_blank rel=noopener>Visual Studio Code</a>：<code>yay -S visual-studio-code-bin</code></li>
+<li><a class=link href=https://wiki.archlinux.org/title/Visual_Studio_Code target=_blank rel=noopener>Visual Studio Code</a>：<code>yay -S visual-studio-code-bin</code>
+<ul>
+<li>增加在資料夾上右鍵開啟的選項：<code>vim /usr/share/kservices5/vscodehere.desktop</code>
+<pre><code>[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+X-KDE-Priority=TopLevel
+Actions=openVSCodeHere;
+X-KDE-AuthorizeAction=shell_access
+
+[Desktop Action openVSCodeHere]
+TryExec=code
+Exec=code %f
+Icon=visual-studio-code
+
+Name=Open VS Code Here
+Comment=Opens a VS Code Instance in the current folder
+</code></pre></li>
+</ul>
+</li>
 <li>Discord：<code>pacman -S discord</code></li>
+<li><a class=link href=https://wiki.archlinux.org/title/LibreOffice target=_blank rel=noopener>LibreOffice</a>：<code>pacman -S libreoffice-still libreoffice-still-zh-tw</code></li>
+<li>Hugo-Extended：<code>yay -S hugo-bin</code></li>
+<li>UxPlay：用於 iPad 的螢幕共享
+<ul>
+<li>安裝：
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>yay -S uxplay-git
+<span class=ln>2</span>systemctl start avahi-daemon.service
+<span class=ln>3</span>systemctl <span class=nb>enable</span> avahi-daemon.service
+</code></pre></div></li>
+<li>使用：<code>uxplay</code></li>
+</ul>
+</li>
 </ul>
 </section>
 <footer class=article-footer>

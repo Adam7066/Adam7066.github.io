@@ -846,8 +846,39 @@ zsh-autosuggestions
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a class="link" href="https://wiki.archlinux.org/title/Visual_Studio_Code" target="_blank" rel="noopener"
->Visual Studio Code&lt;/a>：&lt;code>yay -S visual-studio-code-bin&lt;/code>&lt;/li>
+>Visual Studio Code&lt;/a>：&lt;code>yay -S visual-studio-code-bin&lt;/code>
+&lt;ul>
+&lt;li>增加在資料夾上右鍵開啟的選項：&lt;code>vim /usr/share/kservices5/vscodehere.desktop&lt;/code>
+&lt;pre>&lt;code>[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+X-KDE-Priority=TopLevel
+Actions=openVSCodeHere;
+X-KDE-AuthorizeAction=shell_access
+[Desktop Action openVSCodeHere]
+TryExec=code
+Exec=code %f
+Icon=visual-studio-code
+Name=Open VS Code Here
+Comment=Opens a VS Code Instance in the current folder
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>Discord：&lt;code>pacman -S discord&lt;/code>&lt;/li>
+&lt;li>&lt;a class="link" href="https://wiki.archlinux.org/title/LibreOffice" target="_blank" rel="noopener"
+>LibreOffice&lt;/a>：&lt;code>pacman -S libreoffice-still libreoffice-still-zh-tw&lt;/code>&lt;/li>
+&lt;li>Hugo-Extended：&lt;code>yay -S hugo-bin&lt;/code>&lt;/li>
+&lt;li>UxPlay：用於 iPad 的螢幕共享
+&lt;ul>
+&lt;li>安裝：
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="ln">1&lt;/span>yay -S uxplay-git
+&lt;span class="ln">2&lt;/span>systemctl start avahi-daemon.service
+&lt;span class="ln">3&lt;/span>systemctl &lt;span class="nb">enable&lt;/span> avahi-daemon.service
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>使用：&lt;code>uxplay&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>Arch Linux-03：KDE</title><link>https://blog.smallten.tk/p/arch_linux-03/</link><pubDate>Wed, 11 Aug 2021 21:55:25 +0800</pubDate><guid>https://blog.smallten.tk/p/arch_linux-03/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
 &lt;p>  在安裝完了&lt;a class="link" href="../arch_linux-01" >系統&lt;/a>，也設定了&lt;a class="link" href="../arch_linux-02" >基本配置&lt;/a>後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 &lt;a class="link" href="https://wiki.archlinux.org/title/KDE" target="_blank" rel="noopener"
 >KDE&lt;/a>。&lt;/p>
