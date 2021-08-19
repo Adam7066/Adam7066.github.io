@@ -11,7 +11,7 @@ disqusShortname: hugo-theme-stack
 googleAnalytics: G-RPR56CRPCG
 
 # Theme i18n support
-# Available values: en, fr, id, ja, ko, pt-br, zh-cn
+# Available values: en, fr, id, ja, ko, pt-br, zh-cn, es, de, nl, it
 DefaultContentLanguage: en
 
 permalinks:
@@ -25,6 +25,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
+    favicon: /image/favicon.png
 
     footer:
         since: 2020
@@ -38,6 +39,7 @@ params:
         emoji:
         subtitle: 教學、資訊分享、生活記趣
         avatar:
+            enabled: true
             local: true
             src: img/header.png
 
@@ -52,11 +54,64 @@ params:
     comments:
         enabled: false
         provider: disqus
+
+        disqusjs:
+            shortname:
+            apiUrl:
+            apiKey:
+            admin:
+            adminLabel:
+
         utterances:
             repo:
             issueTerm: pathname
             label:
-            theme: preferred-color-scheme
+
+        remark42:
+            host:
+            site:
+            locale:
+
+        vssue:
+            platform:
+            owner:
+            repo:
+            clientId:
+            clientSecret:
+            autoCreateIssue: false
+
+        # Waline client configuration see: https://waline.js.org/en/reference/client.html
+        waline:
+            serverURL:
+            lang:
+            visitor:
+            avatar:
+            emoji:
+                - https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo
+            requiredMeta:
+                - name
+                - email
+                - url
+            placeholder:
+            locale:
+                admin: Admin
+
+        twikoo:
+            envId:
+            region:
+            path:
+            lang:
+
+        giscus:
+            repo:
+            repoID:
+            category:
+            categoryID:
+            mapping:
+            lightTheme:
+            darkTheme:
+            reactionsEnabled: 1
+            emitMetadata: 0
 
     widgets:
         enabled:
@@ -72,7 +127,10 @@ params:
 
     opengraph:
         twitter:
+            # Your Twitter username
             site:
+
+            # Available values: summary, summary_large_image
             card: summary_large_image
 
     defaultImage:
@@ -80,9 +138,12 @@ params:
             enabled: false
             local: false
             src:
-    
+
     colorScheme:
+        # Display toggle
         toggle: true
+
+        # Available values: auto, light, dark
         default: auto
 
     imageProcessing:
@@ -90,9 +151,10 @@ params:
             enabled: true
         content:
             enabled: true
-    
-    custom_css: ["css/copy-to-clipboard.css"]
 
+### Custom menu
+### See https://docs.stack.jimmycai.com/configuration/custom-menu
+### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
     main:
         - identifier: home
@@ -100,7 +162,7 @@ menu:
           url: /
           weight: -100
           pre: home
-
+        
         - identifier: about
           name: About
           url: /about
@@ -118,7 +180,7 @@ menu:
           url: /search
           weight: -60
           pre: search
-
+        
 related:
     includeNewer: true
     threshold: 60
@@ -130,8 +192,10 @@ related:
         - name: categories
           weight: 200
 
-pygmentsUseClasses: true
 markup:
+    tableOfContents:
+        ordered: false
+        startLevel: 1
+        endLevel: 3
     highlight:
-        lineNos: true
-        lineNumbersInTable: false
+        noClasses: false
