@@ -9,18 +9,11 @@
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T17:58:22+08:00"><meta property="article:modified_time" content="2021-04-02T17:58:22+08:00">
 <meta name=twitter:title content="程式設計(二)-03：File Processing-01">
 <meta name=twitter:description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
+<link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<link rel=stylesheet href=https://blog.smallten.tk/css/copy-to-clipboard.css>
-<link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png>
-<link rel=manifest href=/favicon/site.webmanifest>
-<link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#5bbad5>
-<meta name=msapplication-TileColor content="#da532c">
-<meta name=theme-color content="#ffffff">
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
@@ -49,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-5 min read
+4 min read
 </time>
 </div>
 </footer>
@@ -87,14 +80,14 @@ extended">
 <li>真的嗎? 哪時候呀?</li>
 <li><code>scanf</code> -> scanf() 從標準輸入流中讀取輸入</li>
 <li><code>scanf</code> 的實作
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln>1</span><span class=kt>int</span> <span class=nf>scanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>fmt</span><span class=p>,</span> <span class=p>...){</span>
-<span class=ln>2</span>    <span class=kt>int</span> <span class=n>count</span><span class=p>;</span>
-<span class=ln>3</span>    <span class=n>va_list</span> <span class=n>ap</span><span class=p>;</span>
-<span class=ln>4</span>    <span class=n>va_start</span><span class=p>(</span><span class=n>ap</span><span class=p>,</span> <span class=n>fmt</span><span class=p>);</span>
-<span class=ln>5</span>    <span class=n>count</span> <span class=o>=</span> <span class=n>vfscanf</span><span class=p>(</span><span class=n>stdin</span><span class=p>,</span> <span class=n>fmt</span><span class=p>,</span> <span class=n>ap</span><span class=p>);</span>
-<span class=ln>6</span>    <span class=n>va_end</span><span class=p>(</span><span class=n>ap</span><span class=p>);</span>
-<span class=ln>7</span>    <span class=k>return</span><span class=p>(</span><span class=n>count</span><span class=p>);</span>
-<span class=ln>8</span><span class=p>}</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=nf>scanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>fmt</span><span class=p>,</span> <span class=p>...){</span>
+    <span class=kt>int</span> <span class=n>count</span><span class=p>;</span>
+    <span class=n>va_list</span> <span class=n>ap</span><span class=p>;</span>
+    <span class=n>va_start</span><span class=p>(</span><span class=n>ap</span><span class=p>,</span> <span class=n>fmt</span><span class=p>);</span>
+    <span class=n>count</span> <span class=o>=</span> <span class=n>vfscanf</span><span class=p>(</span><span class=n>stdin</span><span class=p>,</span> <span class=n>fmt</span><span class=p>,</span> <span class=n>ap</span><span class=p>);</span>
+    <span class=n>va_end</span><span class=p>(</span><span class=n>ap</span><span class=p>);</span>
+    <span class=k>return</span><span class=p>(</span><span class=n>count</span><span class=p>);</span>
+<span class=p>}</span>
 </code></pre></div></li>
 </ul>
 </li>
@@ -306,113 +299,113 @@ extended">
 <ul>
 <li>讀取 bmp file header 並印出資訊</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=ln> 2</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
-</span><span class=ln> 3</span><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
-</span><span class=ln> 4</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=ln> 5</span><span class=cp></span>
-<span class=ln> 6</span><span class=k>struct</span> <span class=n>_sBmpHeader</span> <span class=p>{</span>
-<span class=ln> 7</span>    <span class=kt>char</span> <span class=n>bm</span><span class=p>[</span><span class=mi>2</span><span class=p>];</span>
-<span class=ln> 8</span>    <span class=kt>uint32_t</span> <span class=n>size</span><span class=p>;</span>
-<span class=ln> 9</span>    <span class=kt>uint32_t</span> <span class=n>reserve</span><span class=p>;</span>
-<span class=ln>10</span>    <span class=kt>uint32_t</span> <span class=n>offset</span><span class=p>;</span>
-<span class=ln>11</span>    <span class=kt>uint32_t</span> <span class=n>header_size</span><span class=p>;</span>
-<span class=ln>12</span>    <span class=kt>int32_t</span> <span class=n>width</span><span class=p>;</span>
-<span class=ln>13</span>    <span class=kt>int32_t</span> <span class=n>height</span><span class=p>;</span>
-<span class=ln>14</span>    <span class=kt>uint16_t</span> <span class=n>planes</span><span class=p>;</span>
-<span class=ln>15</span>    <span class=kt>uint16_t</span> <span class=n>bpp</span><span class=p>;</span>
-<span class=ln>16</span>    <span class=kt>uint32_t</span> <span class=n>compression</span><span class=p>;</span>
-<span class=ln>17</span>    <span class=kt>uint32_t</span> <span class=n>bitmap_size</span><span class=p>;</span>
-<span class=ln>18</span>    <span class=kt>int32_t</span> <span class=n>hres</span><span class=p>;</span>
-<span class=ln>19</span>    <span class=kt>int32_t</span> <span class=n>vres</span><span class=p>;</span>
-<span class=ln>20</span>    <span class=kt>uint32_t</span> <span class=n>used</span><span class=p>;</span>
-<span class=ln>21</span>    <span class=kt>uint32_t</span> <span class=n>important</span><span class=p>;</span>
-<span class=ln>22</span><span class=p>}</span><span class=n>__attribute__</span> <span class=p>((</span><span class=n>__packed__</span><span class=p>));</span>
-<span class=ln>23</span>
-<span class=ln>24</span><span class=k>typedef</span> <span class=k>struct</span> <span class=n>_sBmpHeader</span> <span class=n>sBmpHeader</span><span class=p>;</span>
-<span class=ln>25</span>
-<span class=ln>26</span><span class=kt>void</span> <span class=nf>print_bmp_header</span><span class=p>(</span> <span class=n>sBmpHeader</span> <span class=o>*</span><span class=n>pHeader</span> <span class=p>)</span> <span class=p>{</span>
-<span class=ln>27</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;ID: %c%c</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bm</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bm</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=p>);</span>
-<span class=ln>28</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Size: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>size</span> <span class=p>);</span>
-<span class=ln>29</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Reserve: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>reserve</span> <span class=p>);</span>
-<span class=ln>30</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Offset: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>offset</span> <span class=p>);</span>
-<span class=ln>31</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Header Size: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>header_size</span> <span class=p>);</span>
-<span class=ln>32</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Width: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>width</span> <span class=p>);</span>
-<span class=ln>33</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Height: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>height</span> <span class=p>);</span>
-<span class=ln>34</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Planes: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>planes</span> <span class=p>);</span>
-<span class=ln>35</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Bits Per Pixel: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bpp</span> <span class=p>);</span>
-<span class=ln>36</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Compression: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>compression</span> <span class=p>);</span>
-<span class=ln>37</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Bitmap Data Size: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bitmap_size</span> <span class=p>);</span>
-<span class=ln>38</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;H-Resolution: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>hres</span> <span class=p>);</span>
-<span class=ln>39</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;V-Resolution: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>vres</span> <span class=p>);</span>
-<span class=ln>40</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Used Colors: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>used</span> <span class=p>);</span>
-<span class=ln>41</span>    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Important Colors: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>important</span> <span class=p>);</span>
-<span class=ln>42</span>    <span class=k>return</span><span class=p>;</span>
-<span class=ln>43</span><span class=p>}</span>
-<span class=ln>44</span>
-<span class=ln>45</span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-<span class=ln>46</span>    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-<span class=ln>47</span>    <span class=k>if</span><span class=p>((</span><span class=n>pFile</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=s>&#34;maldives_16.bmp&#34;</span><span class=p>,</span> <span class=s>&#34;rb&#34;</span><span class=p>))</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
-<span class=ln>48</span>        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;File could not be opened!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-<span class=ln>49</span>        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=ln>50</span>    <span class=p>}</span>
-<span class=ln>51</span>    <span class=n>sBmpHeader</span> <span class=n>header</span><span class=p>;</span>
-<span class=ln>52</span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%lu</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>header</span><span class=p>));</span>
-<span class=ln>53</span>    <span class=n>fread</span><span class=p>(</span><span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=mi>54</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile</span><span class=p>);</span>
-<span class=ln>54</span>    <span class=n>print_bmp_header</span><span class=p>(</span><span class=o>&amp;</span><span class=n>header</span><span class=p>);</span>                
-<span class=ln>55</span>    <span class=n>fclose</span><span class=p>(</span><span class=n>pFile</span><span class=p>);</span>
-<span class=ln>56</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=ln>57</span><span class=p>}</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span><span class=cp></span>
+<span class=k>struct</span> <span class=n>_sBmpHeader</span> <span class=p>{</span>
+    <span class=kt>char</span> <span class=n>bm</span><span class=p>[</span><span class=mi>2</span><span class=p>];</span>
+    <span class=kt>uint32_t</span> <span class=n>size</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>reserve</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>offset</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>header_size</span><span class=p>;</span>
+    <span class=kt>int32_t</span> <span class=n>width</span><span class=p>;</span>
+    <span class=kt>int32_t</span> <span class=n>height</span><span class=p>;</span>
+    <span class=kt>uint16_t</span> <span class=n>planes</span><span class=p>;</span>
+    <span class=kt>uint16_t</span> <span class=n>bpp</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>compression</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>bitmap_size</span><span class=p>;</span>
+    <span class=kt>int32_t</span> <span class=n>hres</span><span class=p>;</span>
+    <span class=kt>int32_t</span> <span class=n>vres</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>used</span><span class=p>;</span>
+    <span class=kt>uint32_t</span> <span class=n>important</span><span class=p>;</span>
+<span class=p>}</span><span class=n>__attribute__</span> <span class=p>((</span><span class=n>__packed__</span><span class=p>));</span>
+
+<span class=k>typedef</span> <span class=k>struct</span> <span class=n>_sBmpHeader</span> <span class=n>sBmpHeader</span><span class=p>;</span>
+
+<span class=kt>void</span> <span class=nf>print_bmp_header</span><span class=p>(</span> <span class=n>sBmpHeader</span> <span class=o>*</span><span class=n>pHeader</span> <span class=p>)</span> <span class=p>{</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;ID: %c%c</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bm</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bm</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Size: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>size</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Reserve: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>reserve</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Offset: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>offset</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Header Size: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>header_size</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Width: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>width</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Height: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>height</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Planes: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>planes</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Bits Per Pixel: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bpp</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Compression: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>compression</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Bitmap Data Size: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>bitmap_size</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;H-Resolution: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>hres</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;V-Resolution: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>vres</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Used Colors: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>used</span> <span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;Important Colors: %u</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>pHeader</span> <span class=o>-&gt;</span> <span class=n>important</span> <span class=p>);</span>
+    <span class=k>return</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+    <span class=k>if</span><span class=p>((</span><span class=n>pFile</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=s>&#34;maldives_16.bmp&#34;</span><span class=p>,</span> <span class=s>&#34;rb&#34;</span><span class=p>))</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;File could not be opened!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>sBmpHeader</span> <span class=n>header</span><span class=p>;</span>
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%lu</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>header</span><span class=p>));</span>
+    <span class=n>fread</span><span class=p>(</span><span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=mi>54</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile</span><span class=p>);</span>
+    <span class=n>print_bmp_header</span><span class=p>(</span><span class=o>&amp;</span><span class=n>header</span><span class=p>);</span>                
+    <span class=n>fclose</span><span class=p>(</span><span class=n>pFile</span><span class=p>);</span>
+    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
 </code></pre></div><h3 id=修改-bmp-檔>修改 bmp 檔</h3>
 <ul>
 <li>翻轉顏色</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=c1>// ...略...
-</span><span class=ln> 2</span><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-<span class=ln> 3</span>    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-<span class=ln> 4</span>    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile2</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-<span class=ln> 5</span>    <span class=k>if</span><span class=p>((</span><span class=n>pFile</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=s>&#34;maldives.bmp&#34;</span><span class=p>,</span> <span class=s>&#34;rb&#34;</span><span class=p>))</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
-<span class=ln> 6</span>        <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;File could not be opened!</span><span class=se>\n</span><span class=s>&#34;</span> <span class=p>);</span>
-<span class=ln> 7</span>        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=ln> 8</span>    <span class=p>}</span>
-<span class=ln> 9</span>    <span class=k>if</span><span class=p>((</span><span class=n>pFile2</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=s>&#34;maldives_gray.bmp&#34;</span><span class=p>,</span> <span class=s>&#34;wb&#34;</span><span class=p>))</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
-<span class=ln>10</span>        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;File could not be opened!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-<span class=ln>11</span>        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=ln>12</span>    <span class=p>}</span>
-<span class=ln>13</span>    <span class=n>sBmpHeader</span>	<span class=n>header</span><span class=p>;</span>
-<span class=ln>14</span>    <span class=n>fread</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>header</span> <span class=p>),</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
-<span class=ln>15</span>    <span class=n>fwrite</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>header</span> <span class=p>),</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span> <span class=p>);</span>
-<span class=ln>16</span>    <span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
-<span class=ln>17</span>        <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-<span class=ln>18</span>        <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-<span class=ln>19</span>        <span class=n>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>fread</span><span class=p>(</span> <span class=n>original</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1024</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
-<span class=ln>20</span>        <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>){</span>
-<span class=ln>21</span>            <span class=n>modified</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>255</span> <span class=o>-</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
-<span class=ln>22</span>        <span class=p>}</span>
-<span class=ln>23</span>        <span class=n>fwrite</span><span class=p>(</span> <span class=n>modified</span><span class=p>,</span> <span class=n>count</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span> <span class=p>);</span>
-<span class=ln>24</span>    <span class=p>}</span>
-<span class=ln>25</span>    <span class=n>fclose</span><span class=p>(</span> <span class=n>pFile</span> <span class=p>);</span>
-<span class=ln>26</span>    <span class=n>fclose</span><span class=p>(</span> <span class=n>pFile2</span> <span class=p>);</span>
-<span class=ln>27</span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=ln>28</span><span class=p>}</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// ...略...
+</span><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+    <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile2</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+    <span class=k>if</span><span class=p>((</span><span class=n>pFile</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=s>&#34;maldives.bmp&#34;</span><span class=p>,</span> <span class=s>&#34;rb&#34;</span><span class=p>))</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;File could not be opened!</span><span class=se>\n</span><span class=s>&#34;</span> <span class=p>);</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>if</span><span class=p>((</span><span class=n>pFile2</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=s>&#34;maldives_gray.bmp&#34;</span><span class=p>,</span> <span class=s>&#34;wb&#34;</span><span class=p>))</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;File could not be opened!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>sBmpHeader</span>	<span class=n>header</span><span class=p>;</span>
+    <span class=n>fread</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>header</span> <span class=p>),</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
+    <span class=n>fwrite</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>header</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>header</span> <span class=p>),</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span> <span class=p>);</span>
+    <span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
+        <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+        <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>1024</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+        <span class=n>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>fread</span><span class=p>(</span> <span class=n>original</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1024</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
+        <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>){</span>
+            <span class=n>modified</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>255</span> <span class=o>-</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=n>fwrite</span><span class=p>(</span> <span class=n>modified</span><span class=p>,</span> <span class=n>count</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span> <span class=p>);</span>
+    <span class=p>}</span>
+    <span class=n>fclose</span><span class=p>(</span> <span class=n>pFile</span> <span class=p>);</span>
+    <span class=n>fclose</span><span class=p>(</span> <span class=n>pFile2</span> <span class=p>);</span>
+    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
 </code></pre></div><ul>
 <li>轉成灰階</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=ln> 1</span><span class=c1>// ...略...
-</span><span class=ln> 2</span><span class=c1></span><span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
-<span class=ln> 3</span>    <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-<span class=ln> 4</span>    <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-<span class=ln> 5</span>    <span class=n>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>fread</span><span class=p>(</span> <span class=n>original</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>999</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
-<span class=ln> 6</span>    <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=n>i</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
-<span class=ln> 7</span>        <span class=c1>// BGR
-</span><span class=ln> 8</span><span class=c1></span>        <span class=kt>uint8_t</span> <span class=n>gray</span> <span class=o>=</span> <span class=mf>0.299</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.587</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.114</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
-<span class=ln> 9</span>        <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>)</span> <span class=p>{</span>
-<span class=ln>10</span>            <span class=n>modified</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>gray</span><span class=p>;</span>
-<span class=ln>11</span>        <span class=p>}</span>
-<span class=ln>12</span>    <span class=p>}</span>
-<span class=ln>13</span>    <span class=n>fwrite</span><span class=p>(</span><span class=n>modified</span><span class=p>,</span> <span class=n>count</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span><span class=p>);</span>    
-<span class=ln>14</span><span class=p>}</span>
-<span class=ln>15</span><span class=c1>// ...略...
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// ...略...
+</span><span class=c1></span><span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
+    <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+    <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+    <span class=n>size_t</span> <span class=n>count</span> <span class=o>=</span> <span class=n>fread</span><span class=p>(</span> <span class=n>original</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>999</span><span class=p>,</span> <span class=n>pFile</span> <span class=p>);</span>
+    <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>count</span><span class=p>;</span> <span class=n>i</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+        <span class=c1>// BGR
+</span><span class=c1></span>        <span class=kt>uint8_t</span> <span class=n>gray</span> <span class=o>=</span> <span class=mf>0.299</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.587</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.114</span> <span class=o>*</span> <span class=n>original</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>modified</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>gray</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=n>fwrite</span><span class=p>(</span><span class=n>modified</span><span class=p>,</span> <span class=n>count</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span><span class=p>);</span>    
+<span class=p>}</span>
+<span class=c1>// ...略...
 </span></code></pre></div><hr>
 <h4 id=hex-編輯工具>Hex 編輯工具</h4>
 <ul>
@@ -425,7 +418,7 @@ extended">
 <a href=/tags/c/>C</a>
 </section>
 </footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
 </article>
 <aside class=related-contents--wrapper>
 <h2 class=section-title>Related contents</h2>
@@ -477,7 +470,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -525,6 +518,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <div class=widget--toc>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#file>File</a>
+<ul>
 <li><a href=#file-stream>File Stream</a></li>
 <li><a href=#file-descriptor>File Descriptor</a>
 <ul>
@@ -538,6 +533,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </ul>
 </li>
 </ul>
+</li>
+<li><a href=#text-file-processing>Text File Processing</a>
 <ul>
 <li>
 <ul>
@@ -556,6 +553,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </ul>
 </li>
 </ul>
+</li>
+<li><a href=#binary-file-processing>Binary File Processing</a>
 <ul>
 <li><a href=#binary-file>Binary File</a>
 <ul>
@@ -570,6 +569,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 </nav>
 </div>
 </section>
@@ -577,6 +578,5 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </div>
 <script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-<script src=/js/copy-to-clipboard.js></script>
 </body>
 </html>
