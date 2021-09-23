@@ -184,7 +184,7 @@ extended">
 </ul>
 </li>
 <li>修改 hosts：<code>vim /etc/hosts</code>，內容如下
-<pre><code>127.0.0.1	localhost
+<pre tabindex=0><code>127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	myhostname.localdomain	myhostname
 </code></pre></li>
@@ -197,7 +197,7 @@ extended">
 <ul>
 <li><code>enp1s0</code> 為網卡名稱，請用 <code>ip a</code> 自行查看更改</li>
 </ul>
-<pre><code>[Match]
+<pre tabindex=0><code>[Match]
 Name=enp1s0
 
 [Network]
@@ -221,7 +221,7 @@ DHCP=yes
 <li>啟動選單配置
 <ul>
 <li><code>vim /boot/loader/loader.conf</code>，內容如下
-<pre><code>default arch-* # arch 那裡應為一字串不用更改
+<pre tabindex=0><code>default arch-* # arch 那裡應為一字串不用更改
 timeout 10
 console-mode max
 editor no
@@ -230,7 +230,7 @@ editor no
 <ul>
 <li>UUID 請自行填入，可於 <code>/etc/fstab</code> 中查看，請選擇 <code>/</code> 目錄的。</li>
 </ul>
-<pre><code>title Arch Linux
+<pre tabindex=0><code>title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=&quot;UUID=XXX-XXX-XXX&quot; rw

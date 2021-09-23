@@ -745,12 +745,12 @@ makepkg -si
 &lt;ul>
 &lt;li>安裝注音輸入法：&lt;code>pacman -S ibus ibus-chewing&lt;/code>&lt;/li>
 &lt;li>&lt;code>vim /etc/environment&lt;/code>
-&lt;pre>&lt;code>GTK_IM_MODULE=ibus
+&lt;pre tabindex="0">&lt;code>GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus
 XMODIFIERS=@im=ibus
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;li>&lt;code>vim ~/.xprofile&lt;/code>
-&lt;pre>&lt;code>export CTK_IM_MODULE=ibus
+&lt;pre tabindex="0">&lt;code>export CTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drxR
@@ -800,7 +800,7 @@ fc-list &lt;span class="p">|&lt;/span> grep -i droid
 &lt;li>下載 zsh-autosuggestion：&lt;code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions&lt;/code>&lt;/li>
 &lt;li>下載 zsh-syntax-highlighting：&lt;code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting&lt;/code>&lt;/li>
 &lt;li>修改 .zshrc：&lt;code>vim ~/.zshrc&lt;/code>
-&lt;pre>&lt;code>plugins=(
+&lt;pre tabindex="0">&lt;code>plugins=(
 git
 extract
 archlinux
@@ -849,7 +849,7 @@ systemctl &lt;span class="nb">enable&lt;/span> --now tlp
 >Visual Studio Code&lt;/a>：&lt;code>yay -S visual-studio-code-bin&lt;/code>
 &lt;ul>
 &lt;li>增加在資料夾上右鍵開啟的選項：&lt;code>vim /usr/share/kservices5/vscodehere.desktop&lt;/code>
-&lt;pre>&lt;code>[Desktop Entry]
+&lt;pre tabindex="0">&lt;code>[Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 MimeType=inode/directory;
@@ -1011,7 +1011,7 @@ systemctl &lt;span class="nb">enable&lt;/span> avahi-daemon.service
 &lt;li>開啟 multilib 倉庫：&lt;code>vim /etc/pacman.conf&lt;/code>
 &lt;ul>
 &lt;li>找到下方兩行，並消掉註解
-&lt;pre>&lt;code>[multilib]
+&lt;pre tabindex="0">&lt;code>[multilib]
 Include = /etc/pacman.d/mirrorlist
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ul>
@@ -1166,7 +1166,7 @@ Include = /etc/pacman.d/mirrorlist
 &lt;/ul>
 &lt;/li>
 &lt;li>修改 hosts：&lt;code>vim /etc/hosts&lt;/code>，內容如下
-&lt;pre>&lt;code>127.0.0.1 localhost
+&lt;pre tabindex="0">&lt;code>127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 myhostname.localdomain myhostname
 &lt;/code>&lt;/pre>&lt;/li>
@@ -1179,7 +1179,7 @@ Include = /etc/pacman.d/mirrorlist
 &lt;ul>
 &lt;li>&lt;code>enp1s0&lt;/code> 為網卡名稱，請用 &lt;code>ip a&lt;/code> 自行查看更改&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code>[Match]
+&lt;pre tabindex="0">&lt;code>[Match]
 Name=enp1s0
 [Network]
 DHCP=yes
@@ -1203,7 +1203,7 @@ DHCP=yes
 &lt;li>啟動選單配置
 &lt;ul>
 &lt;li>&lt;code>vim /boot/loader/loader.conf&lt;/code>，內容如下
-&lt;pre>&lt;code>default arch-* # arch 那裡應為一字串不用更改
+&lt;pre tabindex="0">&lt;code>default arch-* # arch 那裡應為一字串不用更改
 timeout 10
 console-mode max
 editor no
@@ -1212,7 +1212,7 @@ editor no
 &lt;ul>
 &lt;li>UUID 請自行填入，可於 &lt;code>/etc/fstab&lt;/code> 中查看，請選擇 &lt;code>/&lt;/code> 目錄的。&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code>title Arch Linux
+&lt;pre tabindex="0">&lt;code>title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=&amp;quot;UUID=XXX-XXX-XXX&amp;quot; rw
@@ -4547,16 +4547,6 @@ loading="lazy"
 &lt;td style="text-align:center">六&lt;/td>
 &lt;td style="text-align:center">最短路徑&lt;/td>
 &lt;td style="text-align:center">&lt;a class="link" href="../star_coder-07" >Link&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:center">七&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align:center">八&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

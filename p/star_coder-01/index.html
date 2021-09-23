@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link   七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4."><title>StarCoder2021暑訓</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link    學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.排序STL/6.貪心/7.二分搜   台大資訊之芽：貪心 貪心法與理論/Huffman Tree   成大競程培訓 (單元5/6) 5."><title>StarCoder2021暑訓</title>
 <link rel=canonical href=https://blog.smallten.tk/p/star_coder-01/>
 <link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓">
-<meta property="og:description" content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link   七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
+<meta property="og:description" content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link    學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.排序STL/6.貪心/7.二分搜   台大資訊之芽：貪心 貪心法與理論/Huffman Tree   成大競程培訓 (單元5/6) 5.">
 <meta property="og:url" content="https://blog.smallten.tk/p/star_coder-01/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2021-07-14T22:52:11+08:00"><meta property="article:modified_time" content="2021-07-14T22:52:11+08:00">
 <meta name=twitter:title content="StarCoder2021暑訓">
-<meta name=twitter:description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link   七     八      學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.">
+<meta name=twitter:description content="簡介    週次 主題 題目     一 搜尋、排序、貪心 Link   二 STL、併查集 Link   三 圖、狀態搜尋、拓樸排序、尤拉路 Link   四 動態規劃 Link   五 最小生成樹 Link   六 最短路徑 Link    學習資源 第一週 - 搜尋、排序、貪心  線上教材    教材 說明     師大碼賽客：排序/貪心/二分搜 子緯學長的教學講義（詳盡的新手入門）   北一女培訓：排序 六種排序法的程式與簡介   建中培訓 (第4/6/7節) 4.排序STL/6.貪心/7.二分搜   台大資訊之芽：貪心 貪心法與理論/Huffman Tree   成大競程培訓 (單元5/6) 5.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -88,16 +88,6 @@ StarCoder
 <td style=text-align:center>六</td>
 <td style=text-align:center>最短路徑</td>
 <td style=text-align:center><a class=link href=../star_coder-07>Link</a></td>
-</tr>
-<tr>
-<td style=text-align:center>七</td>
-<td style=text-align:center></td>
-<td></td>
-</tr>
-<tr>
-<td style=text-align:center>八</td>
-<td style=text-align:center></td>
-<td></td>
 </tr>
 </tbody>
 </table>

@@ -65,12 +65,12 @@ makepkg -si
 <ul>
 <li>安裝注音輸入法：<code>pacman -S ibus ibus-chewing</code></li>
 <li><code>vim /etc/environment</code>
-<pre><code>GTK_IM_MODULE=ibus
+<pre tabindex=0><code>GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus
 XMODIFIERS=@im=ibus
 </code></pre></li>
 <li><code>vim ~/.xprofile</code>
-<pre><code>export CTK_IM_MODULE=ibus
+<pre tabindex=0><code>export CTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drxR
@@ -117,7 +117,7 @@ fc-list <span class=p>|</span> grep -i droid
 <li>下載 zsh-autosuggestion：<code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></li>
 <li>下載 zsh-syntax-highlighting：<code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></li>
 <li>修改 .zshrc：<code>vim ~/.zshrc</code>
-<pre><code>plugins=(
+<pre tabindex=0><code>plugins=(
     git
     extract
     archlinux
@@ -161,7 +161,7 @@ systemctl <span class=nb>enable</span> --now tlp
 <li><a class=link href=https://wiki.archlinux.org/title/Visual_Studio_Code target=_blank rel=noopener>Visual Studio Code</a>：<code>yay -S visual-studio-code-bin</code>
 <ul>
 <li>增加在資料夾上右鍵開啟的選項：<code>vim /usr/share/kservices5/vscodehere.desktop</code>
-<pre><code>[Desktop Entry]
+<pre tabindex=0><code>[Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 MimeType=inode/directory;
