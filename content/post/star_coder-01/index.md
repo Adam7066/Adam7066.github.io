@@ -14,8 +14,6 @@ categories:
 |四|動態規劃|[Link](../star_coder-05)|
 |五|最小生成樹|[Link](../star_coder-06)|
 |六|最短路徑|[Link](../star_coder-07)|
-|七|||
-|八|||
 
 # 學習資源
 ## 第一週 - 搜尋、排序、貪心
