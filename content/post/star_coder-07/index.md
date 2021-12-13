@@ -15,7 +15,7 @@ categories:
 ```cpp
 int vn; // vertex num
 struct Edge {
-    int idx, w;
+    int w, idx;
     bool operator < (const Edge &r) const {
         return w > r.w;
     }
