@@ -25,7 +25,7 @@ vector<edge> ve;
 vector<int> dsu;
 int Find(int x) {
     if(x == dsu[x]) return x;
-    return dsu[x] = x;
+    return dsu[x] = Find(dsu[x]);
 }
 bool Union(int x, int y) {
     int a = Find(x), b = Find(y);
