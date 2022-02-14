@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Program Argument argc, argv #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }  誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1.o. 等等&amp;hellip; 我並沒有使用 crt1.o 呀! 實際上是有的。請查看 gcc -v $ nm /usr/lib/x86_64-linux-gnu/crt1."><title>程式設計(二)-05：Variable Length Arguments List</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Program Argument argc, argv 1 2 3 4 5 6 7 8 9  #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }    誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1."><title>程式設計(二)-05：Variable Length Arguments List</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-05/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-05：Variable Length Arguments List">
-<meta property="og:description" content="Program Argument argc, argv #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }  誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1.o. 等等&amp;hellip; 我並沒有使用 crt1.o 呀! 實際上是有的。請查看 gcc -v $ nm /usr/lib/x86_64-linux-gnu/crt1.">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-05：Variable Length Arguments List">
+<meta property="og:description" content="Program Argument argc, argv 1 2 3 4 5 6 7 8 9  #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }    誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1.">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-05/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-07-12T21:57:26+08:00"><meta property="article:modified_time" content="2021-07-12T21:57:26+08:00">
 <meta name=twitter:title content="程式設計(二)-05：Variable Length Arguments List">
-<meta name=twitter:description content="Program Argument argc, argv #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }  誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1.o. 等等&amp;hellip; 我並沒有使用 crt1.o 呀! 實際上是有的。請查看 gcc -v $ nm /usr/lib/x86_64-linux-gnu/crt1.">
+<meta name=twitter:description content="Program Argument argc, argv 1 2 3 4 5 6 7 8 9  #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }    誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-4 min read
+5 minute read
 </time>
 </div>
 </footer>
@@ -51,7 +51,20 @@ extended">
 <section class=article-content>
 <h1 id=program-argument>Program Argument</h1>
 <h3 id=argc-argv>argc, argv</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>*</span><span class=n>argv</span><span class=p>[])</span> <span class=p>{</span>
@@ -60,7 +73,9 @@ extended">
         <span class=n>printf</span><span class=p>(</span><span class=s>&#34;argv[%d]: %s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>argv</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>誰呼叫了 main 函式?</li>
 <li>誰提供了 <code>argc</code> 和 <code>argv</code> 到 main 函式?</li>
 <li>Is <code>main()</code> the actual starting entry point?
@@ -72,10 +87,7 @@ extended">
 </ul>
 </li>
 <li>Simplified C Linking Process
-<figure style=flex-grow:137;flex-basis:329px>
-<a href=/p/computer_programming_2-05/computer_programming_2-05-01.jpg data-size=903x657><img src=/p/computer_programming_2-05/computer_programming_2-05-01.jpg srcset="/p/computer_programming_2-05/computer_programming_2-05-01_hu609b65fe33cfb39abc5fd9afd4fd484b_119236_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-05/computer_programming_2-05-01_hu609b65fe33cfb39abc5fd9afd4fd484b_119236_1024x0_resize_q75_box.jpg 1024w" width=903 height=657 loading=lazy>
-</a>
-</figure></li>
+<img src=/p/computer_programming_2-05/computer_programming_2-05-01.jpg width=903 height=657 srcset="/p/computer_programming_2-05/computer_programming_2-05-01_hu609b65fe33cfb39abc5fd9afd4fd484b_119236_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-05/computer_programming_2-05-01_hu609b65fe33cfb39abc5fd9afd4fd484b_119236_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=137 data-flex-basis=329px></li>
 <li>main() 是如何取得 argc, argv 的?
 <ul>
 <li>Actually, <code>_start</code> will prepare argc and argv first.</li>
@@ -91,14 +103,50 @@ extended">
 <li>The getopt() function parses the command-line arguments. Its arguments argc and argv are the argument count and array as passed to the main() function on program invocation. An element of argv that starts with ’-’ (and is not exactly ”-” or ”–”) is an option element. The characters of this element (aside from the initial ’-’) are option characters. If getopt() is called repeatedly, it returns successively each of the option characters from each of the option elements.</li>
 <li>提醒：這是一個 <code>POSIX 標準</code>而不是 C 標準。</li>
 <li>extern 變數
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>extern</span> <span class=kt>char</span> <span class=o>*</span><span class=n>optarg</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>extern</span> <span class=kt>char</span> <span class=o>*</span><span class=n>optarg</span><span class=p>;</span>
 <span class=k>extern</span> <span class=kt>int</span> <span class=n>optind</span><span class=p>,</span> <span class=n>opterr</span><span class=p>,</span> <span class=n>optopt</span><span class=p>;</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>這意味著我們可以在程式中使用這些變數。</li>
 </ul>
 </li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp>
@@ -122,7 +170,9 @@ extended">
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>optstring
 <ul>
 <li>optstring 是一個包含合法選項字符的字符串。</li>
@@ -151,13 +201,25 @@ extended">
 <li>The getopt_long() function works like getopt() except that it also accepts long options, started with two dashes. If the program accepts only long options, then optstring should be specified as an empty string (””), not NULL. Long option names may be abbreviated if the abbreviation is unique or is an exact match for some defined option. A long option may take a parameter, of the form –arg=param or –arg param.</li>
 <li>If longindex is not NULL, it points to a variable which is set to the index of the long option relative to longopts.</li>
 <li>struct option
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>option</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>option</span> <span class=p>{</span>
     <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>name</span><span class=p>;</span>
     <span class=kt>int</span> <span class=n>has_arg</span><span class=p>;</span>
     <span class=kt>int</span> <span class=o>*</span><span class=n>flag</span><span class=p>;</span>
     <span class=kt>int</span> <span class=n>val</span><span class=p>;</span>
 <span class=p>};</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>name: the name of the long option.</li>
 <li>has_arg:
 <ul>
@@ -171,7 +233,48 @@ extended">
 </ul>
 </li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp>
@@ -208,20 +311,59 @@ extended">
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h1 id=variable-length-arguments>Variable Length Arguments</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id=variable-length-arguments>Variable Length Arguments</h1>
 <ul>
 <li>可變長度參數是一項功能，允許函數接收任意數量的參數。</li>
 <li>可變數量的參數由三個點表示 <code>...</code>。</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdarg.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdarg.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>void</span> <span class=nf>va_start</span><span class=p>(</span><span class=n>va_list</span> <span class=n>ap</span><span class=p>,</span> <span class=n>last</span><span class=p>);</span>
 <span class=n>type</span> <span class=nf>va_arg</span><span class=p>(</span><span class=n>va_list</span> <span class=n>ap</span><span class=p>,</span> <span class=n>type</span><span class=p>);</span>
 <span class=kt>void</span> <span class=nf>va_end</span><span class=p>(</span><span class=n>va_list</span> <span class=n>ap</span><span class=p>);</span>
 <span class=kt>void</span> <span class=nf>va_copy</span><span class=p>(</span><span class=n>va_list</span> <span class=n>dest</span><span class=p>,</span> <span class=n>va_list</span> <span class=n>src</span><span class=p>);</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>Actually, they are macros instead of functions.</li>
 <li>範例一： printargs.c
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdarg.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=cm>/* print all args one at a time until a negative argument is seen;
@@ -243,9 +385,32 @@ extended">
     <span class=n>printargs</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>);</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>範例二： avg.c
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdarg.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdarg.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>double</span> <span class=nf>average</span><span class=p>(</span><span class=kt>int32_t</span> <span class=n>num</span><span class=p>,</span> <span class=p>...)</span> <span class=p>{</span>
@@ -262,7 +427,9 @@ extended">
     <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Average of { 5, 10, 15 } = %lf</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>average</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>15</span><span class=p>));</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 </section>
 <footer class=article-footer>
@@ -322,7 +489,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -388,7 +555,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

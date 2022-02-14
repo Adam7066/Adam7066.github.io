@@ -3,7 +3,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="蓄水池抽樣法 (Reservoir Sampling)  從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。  定理 該算法保證每個元素以 \( k \over n \) 的機率被選入蓄水池中。
 證明  第 i 個元素進入蓄水池的機率為 \( k \over i \)，蓄水池內每個元素被替換的機率為\( 1 \over k \) 因此在第 i 輪第 j 個元素被替換的機率為 \( {k \over i}\times{1 \over k} = {1 \over i} \)，接下來用 M.I. (數學歸納法)來證明，當 n 次循環結束時每個元素進入蓄水池的機率為 \( k \over n \) 假設在 (i-1) 次迭代後，任意一個元素進入 蓄水池的概率為 \( k \over i-1 \)。由上面的結論，在第 i 次迭代時，該元素被替換的概率為 \( 1 \over i \)， 那麼其不被替換的概率則為 \( 1 - {1 \over i} = {i - 1 \over i} \) 故在第 i 次迭代後，該元素在蓄水池內的概率為 \( {k \over i-1} \times {i-1 \over i} = {k \over i} \)，歸納結束。 因此當循環結束時，每個元素進入蓄水池的概率為 \( k \over n \)，命題得證。  例題  Leetcode 382."><title>演算法-01：蓄水池抽樣法</title>
 <link rel=canonical href=https://blog.smallten.tk/p/algorithm-01/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="演算法-01：蓄水池抽樣法">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="演算法-01：蓄水池抽樣法">
 <meta property="og:description" content="蓄水池抽樣法 (Reservoir Sampling)  從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。  定理 該算法保證每個元素以 \( k \over n \) 的機率被選入蓄水池中。
 證明  第 i 個元素進入蓄水池的機率為 \( k \over i \)，蓄水池內每個元素被替換的機率為\( 1 \over k \) 因此在第 i 輪第 j 個元素被替換的機率為 \( {k \over i}\times{1 \over k} = {1 \over i} \)，接下來用 M.I. (數學歸納法)來證明，當 n 次循環結束時每個元素進入蓄水池的機率為 \( k \over n \) 假設在 (i-1) 次迭代後，任意一個元素進入 蓄水池的概率為 \( k \over i-1 \)。由上面的結論，在第 i 次迭代時，該元素被替換的概率為 \( 1 \over i \)， 那麼其不被替換的概率則為 \( 1 - {1 \over i} = {i - 1 \over i} \) 故在第 i 次迭代後，該元素在蓄水池內的概率為 \( {k \over i-1} \times {i-1 \over i} = {k \over i} \)，歸納結束。 因此當循環結束時，每個元素進入蓄水池的概率為 \( k \over n \)，命題得證。  例題  Leetcode 382.">
 <meta property="og:url" content="https://blog.smallten.tk/p/algorithm-01/">
@@ -23,7 +23,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -45,7 +45,7 @@ Algorithm
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 min read
+1 minute read
 </time>
 </div>
 </footer>
@@ -71,7 +71,27 @@ Algorithm
 <li><a class=link href=https://leetcode.com/problems/linked-list-random-node/ target=_blank rel=noopener>Leetcode 382.Linked List Random Node</a></li>
 <li>解法： Cpp</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
     <span class=n>ListNode</span> <span class=o>*</span><span class=n>p</span><span class=p>;</span>
 <span class=k>public</span><span class=o>:</span>
     <span class=n>Solution</span><span class=p>(</span><span class=n>ListNode</span><span class=o>*</span> <span class=n>head</span><span class=p>)</span> <span class=p>{</span>
@@ -87,7 +107,9 @@ Algorithm
         <span class=k>return</span> <span class=n>ans</span><span class=p>;</span>
     <span class=p>}</span>
 <span class=p>};</span>
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 <footer class=article-footer>
 </footer>
@@ -103,7 +125,7 @@ Algorithm
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -168,7 +190,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

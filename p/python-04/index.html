@@ -1,17 +1,17 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。
-Python 下載m3u8 m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content) 分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f.read() textList = text.split(&amp;#39;\n&amp;#39;) while textList[-1] != &amp;#39;#EXT-X-ENDLIST&amp;#39;: textList.pop(-1) for i in textList: if i[0] != &amp;#39;#&amp;#39;: tsList.append(tempUrl + i) global tsCnt tsCnt = len(tsList) 下載ts檔 q = queue."><title>Python-04：多線程-ts下載並合併成mp4</title>
+Python 下載m3u8 1 2 3 4 5 6  m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content)   分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f."><title>Python-04：多線程-ts下載並合併成mp4</title>
 <link rel=canonical href=https://blog.smallten.tk/p/python-04/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Python-04：多線程-ts下載並合併成mp4">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Python-04：多線程-ts下載並合併成mp4">
 <meta property="og:description" content="簡介  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。
-Python 下載m3u8 m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content) 分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f.read() textList = text.split(&amp;#39;\n&amp;#39;) while textList[-1] != &amp;#39;#EXT-X-ENDLIST&amp;#39;: textList.pop(-1) for i in textList: if i[0] != &amp;#39;#&amp;#39;: tsList.append(tempUrl + i) global tsCnt tsCnt = len(tsList) 下載ts檔 q = queue.">
+Python 下載m3u8 1 2 3 4 5 6  m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content)   分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f.">
 <meta property="og:url" content="https://blog.smallten.tk/p/python-04/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Python"><meta property="article:published_time" content="2020-10-04T16:36:35+08:00"><meta property="article:modified_time" content="2020-10-04T16:36:35+08:00">
 <meta name=twitter:title content="Python-04：多線程-ts下載並合併成mp4">
 <meta name=twitter:description content="簡介  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。
-Python 下載m3u8 m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content) 分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f.read() textList = text.split(&amp;#39;\n&amp;#39;) while textList[-1] != &amp;#39;#EXT-X-ENDLIST&amp;#39;: textList.pop(-1) for i in textList: if i[0] != &amp;#39;#&amp;#39;: tsList.append(tempUrl + i) global tsCnt tsCnt = len(tsList) 下載ts檔 q = queue.">
+Python 下載m3u8 1 2 3 4 5 6  m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content)   分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -23,7 +23,7 @@ Python 下載m3u8 m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloa
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -45,7 +45,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-2 min read
+3 minute read
 </time>
 </div>
 </footer>
@@ -56,17 +56,49 @@ extended">
 <p>  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。</p>
 <h1 id=python>Python</h1>
 <h2 id=下載m3u8>下載m3u8</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>m3u8Url</span> <span class=o>=</span> <span class=s1>&#39;https://.../index.m3u8&#39;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>m3u8Url</span> <span class=o>=</span> <span class=s1>&#39;https://.../index.m3u8&#39;</span>
 
 <span class=k>def</span> <span class=nf>downloadM3u8</span><span class=p>(</span><span class=n>url</span><span class=p>):</span>
     <span class=n>r</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
     <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;./index.m3u8&#39;</span><span class=p>,</span> <span class=s1>&#39;wb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
         <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>r</span><span class=o>.</span><span class=n>content</span><span class=p>)</span>
-</code></pre></div><h2 id=分析m3u8>分析m3u8</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=分析m3u8>分析m3u8</h2>
 <ul>
 <li>這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>tsList</span> <span class=o>=</span> <span class=p>[]</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>tsList</span> <span class=o>=</span> <span class=p>[]</span>
 <span class=n>tsCnt</span> <span class=o>=</span> <span class=mi>0</span>
 
 <span class=k>def</span> <span class=nf>analyzeM3u8</span><span class=p>():</span>
@@ -82,8 +114,37 @@ extended">
             <span class=n>tsList</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>tempUrl</span> <span class=o>+</span> <span class=n>i</span><span class=p>)</span>
     <span class=k>global</span> <span class=n>tsCnt</span> 
     <span class=n>tsCnt</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>tsList</span><span class=p>)</span>
-</code></pre></div><h2 id=下載ts檔>下載ts檔</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>q</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>Queue</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=下載ts檔>下載ts檔</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>q</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>Queue</span><span class=p>()</span>
 
 <span class=k>def</span> <span class=nf>downloadts</span><span class=p>():</span>
     <span class=k>global</span> <span class=n>tsList</span>
@@ -106,21 +167,114 @@ extended">
     <span class=k>for</span> <span class=n>th</span> <span class=ow>in</span> <span class=n>thList</span><span class=p>:</span>
         <span class=n>th</span><span class=o>.</span><span class=n>join</span><span class=p>()</span>
     <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;下載ts完成&#39;</span><span class=p>)</span>
-</code></pre></div><h2 id=合併ts成mp4>合併ts成mp4</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>merge</span><span class=p>(</span><span class=n>tsCnt</span><span class=p>,</span> <span class=n>output</span><span class=p>):</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=合併ts成mp4>合併ts成mp4</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>merge</span><span class=p>(</span><span class=n>tsCnt</span><span class=p>,</span> <span class=n>output</span><span class=p>):</span>
     <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>tsCnt</span><span class=p>):</span>
         <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;./ts/ts.txt&#39;</span><span class=p>,</span> <span class=s1>&#39;a+&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
             <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=s1>&#39;file &#39;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=s1>&#39;.ts</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
     <span class=n>command</span> <span class=o>=</span> <span class=s1>&#39;ffmpeg -y -f concat -i </span><span class=si>%s</span><span class=s1> -bsf:a aac_adtstoasc -c copy </span><span class=si>%s</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=s1>&#39;./ts/ts.txt&#39;</span><span class=p>,</span> <span class=n>output</span><span class=p>)</span>
     <span class=n>os</span><span class=o>.</span><span class=n>system</span><span class=p>(</span><span class=n>command</span><span class=p>)</span>
     <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;合併成功&#39;</span><span class=p>)</span>
-</code></pre></div><h2 id=移除無用檔案>移除無用檔案</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>remove</span><span class=p>():</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=移除無用檔案>移除無用檔案</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>remove</span><span class=p>():</span>
     <span class=n>shutil</span><span class=o>.</span><span class=n>rmtree</span><span class=p>(</span><span class=s1>&#39;./ts/&#39;</span><span class=p>)</span>
     <span class=n>os</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=s1>&#39;./index.m3u8&#39;</span><span class=p>)</span>
-</code></pre></div><hr>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id=完整程式碼>完整程式碼</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># -*- coding: UTF-8 -*-</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># -*- coding: UTF-8 -*-</span>
 <span class=kn>import</span> <span class=nn>requests</span><span class=o>,</span> <span class=nn>os</span><span class=o>,</span> <span class=nn>threading</span><span class=o>,</span> <span class=nn>queue</span><span class=o>,</span> <span class=nn>shutil</span>
 
 <span class=n>m3u8Url</span> <span class=o>=</span> <span class=s1>&#39;https://.../index.m3u8&#39;</span>
@@ -185,7 +339,9 @@ extended">
     <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;下載ts完成&#39;</span><span class=p>)</span>
     <span class=n>merge</span><span class=p>(</span><span class=n>tsCnt</span><span class=p>,</span> <span class=s1>&#39;./test.mp4&#39;</span><span class=p>)</span>
     <span class=n>remove</span><span class=p>()</span>
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
@@ -230,7 +386,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -295,7 +451,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

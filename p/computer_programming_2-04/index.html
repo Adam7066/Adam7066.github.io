@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="如何顯示 BMP 檔 ?  有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。 如何在螢幕上顯示圖像？  您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。 我的建議：Qt。但是，這是一個 C++ 框架。 了解如何使用 GUI 平台提供的功能顯示圖像。       GTK  GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。 GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。  因此，不要告訴我 C 不能物件導向。   安裝：sudo apt install libgtk-3-dev   SDL  Simple DirectMedia Layer SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。  視頻 聲音的 輸入設備 光盤 螺紋 共享對象加載 聯網 計時器 3D圖形   軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。 SDL 架構 / 範例     SDL Object  SDL_Window：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。 SDL_Renderer：處理所有渲染的結構。它與 SDL_Window 綁定在一起，因此只能在該 SDL_Window 中呈現。 SDL_Textures 和 SDL_Surface：SDL_Renderer 渲染SDL_Texture(存儲一個元素的像素資訊)。這是 SDL_Surface 的新版本，他們幾乎相同。  重要的區別是 SDL_Surface 使用軟件渲染（通過CPU），而 SDL_Texture 使用硬件渲染（通過GPU）。     安裝：sudo apt-get install libsdl2-dev libsdl2-image-dev Makefile CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm all: example."><title>程式設計(二)-04：File Processing-02</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="如何顯示 BMP 檔 ?  有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。 如何在螢幕上顯示圖像？  您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。 我的建議：Qt。但是，這是一個 C++ 框架。 了解如何使用 GUI 平台提供的功能顯示圖像。       GTK  GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。 GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。  因此，不要告訴我 C 不能物件導向。   安裝：sudo apt install libgtk-3-dev   SDL  Simple DirectMedia Layer SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。  視頻 聲音的 輸入設備 光盤 螺紋 共享對象加載 聯網 計時器 3D圖形   軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。 SDL 架構 / 範例   SDL Object  SDL_Window：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。 SDL_Renderer：處理所有渲染的結構。它與 SDL_Window 綁定在一起，因此只能在該 SDL_Window 中呈現。 SDL_Textures 和 SDL_Surface：SDL_Renderer 渲染SDL_Texture(存儲一個元素的像素資訊)。這是 SDL_Surface 的新版本，他們幾乎相同。  重要的區別是 SDL_Surface 使用軟件渲染（通過CPU），而 SDL_Texture 使用硬件渲染（通過GPU）。     安裝：sudo apt-get install libsdl2-dev libsdl2-image-dev Makefile 1 2 3 4 5  CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm all: example."><title>程式設計(二)-04：File Processing-02</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-04/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-04：File Processing-02">
-<meta property="og:description" content="如何顯示 BMP 檔 ?  有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。 如何在螢幕上顯示圖像？  您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。 我的建議：Qt。但是，這是一個 C++ 框架。 了解如何使用 GUI 平台提供的功能顯示圖像。       GTK  GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。 GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。  因此，不要告訴我 C 不能物件導向。   安裝：sudo apt install libgtk-3-dev   SDL  Simple DirectMedia Layer SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。  視頻 聲音的 輸入設備 光盤 螺紋 共享對象加載 聯網 計時器 3D圖形   軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。 SDL 架構 / 範例     SDL Object  SDL_Window：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。 SDL_Renderer：處理所有渲染的結構。它與 SDL_Window 綁定在一起，因此只能在該 SDL_Window 中呈現。 SDL_Textures 和 SDL_Surface：SDL_Renderer 渲染SDL_Texture(存儲一個元素的像素資訊)。這是 SDL_Surface 的新版本，他們幾乎相同。  重要的區別是 SDL_Surface 使用軟件渲染（通過CPU），而 SDL_Texture 使用硬件渲染（通過GPU）。     安裝：sudo apt-get install libsdl2-dev libsdl2-image-dev Makefile CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm all: example.">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-04：File Processing-02">
+<meta property="og:description" content="如何顯示 BMP 檔 ?  有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。 如何在螢幕上顯示圖像？  您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。 我的建議：Qt。但是，這是一個 C++ 框架。 了解如何使用 GUI 平台提供的功能顯示圖像。       GTK  GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。 GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。  因此，不要告訴我 C 不能物件導向。   安裝：sudo apt install libgtk-3-dev   SDL  Simple DirectMedia Layer SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。  視頻 聲音的 輸入設備 光盤 螺紋 共享對象加載 聯網 計時器 3D圖形   軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。 SDL 架構 / 範例   SDL Object  SDL_Window：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。 SDL_Renderer：處理所有渲染的結構。它與 SDL_Window 綁定在一起，因此只能在該 SDL_Window 中呈現。 SDL_Textures 和 SDL_Surface：SDL_Renderer 渲染SDL_Texture(存儲一個元素的像素資訊)。這是 SDL_Surface 的新版本，他們幾乎相同。  重要的區別是 SDL_Surface 使用軟件渲染（通過CPU），而 SDL_Texture 使用硬件渲染（通過GPU）。     安裝：sudo apt-get install libsdl2-dev libsdl2-image-dev Makefile 1 2 3 4 5  CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm all: example.">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-04/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-05-08T17:23:11+08:00"><meta property="article:modified_time" content="2021-05-08T17:23:11+08:00">
 <meta name=twitter:title content="程式設計(二)-04：File Processing-02">
-<meta name=twitter:description content="如何顯示 BMP 檔 ?  有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。 如何在螢幕上顯示圖像？  您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。 我的建議：Qt。但是，這是一個 C++ 框架。 了解如何使用 GUI 平台提供的功能顯示圖像。       GTK  GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。 GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。  因此，不要告訴我 C 不能物件導向。   安裝：sudo apt install libgtk-3-dev   SDL  Simple DirectMedia Layer SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。  視頻 聲音的 輸入設備 光盤 螺紋 共享對象加載 聯網 計時器 3D圖形   軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。 SDL 架構 / 範例     SDL Object  SDL_Window：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。 SDL_Renderer：處理所有渲染的結構。它與 SDL_Window 綁定在一起，因此只能在該 SDL_Window 中呈現。 SDL_Textures 和 SDL_Surface：SDL_Renderer 渲染SDL_Texture(存儲一個元素的像素資訊)。這是 SDL_Surface 的新版本，他們幾乎相同。  重要的區別是 SDL_Surface 使用軟件渲染（通過CPU），而 SDL_Texture 使用硬件渲染（通過GPU）。     安裝：sudo apt-get install libsdl2-dev libsdl2-image-dev Makefile CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm all: example.">
+<meta name=twitter:description content="如何顯示 BMP 檔 ?  有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。 如何在螢幕上顯示圖像？  您必須至少學習一個 GUI 庫，例如 Gtk、Qt 等。 我的建議：Qt。但是，這是一個 C++ 框架。 了解如何使用 GUI 平台提供的功能顯示圖像。       GTK  GTK（以前稱為 GTK+、GIMP ToolKit）是一個免費的開源跨平台的部件工具箱 (widget toolkit)，用於創建圖形用戶界面（GUIs）。 GTK 是用 C 語言所編寫的物件導向的部件工具箱。它使用 GObject（即 GLib 物件系統）進行物件導向。  因此，不要告訴我 C 不能物件導向。   安裝：sudo apt install libgtk-3-dev   SDL  Simple DirectMedia Layer SDL是跨平台的軟件開發庫，為計算機多媒體硬件組件提供硬件抽象層。  視頻 聲音的 輸入設備 光盤 螺紋 共享對象加載 聯網 計時器 3D圖形   軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。 SDL 架構 / 範例   SDL Object  SDL_Window：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。 SDL_Renderer：處理所有渲染的結構。它與 SDL_Window 綁定在一起，因此只能在該 SDL_Window 中呈現。 SDL_Textures 和 SDL_Surface：SDL_Renderer 渲染SDL_Texture(存儲一個元素的像素資訊)。這是 SDL_Surface 的新版本，他們幾乎相同。  重要的區別是 SDL_Surface 使用軟件渲染（通過CPU），而 SDL_Texture 使用硬件渲染（通過GPU）。     安裝：sudo apt-get install libsdl2-dev libsdl2-image-dev Makefile 1 2 3 4 5  CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lm all: example.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-3 min read
+3 minute read
 </time>
 </div>
 </footer>
@@ -92,14 +92,10 @@ extended">
 </ul>
 </li>
 <li>軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。</li>
-<li>SDL 架構 / 範例
-<figure style=flex-grow:119;flex-basis:285px>
-<a href=/p/computer_programming_2-04/computer_programming_2-04-01.jpg data-size=789x663><img src=/p/computer_programming_2-04/computer_programming_2-04-01.jpg srcset="/p/computer_programming_2-04/computer_programming_2-04-01_hue4d52e9742e6093c8d24bd012990f19a_136214_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-04/computer_programming_2-04-01_hue4d52e9742e6093c8d24bd012990f19a_136214_1024x0_resize_q75_box.jpg 1024w" width=789 height=663 loading=lazy>
-</a>
-</figure> <figure style=flex-grow:157;flex-basis:378px>
-<a href=/p/computer_programming_2-04/computer_programming_2-04-02.jpg data-size=799x506><img src=/p/computer_programming_2-04/computer_programming_2-04-02.jpg srcset="/p/computer_programming_2-04/computer_programming_2-04-02_hu34191f78c5c7c4ed21a8a17ff1a3ddc2_390701_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-04/computer_programming_2-04-02_hu34191f78c5c7c4ed21a8a17ff1a3ddc2_390701_1024x0_resize_q75_box.jpg 1024w" width=799 height=506 loading=lazy>
-</a>
-</figure></li>
+<li>SDL 架構 / 範例</li>
+</ul>
+<p><img src=/p/computer_programming_2-04/computer_programming_2-04-01.jpg width=789 height=663 srcset="/p/computer_programming_2-04/computer_programming_2-04-01_hue4d52e9742e6093c8d24bd012990f19a_136214_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-04/computer_programming_2-04-01_hue4d52e9742e6093c8d24bd012990f19a_136214_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=119 data-flex-basis=285px> <img src=/p/computer_programming_2-04/computer_programming_2-04-02.jpg width=799 height=506 srcset="/p/computer_programming_2-04/computer_programming_2-04-02_hu34191f78c5c7c4ed21a8a17ff1a3ddc2_390701_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-04/computer_programming_2-04-02_hu34191f78c5c7c4ed21a8a17ff1a3ddc2_390701_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=157 data-flex-basis=378px></p>
+<ul>
 <li>SDL Object
 <ul>
 <li><code>SDL_Window</code>：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。</li>
@@ -113,12 +109,23 @@ extended">
 </li>
 <li>安裝：<code>sudo apt-get install libsdl2-dev libsdl2-image-dev</code></li>
 <li>Makefile
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-Makefile data-lang=Makefile><span class=nv>CFLAGS</span> <span class=o>:=</span> <span class=sb>`</span>sdl2-config --libs --cflags<span class=sb>`</span> -ggdb3 -O0 --std<span class=o>=</span>c99 -Wall -lSDL2_image -lm
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-Makefile data-lang=Makefile><span class=nv>CFLAGS</span> <span class=o>:=</span> <span class=sb>`</span>sdl2-config --libs --cflags<span class=sb>`</span> -ggdb3 -O0 --std<span class=o>=</span>c99 -Wall -lSDL2_image -lm
 <span class=nf>all</span><span class=o>:</span> <span class=n>example</span>.<span class=n>c</span>
     gcc example.c -o example <span class=k>$(</span>CFLAGS<span class=k>)</span>
 <span class=nf>clean</span><span class=o>:</span>
     rm example
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <hr>
 <h1 id=file-descriptor>File Descriptor</h1>
@@ -162,10 +169,7 @@ extended">
 <li>These functions return information about a file, in the buffer pointed to by buf.</li>
 </ul>
 <h1 id=mmap>mmap</h1>
-<p><figure style=flex-grow:135;flex-basis:324px>
-<a href=/p/computer_programming_2-04/computer_programming_2-04-03.png data-size=504x373><img src=/p/computer_programming_2-04/computer_programming_2-04-03.png srcset="/p/computer_programming_2-04/computer_programming_2-04-03_huc7b7701c1b95c48223e934783f4e517f_25210_480x0_resize_box_3.png 480w, /p/computer_programming_2-04/computer_programming_2-04-03_huc7b7701c1b95c48223e934783f4e517f_25210_1024x0_resize_box_3.png 1024w" width=504 height=373 loading=lazy>
-</a>
-</figure></p>
+<p><img src=/p/computer_programming_2-04/computer_programming_2-04-03.png width=504 height=373 srcset="/p/computer_programming_2-04/computer_programming_2-04-03_huc7b7701c1b95c48223e934783f4e517f_25210_480x0_resize_box_3.png 480w, /p/computer_programming_2-04/computer_programming_2-04-03_huc7b7701c1b95c48223e934783f4e517f_25210_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=135 data-flex-basis=324px></p>
 <p><code>void *mmap(void *addr, size_t length, int prot, int flags,int fd, off_t offset);</code></p>
 <ul>
 <li>mmap() creates a new mapping in the virtual address space of the calling process. The starting address for the new mapping is specified in addr. The length argument specifies the length of the mapping.</li>
@@ -233,7 +237,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -301,7 +305,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

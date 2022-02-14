@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="主題  動態規劃  經典背包模板 0/1 背包 &amp;amp; 無限背包 const int N = 100, W = 100000; int cost[N], weight[N], c[W + 1]; void knapsack(int n, int w) { memset(c, 0, sizeof(c)); for (int i = 0; i &amp;lt; n; ++i) for (int j = w; j - weight[i] &amp;gt;= 0; --j) // 0/1 背包  // for (int j = weight[i]; j &amp;lt;= w; ++j) 無限背包  c[j] = max(c[j], c[j - weight[i]] + cost[i]); cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; } 有限背包 const int N = 100, W = 100000; int cost[N], weight[N], number[N], c[W + 1]; void knapsack(int n, int w) { for (int i = 0; i &amp;lt; n; ++i) { int num = min(number[i], w / weight[i]); for (int k = 1; num &amp;gt; 0; k *= 2) { if (k &amp;gt; num) k = num; num -= k; for (int j = w; j &amp;gt;= weight[i] * k; --j) c[j] = max(c[j], c[j - weight[i] * k] + cost[i] * k); } } cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; } 經典零錢問題模板 int price[5] = {5, 2, 6, 11, 17}; bool c[1000+1]; //int c[1000+1]; void change(int m) { memset(c, false, sizeof(c)); c[0] = true; for (int i = 0; i &amp;lt; 5; ++i) for (int j = price[i]; j &amp;lt;= m; ++j) c[j] ||= c[j-price[i]]; // c[j] += c[j-price[i]];  if (c[m]) cout &amp;lt;&amp;lt; &amp;#34;湊得到&amp;#34;; else cout &amp;lt;&amp;lt; &amp;#34;湊不到&amp;#34;; // cout &amp;lt;&amp;lt; &amp;#34;湊得價位&amp;#34; &amp;lt;&amp;lt; m;  // cout &amp;lt;&amp;lt; &amp;#34;湊法總共&amp;#34; &amp;lt;&amp;lt; c[m] &amp;lt;&amp;lt; &amp;#34;種&amp;#34;; } LIS 模板 DP const int N = 100; int s[N], length[N]; int LIS() { for (int i=0; i&amp;lt;N; i++) length[i] = 1; for (int i=0; i&amp;lt;N; i++) for (int j=0; j&amp;lt;i; j++) if (s[j] &amp;lt; s[i]) length[i] = max(length[i], length[j] + 1); int l = 0; for (int i=0; i&amp;lt;N; i++) l = max(l, length[i]); return l; } Robinson-Schensted-Knuth Algorithm  時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。  int LIS(vector&amp;lt;int&amp;gt;&amp;amp; s) { if (s."><title>StarCoder2021暑訓：Week04</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="主題  動態規劃  經典背包模板 0/1 背包 &amp;amp; 無限背包 1 2 3 4 5 6 7 8 9 10  const int N = 100, W = 100000; int cost[N], weight[N], c[W + 1]; void knapsack(int n, int w) { memset(c, 0, sizeof(c)); for (int i = 0; i &amp;lt; n; ++i) for (int j = w; j - weight[i] &amp;gt;= 0; --j) // 0/1 背包  // for (int j = weight[i]; j &amp;lt;= w; ++j) 無限背包  c[j] = max(c[j], c[j - weight[i]] + cost[i]); cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; }   有限背包 1 2 3 4 5 6 7 8 9 10 11 12 13 14  const int N = 100, W = 100000; int cost[N], weight[N], number[N], c[W + 1]; void knapsack(int n, int w) { for (int i = 0; i &amp;lt; n; ++i) { int num = min(number[i], w / weight[i]); for (int k = 1; num &amp;gt; 0; k *= 2) { if (k &amp;gt; num) k = num; num -= k; for (int j = w; j &amp;gt;= weight[i] * k; --j) c[j] = max(c[j], c[j - weight[i] * k] + cost[i] * k); } } cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; }   經典零錢問題模板 1 2 3 4 5 6 7 8 9 10 11 12 13 14  int price[5] = {5, 2, 6, 11, 17}; bool c[1000+1]; //int c[1000+1]; void change(int m) { memset(c, false, sizeof(c)); c[0] = true; for (int i = 0; i &amp;lt; 5; ++i) for (int j = price[i]; j &amp;lt;= m; ++j) c[j] ||= c[j-price[i]]; // c[j] += c[j-price[i]];  if (c[m]) cout &amp;lt;&amp;lt; &amp;#34;湊得到&amp;#34;; else cout &amp;lt;&amp;lt; &amp;#34;湊不到&amp;#34;; // cout &amp;lt;&amp;lt; &amp;#34;湊得價位&amp;#34; &amp;lt;&amp;lt; m;  // cout &amp;lt;&amp;lt; &amp;#34;湊法總共&amp;#34; &amp;lt;&amp;lt; c[m] &amp;lt;&amp;lt; &amp;#34;種&amp;#34;; }   LIS 模板 DP 1 2 3 4 5 6 7 8 9 10 11 12  const int N = 100; int s[N], length[N]; int LIS() { for (int i=0; i&amp;lt;N; i++) length[i] = 1; for (int i=0; i&amp;lt;N; i++) for (int j=0; j&amp;lt;i; j++) if (s[j] &amp;lt; s[i]) length[i] = max(length[i], length[j] + 1); int l = 0; for (int i=0; i&amp;lt;N; i++) l = max(l, length[i]); return l; }   Robinson-Schensted-Knuth Algorithm  時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。  1 2 3 4 5 6 7 8 9 10 11  int LIS(vector&amp;lt;int&amp;gt;&amp;amp; s) { if (s."><title>StarCoder2021暑訓：Week04</title>
 <link rel=canonical href=https://blog.smallten.tk/p/star_coder-05/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓：Week04">
-<meta property="og:description" content="主題  動態規劃  經典背包模板 0/1 背包 &amp;amp; 無限背包 const int N = 100, W = 100000; int cost[N], weight[N], c[W + 1]; void knapsack(int n, int w) { memset(c, 0, sizeof(c)); for (int i = 0; i &amp;lt; n; ++i) for (int j = w; j - weight[i] &amp;gt;= 0; --j) // 0/1 背包  // for (int j = weight[i]; j &amp;lt;= w; ++j) 無限背包  c[j] = max(c[j], c[j - weight[i]] + cost[i]); cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; } 有限背包 const int N = 100, W = 100000; int cost[N], weight[N], number[N], c[W + 1]; void knapsack(int n, int w) { for (int i = 0; i &amp;lt; n; ++i) { int num = min(number[i], w / weight[i]); for (int k = 1; num &amp;gt; 0; k *= 2) { if (k &amp;gt; num) k = num; num -= k; for (int j = w; j &amp;gt;= weight[i] * k; --j) c[j] = max(c[j], c[j - weight[i] * k] + cost[i] * k); } } cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; } 經典零錢問題模板 int price[5] = {5, 2, 6, 11, 17}; bool c[1000+1]; //int c[1000+1]; void change(int m) { memset(c, false, sizeof(c)); c[0] = true; for (int i = 0; i &amp;lt; 5; ++i) for (int j = price[i]; j &amp;lt;= m; ++j) c[j] ||= c[j-price[i]]; // c[j] += c[j-price[i]];  if (c[m]) cout &amp;lt;&amp;lt; &amp;#34;湊得到&amp;#34;; else cout &amp;lt;&amp;lt; &amp;#34;湊不到&amp;#34;; // cout &amp;lt;&amp;lt; &amp;#34;湊得價位&amp;#34; &amp;lt;&amp;lt; m;  // cout &amp;lt;&amp;lt; &amp;#34;湊法總共&amp;#34; &amp;lt;&amp;lt; c[m] &amp;lt;&amp;lt; &amp;#34;種&amp;#34;; } LIS 模板 DP const int N = 100; int s[N], length[N]; int LIS() { for (int i=0; i&amp;lt;N; i++) length[i] = 1; for (int i=0; i&amp;lt;N; i++) for (int j=0; j&amp;lt;i; j++) if (s[j] &amp;lt; s[i]) length[i] = max(length[i], length[j] + 1); int l = 0; for (int i=0; i&amp;lt;N; i++) l = max(l, length[i]); return l; } Robinson-Schensted-Knuth Algorithm  時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。  int LIS(vector&amp;lt;int&amp;gt;&amp;amp; s) { if (s.">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="StarCoder2021暑訓：Week04">
+<meta property="og:description" content="主題  動態規劃  經典背包模板 0/1 背包 &amp;amp; 無限背包 1 2 3 4 5 6 7 8 9 10  const int N = 100, W = 100000; int cost[N], weight[N], c[W + 1]; void knapsack(int n, int w) { memset(c, 0, sizeof(c)); for (int i = 0; i &amp;lt; n; ++i) for (int j = w; j - weight[i] &amp;gt;= 0; --j) // 0/1 背包  // for (int j = weight[i]; j &amp;lt;= w; ++j) 無限背包  c[j] = max(c[j], c[j - weight[i]] + cost[i]); cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; }   有限背包 1 2 3 4 5 6 7 8 9 10 11 12 13 14  const int N = 100, W = 100000; int cost[N], weight[N], number[N], c[W + 1]; void knapsack(int n, int w) { for (int i = 0; i &amp;lt; n; ++i) { int num = min(number[i], w / weight[i]); for (int k = 1; num &amp;gt; 0; k *= 2) { if (k &amp;gt; num) k = num; num -= k; for (int j = w; j &amp;gt;= weight[i] * k; --j) c[j] = max(c[j], c[j - weight[i] * k] + cost[i] * k); } } cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; }   經典零錢問題模板 1 2 3 4 5 6 7 8 9 10 11 12 13 14  int price[5] = {5, 2, 6, 11, 17}; bool c[1000+1]; //int c[1000+1]; void change(int m) { memset(c, false, sizeof(c)); c[0] = true; for (int i = 0; i &amp;lt; 5; ++i) for (int j = price[i]; j &amp;lt;= m; ++j) c[j] ||= c[j-price[i]]; // c[j] += c[j-price[i]];  if (c[m]) cout &amp;lt;&amp;lt; &amp;#34;湊得到&amp;#34;; else cout &amp;lt;&amp;lt; &amp;#34;湊不到&amp;#34;; // cout &amp;lt;&amp;lt; &amp;#34;湊得價位&amp;#34; &amp;lt;&amp;lt; m;  // cout &amp;lt;&amp;lt; &amp;#34;湊法總共&amp;#34; &amp;lt;&amp;lt; c[m] &amp;lt;&amp;lt; &amp;#34;種&amp;#34;; }   LIS 模板 DP 1 2 3 4 5 6 7 8 9 10 11 12  const int N = 100; int s[N], length[N]; int LIS() { for (int i=0; i&amp;lt;N; i++) length[i] = 1; for (int i=0; i&amp;lt;N; i++) for (int j=0; j&amp;lt;i; j++) if (s[j] &amp;lt; s[i]) length[i] = max(length[i], length[j] + 1); int l = 0; for (int i=0; i&amp;lt;N; i++) l = max(l, length[i]); return l; }   Robinson-Schensted-Knuth Algorithm  時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。  1 2 3 4 5 6 7 8 9 10 11  int LIS(vector&amp;lt;int&amp;gt;&amp;amp; s) { if (s.">
 <meta property="og:url" content="https://blog.smallten.tk/p/star_coder-05/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="UVA"><meta property="article:published_time" content="2021-08-06T10:42:11+08:00"><meta property="article:modified_time" content="2021-08-06T10:42:11+08:00">
 <meta name=twitter:title content="StarCoder2021暑訓：Week04">
-<meta name=twitter:description content="主題  動態規劃  經典背包模板 0/1 背包 &amp;amp; 無限背包 const int N = 100, W = 100000; int cost[N], weight[N], c[W + 1]; void knapsack(int n, int w) { memset(c, 0, sizeof(c)); for (int i = 0; i &amp;lt; n; ++i) for (int j = w; j - weight[i] &amp;gt;= 0; --j) // 0/1 背包  // for (int j = weight[i]; j &amp;lt;= w; ++j) 無限背包  c[j] = max(c[j], c[j - weight[i]] + cost[i]); cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; } 有限背包 const int N = 100, W = 100000; int cost[N], weight[N], number[N], c[W + 1]; void knapsack(int n, int w) { for (int i = 0; i &amp;lt; n; ++i) { int num = min(number[i], w / weight[i]); for (int k = 1; num &amp;gt; 0; k *= 2) { if (k &amp;gt; num) k = num; num -= k; for (int j = w; j &amp;gt;= weight[i] * k; --j) c[j] = max(c[j], c[j - weight[i] * k] + cost[i] * k); } } cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; } 經典零錢問題模板 int price[5] = {5, 2, 6, 11, 17}; bool c[1000+1]; //int c[1000+1]; void change(int m) { memset(c, false, sizeof(c)); c[0] = true; for (int i = 0; i &amp;lt; 5; ++i) for (int j = price[i]; j &amp;lt;= m; ++j) c[j] ||= c[j-price[i]]; // c[j] += c[j-price[i]];  if (c[m]) cout &amp;lt;&amp;lt; &amp;#34;湊得到&amp;#34;; else cout &amp;lt;&amp;lt; &amp;#34;湊不到&amp;#34;; // cout &amp;lt;&amp;lt; &amp;#34;湊得價位&amp;#34; &amp;lt;&amp;lt; m;  // cout &amp;lt;&amp;lt; &amp;#34;湊法總共&amp;#34; &amp;lt;&amp;lt; c[m] &amp;lt;&amp;lt; &amp;#34;種&amp;#34;; } LIS 模板 DP const int N = 100; int s[N], length[N]; int LIS() { for (int i=0; i&amp;lt;N; i++) length[i] = 1; for (int i=0; i&amp;lt;N; i++) for (int j=0; j&amp;lt;i; j++) if (s[j] &amp;lt; s[i]) length[i] = max(length[i], length[j] + 1); int l = 0; for (int i=0; i&amp;lt;N; i++) l = max(l, length[i]); return l; } Robinson-Schensted-Knuth Algorithm  時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。  int LIS(vector&amp;lt;int&amp;gt;&amp;amp; s) { if (s.">
+<meta name=twitter:description content="主題  動態規劃  經典背包模板 0/1 背包 &amp;amp; 無限背包 1 2 3 4 5 6 7 8 9 10  const int N = 100, W = 100000; int cost[N], weight[N], c[W + 1]; void knapsack(int n, int w) { memset(c, 0, sizeof(c)); for (int i = 0; i &amp;lt; n; ++i) for (int j = w; j - weight[i] &amp;gt;= 0; --j) // 0/1 背包  // for (int j = weight[i]; j &amp;lt;= w; ++j) 無限背包  c[j] = max(c[j], c[j - weight[i]] + cost[i]); cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; }   有限背包 1 2 3 4 5 6 7 8 9 10 11 12 13 14  const int N = 100, W = 100000; int cost[N], weight[N], number[N], c[W + 1]; void knapsack(int n, int w) { for (int i = 0; i &amp;lt; n; ++i) { int num = min(number[i], w / weight[i]); for (int k = 1; num &amp;gt; 0; k *= 2) { if (k &amp;gt; num) k = num; num -= k; for (int j = w; j &amp;gt;= weight[i] * k; --j) c[j] = max(c[j], c[j - weight[i] * k] + cost[i] * k); } } cout &amp;lt;&amp;lt; &amp;#34;最高的價值為&amp;#34; &amp;lt;&amp;lt; c[w]; }   經典零錢問題模板 1 2 3 4 5 6 7 8 9 10 11 12 13 14  int price[5] = {5, 2, 6, 11, 17}; bool c[1000+1]; //int c[1000+1]; void change(int m) { memset(c, false, sizeof(c)); c[0] = true; for (int i = 0; i &amp;lt; 5; ++i) for (int j = price[i]; j &amp;lt;= m; ++j) c[j] ||= c[j-price[i]]; // c[j] += c[j-price[i]];  if (c[m]) cout &amp;lt;&amp;lt; &amp;#34;湊得到&amp;#34;; else cout &amp;lt;&amp;lt; &amp;#34;湊不到&amp;#34;; // cout &amp;lt;&amp;lt; &amp;#34;湊得價位&amp;#34; &amp;lt;&amp;lt; m;  // cout &amp;lt;&amp;lt; &amp;#34;湊法總共&amp;#34; &amp;lt;&amp;lt; c[m] &amp;lt;&amp;lt; &amp;#34;種&amp;#34;; }   LIS 模板 DP 1 2 3 4 5 6 7 8 9 10 11 12  const int N = 100; int s[N], length[N]; int LIS() { for (int i=0; i&amp;lt;N; i++) length[i] = 1; for (int i=0; i&amp;lt;N; i++) for (int j=0; j&amp;lt;i; j++) if (s[j] &amp;lt; s[i]) length[i] = max(length[i], length[j] + 1); int l = 0; for (int i=0; i&amp;lt;N; i++) l = max(l, length[i]); return l; }   Robinson-Schensted-Knuth Algorithm  時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。  1 2 3 4 5 6 7 8 9 10 11  int LIS(vector&amp;lt;int&amp;gt;&amp;amp; s) { if (s.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ StarCoder
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-12 min read
+14 minute read
 </time>
 </div>
 </footer>
@@ -55,7 +55,21 @@ StarCoder
 </ul>
 <h2 id=經典背包模板>經典背包模板</h2>
 <h3 id=01-背包--無限背包>0/1 背包 & 無限背包</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>100</span><span class=p>,</span> <span class=n>W</span> <span class=o>=</span> <span class=mi>100000</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>100</span><span class=p>,</span> <span class=n>W</span> <span class=o>=</span> <span class=mi>100000</span><span class=p>;</span>
 <span class=kt>int</span> <span class=n>cost</span><span class=p>[</span><span class=n>N</span><span class=p>],</span> <span class=n>weight</span><span class=p>[</span><span class=n>N</span><span class=p>],</span> <span class=n>c</span><span class=p>[</span><span class=n>W</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
 <span class=kt>void</span> <span class=nf>knapsack</span><span class=p>(</span><span class=kt>int</span> <span class=n>n</span><span class=p>,</span> <span class=kt>int</span> <span class=n>w</span><span class=p>)</span> <span class=p>{</span>
     <span class=n>memset</span><span class=p>(</span><span class=n>c</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>c</span><span class=p>));</span>
@@ -65,8 +79,28 @@ StarCoder
 </span><span class=c1></span>            <span class=n>c</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>max</span><span class=p>(</span><span class=n>c</span><span class=p>[</span><span class=n>j</span><span class=p>],</span> <span class=n>c</span><span class=p>[</span><span class=n>j</span> <span class=o>-</span> <span class=n>weight</span><span class=p>[</span><span class=n>i</span><span class=p>]]</span> <span class=o>+</span> <span class=n>cost</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
     <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;最高的價值為&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>c</span><span class=p>[</span><span class=n>w</span><span class=p>];</span>
 <span class=p>}</span>
-</code></pre></div><h3 id=有限背包>有限背包</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>100</span><span class=p>,</span> <span class=n>W</span> <span class=o>=</span> <span class=mi>100000</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=有限背包>有限背包</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>100</span><span class=p>,</span> <span class=n>W</span> <span class=o>=</span> <span class=mi>100000</span><span class=p>;</span>
 <span class=kt>int</span> <span class=n>cost</span><span class=p>[</span><span class=n>N</span><span class=p>],</span> <span class=n>weight</span><span class=p>[</span><span class=n>N</span><span class=p>],</span> <span class=n>number</span><span class=p>[</span><span class=n>N</span><span class=p>],</span> <span class=n>c</span><span class=p>[</span><span class=n>W</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
 <span class=kt>void</span> <span class=nf>knapsack</span><span class=p>(</span><span class=kt>int</span> <span class=n>n</span><span class=p>,</span> <span class=kt>int</span> <span class=n>w</span><span class=p>)</span> <span class=p>{</span>
     <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
@@ -80,8 +114,28 @@ StarCoder
     <span class=p>}</span>
     <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;最高的價值為&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>c</span><span class=p>[</span><span class=n>w</span><span class=p>];</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=經典零錢問題模板>經典零錢問題模板</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=n>price</span><span class=p>[</span><span class=mi>5</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>5</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=mi>17</span><span class=p>};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=經典零錢問題模板>經典零錢問題模板</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=n>price</span><span class=p>[</span><span class=mi>5</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>5</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=mi>17</span><span class=p>};</span>
 <span class=kt>bool</span> <span class=n>c</span><span class=p>[</span><span class=mi>1000</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span> <span class=c1>//int c[1000+1];
 </span><span class=c1></span><span class=kt>void</span> <span class=nf>change</span><span class=p>(</span><span class=kt>int</span> <span class=n>m</span><span class=p>)</span> <span class=p>{</span>
     <span class=n>memset</span><span class=p>(</span><span class=n>c</span><span class=p>,</span> <span class=nb>false</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>c</span><span class=p>));</span>
@@ -95,9 +149,27 @@ StarCoder
     <span class=c1>// cout &lt;&lt; &#34;湊得價位&#34; &lt;&lt; m;
 </span><span class=c1></span>    <span class=c1>// cout &lt;&lt; &#34;湊法總共&#34; &lt;&lt; c[m] &lt;&lt; &#34;種&#34;;
 </span><span class=c1></span><span class=p>}</span>
-</code></pre></div><h2 id=lis-模板>LIS 模板</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=lis-模板>LIS 模板</h2>
 <h3 id=dp>DP</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>100</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>100</span><span class=p>;</span>
 <span class=kt>int</span> <span class=n>s</span><span class=p>[</span><span class=n>N</span><span class=p>],</span> <span class=n>length</span><span class=p>[</span><span class=n>N</span><span class=p>];</span>
 <span class=kt>int</span> <span class=nf>LIS</span><span class=p>()</span> <span class=p>{</span>
     <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>N</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=n>length</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
@@ -109,11 +181,28 @@ StarCoder
     <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>N</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=n>l</span> <span class=o>=</span> <span class=n>max</span><span class=p>(</span><span class=n>l</span><span class=p>,</span> <span class=n>length</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
     <span class=k>return</span> <span class=n>l</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h3 id=robinson-schensted-knuth-algorithm>Robinson-Schensted-Knuth Algorithm</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=robinson-schensted-knuth-algorithm>Robinson-Schensted-Knuth Algorithm</h3>
 <ul>
 <li>時間複雜度 O(NlogL) ， N 是序列長度， L 是 LIS 長度。</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=nf>LIS</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=nf>LIS</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
     <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
     <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>v</span><span class=p>;</span>
     <span class=n>v</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
@@ -124,9 +213,28 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=n>v</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=lcs-模板>LCS 模板</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=lcs-模板>LCS 模板</h2>
 <h3 id=dp-1>DP</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N1</span> <span class=o>=</span> <span class=mi>7</span><span class=p>,</span> <span class=n>N2</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=k>const</span> <span class=kt>int</span> <span class=n>N1</span> <span class=o>=</span> <span class=mi>7</span><span class=p>,</span> <span class=n>N2</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
 <span class=kt>int</span> <span class=n>s1</span><span class=p>[</span><span class=n>N1</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>};</span>
 <span class=kt>int</span> <span class=n>s2</span><span class=p>[</span><span class=n>N2</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>8</span><span class=p>};</span>
 <span class=kt>int</span> <span class=n>length</span><span class=p>[</span><span class=n>N1</span><span class=o>+</span><span class=mi>1</span><span class=p>][</span><span class=n>N2</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
@@ -139,14 +247,34 @@ StarCoder
             <span class=k>else</span> <span class=n>length</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>max</span><span class=p>(</span><span class=n>length</span><span class=p>[</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=n>j</span><span class=p>],</span> <span class=n>length</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>]);</span>
     <span class=k>return</span> <span class=n>length</span><span class=p>[</span><span class=n>N1</span><span class=p>][</span><span class=n>N2</span><span class=p>];</span>
 <span class=p>}</span>
-</code></pre></div><h3 id=hunt-szymanski-algorithm>Hunt-Szymanski Algorithm</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=hunt-szymanski-algorithm>Hunt-Szymanski Algorithm</h3>
 <ul>
 <li>LCS 問題，化作 2D LIS 問題，再化作 1D LIS 問題，最後套用 Robinson-Schensted-Knuth Algorithm 。</li>
 <li>排序所有數對，使用 Counting Sort 。掃描一遍 s2 ，把每個字元的位置紀錄下來。</li>
 <li>較短的序列當作 s1 ，時間複雜度是 O(Klog(min(N,M)) + R) 。 K 是數對數目， N 和 M 是序列長度， R 是數字範圍。</li>
 <li>K 至多是 NM ，最差情況下比先前的演算法還慢，平均情況下比先前的演算法快上許多。 R 源自 Counting Sort 。</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=nf>LCS</span><span class=p>(</span><span class=n>string</span> <span class=o>&amp;</span><span class=n>s1</span><span class=p>,</span> <span class=n>string</span> <span class=o>&amp;</span><span class=n>s2</span><span class=p>)</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=nf>LCS</span><span class=p>(</span><span class=n>string</span> <span class=o>&amp;</span><span class=n>s1</span><span class=p>,</span> <span class=n>string</span> <span class=o>&amp;</span><span class=n>s2</span><span class=p>)</span> <span class=p>{</span>
     <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>p</span><span class=p>[</span><span class=mi>128</span><span class=p>];</span> <span class=c1>// 假設字元範圍為 0 ~ 127
 </span><span class=c1></span>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>s2</span><span class=p>.</span><span class=n>size</span><span class=p>();</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span>
         <span class=n>p</span><span class=p>[</span><span class=n>s2</span><span class=p>[</span><span class=n>i</span><span class=p>]].</span><span class=n>push_back</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
@@ -160,11 +288,13 @@ StarCoder
         <span class=p>}</span>
     <span class=k>return</span> <span class=n>v</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h1 id=題目>題目</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id=題目>題目</h1>
 <ul>
 <li><a class=link href=https://vjudge.net/contest/450622 target=_blank rel=noopener>Virtual Judge</a></li>
 <li>題目列表與提示
-<table>
+<div class=table-wrapper><table>
 <thead>
 <tr>
 <th>題目</th>
@@ -235,12 +365,50 @@ StarCoder
 <td style=text-align:center>\(難^2\)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </li>
 </ul>
 <h1 id=參考作法>參考作法</h1>
 <h2 id=a---supersale>A - SuperSale</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -274,8 +442,40 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=b---let-me-count-the-ways>B - Let Me Count The Ways</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=b---let-me-count-the-ways>B - Let Me Count The Ways</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -301,8 +501,42 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=c---longest-common-subsequence>C - Longest Common Subsequence</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=c---longest-common-subsequence>C - Longest Common Subsequence</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -330,8 +564,37 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=d---combinations>D - Combinations</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=d---combinations>D - Combinations</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -354,8 +617,45 @@ StarCoder
         <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>n</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; things taken &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>m</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; at a time is &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>c</span><span class=p>[</span><span class=n>n</span><span class=p>][</span><span class=n>m</span><span class=p>]</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; exactly.</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=e---cutting-sticks>E - Cutting Sticks</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=e---cutting-sticks>E - Cutting Sticks</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -386,8 +686,86 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=f---stacking-boxes>F - Stacking Boxes</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=f---stacking-boxes>F - Stacking Boxes</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -459,8 +837,63 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=g---wavio-sequence>G - Wavio Sequence</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=g---wavio-sequence>G - Wavio Sequence</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -509,8 +942,74 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=h---kids-in-a-grid>H - Kids in a Grid</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=h---kids-in-a-grid>H - Kids in a Grid</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -570,8 +1069,66 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=i---tug-of-war>I - Tug of War</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=i---tug-of-war>I - Tug of War</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -623,8 +1180,73 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=j---arbitrage>J - Arbitrage</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=j---arbitrage>J - Arbitrage</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
@@ -683,7 +1305,9 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
@@ -742,7 +1366,7 @@ StarCoder
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -834,7 +1458,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

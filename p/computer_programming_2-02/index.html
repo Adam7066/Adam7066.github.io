@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  struct _sCard{ uint8_t suit, face; };  初始化 struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};  structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr).face = 5;   CPU Alignment  CPU 有時候會為了減少從記憶體呼叫變數的次數，而主動將變數的記憶體放在連續的地方。 為了避免 alignment，你可以使用以下兩種方法：  __attribute__((packed)) pragma #pragma pack(push) #pragma pack(1) #pragma pack(pop)   // 法一 struct st{ ."><title>程式設計(二)-02：Structure</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  1 2 3  struct _sCard{ uint8_t suit, face; };    初始化 1 2  struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};    structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; 1 2 3 4  a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr)."><title>程式設計(二)-02：Structure</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-02/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-02：Structure">
-<meta property="og:description" content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  struct _sCard{ uint8_t suit, face; };  初始化 struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};  structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr).face = 5;   CPU Alignment  CPU 有時候會為了減少從記憶體呼叫變數的次數，而主動將變數的記憶體放在連續的地方。 為了避免 alignment，你可以使用以下兩種方法：  __attribute__((packed)) pragma #pragma pack(push) #pragma pack(1) #pragma pack(pop)   // 法一 struct st{ .">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-02：Structure">
+<meta property="og:description" content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  1 2 3  struct _sCard{ uint8_t suit, face; };    初始化 1 2  struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};    structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; 1 2 3 4  a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr).">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-02/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T16:24:46+08:00"><meta property="article:modified_time" content="2021-04-02T16:24:46+08:00">
 <meta name=twitter:title content="程式設計(二)-02：Structure">
-<meta name=twitter:description content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  struct _sCard{ uint8_t suit, face; };  初始化 struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};  structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr).face = 5;   CPU Alignment  CPU 有時候會為了減少從記憶體呼叫變數的次數，而主動將變數的記憶體放在連續的地方。 為了避免 alignment，你可以使用以下兩種方法：  __attribute__((packed)) pragma #pragma pack(push) #pragma pack(1) #pragma pack(pop)   // 法一 struct st{ .">
+<meta name=twitter:description content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  1 2 3  struct _sCard{ uint8_t suit, face; };    初始化 1 2  struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};    structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; 1 2 3 4  a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr).">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-3 min read
+3 minute read
 </time>
 </div>
 </footer>
@@ -58,21 +58,48 @@ extended">
 <li>成員：在 struct 的大括號內宣告的變數。</li>
 <li>同一個結構體下的成員名稱是唯一的。</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>_sCard</span><span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>_sCard</span><span class=p>{</span>
     <span class=kt>uint8_t</span> <span class=n>suit</span><span class=p>,</span> <span class=n>face</span><span class=p>;</span>
 <span class=p>};</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>初始化
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>_sCard</span> <span class=n>a_card</span> <span class=o>=</span> <span class=p>{.</span><span class=n>suit</span> <span class=o>=</span> <span class=mi>1</span><span class=p>,</span> <span class=p>.</span><span class=n>face</span> <span class=o>=</span> <span class=mi>2</span><span class=p>};</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>_sCard</span> <span class=n>a_card</span> <span class=o>=</span> <span class=p>{.</span><span class=n>suit</span> <span class=o>=</span> <span class=mi>1</span><span class=p>,</span> <span class=p>.</span><span class=n>face</span> <span class=o>=</span> <span class=mi>2</span><span class=p>};</span>
 <span class=k>struct</span> <span class=n>_sCard</span> <span class=n>a_card</span> <span class=o>=</span> <span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>};</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>structure member operator -> <code>.</code></li>
 <li>structure pointer operator -> <code>-></code>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=n>a_card_ptr</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>a_card</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=n>a_card_ptr</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>a_card</span><span class=p>;</span>
 <span class=n>a_card_ptr</span><span class=o>-&gt;</span><span class=n>face</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
 <span class=c1>// Equivalent to
 </span><span class=c1></span><span class=p>(</span><span class=o>*</span><span class=n>a_card_ptr</span><span class=p>).</span><span class=n>face</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <h2 id=cpu-alignment>CPU Alignment</h2>
 <ul>
@@ -81,12 +108,36 @@ extended">
 <ul>
 <li><code>__attribute__((packed))</code></li>
 <li>pragma
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#pragma pack(push)
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#pragma pack(push)
 </span><span class=cp>#pragma pack(1)
 </span><span class=cp>#pragma pack(pop)
-</span></code></pre></div></li>
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 法一
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 法一
 </span><span class=c1></span><span class=k>struct</span> <span class=n>st</span><span class=p>{</span>
     <span class=p>...</span>
 <span class=p>}</span><span class=n>__attribute__</span><span class=p>((</span><span class=n>packed</span><span class=p>));</span>
@@ -97,27 +148,52 @@ extended">
     <span class=p>...</span>
 <span class=p>};</span>
 <span class=cp>#pragma pack(pop)
-</span></code></pre></div></li>
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>Structure 不能包含自己，如果需要請用 pointer !
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>student</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>student</span> <span class=p>{</span>
     <span class=kt>char</span> <span class=n>name</span> <span class=p>[</span><span class=mi>64</span><span class=p>];</span>
     <span class=kt>uint8_t</span> <span class=n>age</span><span class=p>;</span>
     <span class=kt>uint8_t</span> <span class=n>gender</span><span class=p>;</span>
     <span class=k>struct</span> <span class=n>student</span> <span class=o>*</span><span class=n>leader</span><span class=p>;</span>
 <span class=p>};</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <h2 id=typedef>typedef</h2>
 <ul>
 <li>由於軟體開發者盡可能的保持懶惰，因此他們嘗試縮短程式碼。</li>
 <li>為了提高可讀性</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>typedef</span> <span class=k>struct</span> <span class=n>card</span> <span class=n>Card</span><span class=p>;</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>typedef</span> <span class=k>struct</span> <span class=n>card</span> <span class=n>Card</span><span class=p>;</span>
 <span class=k>typedef</span> <span class=k>struct</span> <span class=n>card</span> <span class=p>{</span>
     <span class=kt>uint8_t</span> <span class=n>suit</span><span class=p>;</span>
     <span class=kt>uint8_t</span> <span class=n>face</span><span class=p>;</span>
 <span class=p>}</span> <span class=n>Card</span><span class=p>;</span>
-</code></pre></div><h2 id=structure-with-functions>Structure With Functions</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=structure-with-functions>Structure With Functions</h2>
 <ul>
 <li>為什麼我們時常以傳址的方式傳送 Structures ?
 <ul>
@@ -125,22 +201,28 @@ extended">
 </ul>
 </li>
 <li>傳值 vs 傳址
-<figure style=flex-grow:129;flex-basis:310px>
-<a href=/p/computer_programming_2-02/computer_programming_2-02-01.jpg data-size=790x610><img src=/p/computer_programming_2-02/computer_programming_2-02-01.jpg srcset="/p/computer_programming_2-02/computer_programming_2-02-01_huda76dad72ba7eecf185e60c3e1f23f56_121265_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-02/computer_programming_2-02-01_huda76dad72ba7eecf185e60c3e1f23f56_121265_1024x0_resize_q75_box.jpg 1024w" width=790 height=610 loading=lazy>
-</a>
-</figure> <figure style=flex-grow:129;flex-basis:310px>
-<a href=/p/computer_programming_2-02/computer_programming_2-02-02.jpg data-size=790x610><img src=/p/computer_programming_2-02/computer_programming_2-02-02.jpg srcset="/p/computer_programming_2-02/computer_programming_2-02-02_hu3cb647f66cd227f7a5d9066064b60b2a_78814_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-02/computer_programming_2-02-02_hu3cb647f66cd227f7a5d9066064b60b2a_78814_1024x0_resize_q75_box.jpg 1024w" width=790 height=610 loading=lazy>
-</a>
-</figure></li>
+<img src=/p/computer_programming_2-02/computer_programming_2-02-01.jpg width=790 height=610 srcset="/p/computer_programming_2-02/computer_programming_2-02-01_huda76dad72ba7eecf185e60c3e1f23f56_121265_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-02/computer_programming_2-02-01_huda76dad72ba7eecf185e60c3e1f23f56_121265_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=129 data-flex-basis=310px> <img src=/p/computer_programming_2-02/computer_programming_2-02-02.jpg width=790 height=610 srcset="/p/computer_programming_2-02/computer_programming_2-02-02_hu3cb647f66cd227f7a5d9066064b60b2a_78814_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-02/computer_programming_2-02-02_hu3cb647f66cd227f7a5d9066064b60b2a_78814_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=129 data-flex-basis=310px></li>
 </ul>
 <h2 id=const>const</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=o>*</span><span class=n>a</span><span class=p>;</span> <span class=c1>// declare a as pointer to int
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=o>*</span><span class=n>a</span><span class=p>;</span> <span class=c1>// declare a as pointer to int
 </span><span class=c1></span><span class=kt>int</span> <span class=k>const</span> <span class=o>*</span><span class=n>a</span><span class=p>;</span> <span class=c1>// syntax error
 </span><span class=c1></span><span class=kt>int</span> <span class=o>*</span> <span class=k>const</span> <span class=n>a</span><span class=p>;</span> <span class=c1>// declare a as const pointer to int
 </span><span class=c1></span><span class=kt>int</span> <span class=k>const</span> <span class=o>*</span> <span class=k>const</span> <span class=n>a</span><span class=p>;</span> <span class=c1>// syntax error
 </span><span class=c1></span><span class=k>const</span> <span class=kt>int</span> <span class=o>*</span><span class=n>a</span><span class=p>;</span> <span class=c1>// declare a as pointer to const int
 </span><span class=c1></span><span class=k>const</span> <span class=kt>int</span> <span class=o>*</span> <span class=k>const</span> <span class=n>a</span><span class=p>;</span> <span class=c1>// declare a as const pointer to const int
-</span></code></pre></div><ul>
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>Although C and C++ read mostly from top-to-bottom and left-to-right, pointer declarations read, in a sense, backwards.</li>
 </ul>
 <h1 id=union>Union</h1>
@@ -149,14 +231,27 @@ extended">
 <li>記憶體大小足以容納最大的成員。</li>
 <li>實際應用</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>ip_addr</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>ip_addr</span> <span class=p>{</span>
     <span class=kt>uint8_t</span> <span class=n>fam</span><span class=p>;</span> <span class=c1>// socket family type
 </span><span class=c1></span>    <span class=k>union</span> <span class=p>{</span>
         <span class=k>struct</span> <span class=n>in_addr</span> <span class=n>ipv4_sin_addr</span><span class=p>;</span>
         <span class=k>struct</span> <span class=n>in6_addr</span> <span class=n>ipv6_sin_addr</span><span class=p>;</span>
     <span class=p>}</span><span class=n>addr</span><span class=p>;</span>
 <span class=p>};</span>
-</code></pre></div><h2 id=bitwise-operation>Bitwise Operation</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=bitwise-operation>Bitwise Operation</h2>
 <ul>
 <li><code>&</code>：AND -> 0&0 = 0; 0&1 = 0; 1&0 = 0; 1&1 = 1.</li>
 <li><code>|</code>：OR -> 0|0 = 0; 0|1 = 1; 1|0 = 1; 1|1 = 1.</li>
@@ -189,7 +284,24 @@ extended">
 </li>
 </ul>
 <h2 id=bit-fields>Bit Fields</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>typedef</span> <span class=k>union</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>typedef</span> <span class=k>union</span> <span class=p>{</span>
     <span class=k>struct</span> <span class=p>{</span>
         <span class=kt>unsigned</span> <span class=kt>char</span> <span class=nl>b1</span><span class=p>:</span><span class=mi>1</span><span class=p>;</span>
         <span class=kt>unsigned</span> <span class=kt>char</span> <span class=nl>b2</span><span class=p>:</span><span class=mi>1</span><span class=p>;</span>
@@ -202,7 +314,9 @@ extended">
     <span class=p>}</span> <span class=n>bits</span><span class=p>;</span>
     <span class=kt>unsigned</span> <span class=kt>char</span> <span class=n>byte</span><span class=p>;</span>
 <span class=p>}</span> <span class=n>uByte</span><span class=p>;</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>由於 alignment 問題，記憶體的空間可能不是安全的，這取決於你如何儲存你的資料。</li>
 <li>實際上，bit fields 可能會增加編程時的難度。我不建議您使用此功能，但是，您需要了解此語法，因為其他人可能會使用它。</li>
 <li>Do not take the address of a bit field.</li>
@@ -211,7 +325,22 @@ extended">
 <ul>
 <li>A set of integer enumeration constants represented by identifiers.</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>enum</span> <span class=n>career</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>enum</span> <span class=n>career</span> <span class=p>{</span>
     <span class=n>SABER</span><span class=p>,</span> <span class=n>LANCER</span><span class=p>,</span> <span class=n>ARCHER</span><span class=p>,</span>
     <span class=n>RIDER</span><span class=p>,</span> <span class=n>CASTER</span><span class=p>,</span> <span class=n>ASSASSIN</span><span class=p>,</span>
     <span class=n>BERSAKER</span><span class=p>,</span> <span class=n>RULER</span><span class=p>,</span>
@@ -222,7 +351,9 @@ extended">
     <span class=k>enum</span> <span class=n>career</span> <span class=n>role</span><span class=p>;</span>
     <span class=kt>uint32_t</span>    <span class=n>role2</span><span class=p>;</span>
 <span class=p>}</span> <span class=n>Player</span><span class=p>;</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>你不能改變 enumeration constants 的值。</li>
 <li>我是否可以使用 <code>define</code> 或 <code>const</code> 而不是 <code>enum</code>?
 <ul>
@@ -289,7 +420,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -358,7 +489,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

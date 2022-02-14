@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。  硬體  上一小節的成品 Raspberry pi * 1  教學開始  打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可  # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.Serial(&amp;#39;/dev/ttyACM0&amp;#39;, 9600, timeout=1) ser.flush() while True: flag = False if ser.in_waiting&amp;gt;0: arduinoData = ser.readline().decode(encoding=&amp;#39;utf-8&amp;#39;, errors=&amp;#39;ignore&amp;#39;).rstrip().split(&amp;#39;;&amp;#39;) if len(arduinoData)!=4 or arduinoData==&amp;#39;&amp;#39;: continue for i in range(0,3): if arduinoData[i]==&amp;#39;0&amp;#39;: flag = True break if flag: continue else: temperature_value[&amp;#39;text&amp;#39;] = arduinoData[0] + &amp;#39; 度C&amp;#39; humidity_value[&amp;#39;text&amp;#39;] = arduinoData[1] + &amp;#39; %&amp;#39; pmat25_value[&amp;#39;text&amp;#39;] = arduinoData[2] + &amp;#39; ug/m^3&amp;#39; wind_value[&amp;#39;text&amp;#39;] = arduinoData[3] + &amp;#39; 級&amp;#39; break window."><title>簡易氣象站-02</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。  硬體  上一小節的成品 Raspberry pi * 1  教學開始  打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66  # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial."><title>簡易氣象站-02</title>
 <link rel=canonical href=https://blog.smallten.tk/p/weather-02/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="簡易氣象站-02">
-<meta property="og:description" content="簡介  這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。  硬體  上一小節的成品 Raspberry pi * 1  教學開始  打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可  # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.Serial(&amp;#39;/dev/ttyACM0&amp;#39;, 9600, timeout=1) ser.flush() while True: flag = False if ser.in_waiting&amp;gt;0: arduinoData = ser.readline().decode(encoding=&amp;#39;utf-8&amp;#39;, errors=&amp;#39;ignore&amp;#39;).rstrip().split(&amp;#39;;&amp;#39;) if len(arduinoData)!=4 or arduinoData==&amp;#39;&amp;#39;: continue for i in range(0,3): if arduinoData[i]==&amp;#39;0&amp;#39;: flag = True break if flag: continue else: temperature_value[&amp;#39;text&amp;#39;] = arduinoData[0] + &amp;#39; 度C&amp;#39; humidity_value[&amp;#39;text&amp;#39;] = arduinoData[1] + &amp;#39; %&amp;#39; pmat25_value[&amp;#39;text&amp;#39;] = arduinoData[2] + &amp;#39; ug/m^3&amp;#39; wind_value[&amp;#39;text&amp;#39;] = arduinoData[3] + &amp;#39; 級&amp;#39; break window.">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="簡易氣象站-02">
+<meta property="og:description" content="簡介  這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。  硬體  上一小節的成品 Raspberry pi * 1  教學開始  打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66  # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.">
 <meta property="og:url" content="https://blog.smallten.tk/p/weather-02/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arduino"><meta property="article:tag" content="Python"><meta property="article:tag" content="Raspberry Pi"><meta property="article:published_time" content="2020-07-12T09:31:38+08:00"><meta property="article:modified_time" content="2020-07-12T09:31:38+08:00">
 <meta name=twitter:title content="簡易氣象站-02">
-<meta name=twitter:description content="簡介  這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。  硬體  上一小節的成品 Raspberry pi * 1  教學開始  打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可  # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.Serial(&amp;#39;/dev/ttyACM0&amp;#39;, 9600, timeout=1) ser.flush() while True: flag = False if ser.in_waiting&amp;gt;0: arduinoData = ser.readline().decode(encoding=&amp;#39;utf-8&amp;#39;, errors=&amp;#39;ignore&amp;#39;).rstrip().split(&amp;#39;;&amp;#39;) if len(arduinoData)!=4 or arduinoData==&amp;#39;&amp;#39;: continue for i in range(0,3): if arduinoData[i]==&amp;#39;0&amp;#39;: flag = True break if flag: continue else: temperature_value[&amp;#39;text&amp;#39;] = arduinoData[0] + &amp;#39; 度C&amp;#39; humidity_value[&amp;#39;text&amp;#39;] = arduinoData[1] + &amp;#39; %&amp;#39; pmat25_value[&amp;#39;text&amp;#39;] = arduinoData[2] + &amp;#39; ug/m^3&amp;#39; wind_value[&amp;#39;text&amp;#39;] = arduinoData[3] + &amp;#39; 級&amp;#39; break window.">
+<meta name=twitter:description content="簡介  這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。  硬體  上一小節的成品 Raspberry pi * 1  教學開始  打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66  # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 min read
+2 minute read
 </time>
 </div>
 </footer>
@@ -66,7 +66,77 @@ extended">
 <li>於Terminal中輸入 <code>python3 -m pip install pyserial</code></li>
 <li>將以下程式碼建立成一個python檔，再以python3執行即可</li>
 </ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># -*- coding: UTF-8 -*-</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># -*- coding: UTF-8 -*-</span>
 <span class=kn>import</span> <span class=nn>serial</span>
 <span class=kn>import</span> <span class=nn>tkinter</span> <span class=k>as</span> <span class=nn>tk</span>
 
@@ -132,12 +202,11 @@ extended">
 
     <span class=n>getData</span><span class=p>()</span>
     <span class=n>window</span><span class=o>.</span><span class=n>mainloop</span><span class=p>()</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>最終成果圖
-<figure style=flex-grow:180;flex-basis:433px>
-<a href=/p/weather-02/weather-02-01.png data-size=1204x667><img src=/p/weather-02/weather-02-01.png srcset="/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_480x0_resize_box_3.png 480w, /p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_1024x0_resize_box_3.png 1024w" width=1204 height=667 loading=lazy>
-</a>
-</figure></li>
+<img src=/p/weather-02/weather-02-01.png width=1204 height=667 srcset="/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_480x0_resize_box_3.png 480w, /p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=180 data-flex-basis=433px></li>
 </ul>
 </section>
 <footer class=article-footer>
@@ -171,7 +240,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -228,7 +297,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

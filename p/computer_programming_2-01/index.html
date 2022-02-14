@@ -2,7 +2,7 @@
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="字元  在講字串之前我們先來看什麼是字元。  ASCII  American Standard Code for Information Interchange. 電子通訊的字元編碼標準 基於英文字母，ASCII 將 128 個字元編碼成 7 個位元長。  95 個可印字元：A-Z, a-z, 0-9, 標點符號 不可印字元：換行符號      在電腦中我們使用 8-bit 的記憶體儲存字元。 在 C 語言中，使用 char 這個型別。 %c -&amp;gt; 輸出字元 %x or %X -&amp;gt; 印出 hex or HEX 的值。    在以前，許多情況下，有些人使用 unsigned char 作為 one byte 的資料型別，但現今你應該使用的是 uint8_t。 請把 char 留給字串，盡管事實上對電腦來說都是一樣的。 其他編碼：Big5、UTF-8  字串  事實上，字串就是一連串的可印字元。 這樣看起來很像陣列對吧?"><title>程式設計(二)-01：String</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-01/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-01：String">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-01：String">
 <meta property="og:description" content="字元  在講字串之前我們先來看什麼是字元。  ASCII  American Standard Code for Information Interchange. 電子通訊的字元編碼標準 基於英文字母，ASCII 將 128 個字元編碼成 7 個位元長。  95 個可印字元：A-Z, a-z, 0-9, 標點符號 不可印字元：換行符號      在電腦中我們使用 8-bit 的記憶體儲存字元。 在 C 語言中，使用 char 這個型別。 %c -&amp;gt; 輸出字元 %x or %X -&amp;gt; 印出 hex or HEX 的值。    在以前，許多情況下，有些人使用 unsigned char 作為 one byte 的資料型別，但現今你應該使用的是 uint8_t。 請把 char 留給字串，盡管事實上對電腦來說都是一樣的。 其他編碼：Big5、UTF-8  字串  事實上，字串就是一連串的可印字元。 這樣看起來很像陣列對吧?">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-01/">
 <meta property="og:site_name" content="小十的部落格">
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-2 min read
+3 minute read
 </time>
 </div>
 </footer>
@@ -83,10 +83,7 @@ extended">
 <li>這樣看起來很像陣列對吧? Yes!</li>
 </ul>
 <hr>
-<p><figure style=flex-grow:566;flex-basis:1358px>
-<a href=/p/computer_programming_2-01/computer_programming_2-01-01.png data-size=600x106><img src=/p/computer_programming_2-01/computer_programming_2-01-01.png srcset="/p/computer_programming_2-01/computer_programming_2-01-01_huf3482a54bca2f6c60bcb344eea1e67b5_7395_480x0_resize_box_3.png 480w, /p/computer_programming_2-01/computer_programming_2-01-01_huf3482a54bca2f6c60bcb344eea1e67b5_7395_1024x0_resize_box_3.png 1024w" width=600 height=106 loading=lazy>
-</a>
-</figure></p>
+<p><img src=/p/computer_programming_2-01/computer_programming_2-01-01.png width=600 height=106 srcset="/p/computer_programming_2-01/computer_programming_2-01-01_huf3482a54bca2f6c60bcb344eea1e67b5_7395_480x0_resize_box_3.png 480w, /p/computer_programming_2-01/computer_programming_2-01-01_huf3482a54bca2f6c60bcb344eea1e67b5_7395_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=566 data-flex-basis=1358px></p>
 <ul>
 <li>在 C 語言中，字串是一個字元指標，並以 <code>'\0'</code> 為結尾。</li>
 <li>常見的錯誤：
@@ -104,34 +101,74 @@ extended">
 <h3 id=字串轉整數>字串轉整數</h3>
 <ul>
 <li>很久很久以前
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>int</span> <span class=nf>atoi</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>nptr</span><span class=p>);</span>
 <span class=kt>long</span> <span class=nf>atol</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>nptr</span><span class=p>);</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>現今
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=c1>// string to double
 </span><span class=c1></span><span class=kt>double</span> <span class=nf>strtod</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>nptr</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>endptr</span><span class=p>);</span>
 <span class=c1>// string to long int
 </span><span class=c1></span><span class=kt>long</span> <span class=kt>int</span> <span class=nf>strtol</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>nptr</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>endptr</span><span class=p>,</span> <span class=kt>int</span> <span class=n>base</span><span class=p>);</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <h3 id=輸出入函式>輸出入函式</h3>
 <ul>
 <li>輸出</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>int</span> <span class=nf>putchar</span><span class=p>(</span><span class=kt>int</span> <span class=n>c</span><span class=p>);</span> <span class=c1>// 輸出字元
 </span><span class=c1></span><span class=kt>int</span> <span class=nf>puts</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s</span><span class=p>);</span> <span class=c1>// 輸出字串
 </span><span class=c1></span><span class=kt>int</span> <span class=nf>snprintf</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=kr>restrict</span> <span class=n>buffer</span><span class=p>,</span> <span class=n>size_t</span> <span class=n>bufsz</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=kr>restrict</span> <span class=n>format</span><span class=p>,</span> <span class=p>...</span> <span class=p>);</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>輸入</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>int</span> <span class=nf>getchar</span><span class=p>(</span><span class=kt>void</span><span class=p>);</span> <span class=c1>// 輸入字元
 </span><span class=c1></span><span class=kt>char</span> <span class=o>*</span><span class=nf>fgets</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>s</span><span class=p>,</span> <span class=kt>int</span> <span class=n>size</span><span class=p>,</span> <span class=n>FILE</span> <span class=o>*</span><span class=n>stream</span><span class=p>);</span> <span class=c1>// 輸入字串
 </span><span class=c1></span><span class=kt>int</span> <span class=nf>sscanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=kr>restrict</span> <span class=n>buffer</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=kr>restrict</span> <span class=n>format</span><span class=p>,</span> <span class=p>...</span> <span class=p>);</span>
-</code></pre></div><hr>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <ul>
 <li>一些不推薦的函式，永遠不要用他們
 <ul>
@@ -142,9 +179,17 @@ extended">
 <li>有 buffer overflow 的風險</li>
 </ul>
 <h3 id=字串操作函式>字串操作函式</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>char</span> <span class=o>*</span><span class=nf>strncpy</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>dest</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>src</span><span class=p>,</span> <span class=n>size_t</span> <span class=n>n</span><span class=p>);</span> <span class=c1>// 複製字串
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>char</span> <span class=o>*</span><span class=nf>strncpy</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>dest</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>src</span><span class=p>,</span> <span class=n>size_t</span> <span class=n>n</span><span class=p>);</span> <span class=c1>// 複製字串
 </span><span class=c1></span><span class=kt>char</span> <span class=o>*</span><span class=nf>strncat</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>dest</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>src</span><span class=p>,</span> <span class=n>size_t</span> <span class=n>n</span><span class=p>);</span> <span class=c1>// 串接字串
-</span></code></pre></div><hr>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
 <ul>
 <li>和上述理由一樣，不要使用下方的函式
 <ul>
@@ -154,14 +199,40 @@ extended">
 </li>
 </ul>
 <h3 id=字串比較函式>字串比較函式</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>int</span> <span class=nf>strcmp</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s1</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s2</span><span class=p>);</span>
 <span class=kt>int</span> <span class=nf>strncmp</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s1</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s2</span><span class=p>,</span> <span class=n>size_t</span> <span class=n>n</span><span class=p>);</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>如果s1（或其前n個字節）分別小於、匹配或大於s2，則函數將返回小於、等於或大於零的整數。</li>
 </ul>
 <h3 id=字串搜尋函式>字串搜尋函式</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>char</span> <span class=o>*</span><span class=nf>strchr</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s</span><span class=p>,</span> <span class=kt>int</span> <span class=n>c</span><span class=p>);</span> <span class=c1>// 從頭找字元
 </span><span class=c1></span><span class=kt>char</span> <span class=o>*</span><span class=nf>strrchr</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s</span><span class=p>,</span> <span class=kt>int</span> <span class=n>c</span><span class=p>);</span> <span class=c1>// 從尾找字元
 </span><span class=c1>// 計算 s 的前綴有多少字元在 accept 中
@@ -174,14 +245,28 @@ extended">
 </span><span class=c1></span><span class=kt>char</span> <span class=o>*</span><span class=nf>strstr</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>haystack</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>needle</span> <span class=p>);</span>
 <span class=c1>// 依照 delim 中的字元分割 str
 </span><span class=c1></span><span class=kt>char</span> <span class=o>*</span><span class=nf>strtok</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>str</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>delim</span> <span class=p>);</span>
-</code></pre></div><h4 id=strtok-範例>strtok 範例</h4>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>char</span> <span class=n>str</span><span class=p>[]</span> <span class=o>=</span> <span class=s>&#34;the value of pi is 3.14&#34;</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=strtok-範例>strtok 範例</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>char</span> <span class=n>str</span><span class=p>[]</span> <span class=o>=</span> <span class=s>&#34;the value of pi is 3.14&#34;</span><span class=p>;</span>
 <span class=kt>char</span> <span class=o>*</span><span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=n>str</span><span class=p>,</span> <span class=s>&#34; &#34;</span><span class=p>);</span>
 <span class=k>while</span><span class=p>(</span><span class=n>token</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
     <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d: %s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>token</span><span class=p>);</span>
     <span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=nb>NULL</span><span class=p>,</span> <span class=s>&#34; &#34;</span><span class=p>);</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>為何第二次之後呼叫都是以 <code>NULL</code> 作為輸入?
 <ul>
 <li>因為這是一個 <code>static</code> 的變數。如果輸入 <code>NULL</code>，該函式將繼續從最後一個位置切割字串。</li>
@@ -194,12 +279,23 @@ extended">
 </li>
 </ul>
 <h3 id=其他字串函式>其他字串函式</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=n>size_t</span> <span class=nf>strlen</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>s</span><span class=p>);</span> <span class=c1>// 計算字串長度
 </span><span class=c1>// 輸出錯誤訊息
 </span><span class=c1></span><span class=kt>char</span> <span class=o>*</span><span class=nf>strerror</span><span class=p>(</span><span class=kt>int</span> <span class=n>errnum</span><span class=p>);</span>
 <span class=kt>void</span> <span class=nf>perror</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>str</span><span class=p>);</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><code>strerror</code> 搭配 <code>errno</code> 使用 (<code>#include &lt;errno.h></code>)</li>
 </ul>
 </section>
@@ -260,7 +356,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -337,7 +433,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

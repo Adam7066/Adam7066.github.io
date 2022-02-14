@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="主題  圖、狀態搜尋、拓樸排序、尤拉路  題目  Virtual Judge 題目列表與提示    題目 題目需求 採用演算法 基本題     UVa 10004 無向圖的兩色著色問題 DFS/BFS 均可 V   UVa 10959 求無向無權圖上每一點和一指定點的最短距離 BFS V   UVa 572 求二維地圖上的連通塊數量 DFS/BFS 均可 V   UVa 441 給定 k 個數，由小到大列出所有包含其中 6 個數的遞增數列 DFS    UVa 567 求無向無權圖上指定兩點間的最短距離 BFS (或用後面會學到的 Floyd-Warshall 演算法) V   UVa 10926 給有向無環圖，求最大一棵樹的節點數減1 DFS/BFS 均可    SPOJ PT07Z 求數直徑（經典題） DFS/BFS 均可    UVa 10603 倒水問題（給三個水瓶，倒出指定水量） BFS 變型 (帶權最短路)    UVa 10305 給定 n 個工作的兩兩先後關係，輸出任一個合法的工作完成順序。 拓樸排序 V   UVa 1423 給定一數列中 Sij = a[i]+…+a[j] 的正負號，輸出一組符合正負號關係的數列。(有趣，值得思考！) 拓樸排序    UVa 302 給定一個無向圖和指定起點，列印尤拉路。 尤拉路    UVa 10441 給定一堆字串，問如何將它們頭尾相連串起來。 尤拉路       參考作法 A - Bicoloring #include &amp;lt;bits/stdc++."><title>StarCoder2021暑訓：Week03</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="主題  圖、狀態搜尋、拓樸排序、尤拉路  題目  Virtual Judge 題目列表與提示    題目 題目需求 採用演算法 基本題     UVa 10004 無向圖的兩色著色問題 DFS/BFS 均可 V   UVa 10959 求無向無權圖上每一點和一指定點的最短距離 BFS V   UVa 572 求二維地圖上的連通塊數量 DFS/BFS 均可 V   UVa 441 給定 k 個數，由小到大列出所有包含其中 6 個數的遞增數列 DFS    UVa 567 求無向無權圖上指定兩點間的最短距離 BFS (或用後面會學到的 Floyd-Warshall 演算法) V   UVa 10926 給有向無環圖，求最大一棵樹的節點數減1 DFS/BFS 均可    SPOJ PT07Z 求數直徑（經典題） DFS/BFS 均可    UVa 10603 倒水問題（給三個水瓶，倒出指定水量） BFS 變型 (帶權最短路)    UVa 10305 給定 n 個工作的兩兩先後關係，輸出任一個合法的工作完成順序。 拓樸排序 V   UVa 1423 給定一數列中 Sij = a[i]+…+a[j] 的正負號，輸出一組符合正負號關係的數列。(有趣，值得思考！) 拓樸排序    UVa 302 給定一個無向圖和指定起點，列印尤拉路。 尤拉路    UVa 10441 給定一堆字串，問如何將它們頭尾相連串起來。 尤拉路       參考作法 A - Bicoloring 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  #include &amp;lt;bits/stdc++."><title>StarCoder2021暑訓：Week03</title>
 <link rel=canonical href=https://blog.smallten.tk/p/star_coder-04/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="StarCoder2021暑訓：Week03">
-<meta property="og:description" content="主題  圖、狀態搜尋、拓樸排序、尤拉路  題目  Virtual Judge 題目列表與提示    題目 題目需求 採用演算法 基本題     UVa 10004 無向圖的兩色著色問題 DFS/BFS 均可 V   UVa 10959 求無向無權圖上每一點和一指定點的最短距離 BFS V   UVa 572 求二維地圖上的連通塊數量 DFS/BFS 均可 V   UVa 441 給定 k 個數，由小到大列出所有包含其中 6 個數的遞增數列 DFS    UVa 567 求無向無權圖上指定兩點間的最短距離 BFS (或用後面會學到的 Floyd-Warshall 演算法) V   UVa 10926 給有向無環圖，求最大一棵樹的節點數減1 DFS/BFS 均可    SPOJ PT07Z 求數直徑（經典題） DFS/BFS 均可    UVa 10603 倒水問題（給三個水瓶，倒出指定水量） BFS 變型 (帶權最短路)    UVa 10305 給定 n 個工作的兩兩先後關係，輸出任一個合法的工作完成順序。 拓樸排序 V   UVa 1423 給定一數列中 Sij = a[i]+…+a[j] 的正負號，輸出一組符合正負號關係的數列。(有趣，值得思考！) 拓樸排序    UVa 302 給定一個無向圖和指定起點，列印尤拉路。 尤拉路    UVa 10441 給定一堆字串，問如何將它們頭尾相連串起來。 尤拉路       參考作法 A - Bicoloring #include &amp;lt;bits/stdc++.">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="StarCoder2021暑訓：Week03">
+<meta property="og:description" content="主題  圖、狀態搜尋、拓樸排序、尤拉路  題目  Virtual Judge 題目列表與提示    題目 題目需求 採用演算法 基本題     UVa 10004 無向圖的兩色著色問題 DFS/BFS 均可 V   UVa 10959 求無向無權圖上每一點和一指定點的最短距離 BFS V   UVa 572 求二維地圖上的連通塊數量 DFS/BFS 均可 V   UVa 441 給定 k 個數，由小到大列出所有包含其中 6 個數的遞增數列 DFS    UVa 567 求無向無權圖上指定兩點間的最短距離 BFS (或用後面會學到的 Floyd-Warshall 演算法) V   UVa 10926 給有向無環圖，求最大一棵樹的節點數減1 DFS/BFS 均可    SPOJ PT07Z 求數直徑（經典題） DFS/BFS 均可    UVa 10603 倒水問題（給三個水瓶，倒出指定水量） BFS 變型 (帶權最短路)    UVa 10305 給定 n 個工作的兩兩先後關係，輸出任一個合法的工作完成順序。 拓樸排序 V   UVa 1423 給定一數列中 Sij = a[i]+…+a[j] 的正負號，輸出一組符合正負號關係的數列。(有趣，值得思考！) 拓樸排序    UVa 302 給定一個無向圖和指定起點，列印尤拉路。 尤拉路    UVa 10441 給定一堆字串，問如何將它們頭尾相連串起來。 尤拉路       參考作法 A - Bicoloring 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  #include &amp;lt;bits/stdc++.">
 <meta property="og:url" content="https://blog.smallten.tk/p/star_coder-04/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="UVA"><meta property="article:tag" content="SPOJ"><meta property="article:published_time" content="2021-07-28T05:48:25+08:00"><meta property="article:modified_time" content="2021-07-28T05:48:25+08:00">
 <meta name=twitter:title content="StarCoder2021暑訓：Week03">
-<meta name=twitter:description content="主題  圖、狀態搜尋、拓樸排序、尤拉路  題目  Virtual Judge 題目列表與提示    題目 題目需求 採用演算法 基本題     UVa 10004 無向圖的兩色著色問題 DFS/BFS 均可 V   UVa 10959 求無向無權圖上每一點和一指定點的最短距離 BFS V   UVa 572 求二維地圖上的連通塊數量 DFS/BFS 均可 V   UVa 441 給定 k 個數，由小到大列出所有包含其中 6 個數的遞增數列 DFS    UVa 567 求無向無權圖上指定兩點間的最短距離 BFS (或用後面會學到的 Floyd-Warshall 演算法) V   UVa 10926 給有向無環圖，求最大一棵樹的節點數減1 DFS/BFS 均可    SPOJ PT07Z 求數直徑（經典題） DFS/BFS 均可    UVa 10603 倒水問題（給三個水瓶，倒出指定水量） BFS 變型 (帶權最短路)    UVa 10305 給定 n 個工作的兩兩先後關係，輸出任一個合法的工作完成順序。 拓樸排序 V   UVa 1423 給定一數列中 Sij = a[i]+…+a[j] 的正負號，輸出一組符合正負號關係的數列。(有趣，值得思考！) 拓樸排序    UVa 302 給定一個無向圖和指定起點，列印尤拉路。 尤拉路    UVa 10441 給定一堆字串，問如何將它們頭尾相連串起來。 尤拉路       參考作法 A - Bicoloring #include &amp;lt;bits/stdc++.">
+<meta name=twitter:description content="主題  圖、狀態搜尋、拓樸排序、尤拉路  題目  Virtual Judge 題目列表與提示    題目 題目需求 採用演算法 基本題     UVa 10004 無向圖的兩色著色問題 DFS/BFS 均可 V   UVa 10959 求無向無權圖上每一點和一指定點的最短距離 BFS V   UVa 572 求二維地圖上的連通塊數量 DFS/BFS 均可 V   UVa 441 給定 k 個數，由小到大列出所有包含其中 6 個數的遞增數列 DFS    UVa 567 求無向無權圖上指定兩點間的最短距離 BFS (或用後面會學到的 Floyd-Warshall 演算法) V   UVa 10926 給有向無環圖，求最大一棵樹的節點數減1 DFS/BFS 均可    SPOJ PT07Z 求數直徑（經典題） DFS/BFS 均可    UVa 10603 倒水問題（給三個水瓶，倒出指定水量） BFS 變型 (帶權最短路)    UVa 10305 給定 n 個工作的兩兩先後關係，輸出任一個合法的工作完成順序。 拓樸排序 V   UVa 1423 給定一數列中 Sij = a[i]+…+a[j] 的正負號，輸出一組符合正負號關係的數列。(有趣，值得思考！) 拓樸排序    UVa 302 給定一個無向圖和指定起點，列印尤拉路。 尤拉路    UVa 10441 給定一堆字串，問如何將它們頭尾相連串起來。 尤拉路       參考作法 A - Bicoloring 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  #include &amp;lt;bits/stdc++.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ StarCoder
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-10 min read
+13 minute read
 </time>
 </div>
 </footer>
@@ -57,7 +57,7 @@ StarCoder
 <ul>
 <li><a class=link href=https://vjudge.net/contest/448943 target=_blank rel=noopener>Virtual Judge</a></li>
 <li>題目列表與提示
-<table>
+<div class=table-wrapper><table>
 <thead>
 <tr>
 <th>題目</th>
@@ -140,12 +140,50 @@ StarCoder
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </li>
 </ul>
 <h1 id=參考作法>參考作法</h1>
 <h2 id=a---bicoloring>A - Bicoloring</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=kt>bool</span> <span class=n>a</span><span class=p>[</span><span class=mi>205</span><span class=p>][</span><span class=mi>205</span><span class=p>];</span>
@@ -179,8 +217,54 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=b---the-party-part-i>B - The Party, Part I</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=b---the-party-part-i>B - The Party, Part I</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=kt>bool</span> <span class=n>a</span><span class=p>[</span><span class=mi>1005</span><span class=p>][</span><span class=mi>1005</span><span class=p>];</span>
@@ -220,8 +304,52 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=c---oil-deposits>C - Oil Deposits</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=c---oil-deposits>C - Oil Deposits</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -259,8 +387,48 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=d---lotto>D - Lotto</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=d---lotto>D - Lotto</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -294,8 +462,49 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=e---risk>E - Risk</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=e---risk>E - Risk</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -330,8 +539,54 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=f---how-many-dependencies>F - How Many Dependencies?</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=f---how-many-dependencies>F - How Many Dependencies?</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -371,8 +626,51 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=g---longest-path-in-a-tree>G - Longest path in a tree</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=g---longest-path-in-a-tree>G - Longest path in a tree</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -409,8 +707,74 @@ StarCoder
     <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>ans</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=h---fill>H - Fill</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=h---fill>H - Fill</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -470,8 +834,46 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=i---ordering-tasks>I - Ordering Tasks</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=i---ordering-tasks>I - Ordering Tasks</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -503,8 +905,64 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=j---guess>J - Guess</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=j---guess>J - Guess</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -554,8 +1012,87 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=k---johns-trip>K - John&rsquo;s trip</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=k---johns-trip>K - John&rsquo;s trip</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -628,8 +1165,100 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=l---catenyms>L - Catenyms</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=l---catenyms>L - Catenyms</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
 </span><span class=cp>#define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 </span><span class=cp>#define INF 0x3f3f3f3f
 </span><span class=cp>#define NINF 0xc0c0c0c0
@@ -715,7 +1344,9 @@ StarCoder
     <span class=p>}</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
@@ -775,7 +1406,7 @@ StarCoder
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -847,7 +1478,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

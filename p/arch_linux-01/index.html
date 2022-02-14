@@ -4,7 +4,7 @@
 安裝設備  筆電：Zenbook 14 UX433FN 顯卡：  GPU0 Intel UHD 620 GPU1 Nvidia MX150    開始安裝  完整官方導覽：Installation guide  前置作業  製作開機碟  到 Arch Linux Download 下載映像檔 (.iso)  NCHC、NCTU   使用 Rufus 寫入隨身碟   壓縮磁碟區  由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。
   在 Windows 10 中開啟硬碟管理員 以壓縮磁碟區的方式創造出未分配的空間。    安裝系統  插上隨身碟，並以隨身碟開機 檢查硬碟、分配磁區  由於新手上路，這邊我們就分配單一磁區給 / 就好。 至於其他像是 [SWAP] 之類的，有需要就自行處理。"><title>Arch Linux-01：系統安裝</title>
 <link rel=canonical href=https://blog.smallten.tk/p/arch_linux-01/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Arch Linux-01：系統安裝">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Arch Linux-01：系統安裝">
 <meta property="og:description" content="前言  在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。
 安裝設備  筆電：Zenbook 14 UX433FN 顯卡：  GPU0 Intel UHD 620 GPU1 Nvidia MX150    開始安裝  完整官方導覽：Installation guide  前置作業  製作開機碟  到 Arch Linux Download 下載映像檔 (.iso)  NCHC、NCTU   使用 Rufus 寫入隨身碟   壓縮磁碟區  由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。
   在 Windows 10 中開啟硬碟管理員 以壓縮磁碟區的方式創造出未分配的空間。    安裝系統  插上隨身碟，並以隨身碟開機 檢查硬碟、分配磁區  由於新手上路，這邊我們就分配單一磁區給 / 就好。 至於其他像是 [SWAP] 之類的，有需要就自行處理。">
@@ -26,7 +26,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -43,7 +43,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-2 min read
+2 minute read
 </time>
 </div>
 </footer>
@@ -184,10 +184,19 @@ extended">
 </ul>
 </li>
 <li>修改 hosts：<code>vim /etc/hosts</code>，內容如下
-<pre tabindex=0><code>127.0.0.1	localhost
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	myhostname.localdomain	myhostname
-</code></pre></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 </li>
 <li>
@@ -197,12 +206,23 @@ extended">
 <ul>
 <li><code>enp1s0</code> 為網卡名稱，請用 <code>ip a</code> 自行查看更改</li>
 </ul>
-<pre tabindex=0><code>[Match]
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>[Match]
 Name=enp1s0
 
 [Network]
 DHCP=yes
-</code></pre></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>啟用：<code>systemctl enable --now systemd-networkd.service</code></li>
 </ul>
 </li>
@@ -221,20 +241,40 @@ DHCP=yes
 <li>啟動選單配置
 <ul>
 <li><code>vim /boot/loader/loader.conf</code>，內容如下
-<pre tabindex=0><code>default arch-* # arch 那裡應為一字串不用更改
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>default arch-* # arch 那裡應為一字串不用更改
 timeout 10
 console-mode max
 editor no
-</code></pre></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li><code>vim /boot/loader/entries/arch.conf</code>，內容如下
 <ul>
 <li>UUID 請自行填入，可於 <code>/etc/fstab</code> 中查看，請選擇 <code>/</code> 目錄的。</li>
 </ul>
-<pre tabindex=0><code>title Arch Linux
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options root=&quot;UUID=XXX-XXX-XXX&quot; rw
-</code></pre></li>
+options root=&#34;UUID=XXX-XXX-XXX&#34; rw
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li><code>cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-fallback.conf</code></li>
 <li><code>vim /boot/loader/entries/arch-fallback.conf</code>
 <ul>
@@ -291,7 +331,7 @@ options root=&quot;UUID=XXX-XXX-XXX&quot; rw
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -354,7 +394,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

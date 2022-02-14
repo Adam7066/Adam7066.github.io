@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If if (condition1) { statements; } else if (condition2){ ... } else { ... }  如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?"><title>程式設計(一)-03：Condition Control</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If 1 2 3 4 5 6 7 8 9  if (condition1) { statements; } else if (condition2){ ... } else { ... }    如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?"><title>程式設計(一)-03：Condition Control</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_1-03/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(一)-03：Condition Control">
-<meta property="og:description" content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If if (condition1) { statements; } else if (condition2){ ... } else { ... }  如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-03：Condition Control">
+<meta property="og:description" content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If 1 2 3 4 5 6 7 8 9  if (condition1) { statements; } else if (condition2){ ... } else { ... }    如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_1-03/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2020-10-15T20:53:14+08:00"><meta property="article:modified_time" content="2020-10-15T20:53:14+08:00">
 <meta name=twitter:title content="程式設計(一)-03：Condition Control">
-<meta name=twitter:description content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If if (condition1) { statements; } else if (condition2){ ... } else { ... }  如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?">
+<meta name=twitter:description content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If 1 2 3 4 5 6 7 8 9  if (condition1) { statements; } else if (condition2){ ... } else { ... }    如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 min read
+1 minute read
 </time>
 </div>
 </footer>
@@ -60,7 +60,20 @@ extended">
 </li>
 </ul>
 <h2 id=if>If</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>if</span> <span class=p>(</span><span class=n>condition1</span><span class=p>)</span> <span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>if</span> <span class=p>(</span><span class=n>condition1</span><span class=p>)</span> <span class=p>{</span>
     <span class=n>statements</span><span class=p>;</span>
 <span class=p>}</span>
 <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>condition2</span><span class=p>){</span>
@@ -69,7 +82,9 @@ extended">
 <span class=k>else</span> <span class=p>{</span>
     <span class=p>...</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>如果條件<strong>不是錯誤</strong>，那麼將會執行大括號裡的敘述
 <ul>
 <li>簡而言之，<code>false</code> 被定義為 <code>0</code></li>
@@ -99,7 +114,19 @@ extended">
 <ul>
 <li>你可以使用 <code>if-else</code> 來做每個條件判斷，但是有時候可能會寫一個巨大的巢狀程式，因此將介紹另一個方法 <code>switch</code></li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>switch</span> <span class=p>(){</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>switch</span> <span class=p>(){</span>
     <span class=k>case</span> <span class=mi>1</span><span class=o>:</span>
         <span class=p>...</span>
         <span class=k>break</span><span class=p>;</span>
@@ -107,7 +134,9 @@ extended">
     <span class=k>default</span><span class=o>:</span>
         <span class=p>...</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><code>break</code>：從此處結束
 <ul>
 <li>那麼如果不使用 <code>break</code> 呢??</li>
@@ -116,7 +145,20 @@ extended">
 <li><code>default</code>：如果沒有 <code>case</code> 符合，執行這段</li>
 </ul>
 <h2 id=浮點數比較>浮點數比較</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
     <span class=kt>float</span> <span class=n>a</span> <span class=o>=</span> <span class=mf>0.3</span><span class=p>;</span>
     <span class=k>if</span> <span class=p>(</span><span class=n>a</span> <span class=o>==</span> <span class=mf>0.3</span><span class=p>)</span> <span class=n>printf</span><span class=p>(</span><span class=s>&#34;if01</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
@@ -125,7 +167,9 @@ extended">
     <span class=k>else</span> <span class=n>printf</span><span class=p>(</span><span class=s>&#34;else02</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>結果： <code>else01 if02</code></li>
 <li>請使用 <code>sizeof()</code> 查看發生了什麼!(<code>IEEE 754</code>)</li>
 <li>結論：<strong>浮點數的比較是相當危險的!!</strong></li>
@@ -188,7 +232,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -251,7 +295,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

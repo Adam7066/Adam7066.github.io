@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Loop - `while` - `for` - `do while`  While Loop while(條件){ 執行區塊 }  %.200f 會發生什麼事? -&amp;gt; 精度不夠沒有意義 while(1) -&amp;gt; 無窮迴圈  For Loop for(初始化; 條件; 執行後操作){ 執行區塊 }  i++ -&amp;gt; Use the current value of i. -&amp;gt; i = i + 1 ++i -&amp;gt; i = i + 1 -&amp;gt; Use the new value of i. {} -&amp;gt; 變數生命週期範圍 %4d ( %# ) -&amp;gt; 給最小的位數去顯示 在 ANSI C, 變數只能被宣告在函式的開頭，而 Modern C 沒有任何限制  Do While Loop do{ 執行區塊 }while(條件)  三種不同類型的迴圈毫無疑問的都可以互相轉換  除了 do while 至少會執行一次   大多數來說，如果你知道要執行幾次迴圈的話，會使用 for break：離開當前的區段 continue：跳過剩餘的敘述，直接執行下一次迭代 無窮迴圈不是個好東西?"><title>程式設計(一)-04：Loop</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Loop - `while` - `for` - `do while`  While Loop 1 2 3  while(條件){ 執行區塊 }    %.200f 會發生什麼事? -&amp;gt; 精度不夠沒有意義 while(1) -&amp;gt; 無窮迴圈  For Loop 1 2 3  for(初始化; 條件; 執行後操作){ 執行區塊 }    i++ -&amp;gt; Use the current value of i. -&amp;gt; i = i + 1 ++i -&amp;gt; i = i + 1 -&amp;gt; Use the new value of i."><title>程式設計(一)-04：Loop</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_1-04/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(一)-04：Loop">
-<meta property="og:description" content="Loop - `while` - `for` - `do while`  While Loop while(條件){ 執行區塊 }  %.200f 會發生什麼事? -&amp;gt; 精度不夠沒有意義 while(1) -&amp;gt; 無窮迴圈  For Loop for(初始化; 條件; 執行後操作){ 執行區塊 }  i++ -&amp;gt; Use the current value of i. -&amp;gt; i = i + 1 ++i -&amp;gt; i = i + 1 -&amp;gt; Use the new value of i. {} -&amp;gt; 變數生命週期範圍 %4d ( %# ) -&amp;gt; 給最小的位數去顯示 在 ANSI C, 變數只能被宣告在函式的開頭，而 Modern C 沒有任何限制  Do While Loop do{ 執行區塊 }while(條件)  三種不同類型的迴圈毫無疑問的都可以互相轉換  除了 do while 至少會執行一次   大多數來說，如果你知道要執行幾次迴圈的話，會使用 for break：離開當前的區段 continue：跳過剩餘的敘述，直接執行下一次迭代 無窮迴圈不是個好東西?">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-04：Loop">
+<meta property="og:description" content="Loop - `while` - `for` - `do while`  While Loop 1 2 3  while(條件){ 執行區塊 }    %.200f 會發生什麼事? -&amp;gt; 精度不夠沒有意義 while(1) -&amp;gt; 無窮迴圈  For Loop 1 2 3  for(初始化; 條件; 執行後操作){ 執行區塊 }    i++ -&amp;gt; Use the current value of i. -&amp;gt; i = i + 1 ++i -&amp;gt; i = i + 1 -&amp;gt; Use the new value of i.">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_1-04/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2020-10-18T20:33:18+08:00"><meta property="article:modified_time" content="2020-10-18T20:33:18+08:00">
 <meta name=twitter:title content="程式設計(一)-04：Loop">
-<meta name=twitter:description content="Loop - `while` - `for` - `do while`  While Loop while(條件){ 執行區塊 }  %.200f 會發生什麼事? -&amp;gt; 精度不夠沒有意義 while(1) -&amp;gt; 無窮迴圈  For Loop for(初始化; 條件; 執行後操作){ 執行區塊 }  i++ -&amp;gt; Use the current value of i. -&amp;gt; i = i + 1 ++i -&amp;gt; i = i + 1 -&amp;gt; Use the new value of i. {} -&amp;gt; 變數生命週期範圍 %4d ( %# ) -&amp;gt; 給最小的位數去顯示 在 ANSI C, 變數只能被宣告在函式的開頭，而 Modern C 沒有任何限制  Do While Loop do{ 執行區塊 }while(條件)  三種不同類型的迴圈毫無疑問的都可以互相轉換  除了 do while 至少會執行一次   大多數來說，如果你知道要執行幾次迴圈的話，會使用 for break：離開當前的區段 continue：跳過剩餘的敘述，直接執行下一次迭代 無窮迴圈不是個好東西?">
+<meta name=twitter:description content="Loop - `while` - `for` - `do while`  While Loop 1 2 3  while(條件){ 執行區塊 }    %.200f 會發生什麼事? -&amp;gt; 精度不夠沒有意義 while(1) -&amp;gt; 無窮迴圈  For Loop 1 2 3  for(初始化; 條件; 執行後操作){ 執行區塊 }    i++ -&amp;gt; Use the current value of i. -&amp;gt; i = i + 1 ++i -&amp;gt; i = i + 1 -&amp;gt; Use the new value of i.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 min read
+1 minute read
 </time>
 </div>
 </footer>
@@ -55,18 +55,36 @@ extended">
 - `do while`
 </code></pre>
 <h2 id=while-loop>While Loop</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>while</span><span class=p>(</span><span class=err>條件</span><span class=p>){</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>while</span><span class=p>(</span><span class=err>條件</span><span class=p>){</span>
     <span class=err>執行區塊</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><code>%.200f</code> 會發生什麼事? -> 精度不夠沒有意義</li>
 <li><code>while(1)</code> -> 無窮迴圈</li>
 </ul>
 <h2 id=for-loop>For Loop</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>for</span><span class=p>(</span><span class=err>初始化</span><span class=p>;</span> <span class=err>條件</span><span class=p>;</span> <span class=err>執行後操作</span><span class=p>){</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>for</span><span class=p>(</span><span class=err>初始化</span><span class=p>;</span> <span class=err>條件</span><span class=p>;</span> <span class=err>執行後操作</span><span class=p>){</span>
     <span class=err>執行區塊</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><code>i++</code> -> Use the current value of i. -> <code>i = i + 1</code></li>
 <li><code>++i</code> -> <code>i = i + 1</code> -> Use the new value of i.</li>
 <li><code>{}</code> -> 變數生命週期範圍</li>
@@ -74,10 +92,19 @@ extended">
 <li>在 ANSI C, 變數只能被宣告在函式的開頭，而 Modern C 沒有任何限制</li>
 </ul>
 <h2 id=do-while-loop>Do While Loop</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>do</span><span class=p>{</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>do</span><span class=p>{</span>
     <span class=err>執行區塊</span>
 <span class=p>}</span><span class=k>while</span><span class=p>(</span><span class=err>條件</span><span class=p>)</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>三種不同類型的迴圈毫無疑問的都可以互相轉換
 <ul>
 <li>除了 <code>do while</code> 至少會執行一次</li>
@@ -89,9 +116,17 @@ extended">
 <li>無窮迴圈不是個好東西? -> 不，或許你會需要他，例如：Web server</li>
 </ul>
 <hr>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp>
 </span><span class=cp></span><span class=n>sleep</span><span class=p>(</span><span class=n>sec</span><span class=p>);</span>
-</code></pre></div>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
@@ -150,7 +185,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -211,7 +246,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

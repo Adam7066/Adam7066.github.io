@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令  硬體  Arduino Uno * 1 HC-05藍芽模組 * 1  教學 腳位連接    Arduino HC-05     5V VCC   GND GND   8 TX   9 RX    程式碼 #include &amp;lt;SoftwareSerial.h&amp;gt; SoftwareSerial BT(8, 9); char val; void setup() { Serial.begin(9600); BT.begin(38400); } void loop() { if(Serial.available()){ val = Serial.read(); BT.print(val); } if(BT.available()){ val = BT.read(); Serial.print(val); } }  連接腳位，並上傳程式碼，最後給HC-05供電前，先按住上面的按鈕，再提供電源，燈號將變成約兩秒一閃，及表示進入了AT命令模式 接下來打開序列埠監控視窗，將設定調成&amp;quot;9600 baud&amp;quot;和&amp;quot;NL與CR&amp;quot;，最後依需求輸入以下命令即可   AT -&amp;gt; 顯示OK表示連接成功 查看韌體版本 -&amp;gt; AT+VERSION 查看名稱 -&amp;gt; AT+NAME?"><title>Arduino-05：HC-05 AT命令</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令  硬體  Arduino Uno * 1 HC-05藍芽模組 * 1  教學 腳位連接    Arduino HC-05     5V VCC   GND GND   8 TX   9 RX    程式碼 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  #include &amp;lt;SoftwareSerial.h&amp;gt; SoftwareSerial BT(8, 9); char val; void setup() { Serial."><title>Arduino-05：HC-05 AT命令</title>
 <link rel=canonical href=https://blog.smallten.tk/p/arduino-05/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Arduino-05：HC-05 AT命令">
-<meta property="og:description" content="簡介  這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令  硬體  Arduino Uno * 1 HC-05藍芽模組 * 1  教學 腳位連接    Arduino HC-05     5V VCC   GND GND   8 TX   9 RX    程式碼 #include &amp;lt;SoftwareSerial.h&amp;gt; SoftwareSerial BT(8, 9); char val; void setup() { Serial.begin(9600); BT.begin(38400); } void loop() { if(Serial.available()){ val = Serial.read(); BT.print(val); } if(BT.available()){ val = BT.read(); Serial.print(val); } }  連接腳位，並上傳程式碼，最後給HC-05供電前，先按住上面的按鈕，再提供電源，燈號將變成約兩秒一閃，及表示進入了AT命令模式 接下來打開序列埠監控視窗，將設定調成&amp;quot;9600 baud&amp;quot;和&amp;quot;NL與CR&amp;quot;，最後依需求輸入以下命令即可   AT -&amp;gt; 顯示OK表示連接成功 查看韌體版本 -&amp;gt; AT+VERSION 查看名稱 -&amp;gt; AT+NAME?">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Arduino-05：HC-05 AT命令">
+<meta property="og:description" content="簡介  這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令  硬體  Arduino Uno * 1 HC-05藍芽模組 * 1  教學 腳位連接    Arduino HC-05     5V VCC   GND GND   8 TX   9 RX    程式碼 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  #include &amp;lt;SoftwareSerial.h&amp;gt; SoftwareSerial BT(8, 9); char val; void setup() { Serial.">
 <meta property="og:url" content="https://blog.smallten.tk/p/arduino-05/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arduino"><meta property="article:published_time" content="2020-05-10T21:56:45+08:00"><meta property="article:modified_time" content="2020-05-10T21:56:45+08:00">
 <meta name=twitter:title content="Arduino-05：HC-05 AT命令">
-<meta name=twitter:description content="簡介  這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令  硬體  Arduino Uno * 1 HC-05藍芽模組 * 1  教學 腳位連接    Arduino HC-05     5V VCC   GND GND   8 TX   9 RX    程式碼 #include &amp;lt;SoftwareSerial.h&amp;gt; SoftwareSerial BT(8, 9); char val; void setup() { Serial.begin(9600); BT.begin(38400); } void loop() { if(Serial.available()){ val = Serial.read(); BT.print(val); } if(BT.available()){ val = BT.read(); Serial.print(val); } }  連接腳位，並上傳程式碼，最後給HC-05供電前，先按住上面的按鈕，再提供電源，燈號將變成約兩秒一閃，及表示進入了AT命令模式 接下來打開序列埠監控視窗，將設定調成&amp;quot;9600 baud&amp;quot;和&amp;quot;NL與CR&amp;quot;，最後依需求輸入以下命令即可   AT -&amp;gt; 顯示OK表示連接成功 查看韌體版本 -&amp;gt; AT+VERSION 查看名稱 -&amp;gt; AT+NAME?">
+<meta name=twitter:description content="簡介  這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令  硬體  Arduino Uno * 1 HC-05藍芽模組 * 1  教學 腳位連接    Arduino HC-05     5V VCC   GND GND   8 TX   9 RX    程式碼 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  #include &amp;lt;SoftwareSerial.h&amp;gt; SoftwareSerial BT(8, 9); char val; void setup() { Serial.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -37,7 +37,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 min read
+1 minute read
 </time>
 </div>
 </footer>
@@ -55,7 +55,7 @@ extended">
 </ul>
 <h1 id=教學>教學</h1>
 <h2 id=腳位連接>腳位連接</h2>
-<table>
+<div class=table-wrapper><table>
 <thead>
 <tr>
 <th>Arduino</th>
@@ -80,9 +80,33 @@ extended">
 <td>RX</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id=程式碼>程式碼</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;SoftwareSerial.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;SoftwareSerial.h&gt;</span><span class=cp>
 </span><span class=cp></span>
 <span class=n>SoftwareSerial</span> <span class=nf>BT</span><span class=p>(</span><span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
 <span class=kt>char</span> <span class=n>val</span><span class=p>;</span>
@@ -102,7 +126,9 @@ extended">
         <span class=n>Serial</span><span class=p>.</span><span class=n>print</span><span class=p>(</span><span class=n>val</span><span class=p>);</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div><ol>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
 <li>連接腳位，並上傳程式碼，最後給HC-05供電前，先按住上面的按鈕，再提供電源，燈號將變成約兩秒一閃，及表示進入了AT命令模式</li>
 <li>接下來打開序列埠監控視窗，將設定調成"9600 baud"和"NL與CR"，最後依需求輸入以下命令即可</li>
 </ol>
@@ -132,7 +158,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -194,7 +220,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

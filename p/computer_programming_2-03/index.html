@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error."><title>程式設計(二)-03：File Processing-01</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。  It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error."><title>程式設計(二)-03：File Processing-01</title>
 <link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-03/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="程式設計(二)-03：File Processing-01">
-<meta property="og:description" content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-03：File Processing-01">
+<meta property="og:description" content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。  It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
 <meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-03/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T17:58:22+08:00"><meta property="article:modified_time" content="2021-04-02T17:58:22+08:00">
 <meta name=twitter:title content="程式設計(二)-03：File Processing-01">
-<meta name=twitter:description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。   It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
+<meta name=twitter:description content="File  C 將每個檔案視為一個連續的 bytes stream 每個檔案以 end-of-file 為結尾，這是由系統提供而不是文件。  It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system. int feof(FILE *stream);  File Stream  Streams 提供了更高級別的介面(interface)讓你存取資料。  fprintf fscanf   事實上，你已經使用過 file stream !  三種標準流  標準輸入 0 (standard input.) 標準輸出 1 (standard output.) 標準錯誤 2 (standard error.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
@@ -20,7 +20,7 @@
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=https://blog.smallten.tk/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-4 min read
+5 minute read
 </time>
 </div>
 </footer>
@@ -53,10 +53,7 @@ extended">
 <ul>
 <li>C 將每個檔案視為一個連續的 bytes stream</li>
 <li>每個檔案以 <code>end-of-file</code> 為結尾，這是由系統提供而不是文件。
-<figure style=flex-grow:812;flex-basis:1948px>
-<a href=/p/computer_programming_2-03/computer_programming_2-03-01.jpg data-size=812x100><img src=/p/computer_programming_2-03/computer_programming_2-03-01.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_1024x0_resize_q75_box.jpg 1024w" width=812 height=100 loading=lazy>
-</a>
-</figure></li>
+<img src=/p/computer_programming_2-03/computer_programming_2-03-01.jpg width=812 height=100 srcset="/p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-01_hu792fa457355e68a2355b76d5d56b035a_25287_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=812 data-flex-basis=1948px></li>
 <li>It looks like there is an additional byte appended to the file. However, that additional byte does not exist. Instead, it is a signal raised by your system.</li>
 <li><code>int feof(FILE *stream);</code></li>
 </ul>
@@ -80,7 +77,19 @@ extended">
 <li>真的嗎? 哪時候呀?</li>
 <li><code>scanf</code> -> scanf() 從標準輸入流中讀取輸入</li>
 <li><code>scanf</code> 的實作
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=nf>scanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>fmt</span><span class=p>,</span> <span class=p>...){</span>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=nf>scanf</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>fmt</span><span class=p>,</span> <span class=p>...){</span>
     <span class=kt>int</span> <span class=n>count</span><span class=p>;</span>
     <span class=n>va_list</span> <span class=n>ap</span><span class=p>;</span>
     <span class=n>va_start</span><span class=p>(</span><span class=n>ap</span><span class=p>,</span> <span class=n>fmt</span><span class=p>);</span>
@@ -88,7 +97,9 @@ extended">
     <span class=n>va_end</span><span class=p>(</span><span class=n>ap</span><span class=p>);</span>
     <span class=k>return</span><span class=p>(</span><span class=n>count</span><span class=p>);</span>
 <span class=p>}</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 </li>
 </ul>
@@ -122,10 +133,7 @@ extended">
 </ul>
 <h2 id=io-redirection>I/O Redirection</h2>
 <h3 id=stdout>stdout</h3>
-<p><figure style=flex-grow:161;flex-basis:386px>
-<a href=/p/computer_programming_2-03/computer_programming_2-03-02.jpg data-size=890x552><img src=/p/computer_programming_2-03/computer_programming_2-03-02.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_1024x0_resize_q75_box.jpg 1024w" width=890 height=552 loading=lazy>
-</a>
-</figure></p>
+<p><img src=/p/computer_programming_2-03/computer_programming_2-03-02.jpg width=890 height=552 srcset="/p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-02_hue8705212640a98a2e2334529e9e848d6_118317_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=161 data-flex-basis=386px></p>
 <ul>
 <li><code>></code> filename
 <ul>
@@ -226,10 +234,7 @@ extended">
 </li>
 </ul>
 <h2 id=file-position-pointer>File Position Pointer</h2>
-<p><figure style=flex-grow:160;flex-basis:386px>
-<a href=/p/computer_programming_2-03/computer_programming_2-03-03.jpg data-size=784x487><img src=/p/computer_programming_2-03/computer_programming_2-03-03.jpg srcset="/p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_1024x0_resize_q75_box.jpg 1024w" width=784 height=487 loading=lazy>
-</a>
-</figure></p>
+<p><img src=/p/computer_programming_2-03/computer_programming_2-03-03.jpg width=784 height=487 srcset="/p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-03/computer_programming_2-03-03_hua2b4272fe0830ebb7786617a2f4a12e5_73450_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=160 data-flex-basis=386px></p>
 <ul>
 <li>所以我們可以返回到開始的位置嗎??
 <ul>
@@ -299,7 +304,68 @@ extended">
 <ul>
 <li>讀取 bmp file header 並印出資訊</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
@@ -356,11 +422,45 @@ extended">
     <span class=n>fclose</span><span class=p>(</span><span class=n>pFile</span><span class=p>);</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h3 id=修改-bmp-檔>修改 bmp 檔</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=修改-bmp-檔>修改 bmp 檔</h3>
 <ul>
 <li>翻轉顏色</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// ...略...
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// ...略...
 </span><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
     <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
     <span class=n>FILE</span> <span class=o>*</span><span class=n>pFile2</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
@@ -388,10 +488,31 @@ extended">
     <span class=n>fclose</span><span class=p>(</span> <span class=n>pFile2</span> <span class=p>);</span>
     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>轉成灰階</li>
 </ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// ...略...
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// ...略...
 </span><span class=c1></span><span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>pFile</span><span class=p>))</span> <span class=p>{</span>
     <span class=kt>uint8_t</span>	<span class=n>original</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
     <span class=kt>uint8_t</span> <span class=n>modified</span><span class=p>[</span><span class=mi>999</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
@@ -406,7 +527,9 @@ extended">
     <span class=n>fwrite</span><span class=p>(</span><span class=n>modified</span><span class=p>,</span> <span class=n>count</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>pFile2</span><span class=p>);</span>    
 <span class=p>}</span>
 <span class=c1>// ...略...
-</span></code></pre></div><hr>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
 <h4 id=hex-編輯工具>Hex 編輯工具</h4>
 <ul>
 <li>Bless Hex Editor</li>
@@ -470,7 +593,7 @@ extended">
 </section>
 <section class=powerby>
 Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.1.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
 </section>
 </footer>
 <div class=pswp tabindex=-1 role=dialog aria-hidden=true>
@@ -576,7 +699,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>
