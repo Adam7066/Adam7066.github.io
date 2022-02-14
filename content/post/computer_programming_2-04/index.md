@@ -34,6 +34,7 @@ categories:
     - 3D圖形
 - 軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。
 - SDL 架構 / 範例
+
 ![](computer_programming_2-04-01.jpg) ![](computer_programming_2-04-02.jpg)
 - SDL Object
     - `SDL_Window`：包含有關 Window 本身的所有信息的結構：大小、位置、全螢幕、邊框等。
