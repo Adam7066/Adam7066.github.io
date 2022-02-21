@@ -3,7 +3,7 @@ slug: "experience-02"
 title: "2021 NCPC 初賽"
 date: 2021-10-04T09:15:29+08:00
 tags:
-    - NCPC
+    - 競程
 categories:
     - Experience
 ---
