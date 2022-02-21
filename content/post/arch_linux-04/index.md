@@ -85,6 +85,13 @@ makepkg -si
     pacman -S pulseaudio-bluetooth
     reboot
     ```
+## Asus NumberPad
+- asus-touchpad-numpad-driver
+    - [GitHub](https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver)
+    - [AUR](https://aur.archlinux.org/packages/asus-touchpad-numpad-driver)
+    ```bash
+    yay -S asus-touchpad-numpad-driver
+    ```
 ## 其他軟體
 - [TLP](https://wiki.archlinux.org/title/TLP)
     ```bash
