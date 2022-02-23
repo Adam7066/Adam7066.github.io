@@ -19,6 +19,8 @@ tags:
     ```
 
 ## Codeblocks 區塊美化
+> [Stack 主題](https://github.com/CaiJimmy/hugo-theme-stack)已內建，因此不再需要自己建立!! 只需在 `config.yaml` 設定即可。
+
 1. 到 `static/css/` 下建立 `copy-to-clipboard.css`，內容如下
     ```css
     .highlight {
@@ -120,6 +122,8 @@ tags:
 6. 這樣程式碼區塊就有 Copy Button，並且直接複製時不會選取到行號了
 
 ## KaTex
+> [Stack 主題](https://github.com/CaiJimmy/hugo-theme-stack)已內建，因此不再需要自己建立!! 只需在 `config.yaml` 設定即可。
+
 1. 到 `layouts/partials/` 下新增 `math.html`，內容如下
     ```html
     {{ if or .Params.math .Site.Params.math }}
@@ -159,5 +163,6 @@ tags:
 2. 在 `config.yaml` 中設定 `googleAnalytics: G-`
 3. 修改 `layouts/partials/head/custom.html`
     ```html
-    {{ template "_internal/google_analytics.html" . }}
+    {{ if not .Site.IsServer }}{{ template "_internal/google_analytics.html" . }}{{ end }}
     ```
+    - 這裡的 `if` 是避免在 local 測試時的數據也被紀錄下來
