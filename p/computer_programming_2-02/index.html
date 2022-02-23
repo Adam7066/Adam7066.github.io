@@ -1,10 +1,10 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  1 2 3  struct _sCard{ uint8_t suit, face; };    初始化 1 2  struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};    structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; 1 2 3 4  a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr)."><title>程式設計(二)-02：Structure</title>
-<link rel=canonical href=https://blog.smallten.tk/p/computer_programming_2-02/>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_2-02/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-02：Structure">
 <meta property="og:description" content="Structure  Structures 就是將一堆相關的變數整合在一個名字下。  關鍵字：struct 資料型別：struct _name_ 成員：在 struct 的大括號內宣告的變數。 同一個結構體下的成員名稱是唯一的。  1 2 3  struct _sCard{ uint8_t suit, face; };    初始化 1 2  struct _sCard a_card = {.suit = 1, .face = 2}; struct _sCard a_card = {1, 2};    structure member operator -&amp;gt; . structure pointer operator -&amp;gt; -&amp;gt; 1 2 3 4  a_card_ptr = &amp;amp;a_card; a_card_ptr-&amp;gt;face = 5; // Equivalent to (*a_card_ptr).">
-<meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_2-02/">
+<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_2-02/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T16:24:46+08:00"><meta property="article:modified_time" content="2021-04-02T16:24:46+08:00">
 <meta name=twitter:title content="程式設計(二)-02：Structure">

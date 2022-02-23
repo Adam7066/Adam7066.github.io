@@ -2,11 +2,11 @@
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="前言  有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式
 教學開始 Yay  Yay 的 Github  1 2 3 4  pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si   中文輸入法  中文輸入法 Wiki 這邊我選擇了之前在 Ubuntu 用習慣的 ibus (IBus (简体中文) Wiki)  安裝注音輸入法：pacman -S ibus ibus-chewing vim /etc/environment 1 2 3  GTK_IM_MODULE=ibus QT_IM_MODULE=ibus XMODIFIERS=@im=ibus    vim ~/.xprofile 1 2 3 4  export CTK_IM_MODULE=ibus export XMODIFIERS=@im=ibus export QT_IM_MODULE=ibus ibus-daemon -drxR    重新啟動    Oh My Zsh  Oh My Zsh 的 官網、Github 安裝 zsh：pacman -S zsh 看系統是否裝了 zsh：cat /etc/shells 切換 Shell 為 zsh：chsh -s /bin/zsh 安裝 Git 以及 Curl：pacman -S git curl 安裝 oh-my-zsh：sh -c &amp;quot;$(curl -fsSL https://raw."><title>Arch Linux-04：基本軟體安裝</title>
-<link rel=canonical href=https://blog.smallten.tk/p/arch_linux-04/>
+<link rel=canonical href=https://blog.smallten.me/p/arch_linux-04/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Arch Linux-04：基本軟體安裝">
 <meta property="og:description" content="前言  有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式
 教學開始 Yay  Yay 的 Github  1 2 3 4  pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si   中文輸入法  中文輸入法 Wiki 這邊我選擇了之前在 Ubuntu 用習慣的 ibus (IBus (简体中文) Wiki)  安裝注音輸入法：pacman -S ibus ibus-chewing vim /etc/environment 1 2 3  GTK_IM_MODULE=ibus QT_IM_MODULE=ibus XMODIFIERS=@im=ibus    vim ~/.xprofile 1 2 3 4  export CTK_IM_MODULE=ibus export XMODIFIERS=@im=ibus export QT_IM_MODULE=ibus ibus-daemon -drxR    重新啟動    Oh My Zsh  Oh My Zsh 的 官網、Github 安裝 zsh：pacman -S zsh 看系統是否裝了 zsh：cat /etc/shells 切換 Shell 為 zsh：chsh -s /bin/zsh 安裝 Git 以及 Curl：pacman -S git curl 安裝 oh-my-zsh：sh -c &amp;quot;$(curl -fsSL https://raw.">
-<meta property="og:url" content="https://blog.smallten.tk/p/arch_linux-04/">
+<meta property="og:url" content="https://blog.smallten.me/p/arch_linux-04/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arch Linux"><meta property="article:published_time" content="2021-08-11T22:18:09+08:00"><meta property="article:modified_time" content="2021-08-11T22:18:09+08:00">
 <meta name=twitter:title content="Arch Linux-04：基本軟體安裝">

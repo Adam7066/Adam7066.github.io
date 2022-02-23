@@ -1,10 +1,10 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Array  陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始  int32_t a[10] -&amp;gt; a[0] ~ a[9]   計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化  int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0};   存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。   define  是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO)  當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。    基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9  for(int i = 0; i &amp;lt; n; ++i) { for(int j = i; j &amp;lt; n; ++j) { if(a[j] &amp;lt; a[i]) { a[i] = a[i] ^ a[j]; a[j] = a[i] ^ a[j]; a[i] = a[i] ^ a[j]; } } }   qsort 1 2 3 4 5  #include &amp;lt;stdlib."><title>程式設計(一)-07：Array</title>
-<link rel=canonical href=https://blog.smallten.tk/p/computer_programming_1-07/>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-07/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-07：Array">
 <meta property="og:description" content="Array  陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始  int32_t a[10] -&amp;gt; a[0] ~ a[9]   計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化  int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0};   存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。   define  是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO)  當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。    基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9  for(int i = 0; i &amp;lt; n; ++i) { for(int j = i; j &amp;lt; n; ++j) { if(a[j] &amp;lt; a[i]) { a[i] = a[i] ^ a[j]; a[j] = a[i] ^ a[j]; a[i] = a[i] ^ a[j]; } } }   qsort 1 2 3 4 5  #include &amp;lt;stdlib.">
-<meta property="og:url" content="https://blog.smallten.tk/p/computer_programming_1-07/">
+<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_1-07/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2020-12-07T19:38:14+08:00"><meta property="article:modified_time" content="2020-12-07T19:38:14+08:00">
 <meta name=twitter:title content="程式設計(一)-07：Array">

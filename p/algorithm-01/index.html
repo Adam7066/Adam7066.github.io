@@ -2,11 +2,11 @@
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="蓄水池抽樣法 (Reservoir Sampling)  從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。  定理 該算法保證每個元素以 \( k \over n \) 的機率被選入蓄水池中。
 證明  第 i 個元素進入蓄水池的機率為 \( k \over i \)，蓄水池內每個元素被替換的機率為\( 1 \over k \) 因此在第 i 輪第 j 個元素被替換的機率為 \( {k \over i}\times{1 \over k} = {1 \over i} \)，接下來用 M.I. (數學歸納法)來證明，當 n 次循環結束時每個元素進入蓄水池的機率為 \( k \over n \) 假設在 (i-1) 次迭代後，任意一個元素進入 蓄水池的概率為 \( k \over i-1 \)。由上面的結論，在第 i 次迭代時，該元素被替換的概率為 \( 1 \over i \)， 那麼其不被替換的概率則為 \( 1 - {1 \over i} = {i - 1 \over i} \) 故在第 i 次迭代後，該元素在蓄水池內的概率為 \( {k \over i-1} \times {i-1 \over i} = {k \over i} \)，歸納結束。 因此當循環結束時，每個元素進入蓄水池的概率為 \( k \over n \)，命題得證。  例題  Leetcode 382."><title>演算法-01：蓄水池抽樣法</title>
-<link rel=canonical href=https://blog.smallten.tk/p/algorithm-01/>
+<link rel=canonical href=https://blog.smallten.me/p/algorithm-01/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="演算法-01：蓄水池抽樣法">
 <meta property="og:description" content="蓄水池抽樣法 (Reservoir Sampling)  從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。  定理 該算法保證每個元素以 \( k \over n \) 的機率被選入蓄水池中。
 證明  第 i 個元素進入蓄水池的機率為 \( k \over i \)，蓄水池內每個元素被替換的機率為\( 1 \over k \) 因此在第 i 輪第 j 個元素被替換的機率為 \( {k \over i}\times{1 \over k} = {1 \over i} \)，接下來用 M.I. (數學歸納法)來證明，當 n 次循環結束時每個元素進入蓄水池的機率為 \( k \over n \) 假設在 (i-1) 次迭代後，任意一個元素進入 蓄水池的概率為 \( k \over i-1 \)。由上面的結論，在第 i 次迭代時，該元素被替換的概率為 \( 1 \over i \)， 那麼其不被替換的概率則為 \( 1 - {1 \over i} = {i - 1 \over i} \) 故在第 i 次迭代後，該元素在蓄水池內的概率為 \( {k \over i-1} \times {i-1 \over i} = {k \over i} \)，歸納結束。 因此當循環結束時，每個元素進入蓄水池的概率為 \( k \over n \)，命題得證。  例題  Leetcode 382.">
-<meta property="og:url" content="https://blog.smallten.tk/p/algorithm-01/">
+<meta property="og:url" content="https://blog.smallten.me/p/algorithm-01/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2020-12-08T16:02:25+08:00"><meta property="article:modified_time" content="2020-12-08T16:02:25+08:00">
 <meta name=twitter:title content="演算法-01：蓄水池抽樣法">
