@@ -11887,6 +11887,10 @@ data-flex-basis="1358px"
 &lt;/div>&lt;/li>
 &lt;/ul>
 &lt;h2 id="codeblocks-區塊美化">Codeblocks 區塊美化&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>Stack 主題&lt;/a>已內建，因此不再需要自己建立!! 只需在 &lt;code>config.yaml&lt;/code> 設定即可。&lt;/p>
+&lt;/blockquote>
 &lt;ol>
 &lt;li>到 &lt;code>static/css/&lt;/code> 下建立 &lt;code>copy-to-clipboard.css&lt;/code>，內容如下
 &lt;div class="highlight">&lt;div class="chroma">
@@ -12095,6 +12099,10 @@ data-flex-basis="1358px"
 &lt;li>這樣程式碼區塊就有 Copy Button，並且直接複製時不會選取到行號了&lt;/li>
 &lt;/ol>
 &lt;h2 id="katex">KaTex&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>Stack 主題&lt;/a>已內建，因此不再需要自己建立!! 只需在 &lt;code>config.yaml&lt;/code> 設定即可。&lt;/p>
+&lt;/blockquote>
 &lt;ol>
 &lt;li>到 &lt;code>layouts/partials/&lt;/code> 下新增 &lt;code>math.html&lt;/code>，內容如下
 &lt;div class="highlight">&lt;div class="chroma">
@@ -12181,10 +12189,13 @@ data-flex-basis="1358px"
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">{{ template &amp;#34;_internal/google_analytics.html&amp;#34; . }}
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">{{ if not .Site.IsServer }}{{ template &amp;#34;_internal/google_analytics.html&amp;#34; . }}{{ end }}
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/div>&lt;ul>
+&lt;li>這裡的 &lt;code>if&lt;/code> 是避免在 local 測試時的數據也被紀錄下來&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ol></description></item><item><title>Hugo-01：建立一個Hugo Blog</title><link>https://blog.smallten.tk/p/hugo-01/</link><pubDate>Sun, 07 Feb 2021 03:22:22 +0800</pubDate><guid>https://blog.smallten.tk/p/hugo-01/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
 &lt;ul>
 &lt;li>這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上&lt;/li>
