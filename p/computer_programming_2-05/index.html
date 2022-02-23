@@ -10,10 +10,10 @@
 <meta name=twitter:title content="程式設計(二)-05：Variable Length Arguments List">
 <meta name=twitter:description content="Program Argument argc, argv 1 2 3 4 5 6 7 8 9  #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdint.h&amp;gt;int main(int argc, char *argv[]) { printf(&amp;#34;argc: %d\n&amp;#34;, argc); for(int32_t i = 0 ; i &amp;lt; argc ; i++) printf(&amp;#34;argv[%d]: %s\n&amp;#34;, i, argv[i]); return 0; }    誰呼叫了 main 函式? 誰提供了 argc 和 argv 到 main 函式? Is main() the actual starting entry point?  No! Actually, the process start from _start which is defined in crt1.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

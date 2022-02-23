@@ -10,10 +10,10 @@
 <meta name=twitter:title content="Arduino-02：UNOJOY">
 <meta name=twitter:description content="簡介  這篇內容將帶領大家把Arduino手把變成電腦手把  所需硬體  Arduino Uno R3 * 1 JoyStick 雙軸按鍵搖桿模組 * 1  下載檔案  FLIP － 請下載包含JRE的檔案(Java Runtime Environment included) UnoJoy － 將Uno變成電腦手把 x360ce － 將手把模擬成xbox 360的手把  教學開始  將下載好的FLIP安裝至電腦 確定電腦已安裝Arduino IDE，並已連接Uno板至電腦，可在裝置管理員查看狀態（如下圖）  打開剛剛下載的UnoJoy資料夾下的檔案，並將它上傳進Uno板中 UnoJoy-master\UnoJoy\UnoJoyArduinoSample\UnoJoyArduinoSample.ino 關閉Arduino IDE，進入DFU Mode，進入方式：用導線同時接觸下圖框起處的兩根針腳  確認已進入 DFU Mode，如下圖  若找不到驅動可手動新增驅動，選擇資料夾為 C:\Program Files (x86)\Atmel\Flip 3.4.7\usb   打開UnoJoy資料夾，啟動TurnIntoAJoystick的批次檔，檔案路徑 UnoJoy-master\UnoJoy\TurnIntoAJoystick.bat，執行成功結果如下圖  至此已完成將Uno變成電腦搖桿，之後插上Uno板皆為UnoJoy Joystick，可在以下路徑查看 控制台\硬體和音效\裝置和印表機 將搖桿的vrx和vry分別連接至Uno板的A0和A1，在 控制台\硬體和音效\裝置和印表機 裡的UnoJoy Joystick圖示上右鍵-&amp;gt;遊戲控制器-&amp;gt;內容，可查看搖桿狀態，如下圖  最後進入起動x360ce，新建立一個搖桿的設定檔，並選取模擬的位置，點選[Record]，依圖示移動搖桿方向即設定完成  補充  如何將UnoJoy Joystick變回一般的Arduino Uno板  連接UnoJoy Joystick，並進入DFU Mode 打開UnoJoy資料夾，啟動TurnIntoAnArduino的批次檔，檔案路徑 UnoJoy-master\UnoJoy\TurnIntoAnArduino.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

@@ -10,10 +10,10 @@
 <meta name=twitter:title content="Python-02：多線程-加速圖片下載">
 <meta name=twitter:description content="簡介  接續上一篇Python-01：爬蟲-圖片下載的內容，這篇文章將帶領大家使用多線程來加速圖片的下載  教學開始  首先我們先看個簡單的多線程範例  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  import time, threading # 子執行緒的工作函數 def job(): for i in range(5): print(&amp;#34;Child thread:&amp;#34;, i) time.sleep(1) # 建立一個子執行緒 t = threading.Thread(target = job) # 執行該子執行緒 t.start() # 主執行緒繼續執行自己的工作 for i in range(3): print(&amp;#34;Main thread:&amp;#34;, i) time.sleep(1) # 等待 t 這個子執行緒結束 t.join() print(&amp;#34;Done.&amp;#34;)   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  import time, threading # 子執行緒的工作函數 def job(num): print(&amp;#34;Thread&amp;#34;, num) time.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

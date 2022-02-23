@@ -10,10 +10,10 @@
 <meta name=twitter:title content="程式設計(一)-07：Array">
 <meta name=twitter:description content="Array  陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始  int32_t a[10] -&amp;gt; a[0] ~ a[9]   計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化  int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0};   存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。   define  是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO)  當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。    基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9  for(int i = 0; i &amp;lt; n; ++i) { for(int j = i; j &amp;lt; n; ++j) { if(a[j] &amp;lt; a[i]) { a[i] = a[i] ^ a[j]; a[j] = a[i] ^ a[j]; a[i] = a[i] ^ a[j]; } } }   qsort 1 2 3 4 5  #include &amp;lt;stdlib.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

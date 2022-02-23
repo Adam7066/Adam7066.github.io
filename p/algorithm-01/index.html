@@ -13,10 +13,10 @@
 <meta name=twitter:description content="蓄水池抽樣法 (Reservoir Sampling)  從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。  定理 該算法保證每個元素以 \( k \over n \) 的機率被選入蓄水池中。
 證明  第 i 個元素進入蓄水池的機率為 \( k \over i \)，蓄水池內每個元素被替換的機率為\( 1 \over k \) 因此在第 i 輪第 j 個元素被替換的機率為 \( {k \over i}\times{1 \over k} = {1 \over i} \)，接下來用 M.I. (數學歸納法)來證明，當 n 次循環結束時每個元素進入蓄水池的機率為 \( k \over n \) 假設在 (i-1) 次迭代後，任意一個元素進入 蓄水池的概率為 \( k \over i-1 \)。由上面的結論，在第 i 次迭代時，該元素被替換的概率為 \( 1 \over i \)， 那麼其不被替換的概率則為 \( 1 - {1 \over i} = {i - 1 \over i} \) 故在第 i 次迭代後，該元素在蓄水池內的概率為 \( {k \over i-1} \times {i-1 \over i} = {k \over i} \)，歸納結束。 因此當循環結束時，每個元素進入蓄水池的概率為 \( k \over n \)，命題得證。  例題  Leetcode 382.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

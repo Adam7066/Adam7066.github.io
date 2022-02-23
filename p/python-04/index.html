@@ -13,10 +13,10 @@ Python 下載m3u8 1 2 3 4 5 6  m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39
 <meta name=twitter:description content="簡介  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。
 Python 下載m3u8 1 2 3 4 5 6  m3u8Url = &amp;#39;https://.../index.m3u8&amp;#39; def downloadM3u8(url): r = requests.get(url) with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;wb&amp;#39;) as f: f.write(r.content)   分析m3u8  這部份請依照你所取得的m3u8檔進行分析，並將完整的ts檔的url放進tsList即可。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  tsList = [] tsCnt = 0 def analyzeM3u8(): tsList.clear() tempUrl = m3u8Url.rsplit(&amp;#39;/&amp;#39;, 1)[0] + &amp;#39;/&amp;#39; with open(&amp;#39;./index.m3u8&amp;#39;, &amp;#39;r&amp;#39;) as f: text = f.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

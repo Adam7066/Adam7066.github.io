@@ -13,10 +13,10 @@
 <meta name=twitter:description content="前言  在 Arch Linux-01：系統安裝 中，已經介紹了如何完整的安裝一個基礎的 Arch Linux 系統，而這部分將去介紹一些基本的設定或是驅動的安裝。
 教學開始 新增使用者  由於不應該一直使用 root 帳號，因此我們來新增一個使用者吧。   新增使用者：useradd -m &amp;lt;user&amp;gt; ( &amp;lt;user&amp;gt; 為你要新增的用戶名稱，請自行更改 ) 設置密碼：passwd &amp;lt;user&amp;gt;  Sudo  Sudo Wiki 安裝：pacman -S sudo 將使用者加入：usermod -aG wheel &amp;lt;user&amp;gt; 使用 visudo  由於預設使用 vi，但我們之前是用安裝 vim，因此臨時的更改它吧：EDITOR=vim visudo 進去後，找到 %wheel ALL=(ALL) ALL 這行，然後消掉註解並且儲存離開。    Xorg  Xorg Wiki 安裝 ：pacman -S xorg-server 驅動安裝  查看顯卡類型：lspci -v | grep -A1 -e VGA -e 3D 安裝對應驅動，請依照情況自行更改 以下為我的筆電的安裝方式 (參考至此文章) 開啟 multilib 倉庫：vim /etc/pacman.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>

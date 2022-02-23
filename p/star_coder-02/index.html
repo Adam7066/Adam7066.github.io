@@ -10,10 +10,10 @@
 <meta name=twitter:title content="StarCoder2021暑訓：Week01">
 <meta name=twitter:description content="主題  搜尋、排序、貪心  題目  Virtual Judge  參考作法 A - Flip Sort  題目說明：  給一堆數字，輸出要交換(只能相鄰交換)多少次，才能由小到大排好。   解題思路：  Bubble sort   程式碼： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  #include &amp;lt;bits/stdc++.h&amp;gt;using namespace std; int main() { int n, a[1005]; while(cin &amp;gt;&amp;gt; n) { int ans = 0; for(int i = 0; i &amp;lt; n; ++i) cin &amp;gt;&amp;gt; a[i]; for(int i = 0; i &amp;lt; n; ++i) { for(int j = n - 1; j &amp;gt; i; --j) { if(a[j] &amp;lt; a[j - 1]) { swap(a[j], a[j - 1]); ++ans; } } } cout &amp;lt;&amp;lt; &amp;#34;Minimum exchange operations : &amp;#34; &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;; } return 0; }     B - Age Sort  題目說明：  給一堆數字，由小到大排序。   解題思路：  std::sort() 小心 Presentation error   程式碼： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  #include &amp;lt;bits/stdc++.">
 <link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPR56CRPCG"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-RPR56CRPCG',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
