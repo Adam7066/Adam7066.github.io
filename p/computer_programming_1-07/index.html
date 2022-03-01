@@ -6,7 +6,7 @@
 <meta property="og:description" content="Array  陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始  int32_t a[10] -&amp;gt; a[0] ~ a[9]   計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化  int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0};   存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。   define  是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO)  當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。    基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9  for(int i = 0; i &amp;lt; n; ++i) { for(int j = i; j &amp;lt; n; ++j) { if(a[j] &amp;lt; a[i]) { a[i] = a[i] ^ a[j]; a[j] = a[i] ^ a[j]; a[i] = a[i] ^ a[j]; } } }   qsort 1 2 3 4 5  #include &amp;lt;stdlib.">
 <meta property="og:url" content="https://blog.smallten.me/p/computer_programming_1-07/">
 <meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2020-12-07T19:38:14+08:00"><meta property="article:modified_time" content="2020-12-07T19:38:14+08:00">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2020-12-07T19:38:14+08:00"><meta property="article:modified_time" content="2020-12-07T19:38:14+08:00">
 <meta name=twitter:title content="程式設計(一)-07：Array">
 <meta name=twitter:description content="Array  陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始  int32_t a[10] -&amp;gt; a[0] ~ a[9]   計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化  int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0};   存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。   define  是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO)  當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。    基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9  for(int i = 0; i &amp;lt; n; ++i) { for(int j = i; j &amp;lt; n; ++j) { if(a[j] &amp;lt; a[i]) { a[i] = a[i] ^ a[j]; a[j] = a[i] ^ a[j]; a[i] = a[i] ^ a[j]; } } }   qsort 1 2 3 4 5  #include &amp;lt;stdlib.">
 <link rel="shortcut icon" href=/image/favicon.png>
@@ -182,6 +182,7 @@ extended">
 <footer class=article-footer>
 <section class=article-tags>
 <a href=/tags/c/>C</a>
+<a href=/tags/note/>Note</a>
 </section>
 </footer>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>

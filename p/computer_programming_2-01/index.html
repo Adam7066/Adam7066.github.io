@@ -6,7 +6,7 @@
 <meta property="og:description" content="字元  在講字串之前我們先來看什麼是字元。  ASCII  American Standard Code for Information Interchange. 電子通訊的字元編碼標準 基於英文字母，ASCII 將 128 個字元編碼成 7 個位元長。  95 個可印字元：A-Z, a-z, 0-9, 標點符號 不可印字元：換行符號      在電腦中我們使用 8-bit 的記憶體儲存字元。 在 C 語言中，使用 char 這個型別。 %c -&amp;gt; 輸出字元 %x or %X -&amp;gt; 印出 hex or HEX 的值。    在以前，許多情況下，有些人使用 unsigned char 作為 one byte 的資料型別，但現今你應該使用的是 uint8_t。 請把 char 留給字串，盡管事實上對電腦來說都是一樣的。 其他編碼：Big5、UTF-8  字串  事實上，字串就是一連串的可印字元。 這樣看起來很像陣列對吧?">
 <meta property="og:url" content="https://blog.smallten.me/p/computer_programming_2-01/">
 <meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:published_time" content="2021-04-02T14:40:30+08:00"><meta property="article:modified_time" content="2021-04-02T14:40:30+08:00">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2021-04-02T14:40:30+08:00"><meta property="article:modified_time" content="2021-04-02T14:40:30+08:00">
 <meta name=twitter:title content="程式設計(二)-01：String">
 <meta name=twitter:description content="字元  在講字串之前我們先來看什麼是字元。  ASCII  American Standard Code for Information Interchange. 電子通訊的字元編碼標準 基於英文字母，ASCII 將 128 個字元編碼成 7 個位元長。  95 個可印字元：A-Z, a-z, 0-9, 標點符號 不可印字元：換行符號      在電腦中我們使用 8-bit 的記憶體儲存字元。 在 C 語言中，使用 char 這個型別。 %c -&amp;gt; 輸出字元 %x or %X -&amp;gt; 印出 hex or HEX 的值。    在以前，許多情況下，有些人使用 unsigned char 作為 one byte 的資料型別，但現今你應該使用的是 uint8_t。 請把 char 留給字串，盡管事實上對電腦來說都是一樣的。 其他編碼：Big5、UTF-8  字串  事實上，字串就是一連串的可印字元。 這樣看起來很像陣列對吧?">
 <link rel="shortcut icon" href=/image/favicon.png>
@@ -302,6 +302,7 @@ extended">
 <footer class=article-footer>
 <section class=article-tags>
 <a href=/tags/c/>C</a>
+<a href=/tags/note/>Note</a>
 </section>
 </footer>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
