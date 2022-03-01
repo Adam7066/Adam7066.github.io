@@ -4,6 +4,7 @@ title: "程式設計(二)-06：Macro"
 date: 2021-07-13T20:47:06+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(二)
 ---

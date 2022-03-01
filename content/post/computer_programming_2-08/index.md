@@ -4,6 +4,7 @@ title: "程式設計(二)-08：Linux List"
 date: 2021-07-13T22:25:50+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(二)
 ---
