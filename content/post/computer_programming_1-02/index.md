@@ -4,6 +4,7 @@ title: "程式設計(一)-02：Arithmetic"
 date: 2020-10-15T11:19:09+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(一)
 ---

@@ -4,6 +4,7 @@ title: "程式設計(一)-05：Function"
 date: 2020-11-21T21:48:47+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(一)
 ---

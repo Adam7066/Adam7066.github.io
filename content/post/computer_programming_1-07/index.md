@@ -4,6 +4,7 @@ title: "程式設計(一)-07：Array"
 date: 2020-12-07T19:38:14+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(一)
 ---

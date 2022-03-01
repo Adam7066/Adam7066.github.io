@@ -4,6 +4,7 @@ title: "程式設計(一)-08：Pointer"
 date: 2020-12-23T19:38:14+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(一)
 ---

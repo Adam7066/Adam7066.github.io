@@ -4,6 +4,7 @@ title: "程式設計(二)-05：Variable Length Arguments List"
 date: 2021-07-12T21:57:26+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(二)
 ---

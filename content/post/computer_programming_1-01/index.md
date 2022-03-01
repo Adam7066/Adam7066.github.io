@@ -4,6 +4,7 @@ title: "程式設計(一)-01：Your first program"
 date: 2020-10-04T11:00:48+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(一)
 ---

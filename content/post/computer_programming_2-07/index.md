@@ -4,6 +4,7 @@ title: "程式設計(二)-07：Some Tricks"
 date: 2021-07-13T21:39:10+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(二)
 ---

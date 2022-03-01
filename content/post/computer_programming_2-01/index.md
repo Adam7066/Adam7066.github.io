@@ -4,6 +4,7 @@ title: "程式設計(二)-01：String"
 date: 2021-04-02T14:40:30+08:00
 tags:
     - C
+    - Note
 categories:
     - 程式設計(二)
 ---
