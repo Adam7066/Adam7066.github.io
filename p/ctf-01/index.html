@@ -1,0 +1,302 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.to_bytes(4, &amp;#34;little&amp;#34;) if __name__ == &amp;#34;__main__&amp;#34;: ql = Qiling([&amp;#34;."><title>Reverse-01：Qiling framework</title>
+<link rel=canonical href=https://blog.smallten.me/p/ctf-01/>
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Reverse-01：Qiling framework">
+<meta property="og:description" content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.to_bytes(4, &amp;#34;little&amp;#34;) if __name__ == &amp;#34;__main__&amp;#34;: ql = Qiling([&amp;#34;.">
+<meta property="og:url" content="https://blog.smallten.me/p/ctf-01/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="CTF"><meta property="article:tag" content="Reverse"><meta property="article:published_time" content="2022-03-07T23:10:59+08:00"><meta property="article:modified_time" content="2022-03-07T23:10:59+08:00">
+<meta name=twitter:title content="Reverse-01：Qiling framework">
+<meta name=twitter:description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.to_bytes(4, &amp;#34;little&amp;#34;) if __name__ == &amp;#34;__main__&amp;#34;: ql = Qiling([&amp;#34;.">
+<link rel="shortcut icon" href=/image/favicon.png>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<h2 class=article-title>
+<a href=/p/ctf-01/>Reverse-01：Qiling framework</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Mar 07, 2022</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+2 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=簡介>簡介</h1>
+<ul>
+<li>活動：2022/03/07 CTF 讀書會</li>
+<li>講師：asef18766 陳兆閔</li>
+</ul>
+<h1 id=相關資源>相關資源</h1>
+<ul>
+<li><a class=link href=https://github.com/qilingframework/qiling target=_blank rel=noopener>Qiling</a></li>
+<li><a class=link href=https://github.com/qilingframework/rootfs target=_blank rel=noopener>rootfs</a></li>
+<li><a class=link href=https://docs.qiling.io/en/latest/hijack/ target=_blank rel=noopener>Qiling hijack</a></li>
+<li><a class=link href=https://docs.qiling.io/en/latest/hook/ target=_blank rel=noopener>Qiling hook</a></li>
+</ul>
+<h1 id=lab1>Lab1</h1>
+<h2 id=lab1-解題過程>Lab1 解題過程</h2>
+<ol>
+<li>先 <code>file</code> 以及 <code>執行</code> 看看
+<img src=/p/ctf-01/ctf-01-01.png width=1882 height=709 srcset="/p/ctf-01/ctf-01-01_hu1f5a99db8da27b1bd99e1cabaafde175_255343_480x0_resize_box_3.png 480w, /p/ctf-01/ctf-01-01_hu1f5a99db8da27b1bd99e1cabaafde175_255343_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=265 data-flex-basis=637px></li>
+<li>丟 ghidra 後，可以發現在 <code>lucky</code> 裡面有那張 ascii art ，而且其中第 24 行 <code>if(local_18 != 0x48763)</code> 是我們第一個要繞過得部份。
+<img src=/p/ctf-01/ctf-01-02.png width=769 height=687 srcset="/p/ctf-01/ctf-01-02_hudb0545877e98cb4458f641f2694a5476_62206_480x0_resize_box_3.png 480w, /p/ctf-01/ctf-01-02_hudb0545877e98cb4458f641f2694a5476_62206_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=111 data-flex-basis=268px>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>qiling</span> <span class=kn>import</span> <span class=o>*</span>
+<span class=kn>from</span> <span class=nn>qiling.os.mapper</span> <span class=kn>import</span> <span class=n>QlFsMappedObject</span>
+
+<span class=k>class</span> <span class=nc>Fake_urandom</span><span class=p>(</span><span class=n>QlFsMappedObject</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>read</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>size</span><span class=p>):</span>
+        <span class=k>return</span> <span class=mh>0x48763</span><span class=o>.</span><span class=n>to_bytes</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=s2>&#34;little&#34;</span><span class=p>)</span> 
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>ql</span> <span class=o>=</span> <span class=n>Qiling</span><span class=p>([</span><span class=s2>&#34;./crackme&#34;</span><span class=p>],</span> <span class=s2>&#34;../../rootfs/x8664_linux&#34;</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>add_fs_mapper</span><span class=p>(</span><span class=s2>&#34;/dev/urandom&#34;</span><span class=p>,</span> <span class=n>Fake_urandom</span><span class=p>())</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>之後執行 script 時會發現跑得很慢，觀察到 <code>main</code> 裡面有 <code>sleep</code> ，因此我們也將其繞過。
+<img src=/p/ctf-01/ctf-01-03.png width=764 height=692 srcset="/p/ctf-01/ctf-01-03_hu914d730f5a4f5b78e07f74829c2df2ac_90192_480x0_resize_box_3.png 480w, /p/ctf-01/ctf-01-03_hu914d730f5a4f5b78e07f74829c2df2ac_90192_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=110 data-flex-basis=264px>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>qiling</span> <span class=kn>import</span> <span class=o>*</span>
+<span class=kn>from</span> <span class=nn>qiling.os.const</span> <span class=kn>import</span> <span class=n>STRING</span>
+
+<span class=k>def</span> <span class=nf>my_sleep</span><span class=p>(</span><span class=n>ql</span><span class=p>):</span>
+    <span class=k>pass</span>
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>ql</span> <span class=o>=</span> <span class=n>Qiling</span><span class=p>([</span><span class=s2>&#34;./crackme&#34;</span><span class=p>],</span> <span class=s2>&#34;../../rootfs/x8664_linux&#34;</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>os</span><span class=o>.</span><span class=n>set_api</span><span class=p>(</span><span class=s1>&#39;sleep&#39;</span><span class=p>,</span> <span class=n>my_sleep</span><span class=p>,</span> <span class=n>QL_INTERCEPT</span><span class=o>.</span><span class=n>CALL</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>最後會發現 <code>flag</code> 的 decrypt 是在做 <code>xor</code> 並暫存在 <code>dl</code> 中，所以取出它並組成字串就得到 flag 了。
+<img src=/p/ctf-01/ctf-01-04.png width=1301 height=704 srcset="/p/ctf-01/ctf-01-04_hu589342c3dad7eea02b534b57c7e14acf_192843_480x0_resize_box_3.png 480w, /p/ctf-01/ctf-01-04_hu589342c3dad7eea02b534b57c7e14acf_192843_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=184 data-flex-basis=443px>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>flag</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+
+<span class=k>def</span> <span class=nf>my_hook</span><span class=p>(</span><span class=n>ql</span><span class=p>:</span> <span class=n>Qiling</span><span class=p>):</span>
+    <span class=k>global</span> <span class=n>flag</span>
+    <span class=n>flag</span> <span class=o>+=</span> <span class=nb>chr</span><span class=p>(</span><span class=n>ql</span><span class=o>.</span><span class=n>reg</span><span class=o>.</span><span class=n>edx</span> <span class=o>&amp;</span> <span class=mh>0xff</span><span class=p>)</span>
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>ql</span> <span class=o>=</span> <span class=n>Qiling</span><span class=p>([</span><span class=s2>&#34;./crackme&#34;</span><span class=p>],</span> <span class=s2>&#34;../../rootfs/x8664_linux&#34;</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>hook_address</span><span class=p>(</span><span class=n>my_hook</span><span class=p>,</span> <span class=mh>0x004015f4</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+    <span class=nb>print</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id=lab1-完整-script>Lab1 完整 Script</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>qiling</span> <span class=kn>import</span> <span class=o>*</span>
+<span class=kn>from</span> <span class=nn>qiling.os.mapper</span> <span class=kn>import</span> <span class=n>QlFsMappedObject</span>
+<span class=kn>from</span> <span class=nn>qiling.const</span> <span class=kn>import</span> <span class=o>*</span>
+<span class=kn>from</span> <span class=nn>qiling.os.const</span> <span class=kn>import</span> <span class=n>STRING</span>
+
+<span class=n>flag</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+
+<span class=k>class</span> <span class=nc>Fake_urandom</span><span class=p>(</span><span class=n>QlFsMappedObject</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>read</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>size</span><span class=p>):</span>
+        <span class=k>return</span> <span class=mh>0x48763</span><span class=o>.</span><span class=n>to_bytes</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=s2>&#34;little&#34;</span><span class=p>)</span> <span class=c1># fixed value for reading /dev/urandom</span>
+
+<span class=k>def</span> <span class=nf>my_sleep</span><span class=p>(</span><span class=n>ql</span><span class=p>):</span>
+    <span class=k>pass</span>
+
+<span class=k>def</span> <span class=nf>my_hook</span><span class=p>(</span><span class=n>ql</span><span class=p>:</span> <span class=n>Qiling</span><span class=p>):</span>
+    <span class=k>global</span> <span class=n>flag</span>
+    <span class=n>flag</span> <span class=o>+=</span> <span class=nb>chr</span><span class=p>(</span><span class=n>ql</span><span class=o>.</span><span class=n>reg</span><span class=o>.</span><span class=n>edx</span> <span class=o>&amp;</span> <span class=mh>0xff</span><span class=p>)</span>
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>ql</span> <span class=o>=</span> <span class=n>Qiling</span><span class=p>([</span><span class=s2>&#34;./crackme&#34;</span><span class=p>],</span> <span class=s2>&#34;../../rootfs/x8664_linux&#34;</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>add_fs_mapper</span><span class=p>(</span><span class=s2>&#34;/dev/urandom&#34;</span><span class=p>,</span> <span class=n>Fake_urandom</span><span class=p>())</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>os</span><span class=o>.</span><span class=n>set_api</span><span class=p>(</span><span class=s1>&#39;sleep&#39;</span><span class=p>,</span> <span class=n>my_sleep</span><span class=p>,</span> <span class=n>QL_INTERCEPT</span><span class=o>.</span><span class=n>CALL</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>hook_address</span><span class=p>(</span><span class=n>my_hook</span><span class=p>,</span> <span class=mh>0x004015f4</span><span class=p>)</span>
+    <span class=n>ql</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+    <span class=nb>print</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=lab1-flag>Lab1 Flag</h2>
+<ul>
+<li>flag：<code>ntnu{y0R'3r 5uch @ beater}</code></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/ctf/>CTF</a>
+<a href=/tags/reverse/>Reverse</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2022 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#簡介>簡介</a></li>
+<li><a href=#相關資源>相關資源</a></li>
+<li><a href=#lab1>Lab1</a>
+<ul>
+<li><a href=#lab1-解題過程>Lab1 解題過程</a></li>
+<li><a href=#lab1-完整-script>Lab1 完整 Script</a></li>
+<li><a href=#lab1-flag>Lab1 Flag</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
