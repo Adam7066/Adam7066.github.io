@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.to_bytes(4, &amp;#34;little&amp;#34;) if __name__ == &amp;#34;__main__&amp;#34;: ql = Qiling([&amp;#34;."><title>Reverse-01：Qiling framework</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 相關檔案   crackme  Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763."><title>Reverse-01：Qiling framework</title>
 <link rel=canonical href=https://blog.smallten.me/p/ctf-01/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Reverse-01：Qiling framework">
-<meta property="og:description" content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.to_bytes(4, &amp;#34;little&amp;#34;) if __name__ == &amp;#34;__main__&amp;#34;: ql = Qiling([&amp;#34;.">
+<meta property="og:description" content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 相關檔案   crackme  Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.">
 <meta property="og:url" content="https://blog.smallten.me/p/ctf-01/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="CTF"><meta property="article:tag" content="Reverse"><meta property="article:published_time" content="2022-03-07T23:10:59+08:00"><meta property="article:modified_time" content="2022-03-07T23:10:59+08:00">
 <meta name=twitter:title content="Reverse-01：Qiling framework">
-<meta name=twitter:description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.to_bytes(4, &amp;#34;little&amp;#34;) if __name__ == &amp;#34;__main__&amp;#34;: ql = Qiling([&amp;#34;.">
+<meta name=twitter:description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 相關檔案   crackme  Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
@@ -57,6 +57,11 @@ extended">
 <li><a class=link href=https://docs.qiling.io/en/latest/hook/ target=_blank rel=noopener>Qiling hook</a></li>
 </ul>
 <h1 id=lab1>Lab1</h1>
+<h2 id=相關檔案>相關檔案</h2>
+<ul>
+<li>
+<a class=link href=./lab1_crackme download=crackme>crackme</a></li>
+</ul>
 <h2 id=lab1-解題過程>Lab1 解題過程</h2>
 <ol>
 <li>先 <code>file</code> 以及 <code>執行</code> 看看
@@ -285,6 +290,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#相關資源>相關資源</a></li>
 <li><a href=#lab1>Lab1</a>
 <ul>
+<li><a href=#相關檔案>相關檔案</a></li>
 <li><a href=#lab1-解題過程>Lab1 解題過程</a></li>
 <li><a href=#lab1-完整-script>Lab1 完整 Script</a></li>
 <li><a href=#lab1-flag>Lab1 Flag</a></li>

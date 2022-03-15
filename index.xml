@@ -15,6 +15,11 @@
 >Qiling hook&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h1 id="lab1">Lab1&lt;/h1>
+&lt;h2 id="相關檔案">相關檔案&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;a class="link" href="./lab1_crackme" download="crackme">crackme&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="lab1-解題過程">Lab1 解題過程&lt;/h2>
 &lt;ol>
 &lt;li>先 &lt;code>file&lt;/code> 以及 &lt;code>執行&lt;/code> 看看
