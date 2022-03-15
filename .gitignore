@@ -1,6 +1,7 @@
 ## Hugo
 public
 resources
+.hugo_build.lock
 
 ## Windows 
 # Windows thumbnail cache files
