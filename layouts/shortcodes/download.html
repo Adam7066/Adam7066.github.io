@@ -1,0 +1,4 @@
+{{ $printName := (.Get "pName")}}
+{{ $filePath := (.Get "fPath")}}
+{{ $downloadName := (.Get "dName")}}
+<a class="link" href="{{ $filePath }}" download="{{ $downloadName }}">{{ $printName }}</a>

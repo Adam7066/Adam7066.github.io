@@ -17,6 +17,9 @@ tags:
 - [Qiling hook](https://docs.qiling.io/en/latest/hook/)
 
 # Lab1
+## 相關檔案
+- {{< download pName="crackme" fPath="./lab1_crackme" dName="crackme" >}}
+
 ## Lab1 解題過程
 1. 先 `file` 以及 `執行` 看看
     ![](ctf-01-01.png)
