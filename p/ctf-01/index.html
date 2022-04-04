@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 相關檔案   crackme  Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763."><title>Reverse-01：Qiling framework</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介 活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔 相關資源 Qiling rootfs Qiling hijack Qiling hook Lab1 相關檔案 crackme Lab1 解題過程 先 file 以及 執行 看看 丟 ghidra 後，可以發"><title>Reverse-01：Qiling framework</title>
 <link rel=canonical href=https://blog.smallten.me/p/ctf-01/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Reverse-01：Qiling framework">
-<meta property="og:description" content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 相關檔案   crackme  Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.">
+<meta property="og:description" content="簡介 活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔 相關資源 Qiling rootfs Qiling hijack Qiling hook Lab1 相關檔案 crackme Lab1 解題過程 先 file 以及 執行 看看 丟 ghidra 後，可以發">
 <meta property="og:url" content="https://blog.smallten.me/p/ctf-01/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="CTF"><meta property="article:tag" content="Reverse"><meta property="article:published_time" content="2022-03-07T23:10:59+08:00"><meta property="article:modified_time" content="2022-03-07T23:10:59+08:00">
 <meta name=twitter:title content="Reverse-01：Qiling framework">
-<meta name=twitter:description content="簡介  活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔  相關資源  Qiling rootfs Qiling hijack Qiling hook  Lab1 相關檔案   crackme  Lab1 解題過程  先 file 以及 執行 看看  丟 ghidra 後，可以發現在 lucky 裡面有那張 ascii art ，而且其中第 24 行 if(local_18 != 0x48763) 是我們第一個要繞過得部份。 1 2 3 4 5 6 7 8 9 10 11  from qiling import * from qiling.os.mapper import QlFsMappedObject class Fake_urandom(QlFsMappedObject): def read(self, size): return 0x48763.">
+<meta name=twitter:description content="簡介 活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔 相關資源 Qiling rootfs Qiling hijack Qiling hook Lab1 相關檔案 crackme Lab1 解題過程 先 file 以及 執行 看看 丟 ghidra 後，可以發">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
@@ -37,7 +37,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-2 minute read
+1 minute read
 </time>
 </div>
 </footer>

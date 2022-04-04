@@ -1,4 +1,1012 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.me/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 07 Mar 2022 23:10:59 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Reverse-01：Qiling framework</title><link>https://blog.smallten.me/p/ctf-01/</link><pubDate>Mon, 07 Mar 2022 23:10:59 +0800</pubDate><guid>https://blog.smallten.me/p/ctf-01/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>小十的部落格</title><link>https://blog.smallten.me/</link><description>Recent content on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 05 Apr 2022 03:44:06 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/index.xml" rel="self" type="application/rss+xml"/><item><title>教育概論-05：教育的理論基礎 - 心理學 II</title><link>https://blog.smallten.me/p/introduction_to_education-05/</link><pubDate>Tue, 05 Apr 2022 03:44:06 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-05/</guid><description>&lt;h1 id="新行為主義學派學習理論">新行為主義學派學習理論&lt;/h1>
+&lt;ul>
+&lt;li>代表人物：班杜拉(A. Bandura)&lt;/li>
+&lt;li>又稱為「新行為主義」&lt;/li>
+&lt;li>又稱為「三元學習論」（&lt;font color=red>社會學習論&lt;/font>）
+&lt;ul>
+&lt;li>&lt;font color=blue>學習是三者 (P x E x B) 彼此互動後的結果&lt;/font>
+&lt;ul>
+&lt;li>P (Peron): 個體對環境的認知&lt;/li>
+&lt;li>E (Environment): 外在環境刺激&lt;/li>
+&lt;li>B (Behavior): 個體所表現的行為&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>認為增強並不是刺激反應聯結的最重要因素，只是一種對環境訊息的認知而已。人在刺激與反應聯結之間，會有一段具有&lt;font color=blue>中介作用的認知歷程&lt;/font>。&lt;/li>
+&lt;li>學習並非全然來自於個體實際經驗&lt;/li>
+&lt;li>個體的行為會受別人的影響而改變&lt;/li>
+&lt;li>故特別強調「&lt;font color=red>觀察學習&lt;/font>」與「&lt;font color=red>模仿&lt;/font>」。&lt;/li>
+&lt;li>透過觀察而模仿，包括下列幾種類型：
+&lt;ul>
+&lt;li>「&lt;font color=blue>直接模仿&lt;/font>」：直接看到並模仿&lt;/li>
+&lt;li>「&lt;font color=blue>綜合模仿&lt;/font>」：綜合好幾次的模仿經驗才模仿&lt;/li>
+&lt;li>「&lt;font color=blue>象徵模仿&lt;/font>」：學習到行為背後象徵的意義&lt;/li>
+&lt;li>「&lt;font color=blue>抽象模仿&lt;/font>」：學習到抽象的原理原則&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>被觀察者稱為「&lt;font color=red>楷模&lt;/font>」（Model），學習楷模行為的過程稱為「&lt;font color=red>模仿&lt;/font>」（Modeling）&lt;/li>
+&lt;li>&lt;font color=blue>模仿學習 (替代式學習)&lt;/font>：個體經由觀察他人的行為改變歷程和行為改變結果（&lt;font color=red>替代性增強&lt;/font>），而間接學習到的行為改變。&lt;/li>
+&lt;li>在同樣的社會情境中，不同學習者未必會經由觀察而學到同樣的社會行為&lt;/li>
+&lt;li>兒童模仿的主要對象：
+&lt;ul>
+&lt;li>&lt;font color=blue>重要他人&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>同性別&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>表現傑出的同儕&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>同年齡與社會階層&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>觀察學習階段：
+&lt;ul>
+&lt;li>&lt;font color=blue>注意&lt;/font>：注意到楷模本身 (是否是重要他人? 是否重複出現?)&lt;/li>
+&lt;li>&lt;font color=blue>記憶(保持)&lt;/font>：將觀察的結果記憶保留下來&lt;/li>
+&lt;li>&lt;font color=blue>再生&lt;/font>：學會了如法泡製該行為&lt;/li>
+&lt;li>&lt;font color=blue>動機&lt;/font>：於適當時機將學到的行為表現出來&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="新行為主義理論的教育應用">新行為主義理論的教育應用&lt;/h1>
+&lt;h2 id="班杜拉-bandura---觀察學習理論">班杜拉 (Bandura) - 觀察學習理論&lt;/h2>
+&lt;ul>
+&lt;li>按照學習者的個別差異，&lt;font color=blue>安排適當的楷模&lt;/font>&lt;/li>
+&lt;li>注意學習者觀察的四大歷程 (一切學習以&lt;font color=blue>引起注意&lt;/font>為基礎)&lt;/li>
+&lt;li>提升學習者的自我效能&lt;/li>
+&lt;li>培養學習者的自我調節能力而達到&lt;font color=red>自律&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>身教重於言教&lt;/font>&lt;/li>
+&lt;li>使用「&lt;font color=red>漣漪效應&lt;/font>」（庫寧，J. Kounin）&lt;/li>
+&lt;/ul>
+&lt;h1 id="認知主義學派學習理論">認知主義學派學習理論&lt;/h1>
+&lt;ul>
+&lt;li>主要觀點：
+&lt;ul>
+&lt;li>注意到人類行為的&lt;font color=blue>內在歷程&lt;/font>解釋&lt;/li>
+&lt;li>主張學習乃是&lt;font color=blue>內在知識狀態&lt;/font>的改變，而&lt;font color=blue>非外顯行為反應的改變&lt;/font>&lt;/li>
+&lt;li>學習是個體在學習情境中，應用已有的認知結構去&lt;font color=red>認識&lt;/font>、&lt;font color=red>辨別&lt;/font>，以致&lt;font color=red>理解&lt;/font>外在事物間的關係，增加自己的經驗，從而&lt;font color=blue>擴大、提升自己的認知結構&lt;/font>，在既有知識基礎上獲得新知的歷程。&lt;/li>
+&lt;li>認為學習是&lt;font color=red>內發的&lt;/font>與&lt;font color=red>主動的&lt;/font>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="發現學習論">發現學習論&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：布魯納 (Bruner)&lt;/li>
+&lt;li>Bruner - &lt;font color=red>表徵系統論&lt;/font>：
+&lt;ul>
+&lt;li>&lt;font color=blue>動作表徵&lt;/font>：運用動作來認識世界。&lt;/li>
+&lt;li>&lt;font color=blue>形象表徵&lt;/font>：以實際物體存留於記憶中的心象來獲得知識。&lt;/li>
+&lt;li>&lt;font color=blue>符號表徵&lt;/font>：運用符號、語言來獲得知識。&lt;/li>
+&lt;li>正確或錯誤答案皆具「&lt;font color=red>回饋&lt;/font>」價值&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="意義學習論意義接受學習">意義學習論（意義接受學習）&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：奧蘇貝爾 (Ausubel)&lt;/li>
+&lt;li>理論觀點：
+&lt;ul>
+&lt;li>教師教學必須&lt;font color=blue>配合學生的認知結構&lt;/font>，以產生「&lt;font color=blue>有意義的學習&lt;/font>」。&lt;/li>
+&lt;li>&lt;font color=red>要領概念&lt;/font>
+&lt;ul>
+&lt;li>係指對事物的整體而長期概念&lt;/li>
+&lt;li>就是人的先備知識。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=red>附屬概念&lt;/font>
+&lt;ul>
+&lt;li>係指對事務的細部、短暫概念&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>「&lt;font color=red>前導組織&lt;/font>」的提供：係指將新知識中的主要概念整理出來，作為學生學習新知識之前的理解，此舉將有助於新知識與舊知識相互串結。&lt;/li>
+&lt;li>教材的呈現採取「&lt;font color=blue>漸進分化&lt;/font>」（從一般概念到詳細內容講解）與「&lt;font color=blue>統整協調&lt;/font>」（將分化知識加以統整）兩個原則。&lt;/li>
+&lt;/ul>
+&lt;h2 id="訊息處理理論學習信息加工論">訊息處理理論（學習信息加工論）&lt;/h2>
+&lt;ul>
+&lt;li>意義：個體學習歷程中，從接受刺激到反映的心裡歷程，稱為訊息處理過程。&lt;/li>
+&lt;li>理論觀點：
+&lt;ul>
+&lt;li>&lt;font color=red>感官收錄&lt;/font>：係指因為感官所收錄的極短暫記憶。&lt;/li>
+&lt;li>&lt;font color=red>短期記憶&lt;/font>：因感官收錄，經過注意之後所存的短期記憶。其中能再透過「運作記憶」，以對訊息作更深層的理解。&lt;/li>
+&lt;li>&lt;font color=red>長期記憶&lt;/font>：透過「複習」，使得短期記憶能進入長期記憶。包括「&lt;font color=blue>情節記憶&lt;/font>」（生活情節的實況記憶）與「&lt;font color=blue>語意記憶&lt;/font>」（語文所表達的意義之記憶，包括&lt;font color=blue>陳述性知識&lt;/font>與&lt;font color=blue>程序性知識&lt;/font>）。(G. Miller - &lt;font color=blue>意元集組&lt;/font>)&lt;/li>
+&lt;li>訊息處理過程：輸入、編碼(多碼)、貯存、檢索(&lt;font color=red>舌尖效應&lt;/font>)、解碼、輸出。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="認知主義理論的教育應用">認知主義理論的教育應用&lt;/h1>
+&lt;h2 id="啟發式教學法">啟發式教學法&lt;/h2>
+&lt;ul>
+&lt;li>理論基礎：布魯納的發現學習論&lt;/li>
+&lt;li>特點：
+&lt;ul>
+&lt;li>安排&lt;font color=red>具結構性&lt;/font>的學習環境。&lt;/li>
+&lt;li>教師事前講解明確、清楚。&lt;/li>
+&lt;li>再由學生&lt;font color=blue>主動學習探索&lt;/font>。&lt;/li>
+&lt;li>提供&lt;font color=blue>螺旋式課程&lt;/font>（邏輯組織化、加深加廣）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>可能限制
+&lt;ul>
+&lt;li>學生必先具有相當的&lt;font color=red>先備知識&lt;/font>與&lt;font color=red>先備技能&lt;/font>，否則無從主動從事發現學習，故較不適合小學中低年級。&lt;/li>
+&lt;li>自行探索遭遇疑難時，若求助教師卻又不得要領，恐會減低其求知動機。&lt;/li>
+&lt;li>團體討論時間常被能言善道的少數學生所佔據，影響其他兒童學習機會。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="講解式教學法">講解式教學法&lt;/h2>
+&lt;ul>
+&lt;li>理論基礎：奧蘇貝爾的意義學習論&lt;/li>
+&lt;li>講解式教學法（&lt;font color=blue>闡釋性教學&lt;/font>）之特點，包括三階段：
+&lt;ul>
+&lt;li>提供前導組織&lt;/li>
+&lt;li>呈現教材&lt;/li>
+&lt;li>講解教材（採取「漸進分化」與「統整協調」)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="後設認知">後設認知&lt;/h2>
+&lt;ul>
+&lt;li>理論基礎：訊息處理理論&lt;/li>
+&lt;li>後設認知（Metacognition）意涵：
+&lt;ul>
+&lt;li>後設認知是指一個人對&lt;font color=blue>自己認知的歷程、結果的再認知&lt;/font>。&lt;/li>
+&lt;li>後設認知包括三方面的認知
+&lt;ul>
+&lt;li>後設認知&lt;font color=red>知識&lt;/font>&lt;/li>
+&lt;li>後設認知&lt;font color=red>經驗&lt;/font>&lt;/li>
+&lt;li>後設認知&lt;font color=red>技能&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="人本主義學派學習理論">人本主義學派學習理論&lt;/h1>
+&lt;ul>
+&lt;li>理論基礎
+&lt;ul>
+&lt;li>受當&lt;font color=blue>存在主義&lt;/font>與&lt;font color=blue>現象學&lt;/font>等等&lt;font color=blue>以人為本&lt;/font>的哲學思想派別影響&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>學派主要觀點
+&lt;ul>
+&lt;li>重視個體的&lt;font color=blue>獨特性&lt;/font>與&lt;font color=blue>價值性&lt;/font>&lt;/li>
+&lt;li>重視人的主觀意識經驗&lt;/li>
+&lt;li>人具有&lt;font color=blue>學習的潛能&lt;/font>，以及對外界事物具&lt;font color=blue>好奇心&lt;/font>&lt;/li>
+&lt;li>人性的最高價值在於&lt;font color=blue>自我實現與自我超越&lt;/font>，故個體行為受到自我實現與自我超越需求的驅使&lt;/li>
+&lt;li>有別於行為主義側重行為或認知學派側重行為與知識學習，人本主義較&lt;font color=blue>關心學習歷程的感受&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="馬斯洛-maslow---需求層次論">馬斯洛 (Maslow) - 需求層次論&lt;/h2>
+&lt;ul>
+&lt;li>人類需求層次為
+&lt;ul>
+&lt;li>基本需求
+&lt;ul>
+&lt;li>生理需求&lt;/li>
+&lt;li>安全需求&lt;/li>
+&lt;li>愛與隸屬需求&lt;/li>
+&lt;li>尊嚴需求&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>衍生需求
+&lt;ul>
+&lt;li>認知需求&lt;/li>
+&lt;li>審美需求&lt;/li>
+&lt;li>自我實現需求&lt;/li>
+&lt;li>自我超越需求&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>重視學習的&lt;font color=blue>內發&lt;/font>，而非靠外鑠，亦即從&lt;font color=blue>學生的需求&lt;/font>著手，引導學生學習&lt;/li>
+&lt;li>&lt;font color=red>高峰經驗&lt;/font>：係指個人在朝目標努力過程中，當獲致成功的時刻，心理的感受與滿足感&lt;/li>
+&lt;/ul>
+&lt;h2 id="康布斯-combs---場知覺論">康布斯 (Combs) - 場知覺論&lt;/h2>
+&lt;ul>
+&lt;li>&lt;font color=red>知覺&lt;/font>：係指人對環境的感受，與認知心理學的「知覺」不同。&lt;/li>
+&lt;li>教師必須深入理解&lt;font color=blue>學生所處的情境&lt;/font>，才能體會其知覺感受&lt;/li>
+&lt;li>改變學生行為不能僅從外在行為作改變，而應該觸及&lt;font color=red>知覺&lt;/font>與&lt;font color=red>價值&lt;/font>層次。&lt;/li>
+&lt;li>實施&lt;font color=red>情意教育&lt;/font>的重要理論基礎。&lt;/li>
+&lt;/ul>
+&lt;h2 id="羅杰斯-rogers---人本治療學派">羅杰斯 (Rogers) - 人本治療學派&lt;/h2>
+&lt;ul>
+&lt;li>&lt;font color=red>以學生為中心&lt;/font>：學校教育應該以學生為中心。&lt;/li>
+&lt;li>「&lt;font color=red>自由學習&lt;/font>」原則：人天生具有&lt;font color=blue>學習的潛力&lt;/font>，教學要能提供學生&lt;font color=blue>無威脅的學習情境&lt;/font>。&lt;/li>
+&lt;li>強調&lt;font color=blue>「真誠一致」、「無條件積極關注」、「同理心」&lt;/font>等師生互動關係。&lt;/li>
+&lt;/ul>
+&lt;h1 id="人本主義理論的教育應用">人本主義理論的教育應用&lt;/h1>
+&lt;h2 id="教育主張">教育主張&lt;/h2>
+&lt;ul>
+&lt;li>強調「&lt;font color=red>以學生為中心&lt;/font>」的教育理念&lt;/li>
+&lt;li>學習是&lt;font color=blue>學生主動自願選擇&lt;/font>的結果，當教師教學讓學生感到有興趣時，學生才會自動學習&lt;/li>
+&lt;li>學習貴在激發學生學習的&lt;font color=blue>潛能與創意&lt;/font>&lt;/li>
+&lt;li>反獨重知識技能學習之缺失，認為學習不該侷限於知識與技能層面，也要包括&lt;font color=red>情意&lt;/font>層面&lt;/li>
+&lt;li>學校為學生而設、教師為學生而教，宜提供&lt;font color=blue>自由與開放&lt;/font>之學習環境&lt;/li>
+&lt;li>培養各種&lt;font color=red>人味兒&lt;/font>之人文素養 (如真誠、關懷、讚許、同理心等等)&lt;/li>
+&lt;li>重視&lt;font color=red>全人教育&lt;/font>理念&lt;/li>
+&lt;/ul>
+&lt;h2 id="教育實踐方式">教育實踐方式&lt;/h2>
+&lt;ul>
+&lt;li>教學上的&lt;font color=blue>自由學習&lt;/font> (Freedom to Learn)&lt;/li>
+&lt;li>&lt;font color=blue>合作學習&lt;/font> (Cooperative Learning)&lt;/li>
+&lt;li>&lt;font color=blue>價值澄清教學法&lt;/font> (Value Clarification)&lt;/li>
+&lt;li>&lt;font color=blue>開放教育&lt;/font> (Open Education)&lt;/li>
+&lt;li>&lt;font color=blue>道德教育&lt;/font> (Moral Education)&lt;/li>
+&lt;li>實際學校例子：英國夏山學校 (Summerhill) 、臺灣森林小學、毛毛蟲小學等等&lt;font color=blue>學校型態實驗教育&lt;/font>&lt;/li>
+&lt;li>所受批判：當教師被學生打的時候？&lt;/li>
+&lt;/ul></description></item><item><title>教育概論-04：教育的理論基礎 - 心理學 I</title><link>https://blog.smallten.me/p/introduction_to_education-04/</link><pubDate>Tue, 05 Apr 2022 02:25:06 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-04/</guid><description>&lt;h1 id="發展理論">發展理論&lt;/h1>
+&lt;h2 id="身心發展研究">身心發展研究&lt;/h2>
+&lt;ul>
+&lt;li>影響人類發展的因素有：&lt;font color=blue>遺傳、環境、成熟、學習&lt;/font>&lt;/li>
+&lt;li>個體出生前及出生後屬於生理的部分，受遺傳因素影響較大；而出生後屬於心理的部分及成熟階段，則受環境因素影響較大。&lt;/li>
+&lt;li>個體幼稚階段及成熟階段屬於共同、基本的行為，受成熟因素影響較大；而特殊、複雜的行為，則受學習因素影響較大。&lt;/li>
+&lt;/ul>
+&lt;h2 id="認知發展研究">認知發展研究&lt;/h2>
+&lt;h3 id="piaget-的認知發展論">Piaget 的認知發展論&lt;/h3>
+&lt;ul>
+&lt;li>&lt;font color=red>基模&lt;/font>（schema）：又可稱作「認知結構」，個人透過基本行為模式，以對環境中的事物作出反應，進而獲得知識。故為個人用以了解世界的方式，且隨著經驗增多而趨於複雜。&lt;/li>
+&lt;li>&lt;font color=red>適應&lt;/font>與&lt;font color=red>平衡&lt;/font>：「適應」代表個體在面臨外在環境的衝擊後，改變既有基模來適應環境，又可包括「&lt;font color=blue>同化&lt;/font>」與「&lt;font color=blue>調適&lt;/font>」兩種適應策略，前者將新經驗納入舊經驗之中，認知架構並無多大變化，後者則調整個人認知架構，以適應外在環境的要求；「平衡」係指個體透過「適應」的歷程，以使身心恢復穩定狀態。&lt;/li>
+&lt;li>認知發展期：
+&lt;ul>
+&lt;li>&lt;font color=blue>感覺動作期&lt;/font>（0-2歲）
+&lt;ul>
+&lt;li>ex. 把東西塞嘴巴&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=blue>前運思期&lt;/font>（2-7歲）
+&lt;ul>
+&lt;li>不太能想像，需看實物理解&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=blue>具體運思期&lt;/font>（7-11歲）&lt;/li>
+&lt;li>&lt;font color=blue>形式運思期&lt;/font>（11歲以上）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="vygotsky-的認知發展論">Vygotsky 的認知發展論&lt;/h3>
+&lt;ul>
+&lt;li>認為「&lt;font color=red>社會文化&lt;/font>」是影響認知發展的要素。&lt;/li>
+&lt;li>「認知思維」與「&lt;font color=blue>自我語言&lt;/font>」之間，具有密切的關係，認為兒童的自我中心語言能幫助調和兒童的思維與行動，進而增進認知的發展。&lt;/li>
+&lt;li>提出「&lt;font color=blue>近側發展區&lt;/font>」（可能發展區）的概念，係指介於兒童自己實力所能到達的水準與經別人協助之後所能到達的水準二者間的差距。&lt;/li>
+&lt;li>主張透過「&lt;font color=red>鷹架作用&lt;/font>」，對兒童的學習提供必要的協助，以增進兒童認知的發展。&lt;/li>
+&lt;/ul>
+&lt;h2 id="社會發展研究">社會發展研究&lt;/h2>
+&lt;h3 id="erikson-的心理社會期發展論人格發展論">Erikson 的心理社會期發展論（人格發展論）&lt;/h3>
+&lt;ul>
+&lt;li>認為個體的社會發展，來自於與社會環境互動之後所產生&lt;/li>
+&lt;li>個體在與社會環境互動過程中，會產生「&lt;font color=red>發展危機&lt;/font>」，且隨著年齡階段的不同，而有不同的發展危機存在。&lt;/li>
+&lt;li>「發展危機」階段包括：
+&lt;ul>
+&lt;li>「信任對不信任」（0-1歲）&lt;/li>
+&lt;li>「自主行動對羞怯懷疑」（1-3歲）&lt;/li>
+&lt;li>「自動自發對退縮愧疚」（3-6歲）&lt;/li>
+&lt;li>「&lt;font color=blue>勤奮進取對自貶自卑&lt;/font>」（6歲至青春期）&lt;/li>
+&lt;li>「&lt;font color=blue>自我統合對角色混亂&lt;/font>」（青年期）&lt;/li>
+&lt;li>「友愛親密對孤僻疏離」（成年期）&lt;/li>
+&lt;li>「精力充沛對頹廢遲滯」（中年期）&lt;/li>
+&lt;li>「完美無缺對悲觀絕望」（老年期）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="kohlberg的道德發展論">Kohlberg的道德發展論&lt;/h3>
+&lt;ul>
+&lt;li>迥異於Piaget的道德觀點，Piaget認為道德發展從「無律」、「他律」到「自律」，Kohlberg則提倡「&lt;font color=red>三期六段論&lt;/font>」。
+&lt;ul>
+&lt;li>「&lt;font color=blue>道德成規前期&lt;/font>」（9歲以前）（自我中心取向）：
+&lt;ul>
+&lt;li>階段一 - 避免懲罰與服從權威&lt;/li>
+&lt;li>階段二 - 利益交換取向&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>「&lt;font color=blue>道德成規期&lt;/font>」（10-20歲以前）（社會中心取向）：
+&lt;ul>
+&lt;li>階段三 - 尋求認可&lt;/li>
+&lt;li>階段四 - 遵守法規&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>「&lt;font color=blue>道德成規後期&lt;/font>」（20歲以後）（獨立自主判斷取向）：
+&lt;ul>
+&lt;li>階段五 - 重視基本人權，不死板遵守法律&lt;/li>
+&lt;li>階段六 - 追求人性尊嚴與社會正義&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>補充資料：&lt;a class="link" href="https://zh.wikipedia.org/wiki/%E6%B5%B7%E5%9B%A0%E8%8C%A8%E5%81%B7%E8%8D%AF" target="_blank" rel="noopener"
+>海因茨偷藥&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>主要是運用&lt;font color=red>道德兩難式教學&lt;/font>，以判斷學生的道德發展階段。&lt;/li>
+&lt;/ul>
+&lt;h1 id="行為主義學派學習理論">行為主義學派學習理論&lt;/h1>
+&lt;h2 id="學派主要觀點">學派主要觀點&lt;/h2>
+&lt;ul>
+&lt;li>透過客觀方式分析人類行為，而構成行為的基礎為個體的&lt;font color=red>反應&lt;/font>。&lt;/li>
+&lt;li>個體的反應主要來自於&lt;font color=blue>外在環境的刺激&lt;/font>，因此個體的行為並非全為遺傳，而是可以透過外在環境刺激的提供，型塑所欲行為。&lt;/li>
+&lt;li>強調&lt;font color=blue>刺激與反應連結&lt;/font>間的關係，並提供&lt;font color=red>增強物&lt;/font>，以保留所欲目標。&lt;/li>
+&lt;/ul>
+&lt;h2 id="古典制約">古典制約&lt;/h2>
+&lt;ul>
+&lt;li>&lt;font color=red>搭配本能&lt;/font>&lt;/li>
+&lt;li>Pavlov「狗唾液實驗」：
+&lt;ul>
+&lt;li>CS（鈴聲）-&amp;gt; 唾液不分泌&lt;/li>
+&lt;li>UCS（食物）-&amp;gt; 唾液分泌&lt;/li>
+&lt;li>CS（鈴聲）-&amp;gt; 唾液分泌&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Watson「教育萬能論」：重視心理學的科學化，認為古典制約原則可適用於人類行為上，因此主張「教育萬能論」。&lt;/li>
+&lt;/ul>
+&lt;h2 id="操作制約">操作制約&lt;/h2>
+&lt;ul>
+&lt;li>&lt;font color=red>透過設計&lt;/font>&lt;/li>
+&lt;li>Thorndike「貓取食實驗」：（學習心理學之父）
+&lt;ul>
+&lt;li>&lt;font color=red>嘗試錯誤&lt;/font>：與 Pavlov 的刺激反應聯結不同，Thorndike 是從動物的多種反應中，選定某特定動作，給予增強，以強化該行為出現的機會，從嘗試錯誤中提升正確的機率（&lt;font color=blue>後效強化&lt;/font>）。&lt;/li>
+&lt;li>&lt;font color=red>學習律&lt;/font>：&lt;font color=blue>練習律&lt;/font>（不斷練習）、&lt;font color=blue>準備律&lt;/font>（身心準備狀態）、&lt;font color=blue>效果律&lt;/font>（預期反應出現後的獎賞）。&lt;/li>
+&lt;li>&lt;font color=red>學習遷移&lt;/font>：將舊情境的刺激反應聯結，運用在新的情境中，但二者情境必須相類似（同元素論）。
+&lt;ul>
+&lt;li>ex. 把學校學到的知識用於生活&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Skinner 操作制約「Skinner 箱」：（極端行為主義者）
+&lt;ul>
+&lt;li>亦強調從個人的多種反應中，選定某特定動作，給予增強，以強化該行為出現的機會，從嘗試錯誤中提升正確的機率（&lt;font color=blue>後效強化&lt;/font>）。&lt;/li>
+&lt;li>凡能使個人增加「操作性反應」頻率的一切安排，皆可稱之為「&lt;font color=red>增強物&lt;/font>」。&lt;/li>
+&lt;li>增強又可分為「&lt;font color=blue>立即增強&lt;/font>與&lt;font color=blue>延宕增強&lt;/font>」與「&lt;font color=blue>連續增強&lt;/font>與&lt;font color=blue>部分增強&lt;/font>」。&lt;/li>
+&lt;li>行為塑造：係指運用分解動作方式，配合「後效強化」，使個體學習一系列的動作。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>操作制約原則：
+&lt;ul>
+&lt;li>&lt;font color=red>增強&lt;/font>：運用增強物，使某反應獲得增強，以提升其出現頻率（正增強與負增強）。&lt;/li>
+&lt;li>&lt;font color=red>刺激類化&lt;/font>與&lt;font color=red>辨別&lt;/font>：
+&lt;ul>
+&lt;li>「刺激類化」係指對相同的刺激產生相同的制約反應&lt;/li>
+&lt;li>「刺激辨別」係指只對強化過的刺激有所反應。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=red>消弱&lt;/font>：制約反應出現後，無給予增強物，一段時間後，將會使制約反應消失。&lt;/li>
+&lt;li>&lt;font color=red>自發恢復&lt;/font>：係指消弱之後，雖未給予增強物，但仍可能會有制約反應出現，但為期不會太久。&lt;/li>
+&lt;li>&lt;font color=red>高級制約&lt;/font>：係指將第一級制約轉變成第二級制約，如此反覆進行，稱之為「高級制約」作用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="要點歸結">要點歸結&lt;/h2>
+&lt;ul>
+&lt;li>學習是&lt;font color=blue>外顯行為改變&lt;/font>的歷程&lt;/li>
+&lt;li>對學習時內在心理歷程的變化，並不予以解釋&lt;/li>
+&lt;li>強調&lt;font color=blue>外在環境&lt;/font>刺激對學習的影響&lt;/li>
+&lt;li>教學應研訂&lt;font color=blue>可觀察、可測量&lt;/font>的行為目標來指引教學過程&lt;/li>
+&lt;li>鼓勵在教學過程中&lt;font color=blue>善用獎勵與懲罰&lt;/font>來改變行為，以促進學習&lt;/li>
+&lt;/ul>
+&lt;h1 id="行為主義理論應用">行為主義理論應用&lt;/h1>
+&lt;h2 id="行為改變技術">行為改變技術&lt;/h2>
+&lt;ul>
+&lt;li>行為改變技術定義：應用行為學習論來&lt;font color=red>改變&lt;/font>個體已有行為或&lt;font color=red>矯治&lt;/font>不良行為之技術&lt;/li>
+&lt;/ul>
+&lt;h3 id="正增強-負增強">正增強 (負增強)&lt;/h3>
+&lt;ul>
+&lt;li>定義：在兒童表現某一種正確的行為之後，立即給予酬賞(移除討厭事物)，用以增進或增加某一行為的能力。&lt;/li>
+&lt;li>學生在校的可能增強物
+&lt;ul>
+&lt;li>&lt;font color=blue>社會性增強物&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>物質性增強物&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>活動性增強物&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>代幣制增強物&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="忽視法">忽視法&lt;/h3>
+&lt;ul>
+&lt;li>定義：故意不理會他人的行為&lt;/li>
+&lt;/ul>
+&lt;h3 id="過度矯正法">過度矯正法&lt;/h3>
+&lt;ul>
+&lt;li>定義：指&lt;font color=blue>塑造一個比錯誤發生前更好情境&lt;/font>的一種方式，也是讓學生學會自我負責的方式，亦即立刻透過一種具有「教育功能」的活動來懲罰個體。&lt;/li>
+&lt;li>例如：學生若打破教室玻璃，除了得賠玻璃錢外，還必須從此負責玻璃的清潔工作。&lt;/li>
+&lt;/ul>
+&lt;h2 id="編序教學法">編序教學法&lt;/h2>
+&lt;ul>
+&lt;li>定義：將教材按照&lt;font color=blue>從簡而繁、由淺入深&lt;/font>的順序設計，就像階梯一樣，循序漸升，最後達到預定的教學目標，且學生在學習過程中，能&lt;font color=blue>立即核對&lt;/font>結果，便能&lt;font color=red>增強&lt;/font>學習效果。&lt;/li>
+&lt;li>原則：
+&lt;ul>
+&lt;li>確定學生的&lt;font color=red>起點行為&lt;/font>以及&lt;font color=red>終點行為&lt;/font>&lt;/li>
+&lt;li>將教材細分成很多小單元，個單元彼此有關聯性，且由易而難&lt;/li>
+&lt;li>每個小單元代表一個步階，代表一個概念或問題，並有正確答案（&lt;font color=red>連續漸進法&lt;/font>）&lt;/li>
+&lt;li>回答之後立即出現正確答案，使學生從回饋中得以核對自己的反應（&lt;font color=red>後效強化&lt;/font>）（&lt;font color=blue>電腦輔助教學,CAI&lt;/font>）&lt;/li>
+&lt;li>自我主動學習、自我掌握學習速度（&lt;font color=red>個別化教學&lt;/font>）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>優點：
+&lt;ul>
+&lt;li>改進教材組織，由易而難、循序漸進，以利學生學習&lt;/li>
+&lt;li>符合個別化教學習的原則，充分適應個別差異&lt;/li>
+&lt;li>維持學習動機，排除外因干擾&lt;/li>
+&lt;li>易於&lt;font color=blue>診斷學習困難&lt;/font>和&lt;font color=blue>進行補救教學&lt;/font>&lt;/li>
+&lt;li>學習者可立即獲知答案對錯之結果，符合立即增強的原理&lt;/li>
+&lt;li>效果因人而異，能力較高個性獨立的學生，較適合編序教學。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>缺點：
+&lt;ul>
+&lt;li>強調教材學習，限制創造思考的發展&lt;/li>
+&lt;li>學習多靠視覺與動作，&lt;font color=blue>缺乏教育歷程中的社會功能&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>教材編製不易&lt;/font>，普遍採用困難&lt;/li>
+&lt;li>學生&lt;font color=blue>完成作業進度不一&lt;/font>，可能導致學習進度和連續性訓練的問題&lt;/li>
+&lt;li>&lt;font color=blue>缺乏師生互動&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>教育概論-03：教育的理論基礎 - 哲學 II</title><link>https://blog.smallten.me/p/introduction_to_education-03/</link><pubDate>Tue, 05 Apr 2022 00:40:30 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-03/</guid><description>&lt;ul>
+&lt;li>教師（學科）取向的哲學派別：&lt;a class="link" href="./#%e7%90%86%e6%80%a7%e4%b8%bb%e7%be%a9" >理性主義&lt;/a>、&lt;a class="link" href="./#%e7%b6%93%e9%a9%97%e4%b8%bb%e7%be%a9" >經驗主義&lt;/a>、&lt;a class="link" href="./#%e6%89%b9%e8%a9%95%e4%b8%bb%e7%be%a9" >批評主義&lt;/a>&lt;/li>
+&lt;li>學生（興趣）取向的哲學派別：&lt;a class="link" href="./#%e5%af%a6%e7%94%a8%e4%b8%bb%e7%be%a9" >實用主義&lt;/a>、&lt;a class="link" href="./#%e5%ad%98%e5%9c%a8%e4%b8%bb%e7%be%a9" >存在主義&lt;/a>&lt;/li>
+&lt;li>社會（批判）取向的哲學派別：&lt;a class="link" href="./#%e5%be%8c%e7%8f%be%e4%bb%a3%e4%b8%bb%e7%be%a9" >後現代主義&lt;/a>、&lt;a class="link" href="./#%e6%89%b9%e5%88%a4%e7%90%86%e8%ab%96" >批判理論&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="教師學科取向的哲學派別">教師（學科）取向的哲學派別&lt;/h1>
+&lt;h2 id="理性主義">理性主義&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：蘇格拉底(Socrates) 、柏拉圖(Plato)、亞里斯多德(Aristotle) 、笛卡兒（Descartes）&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>形上學：
+&lt;ul>
+&lt;li>世界是二元劃分的，一為表層世界（&lt;font color=red>現象界&lt;/font>），另一則是終極的觀念世界（&lt;font color=red>觀念界&lt;/font>）。（&lt;font color=red>洞穴寓言&lt;/font>）&lt;/li>
+&lt;li>個體特殊的、&lt;font color=red>變動的&lt;/font>感覺經驗存在於現象界，而&lt;font color=red>永恆不變的&lt;/font>觀念（&lt;font color=blue>真、善、美、正義、幸福&lt;/font>等等）則存在於觀念界。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>知識論：
+&lt;ul>
+&lt;li>知識是&lt;font color=blue>永恆、普遍性&lt;/font>的存在，並只存在於終極的觀念世界&lt;/li>
+&lt;li>透過&lt;font color=blue>天啟、頓悟&lt;/font>而獲得知識&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>價值論
+&lt;ul>
+&lt;li>倫理生活必須與「普遍道德律」結合。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育主張">教育主張&lt;/h3>
+&lt;ul>
+&lt;li>教育目的：
+&lt;ul>
+&lt;li>著重&lt;font color=blue>理性的啟發&lt;/font>、訓練學生&lt;font color=blue>天生的官能&lt;/font>、找尋真理。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=red>博雅教育&lt;/font>：具知識、文雅與善良的人&lt;/li>
+&lt;li>課程內容：
+&lt;ul>
+&lt;li>重視&lt;font color=blue>傳統學科、人文學科&lt;/font>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>教學方法：
+&lt;ul>
+&lt;li>&lt;font color=blue>頓悟&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>詰問法（產婆法）&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>演繹法&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>形式訓練說&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="師生關係">師生關係&lt;/h3>
+&lt;ul>
+&lt;li>強調&lt;font color=red>教師的重要性&lt;/font>，教師是促進學生改變的關鍵，教育的動力來自於教師，而非學生。&lt;/li>
+&lt;/ul>
+&lt;h2 id="經驗主義">經驗主義&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：培根(Bacon)、洛克(Locke)&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀-1">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>形上學：
+&lt;ul>
+&lt;li>終極實體不存在於心靈中，而是依循自然法則運作之事物。&lt;/li>
+&lt;li>&lt;font color=blue>心靈是經驗的產物&lt;/font>&lt;/li>
+&lt;li>心靈的增長來自於經驗的融合&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>知識論：
+&lt;ul>
+&lt;li>主張&lt;font color=blue>人心如白板&lt;/font>&lt;/li>
+&lt;li>知識主要來源為&lt;font color=blue>感官經驗&lt;/font>&lt;/li>
+&lt;li>&lt;font color=red>歸納法（新工具）&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>知識就是力量&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>破除四大偶像&lt;/font>：種族偶像、洞穴偶像、市場偶像、劇場偶像&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>價值論：
+&lt;ul>
+&lt;li>價值隨著時空而改變&lt;/li>
+&lt;li>倫理學基於&lt;font color=red>自然規律&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育主張-1">教育主張&lt;/h3>
+&lt;ul>
+&lt;li>教育目的：
+&lt;ul>
+&lt;li>讓學習者&lt;font color=blue>獲得實質的知識&lt;/font>&lt;/li>
+&lt;li>適應社會以及自然&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>課程內容：
+&lt;ul>
+&lt;li>側重於「&lt;font color=red>實物&lt;/font>」，講求唯實學科與自然學科&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>教學方法：
+&lt;ul>
+&lt;li>重視&lt;font color=blue>實物教學法&lt;/font>以及&lt;font color=blue>旅行體驗&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>科學研究實驗&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="師生關係-1">師生關係&lt;/h3>
+&lt;ul>
+&lt;li>以&lt;font color=blue>學生的需求及興趣&lt;/font>為主，&lt;font color=red>教師屬於輔導角色&lt;/font>&lt;/li>
+&lt;li>教師必須要考量到學生的&lt;font color=blue>自願性與個別差異&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;h2 id="批評主義">批評主義&lt;/h2>
+&lt;ul>
+&lt;li>理性主義與經驗主義的調和者&lt;/li>
+&lt;li>代表人物：康德 (I. Kant)&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀-2">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>知識：&lt;font color=red>先天形式&lt;/font>（內在理性範疇） + &lt;font color=red>後天經驗&lt;/font>（外在感官經驗）&lt;/li>
+&lt;li>內在知識範疇包括十二種形式：&lt;font color=blue>量、質、關係、樣式&lt;/font>範疇&lt;/li>
+&lt;li>知識的形式具有&lt;font color=red>一致性&lt;/font>，但知識的內容則沒有一致性標準 (&lt;font color=red>主體建構&lt;/font>而來)&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育啟示">教育啟示&lt;/h3>
+&lt;ul>
+&lt;li>教育必須要&lt;font color=red>學思並重&lt;/font>
+&lt;ul>
+&lt;li>提升學生的&lt;font color=blue>自我反省&lt;/font>能力&lt;/li>
+&lt;li>提升學生&lt;font color=blue>正確辨識知識&lt;/font>的能力&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="學生興趣取向的哲學派別">學生（興趣）取向的哲學派別&lt;/h1>
+&lt;h2 id="實用主義">實用主義&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：杜威&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀-3">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>形上學：
+&lt;ul>
+&lt;li>&lt;font color=red>經驗&lt;/font>在於擴充的心靈內涵&lt;/li>
+&lt;li>&lt;font color=red>智慧&lt;/font>是心靈的最高表現&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>知識論：
+&lt;ul>
+&lt;li>知識來自於&lt;font color=blue>個體與環境的互動&lt;/font>，是一個&lt;font color=blue>經驗不斷的重組與改造&lt;/font>的過程。&lt;/li>
+&lt;li>知識的特質：&lt;font color=blue>繼續性、工具性、試驗性、行動性、創造性&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>價值論：
+&lt;ul>
+&lt;li>價值發生於是否有用（&lt;font color=blue>有用者為真&lt;/font>），且是&lt;font color=red>不斷變化&lt;/font>的&lt;/li>
+&lt;li>人性是可變的 (人沒有固定的善惡)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育主張-2">教育主張&lt;/h3>
+&lt;ul>
+&lt;li>教育目的：
+&lt;ul>
+&lt;li>&lt;font color=red>教育無目的&lt;/font>（僅有內在目的，而無外在目的）&lt;/li>
+&lt;li>&lt;font color=red>教育即生長&lt;/font>（讓學習者成長與發展的持續過程）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>課程內容：
+&lt;ul>
+&lt;li>教育要提供&lt;font color=blue>活生生的生活經驗&lt;/font>（&lt;font color=blue>活動課程&lt;/font>）&lt;/li>
+&lt;li>教育內容必須要與&lt;font color=blue>興趣&lt;/font>及努力融合&lt;/li>
+&lt;li>教育知識必須要能&lt;font color=blue>運用於生活之中&lt;/font>（教育即生活）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>教學方法：
+&lt;ul>
+&lt;li>&lt;font color=red>做中學&lt;/font> (實際操作與體驗)&lt;/li>
+&lt;li>&lt;font color=red>問題教學法&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="師生關係-2">師生關係&lt;/h3>
+&lt;ul>
+&lt;li>教師為輔導者&lt;/li>
+&lt;li>學生為主體者&lt;/li>
+&lt;/ul>
+&lt;h2 id="存在主義">存在主義&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：祁克果、尼采、海德格&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀-4">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>形上學：
+&lt;ul>
+&lt;li>&lt;font color=blue>存在先於本質&lt;/font>：人的本質是個體主動建構而來。&lt;/li>
+&lt;li>&lt;font color=blue>解決人類基本問題&lt;/font>：人的焦慮感、疏離感等等。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>知識論：
+&lt;ul>
+&lt;li>強調主觀的真理，&lt;font color=blue>無任何先驗真理&lt;/font>存在&lt;/li>
+&lt;li>真理是個體的內在生活體驗，是&lt;font color=blue>自我主動建構&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>價值論：
+&lt;ul>
+&lt;li>重視個人的&lt;font color=red>獨特性&lt;/font>以及&lt;font color=red>情性&lt;/font>&lt;/li>
+&lt;li>強調個人&lt;font color=blue>自主意志、自主抉擇與負責、參與性&lt;/font>&lt;/li>
+&lt;li>在憂慮中產生價值&lt;/li>
+&lt;li>思考死亡的意義&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育觀">教育觀&lt;/h3>
+&lt;ul>
+&lt;li>教育目的：
+&lt;ul>
+&lt;li>旨在培養&lt;font color=blue>自由且負責&lt;/font>的人&lt;/li>
+&lt;li>培養人的氣質 (&lt;font color=blue>人味兒&lt;/font>的知情意教育)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>課程內容：
+&lt;ul>
+&lt;li>透過各種文學、藝術、舞蹈、戲劇等讓學生表現自我&lt;/li>
+&lt;li>&lt;font color=blue>情感教育、生命教育&lt;/font>亦是重點&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>教學方法：
+&lt;ul>
+&lt;li>重視師生為「&lt;font color=red>吾與汝&lt;/font>」(I-Thou)的&lt;font color=blue>相互主體性關係&lt;/font>&lt;/li>
+&lt;li>讓學生盡情的開展、表現自我。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="社會批判取向的哲學派別">社會（批判）取向的哲學派別&lt;/h1>
+&lt;h2 id="後現代主義">後現代主義&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：李歐塔、布希亞、羅狄&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀-5">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>&lt;font color=blue>反對任何後設敘述&lt;/font>，主張顛覆知識本源&lt;/li>
+&lt;li>知識論以&lt;font color=blue>虛無或相對主義&lt;/font>出現&lt;/li>
+&lt;li>溝通僅在&lt;font color=red>悖理邏輯&lt;/font>與&lt;font color=red>破除理體 (logos)&lt;/font>&lt;/li>
+&lt;li>讓所有人能夠&lt;font color=red>發聲&lt;/font>。&lt;/li>
+&lt;li>重視&lt;font color=blue>去中心化、反傳統、反權威&lt;/font>，呈現&lt;font color=red>多元化&lt;/font>的個體&lt;/li>
+&lt;li>訴求&lt;font color=red>個人主體性&lt;/font>的發揚。&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育觀-1">教育觀&lt;/h3>
+&lt;ul>
+&lt;li>教育目的：
+&lt;ul>
+&lt;li>培養學生&lt;font color=blue>尊重他人&lt;/font>、&lt;font color=blue>肯定自我&lt;/font>的胸襟&lt;/li>
+&lt;li>&lt;font color=red>批判性思考&lt;/font>能力&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>課程內容：
+&lt;ul>
+&lt;li>主張課程宜&lt;font color=blue>打破學科邊際&lt;/font>&lt;/li>
+&lt;li>提供&lt;font color=blue>動態循環且多元&lt;/font>的課程&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>教學方法：
+&lt;ul>
+&lt;li>教師為&lt;font color=blue>轉化型知識份子&lt;/font>&lt;/li>
+&lt;li>提供&lt;font color=blue>無宰制之溝通環境&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="批判理論">批判理論&lt;/h2>
+&lt;ul>
+&lt;li>代表人物：阿多諾、哈伯瑪斯&lt;/li>
+&lt;/ul>
+&lt;h3 id="哲學觀-6">哲學觀&lt;/h3>
+&lt;ul>
+&lt;li>重視&lt;font color=blue>意識型態的批判&lt;/font>，強調&lt;font color=blue>個人的自覺與自決&lt;/font>以促成&lt;font color=blue>自主且自律&lt;/font>的個體 。&lt;/li>
+&lt;li>知識論為&lt;font color=blue>真理共識觀&lt;/font>，強調互為主體性的&lt;font color=red>理性論辯&lt;/font>， 以建立共識。&lt;/li>
+&lt;li>&lt;font color=blue>批判工具理性以及科技理性&lt;/font>的不當。&lt;/li>
+&lt;li>重視&lt;font color=blue>良好溝通環境的型塑&lt;/font>，以增進溝通協調。&lt;/li>
+&lt;/ul>
+&lt;h3 id="教育觀-2">教育觀&lt;/h3>
+&lt;ul>
+&lt;li>教育目的：在於維護人類理性，建構個人與社群間的&lt;font color=red>和諧&lt;/font>關係。&lt;/li>
+&lt;li>課程內容：以人為主體，鼓勵&lt;font color=red>多元參與&lt;/font>，在溝通的歷程中，&lt;font color=blue>拋棄意識型態&lt;/font>。&lt;/li>
+&lt;li>教學方法：提供學生&lt;font color=blue>無宰制的環境&lt;/font>，使學生能達到&lt;font color=blue>質疑、反省、解放與&lt;/font>&lt;font color=red>重構&lt;/font>。&lt;/li>
+&lt;/ul></description></item><item><title>教育概論-02：教育的理論基礎 - 哲學 I</title><link>https://blog.smallten.me/p/introduction_to_education-02/</link><pubDate>Mon, 04 Apr 2022 22:20:40 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-02/</guid><description>&lt;h1 id="哲學探討的議題">哲學探討的議題&lt;/h1>
+&lt;h2 id="形上學">形上學&lt;/h2>
+&lt;ul>
+&lt;li>人的本質、世界的本質、宇宙的生成、生與死等等 (「物理學之後」 metaphysics)&lt;/li>
+&lt;li>包括宇宙論、神學、人類學及存在論。&lt;/li>
+&lt;li>天意 -&amp;gt; 神（有神論：多神、一神；無神論：科學）、鬼&lt;/li>
+&lt;li>你如何知道你現在不是再做夢？&lt;/li>
+&lt;/ul>
+&lt;h2 id="知識論">知識論&lt;/h2>
+&lt;ul>
+&lt;li>知識的本質、獲得知識的方法、如何判斷知識等等&lt;/li>
+&lt;li>包括知識是相對、絕對？永恆、暫存？如何獲得知識？&lt;/li>
+&lt;li>星座&lt;/li>
+&lt;li>「下星期會下雨」 這句子現在這一課是 True or False ? 還是 not True or not False ?&lt;/li>
+&lt;/ul>
+&lt;h2 id="價值論">價值論&lt;/h2>
+&lt;ul>
+&lt;li>道德與美感&lt;/li>
+&lt;li>包括倫理學（道德）與美學&lt;/li>
+&lt;li>同性 -&amp;gt; 道德議題&lt;/li>
+&lt;li>五月天的歌有什麼好聽的，要花 3800 元去買一張票？&lt;/li>
+&lt;li>如果不知道小孩是否願意出生，那麼生育 / 墮胎孩子是否錯誤？&lt;/li>
+&lt;/ul>
+&lt;h1 id="哲學的意義">哲學的意義&lt;/h1>
+&lt;ul>
+&lt;li>哲學是&lt;font color=blue>愛智&lt;/font>：哲學一詞為希臘語「愛」與「智」字詞的結合。(Philosophy)
+&lt;ul>
+&lt;li>愛智之術與愛智者&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>哲學是&lt;font color=blue>科學的科學&lt;/font>：旨在建立一切學術的原理原則。
+&lt;ul>
+&lt;li>Kant: 沒有科學的哲學是空的，沒有哲學的科學是盲的。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>哲學是&lt;font color=blue>規約&lt;/font>：哲學旨在建立一套行為規範或價值判斷的規準。
+&lt;ul>
+&lt;li>網路詐騙？ 網路謠言？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>哲學是&lt;font color=blue>思辯&lt;/font>：哲學為一種思辯的活動，涉及心靈的內省、直觀等等主觀心智活動。&lt;/li>
+&lt;li>哲學是&lt;font color=blue>分析&lt;/font>：哲學是一種分析活動，強調釐清哲學領域各種隱晦不明的字詞。
+&lt;ul>
+&lt;li>你說的是什麼？ 你怎麼知道的？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>哲學是&lt;font color=blue>綜合&lt;/font>：哲學是一種全面活動，包括規約、思辯與分析等等。&lt;/li>
+&lt;li>哲學作為一種態度：
+&lt;ul>
+&lt;li>&lt;font color=blue>自我省察&lt;/font>&lt;/li>
+&lt;li>洞察見解&lt;/li>
+&lt;li>兼容並蓄&lt;/li>
+&lt;li>通權達變&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="哲學的價值與功能">哲學的價值與功能&lt;/h1>
+&lt;ul>
+&lt;li>從哲學的&lt;font color=red>特質&lt;/font>來評估
+&lt;ul>
+&lt;li>以人類崇高的理性為基準&lt;/li>
+&lt;li>具有高度涵養性的價值&lt;/li>
+&lt;li>&lt;font color=blue>主客觀方法並用&lt;/font>&lt;/li>
+&lt;li>充滿積極、向上、奮發、進步的精神&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>從哲學的&lt;font color=red>功能&lt;/font>來判斷
+&lt;ul>
+&lt;li>思想和行為的導引&lt;/li>
+&lt;li>智慧的啟迪和增進&lt;/li>
+&lt;li>意志的鼓舞和砥礪&lt;/li>
+&lt;li>&lt;font color=blue>情性的陶冶和培育&lt;/font>&lt;/li>
+&lt;li>社會生活的增進與促進&lt;/li>
+&lt;li>人性尊嚴的顯示和提高&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="哲學與教育的關係">哲學與教育的關係&lt;/h1>
+&lt;ul>
+&lt;li>「教育哲學」的意義：&lt;font color=blue>對教育問題作哲學式的探討&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>哲學是教育的原理原則&lt;/font>
+&lt;ul>
+&lt;li>教育許多面向涉及哲學問題（形上、知識、價值等等），需哲學給予提示。&lt;/li>
+&lt;li>包括教育目的、課程內容、教學方法、師生關係、學校功能、訓輔工作等等。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=blue>教育是哲學的實驗室&lt;/font>
+&lt;ul>
+&lt;li>哲學家的思想需藉助教育的實踐&lt;/li>
+&lt;li>哲學思想藉由教育方能彰顯出價值&lt;/li>
+&lt;li>哲學家大都也是教育家&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育哲學的三個主要教育啟示">教育哲學的三個主要教育啟示&lt;/h1>
+&lt;ul>
+&lt;li>教育目的&lt;/li>
+&lt;li>課程內容&lt;/li>
+&lt;li>教學方法&lt;/li>
+&lt;/ul>
+&lt;h1 id="西方各時期重要教育措施與思想">西方各時期重要教育措施與思想&lt;/h1>
+&lt;h2 id="希臘時期">希臘時期&lt;/h2>
+&lt;h3 id="雅典教育">雅典教育&lt;/h3>
+&lt;ul>
+&lt;li>重視人文教育，教育為少數公民所獨享，故屬於一種貴族式教育，女子只接受家事教育。&lt;/li>
+&lt;/ul>
+&lt;h3 id="斯巴達教育">斯巴達教育&lt;/h3>
+&lt;ul>
+&lt;li>重視身體的鍛鍊，培養服從、守法、愛國等等情操，且亦重視女子教育。&lt;/li>
+&lt;/ul>
+&lt;h2 id="羅馬時期">羅馬時期&lt;/h2>
+&lt;ul>
+&lt;li>重視&lt;font color=red>實用&lt;/font>效益取向&lt;/li>
+&lt;li>教育內容採取「修辭教育」&lt;/li>
+&lt;li>教育對象為十五、十六歲的貴族子弟。&lt;/li>
+&lt;/ul>
+&lt;h2 id="中世紀時期">中世紀時期&lt;/h2>
+&lt;ul>
+&lt;li>重視宣揚教義，此取問答法解說教義。&lt;/li>
+&lt;li>教育設施為教義問答學校、修道院。&lt;/li>
+&lt;li>教育內容為「&lt;font color=red>七藝&lt;/font>」：
+&lt;ul>
+&lt;li>&lt;font color=red>三學&lt;/font>：文法、修辭、辯證&lt;/li>
+&lt;li>&lt;font color=red>四藝&lt;/font>：算數、幾何、天文、音樂&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>除宗教教育之外，還有武士教育（侍童、護衛、武 士）、藝徒教育（學徒、技師、師傅，而武士教育與藝徒教育都不隸屬於基督教教會範疇。&lt;/li>
+&lt;li>大學的興起：三所母大學
+&lt;ul>
+&lt;li>&lt;font color=blue>巴黎大學（神學）&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>波隆大學（法學）&lt;/font>&lt;/li>
+&lt;li>&lt;font color=blue>沙列諾大學（醫學）&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>教育活動主要掌握在&lt;font color=red>教會&lt;/font>手中。&lt;/li>
+&lt;/ul>
+&lt;h2 id="文藝復興時期">文藝復興時期&lt;/h2>
+&lt;ul>
+&lt;li>重視復興希臘、羅馬之古文學，鑽研古希臘文。&lt;/li>
+&lt;li>&lt;font color=blue>人本思想&lt;/font>取代神本思想。&lt;/li>
+&lt;li>強調&lt;font color=blue>現世生活&lt;/font>以及人世美感，故又稱&lt;font color=red>人文主義&lt;/font>&lt;/li>
+&lt;li>以地方語言進行文學的創作，首創「雙重翻譯」（古文與方言）式教學。&lt;/li>
+&lt;li>教育對象以&lt;font color=blue>社會上層子弟&lt;/font>為主。&lt;/li>
+&lt;li>學校所教受的課程內容多為無關實用的文字知識，與社會生產相脫離，且只有少數子弟才能受此文雅教育。&lt;/li>
+&lt;/ul>
+&lt;h2 id="宗教改革時期">宗教改革時期&lt;/h2>
+&lt;ul>
+&lt;li>馬丁路德主張由人民自行閱讀、解釋教義，而其中關鍵在於「&lt;font color=blue>識字教育&lt;/font>」，故導致普及教育的盛行，&lt;font color=red>小學教育&lt;/font>的興起。&lt;/li>
+&lt;li>促使教會開始重視教育事業。&lt;/li>
+&lt;/ul>
+&lt;h2 id="唯實論與自然主義時期">唯實論與自然主義時期&lt;/h2>
+&lt;ul>
+&lt;li>對人文主義所導致的文學形式主義之反動。&lt;/li>
+&lt;li>注重古文內容，但不拘文字形式。&lt;/li>
+&lt;li>注重&lt;font color=blue>具體生活經驗世界&lt;/font>以及實際生活。&lt;/li>
+&lt;li>重視&lt;font color=red>感官&lt;/font>功能，透過感官來獲得知識。&lt;/li>
+&lt;li>&lt;font color=red>培根 - 歸納法&lt;/font> 的出現。&lt;/li>
+&lt;/ul>
+&lt;h2 id="十八世紀啟蒙運動時期">十八世紀（啟蒙運動時期）&lt;/h2>
+&lt;ul>
+&lt;li>&lt;font color=red>科學主義&lt;/font>盛行，為&lt;font color=red>理性&lt;/font>充分開展的時代。&lt;/li>
+&lt;li>將人重新劃為自人的範疇。&lt;/li>
+&lt;li>講求天賦人權，人生而平等。&lt;/li>
+&lt;/ul>
+&lt;h2 id="十九世紀">十九世紀&lt;/h2>
+&lt;ul>
+&lt;li>&lt;font color=red>民族主義&lt;/font>、工業主義、自由主義、&lt;font color=red>資本主義&lt;/font>盛行。&lt;/li>
+&lt;li>教育重要的功能在於&lt;font color=blue>形塑國家認同&lt;/font>。&lt;/li>
+&lt;li>教材內容側重於國家自身文化。&lt;/li>
+&lt;li>普及教育的提倡。&lt;/li>
+&lt;/ul>
+&lt;h2 id="二十二十一世紀">二十、二十一世紀&lt;/h2>
+&lt;ul>
+&lt;li>民主主義：培養&lt;font color=red>民主&lt;/font>素養的國民。&lt;/li>
+&lt;li>共產主義：培養政治順民。&lt;/li>
+&lt;/ul></description></item><item><title>教育概論-01：教育的相關意涵</title><link>https://blog.smallten.me/p/introduction_to_education-01/</link><pubDate>Mon, 04 Apr 2022 21:12:17 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-01/</guid><description>&lt;h1 id="教育的意義">教育的意義&lt;/h1>
+&lt;h2 id="中文字義">中文字義&lt;/h2>
+&lt;ul>
+&lt;li>說文解字謂：「&lt;font color=red>教&lt;/font>，上所施，下所效（模仿）也；&lt;font color=red>育&lt;/font>，養子使作善也。」&lt;/li>
+&lt;li>禮記學記：「教也者，長善而救其失者也。」&lt;/li>
+&lt;li>中庸：「&lt;font color=blue>天命之謂性，率性之謂道，修道之謂教&lt;/font>。」&lt;/li>
+&lt;li>孟子。盡心篇：「得天下英才而教育之，三樂也」（&lt;font color=blue>「教育」一詞使用之始&lt;/font>）&lt;/li>
+&lt;/ul>
+&lt;h2 id="西方字義">西方字義&lt;/h2>
+&lt;ul>
+&lt;li>「教育」一詞，英、法文皆為「Education」，皆是由拉丁字詞「Educare」轉化而來。&lt;/li>
+&lt;li>「E」在拉丁文中有「出」的含意在，「ducare」則有「引」之意味，故二者合起來有「引出」之意。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>中西字義之比較：
+&lt;ul>
+&lt;li>中國對於教育的詮釋較側重於「&lt;font color=red>道德良善&lt;/font>」、「&lt;font color=red>倫理&lt;/font>」。&lt;/li>
+&lt;li>西方對於教育的詮釋較側重於「&lt;font color=red>引導&lt;/font>」、「&lt;font color=red>開展&lt;/font>」。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="廣義的教育">廣義的教育&lt;/h2>
+&lt;ul>
+&lt;li>係指外在的自然環境以及社會環境對於個人所施予的各種影響，故若利用自然或是社會環境來改造經驗，既可稱之為教育。&lt;/li>
+&lt;li>此種教育形式較傾向於&lt;font color=blue>無特定目的&lt;/font>、計畫以及制度，亦無特定的教學環境以及行政組織，故亦可稱之為「&lt;font color=red>生活教育&lt;/font>」。&lt;/li>
+&lt;/ul>
+&lt;h2 id="狹義的教育">狹義的教育&lt;/h2>
+&lt;ul>
+&lt;li>專指&lt;font color=blue>有意實施&lt;/font>的教育，因此較傾向於&lt;font color=blue>有特定目的&lt;/font>、計畫、制度與教學組織。&lt;/li>
+&lt;li>此種教育類型如現今的學校體制，有固定的教材、教師以及規劃過後的教育環境。&lt;/li>
+&lt;/ul>
+&lt;h2 id="從學科的觀點出發">從學科的觀點出發&lt;/h2>
+&lt;ul>
+&lt;li>哲學：教育有助於「&lt;font color=blue>使人成為人&lt;/font>」，前者的「人」指的是未歷經磨練的自然人，後者的「人」指的是成熟的「社會人」&lt;/li>
+&lt;li>心理學：教育有助於個體達到&lt;font color=blue>自我實現與超越&lt;/font>&lt;/li>
+&lt;li>社會學：教育有助於個體進行&lt;font color=blue>社會化&lt;/font>，融入社會生活&lt;/li>
+&lt;li>生物學：教育有助於個人經驗重組與改造，以&lt;font color=blue>適應環境&lt;/font>。&lt;/li>
+&lt;li>經濟學：教育有助於開發國家的人力，以促進&lt;font color=blue>經濟發展&lt;/font>。&lt;/li>
+&lt;li>文化學：教育有助於個體的&lt;font color=blue>文化陶冶&lt;/font>，進而促進文化的選擇、保存、傳遞、創造與更新。&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育本質">教育本質&lt;/h1>
+&lt;ul>
+&lt;li>內涵性：係指教育同時具有行動的過程以及結果，而教育內涵通常&lt;font color=blue>依據學者的觀點而有所不同&lt;/font>，所以也會導致&lt;font color=blue>不同的行動過程以及結果&lt;/font>。&lt;/li>
+&lt;li>時代性：教育的意義也會隨著&lt;font color=blue>時代的不同而有所改變&lt;/font>，所以教育的目的、內容、教學也會有所不同。
+&lt;ul>
+&lt;li>問題：常用過去的知識，教現在的學生，使其接受未來的時代。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育功能">教育功能&lt;/h1>
+&lt;ul>
+&lt;li>依層次分
+&lt;ul>
+&lt;li>個人層次：維持個體生存，發展個人能力&lt;/li>
+&lt;li>社會層次：傳遞社會文化，促進社會進步&lt;/li>
+&lt;li>國家層次：促進國家建設，延續民族生命&lt;/li>
+&lt;li>世界層次：改善人類生活，促進世界和平&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育隱喻">教育隱喻&lt;/h1>
+&lt;ul>
+&lt;li>&lt;font color=blue>教育即接生&lt;/font>：強調由內而外的引導過程，而非由外而內的灌輸或訓練。
+&lt;ul>
+&lt;li>&lt;font color=red>產婆法&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=blue>教育即塑造&lt;/font>：強調教育的外塑功能，主張「教育萬能論」，亦即「給我一打的小孩，我將可以把他們培養成我所想要的行為與表現」。
+&lt;ul>
+&lt;li>教育心裡學 -&amp;gt; 行為學 -&amp;gt; &lt;font color=red>&amp;ldquo;增強&amp;rdquo;&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=blue>教育即雕刻&lt;/font>：強調教育的過程如同雕刻大理石一般，要依照其材質以及紋路來雕刻之，重視學生的個別差異。&lt;/li>
+&lt;li>&lt;font color=blue>教育即生長&lt;/font>：認為教育的過程與園丁栽培花木一般，學校為花園，教師為園丁，學生為花草，重視學生的主動、活潑及自然性。
+&lt;ul>
+&lt;li>教育哲學 -&amp;gt; &lt;font color=red>杜威&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;font color=blue>教育即撞鐘&lt;/font>：比喻教師為鐘，學生為撞鐘者，撞大力則得大聲，撞小力則得小聲，相當重視學生的主動積極學習以及教師的豐富學識。&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育規準">教育規準&lt;/h1>
+&lt;h2 id="r-s-peters">R. S. Peters&lt;/h2>
+&lt;ul>
+&lt;li>觀念分析學派學者&lt;/li>
+&lt;li>目的：提供作為判別教育活動的依據&lt;/li>
+&lt;li>必須要符合三大規準，才可稱作是「教育」：
+&lt;ul>
+&lt;li>&lt;font color=blue>合認知（求真）&lt;/font>：教師教導學生必須以事實真理為基礎前提，培養學生批判思考、明辨是非之能力。&lt;/li>
+&lt;li>&lt;font color=blue>合價值（求善）&lt;/font>：教育活動與歷程必須植基於合理、有意義以及道德良知之上。&lt;/li>
+&lt;li>&lt;font color=blue>合自願（求美）&lt;/font>：教育活動與歷程必須考量到學生的身心發展以及其自由意志，不可強迫之。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育概念分析">教育概念分析&lt;/h1>
+&lt;h2 id="i-scheffler">I. Scheffler&lt;/h2>
+&lt;ul>
+&lt;li>觀念分析學者&lt;/li>
+&lt;li>針對教育的內涵進行整理：
+&lt;ul>
+&lt;li>「&lt;font color=blue>複合性&lt;/font>」概念：教育概念抽象且複雜，活動範圍廣泛，包括學習、訓導、輔導、考試、課程、學生、教師等等，都與教育有關。&lt;/li>
+&lt;li>「&lt;font color=blue>爭議性&lt;/font>」概念：教育的意義分歧，有時也會與灌輸、訓練等概念相互混淆。&lt;/li>
+&lt;li>「&lt;font color=blue>多樣態&lt;/font>」概念：教育歷程是多樣的，如教、學、輔、訓、評等等，故不是單純或單一的活動。&lt;/li>
+&lt;li>「&lt;font color=blue>工作（任務）-成效&lt;/font>」概念：教育同時包括過程以及結果，無論是外在目的還是內在目的，教育都需要有成效才有意義。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="教育非教育與反教育之比較">教育、非教育與反教育之比較&lt;/h1>
+&lt;ul>
+&lt;li>教育：若有助於個人生命潛能開展、增進個人的自尊、自信者，皆可稱之為「教育」。&lt;/li>
+&lt;li>&lt;font color=blue>非教育&lt;/font>：若未對個人產生教育之正向或負向作用者，可謂之為「非教育」。&lt;/li>
+&lt;li>&lt;font color=blue>反教育&lt;/font>：不利於個人，甚至阻礙個人發展，未能符合價值、認知、自願者，可稱之為「反教育」&lt;/li>
+&lt;/ul></description></item><item><title>Reverse-01：Qiling framework</title><link>https://blog.smallten.me/p/ctf-01/</link><pubDate>Mon, 07 Mar 2022 23:10:59 +0800</pubDate><guid>https://blog.smallten.me/p/ctf-01/</guid><description>&lt;h1 id="簡介">簡介&lt;/h1>
 &lt;ul>
 &lt;li>活動：2022/03/07 CTF 讀書會&lt;/li>
 &lt;li>講師：asef18766 陳兆閔&lt;/li>
@@ -10026,7 +11034,7 @@ data-flex-basis="335px"
 &lt;/ul>
 &lt;hr>
 &lt;ul>
-&lt;li>system() is a &lt;!-- raw HTML omitted -->blocking&lt;!-- raw HTML omitted --> function.
+&lt;li>system() is a &lt;font color=red>blocking&lt;/font> function.
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -10046,12 +11054,12 @@ data-flex-basis="335px"
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
-&lt;li>The system() returns &lt;code>-1&lt;/code> means &lt;!-- raw HTML omitted -->your system cannot fork another process instead of your command fails.&lt;!-- raw HTML omitted -->
+&lt;li>The system() returns &lt;code>-1&lt;/code> means &lt;font color=blue>your system cannot fork another process instead of your command fails.&lt;/font>
 &lt;ul>
 &lt;li>You can try a command to delete a non-existing file.&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Every system call is &lt;!-- raw HTML omitted -->independent&lt;!-- raw HTML omitted -->.
+&lt;li>Every system call is &lt;font color=red>independent&lt;/font>.
 &lt;ul>
 &lt;li>So you cannot setup an environment variable and hope other other system calls use this variable.&lt;/li>
 &lt;/ul>
@@ -10112,9 +11120,9 @@ data-flex-basis="335px"
 &lt;/div>
 &lt;/div>&lt;h1 id="assert">assert&lt;/h1>
 &lt;ul>
-&lt;li>In computer programming, an assertion is a statement that a &lt;!-- raw HTML omitted -->predicate&lt;!-- raw HTML omitted --> (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.&lt;/li>
+&lt;li>In computer programming, an assertion is a statement that a &lt;font color=red>predicate&lt;/font> (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.&lt;/li>
 &lt;li>It can &lt;strong>help&lt;/strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.&lt;/li>
-&lt;li>If the assertion check is not in fact true, an assertion failure, &lt;!-- raw HTML omitted -->the program considers itself to be broken&lt;!-- raw HTML omitted --> and typically deliberately &lt;strong>crashes&lt;/strong> or throws an assertion failure exception.&lt;/li>
+&lt;li>If the assertion check is not in fact true, an assertion failure, &lt;font color=blue>the program considers itself to be broken&lt;/font> and typically deliberately &lt;strong>crashes&lt;/strong> or throws an assertion failure exception.&lt;/li>
 &lt;/ul>
 &lt;hr>
 &lt;p>&lt;code>void assert(scalar expression);&lt;/code>&lt;/p>
@@ -10251,8 +11259,8 @@ class="gallery-image"
 data-flex-grow="232"
 data-flex-basis="558px"
 >&lt;/li>
-&lt;li>Preprocessor commands are known as &lt;!-- raw HTML omitted -->Directives&lt;!-- raw HTML omitted -->.&lt;/li>
-&lt;li>Preprocessor provides certain features, which are called &lt;!-- raw HTML omitted -->preprocessor directives&lt;!-- raw HTML omitted -->.&lt;/li>
+&lt;li>Preprocessor commands are known as &lt;font color=blue>Directives&lt;/font>.&lt;/li>
+&lt;li>Preprocessor provides certain features, which are called &lt;font color=blue>preprocessor directives&lt;/font>.&lt;/li>
 &lt;li>Preprocessor directive 以 &lt;code>#&lt;/code> 為開頭。(例如：&lt;code>#include &amp;lt;stdio.h&amp;gt;&lt;/code>)&lt;/li>
 &lt;li>Preprocessor directives 可以被放在程式中的任何地方。但建議放在開頭，並且每個必須獨立一行。&lt;/li>
 &lt;/ul>
@@ -10280,21 +11288,21 @@ data-flex-basis="558px"
 &lt;/ul>
 &lt;h1 id="macro-巨集">Macro 巨集&lt;/h1>
 &lt;ul>
-&lt;li>&lt;code>#define&lt;/code> is known as &lt;!-- raw HTML omitted -->macro expansion&lt;!-- raw HTML omitted -->.&lt;/li>
+&lt;li>&lt;code>#define&lt;/code> is known as &lt;font color=blue>macro expansion&lt;/font>.&lt;/li>
 &lt;li>General Form: &lt;code>#define macro_template macro_expansion&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="macro-expansion">Macro Expansion&lt;/h2>
 &lt;ul>
 &lt;li>Preprocessor searches for macro definition.&lt;/li>
 &lt;li>After finding macro definition, it searches the whole program for &lt;strong>macro_template&lt;/strong>.&lt;/li>
-&lt;li>&lt;!-- raw HTML omitted -->Replace&lt;!-- raw HTML omitted --> every &lt;strong>macro_template&lt;/strong> with &lt;strong>macro_expansion&lt;/strong>.
+&lt;li>&lt;font color=red>Replace&lt;/font> every &lt;strong>macro_template&lt;/strong> with &lt;strong>macro_expansion&lt;/strong>.
 &lt;ul>
 &lt;li>Replacement will not occur if the template is in a quoted string.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>Notes:
 &lt;ul>
-&lt;li>通常 macro_template 會使用&lt;!-- raw HTML omitted -->大寫字母&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>通常 macro_template 會使用&lt;font color=blue>大寫字母&lt;/font>&lt;/li>
 &lt;li>不要使用分號 &lt;code>;&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -10326,7 +11334,7 @@ data-flex-basis="558px"
 &lt;h3 id="function">Function&lt;/h3>
 &lt;ul>
 &lt;li>傳遞參數 -&amp;gt; 執行 -&amp;gt; 回傳結果&lt;/li>
-&lt;li>支援&lt;!-- raw HTML omitted -->遞迴&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>支援&lt;font color=red>遞迴&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;h2 id="inline-functions">inline Functions&lt;/h2>
 &lt;ul>
@@ -10362,8 +11370,8 @@ data-flex-basis="558px"
 &lt;/li>
 &lt;li>What does Inclusion Mean?
 &lt;ul>
-&lt;li>Nothing but simply &lt;!-- raw HTML omitted -->copy and paste&lt;!-- raw HTML omitted -->.&lt;/li>
-&lt;li>&lt;!-- raw HTML omitted -->Nested Inclusion&lt;!-- raw HTML omitted --> is supported.&lt;/li>
+&lt;li>Nothing but simply &lt;font color=blue>copy and paste&lt;/font>.&lt;/li>
+&lt;li>&lt;font color=blue>Nested Inclusion&lt;/font> is supported.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>

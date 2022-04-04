@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13  #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc  printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99  printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; }    我們可以怎麼使用這些 Macros ?"><title>程式設計(二)-07：Some Tricks</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; } 我們可以怎"><title>程式設計(二)-07：Some Tricks</title>
 <link rel=canonical href=https://blog.smallten.me/p/computer_programming_2-07/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-07：Some Tricks">
-<meta property="og:description" content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13  #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc  printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99  printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; }    我們可以怎麼使用這些 Macros ?">
+<meta property="og:description" content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; } 我們可以怎">
 <meta property="og:url" content="https://blog.smallten.me/p/computer_programming_2-07/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2021-07-13T21:39:10+08:00"><meta property="article:modified_time" content="2021-07-13T21:39:10+08:00">
 <meta name=twitter:title content="程式設計(二)-07：Some Tricks">
-<meta name=twitter:description content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13  #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc  printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99  printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; }    我們可以怎麼使用這些 Macros ?">
+<meta name=twitter:description content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; } 我們可以怎">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
@@ -42,7 +42,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-5 minute read
+3 minute read
 </time>
 </div>
 </footer>
@@ -183,7 +183,7 @@ extended">
 </ul>
 <hr>
 <ul>
-<li>system() is a blocking function.
+<li>system() is a <font color=red>blocking</font> function.
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -203,12 +203,12 @@ extended">
 </code></pre></td></tr></table>
 </div>
 </div></li>
-<li>The system() returns <code>-1</code> means your system cannot fork another process instead of your command fails.
+<li>The system() returns <code>-1</code> means <font color=blue>your system cannot fork another process instead of your command fails.</font>
 <ul>
 <li>You can try a command to delete a non-existing file.</li>
 </ul>
 </li>
-<li>Every system call is independent.
+<li>Every system call is <font color=red>independent</font>.
 <ul>
 <li>So you cannot setup an environment variable and hope other other system calls use this variable.</li>
 </ul>
@@ -269,9 +269,9 @@ extended">
 </div>
 </div><h1 id=assert>assert</h1>
 <ul>
-<li>In computer programming, an assertion is a statement that a predicate (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.</li>
+<li>In computer programming, an assertion is a statement that a <font color=red>predicate</font> (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.</li>
 <li>It can <strong>help</strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.</li>
-<li>If the assertion check is not in fact true, an assertion failure, the program considers itself to be broken and typically deliberately <strong>crashes</strong> or throws an assertion failure exception.</li>
+<li>If the assertion check is not in fact true, an assertion failure, <font color=blue>the program considers itself to be broken</font> and typically deliberately <strong>crashes</strong> or throws an assertion failure exception.</li>
 </ul>
 <hr>
 <p><code>void assert(scalar expression);</code></p>

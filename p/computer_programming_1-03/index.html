@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If 1 2 3 4 5 6 7 8 9  if (condition1) { statements; } else if (condition2){ ... } else { ... }    如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?"><title>程式設計(一)-03：Condition Control</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Condition Control 簡介 我們想要讓電腦去做基礎的判斷 if switch If 1 2 3 4 5 6 7 8 9 if (condition1) { statements; } else if (condition2){ ... } else { ... } 如果條件不是錯誤，那麼將會執行大括號裡的敘述 簡而言之"><title>程式設計(一)-03：Condition Control</title>
 <link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-03/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-03：Condition Control">
-<meta property="og:description" content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If 1 2 3 4 5 6 7 8 9  if (condition1) { statements; } else if (condition2){ ... } else { ... }    如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?">
+<meta property="og:description" content="Condition Control 簡介 我們想要讓電腦去做基礎的判斷 if switch If 1 2 3 4 5 6 7 8 9 if (condition1) { statements; } else if (condition2){ ... } else { ... } 如果條件不是錯誤，那麼將會執行大括號裡的敘述 簡而言之">
 <meta property="og:url" content="https://blog.smallten.me/p/computer_programming_1-03/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2020-10-15T20:53:14+08:00"><meta property="article:modified_time" content="2020-10-15T20:53:14+08:00">
 <meta name=twitter:title content="程式設計(一)-03：Condition Control">
-<meta name=twitter:description content="Condition Control 簡介  我們想要讓電腦去做基礎的判斷  if switch    If 1 2 3 4 5 6 7 8 9  if (condition1) { statements; } else if (condition2){ ... } else { ... }    如果條件不是錯誤，那麼將會執行大括號裡的敘述  簡而言之，false 被定義為 0   &amp;gt; -&amp;gt; 大於 &amp;lt; -&amp;gt; 小於 &amp;gt;= -&amp;gt; 大於等於 &amp;lt;= -&amp;gt; 小於等於 == -&amp;gt; 等於 != -&amp;gt; 不等於 &amp;amp;&amp;amp; -&amp;gt; and || -&amp;gt; or  Boolean  在 Cpp 裡，有個型別稱為 bool  它只有兩個值：true, false 那麼 bool 使用的記憶體大小為何能?">
+<meta name=twitter:description content="Condition Control 簡介 我們想要讓電腦去做基礎的判斷 if switch If 1 2 3 4 5 6 7 8 9 if (condition1) { statements; } else if (condition2){ ... } else { ... } 如果條件不是錯誤，那麼將會執行大括號裡的敘述 簡而言之">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>

@@ -1,17 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="前言  在安裝完了系統，也設定了基本配置後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 KDE。
-教學開始 基本安裝  安裝 KDE  Arch Linux 的 meta package 與 package group 安裝 Plasma：pacman -S plasma-meta 安裝 KDE applications：pacman -S kde-applications   安裝顯示管理器  這邊我們將使用 SDDM：pacman -S sddm 設定自動啟動：systemctl enable sddm.service   安裝終端模擬器  這邊我們使用 konsole：pacman -S konsole 喜歡 kitty 的也可安裝：pacman -S kitty   安裝文件管理器  這邊我們使用 Dolphin：pacman -S dolphin   一些基本軟體  中文字體：pacman -S adobe-source-han-sans-tw-fonts   重新啟動：reboot  KDE 美化  切換系統語言  系統設定 -&amp;gt; 區域設定 -&amp;gt;  語言 -&amp;gt; 增加語言&amp;hellip; -&amp;gt; 繁體中文 -&amp;gt; 設為預設 -&amp;gt; 套用 Formats -&amp;gt; 區域 -&amp;gt; 選擇 台灣 - 繁體中文 (zh_TW)     調整顯示設定  系統設定 -&amp;gt; 顯示與螢幕 -&amp;gt;  顯示設定 -&amp;gt; 全域縮放比例 -&amp;gt; 125% 組合器 -&amp;gt;  縮放方式：平滑 成像後端介面：OpenGL 3."><title>Arch Linux-03：KDE</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="前言 在安裝完了系統，也設定了基本配置後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 KDE。 教學開始 基本安裝 安裝 KDE Arch Linux 的 meta"><title>Arch Linux-03：KDE</title>
 <link rel=canonical href=https://blog.smallten.me/p/arch_linux-03/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Arch Linux-03：KDE">
-<meta property="og:description" content="前言  在安裝完了系統，也設定了基本配置後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 KDE。
-教學開始 基本安裝  安裝 KDE  Arch Linux 的 meta package 與 package group 安裝 Plasma：pacman -S plasma-meta 安裝 KDE applications：pacman -S kde-applications   安裝顯示管理器  這邊我們將使用 SDDM：pacman -S sddm 設定自動啟動：systemctl enable sddm.service   安裝終端模擬器  這邊我們使用 konsole：pacman -S konsole 喜歡 kitty 的也可安裝：pacman -S kitty   安裝文件管理器  這邊我們使用 Dolphin：pacman -S dolphin   一些基本軟體  中文字體：pacman -S adobe-source-han-sans-tw-fonts   重新啟動：reboot  KDE 美化  切換系統語言  系統設定 -&amp;gt; 區域設定 -&amp;gt;  語言 -&amp;gt; 增加語言&amp;hellip; -&amp;gt; 繁體中文 -&amp;gt; 設為預設 -&amp;gt; 套用 Formats -&amp;gt; 區域 -&amp;gt; 選擇 台灣 - 繁體中文 (zh_TW)     調整顯示設定  系統設定 -&amp;gt; 顯示與螢幕 -&amp;gt;  顯示設定 -&amp;gt; 全域縮放比例 -&amp;gt; 125% 組合器 -&amp;gt;  縮放方式：平滑 成像後端介面：OpenGL 3.">
+<meta property="og:description" content="前言 在安裝完了系統，也設定了基本配置後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 KDE。 教學開始 基本安裝 安裝 KDE Arch Linux 的 meta">
 <meta property="og:url" content="https://blog.smallten.me/p/arch_linux-03/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arch Linux"><meta property="article:published_time" content="2021-08-11T21:55:25+08:00"><meta property="article:modified_time" content="2021-08-11T21:55:25+08:00">
 <meta name=twitter:title content="Arch Linux-03：KDE">
-<meta name=twitter:description content="前言  在安裝完了系統，也設定了基本配置後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 KDE。
-教學開始 基本安裝  安裝 KDE  Arch Linux 的 meta package 與 package group 安裝 Plasma：pacman -S plasma-meta 安裝 KDE applications：pacman -S kde-applications   安裝顯示管理器  這邊我們將使用 SDDM：pacman -S sddm 設定自動啟動：systemctl enable sddm.service   安裝終端模擬器  這邊我們使用 konsole：pacman -S konsole 喜歡 kitty 的也可安裝：pacman -S kitty   安裝文件管理器  這邊我們使用 Dolphin：pacman -S dolphin   一些基本軟體  中文字體：pacman -S adobe-source-han-sans-tw-fonts   重新啟動：reboot  KDE 美化  切換系統語言  系統設定 -&amp;gt; 區域設定 -&amp;gt;  語言 -&amp;gt; 增加語言&amp;hellip; -&amp;gt; 繁體中文 -&amp;gt; 設為預設 -&amp;gt; 套用 Formats -&amp;gt; 區域 -&amp;gt; 選擇 台灣 - 繁體中文 (zh_TW)     調整顯示設定  系統設定 -&amp;gt; 顯示與螢幕 -&amp;gt;  顯示設定 -&amp;gt; 全域縮放比例 -&amp;gt; 125% 組合器 -&amp;gt;  縮放方式：平滑 成像後端介面：OpenGL 3.">
+<meta name=twitter:description content="前言 在安裝完了系統，也設定了基本配置後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 KDE。 教學開始 基本安裝 安裝 KDE Arch Linux 的 meta">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
@@ -40,7 +37,7 @@ extended">
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 minute read
+2 minute read
 </time>
 </div>
 </footer>

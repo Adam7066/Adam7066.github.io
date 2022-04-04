@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介  現今你時常能在影音媒體網站看到 .m3u8 的檔案，以及許多 .ts 的分段媒體，本篇將教你如何簡單的下載成 .mp4 檔。 這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入了解請自行查找資料。  FFmpeg  FFmpeg官網 下載安裝完後，若為 windows 用戶請將 %ffmpeg%\bin 的路徑加入環境變數中，並於terminal中執行 ffmpeg -version 來查看是否成功加入。 下載檔案，直接在 terminal 輸入 ffmpeg -i m3u8URL -c copy filname.mp4，即可完成下載。(下面將提供Python的寫法)  Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14  # -*- coding: UTF-8 -*- import ffmpeg_streaming from ffmpeg_streaming import Formats url = &amp;#39;https://.../index.m3u8&amp;#39; filename = &amp;#39;test.mp4&amp;#39; def ffmpeg_download(input_path, output_path): video = ffmpeg_streaming."><title>Python-03：m3u8影片下載</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介 現今你時常能在影音媒體網站看到 .m3u8 的檔案，以及許多 .ts 的分段媒體，本篇將教你如何簡單的下載成 .mp4 檔。 這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入"><title>Python-03：m3u8影片下載</title>
 <link rel=canonical href=https://blog.smallten.me/p/python-03/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Python-03：m3u8影片下載">
-<meta property="og:description" content="簡介  現今你時常能在影音媒體網站看到 .m3u8 的檔案，以及許多 .ts 的分段媒體，本篇將教你如何簡單的下載成 .mp4 檔。 這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入了解請自行查找資料。  FFmpeg  FFmpeg官網 下載安裝完後，若為 windows 用戶請將 %ffmpeg%\bin 的路徑加入環境變數中，並於terminal中執行 ffmpeg -version 來查看是否成功加入。 下載檔案，直接在 terminal 輸入 ffmpeg -i m3u8URL -c copy filname.mp4，即可完成下載。(下面將提供Python的寫法)  Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14  # -*- coding: UTF-8 -*- import ffmpeg_streaming from ffmpeg_streaming import Formats url = &amp;#39;https://.../index.m3u8&amp;#39; filename = &amp;#39;test.mp4&amp;#39; def ffmpeg_download(input_path, output_path): video = ffmpeg_streaming.">
+<meta property="og:description" content="簡介 現今你時常能在影音媒體網站看到 .m3u8 的檔案，以及許多 .ts 的分段媒體，本篇將教你如何簡單的下載成 .mp4 檔。 這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入">
 <meta property="og:url" content="https://blog.smallten.me/p/python-03/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Python"><meta property="article:published_time" content="2020-10-04T11:07:24+08:00"><meta property="article:modified_time" content="2020-10-04T11:07:24+08:00">
 <meta name=twitter:title content="Python-03：m3u8影片下載">
-<meta name=twitter:description content="簡介  現今你時常能在影音媒體網站看到 .m3u8 的檔案，以及許多 .ts 的分段媒體，本篇將教你如何簡單的下載成 .mp4 檔。 這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入了解請自行查找資料。  FFmpeg  FFmpeg官網 下載安裝完後，若為 windows 用戶請將 %ffmpeg%\bin 的路徑加入環境變數中，並於terminal中執行 ffmpeg -version 來查看是否成功加入。 下載檔案，直接在 terminal 輸入 ffmpeg -i m3u8URL -c copy filname.mp4，即可完成下載。(下面將提供Python的寫法)  Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14  # -*- coding: UTF-8 -*- import ffmpeg_streaming from ffmpeg_streaming import Formats url = &amp;#39;https://.../index.m3u8&amp;#39; filename = &amp;#39;test.mp4&amp;#39; def ffmpeg_download(input_path, output_path): video = ffmpeg_streaming.">
+<meta name=twitter:description content="簡介 現今你時常能在影音媒體網站看到 .m3u8 的檔案，以及許多 .ts 的分段媒體，本篇將教你如何簡單的下載成 .mp4 檔。 這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>

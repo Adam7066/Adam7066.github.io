@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Preprocessor 預處理器  在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。 Objective: Produce a source code file with preprocessing commands properly sorted out.  Preprocessor commands are known as Directives. Preprocessor provides certain features, which are called preprocessor directives. Preprocessor directive 以 # 為開頭。(例如：#include &amp;lt;stdio.h&amp;gt;) Preprocessor directives 可以被放在程式中的任何地方。但建議放在開頭，並且每個必須獨立一行。   1 2 3 4 5 6  #include &amp;lt;stdio.h&amp;gt;#define MACRO_DEMO 123 int main() { printf(&amp;#34;demo:␣%d\n&amp;#34;, MACRO_DEMO); return 0; }    以 gcc -E main.c 查看預處理後的狀態。  Macro 巨集  #define is known as macro expansion."><title>程式設計(二)-06：Macro</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Preprocessor 預處理器 在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。 Objective: Produce a source code file with preprocessing commands properly sorted out. Preprocessor commands are known as Directives. Preprocessor provides certain features, which are called preprocessor directives. Preprocessor directive 以 # 為開"><title>程式設計(二)-06：Macro</title>
 <link rel=canonical href=https://blog.smallten.me/p/computer_programming_2-06/>
 <link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-06：Macro">
-<meta property="og:description" content="Preprocessor 預處理器  在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。 Objective: Produce a source code file with preprocessing commands properly sorted out.  Preprocessor commands are known as Directives. Preprocessor provides certain features, which are called preprocessor directives. Preprocessor directive 以 # 為開頭。(例如：#include &amp;lt;stdio.h&amp;gt;) Preprocessor directives 可以被放在程式中的任何地方。但建議放在開頭，並且每個必須獨立一行。   1 2 3 4 5 6  #include &amp;lt;stdio.h&amp;gt;#define MACRO_DEMO 123 int main() { printf(&amp;#34;demo:␣%d\n&amp;#34;, MACRO_DEMO); return 0; }    以 gcc -E main.c 查看預處理後的狀態。  Macro 巨集  #define is known as macro expansion.">
+<meta property="og:description" content="Preprocessor 預處理器 在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。 Objective: Produce a source code file with preprocessing commands properly sorted out. Preprocessor commands are known as Directives. Preprocessor provides certain features, which are called preprocessor directives. Preprocessor directive 以 # 為開">
 <meta property="og:url" content="https://blog.smallten.me/p/computer_programming_2-06/">
 <meta property="og:site_name" content="小十的部落格">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2021-07-13T20:47:06+08:00"><meta property="article:modified_time" content="2021-07-13T20:47:06+08:00">
 <meta name=twitter:title content="程式設計(二)-06：Macro">
-<meta name=twitter:description content="Preprocessor 預處理器  在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。 Objective: Produce a source code file with preprocessing commands properly sorted out.  Preprocessor commands are known as Directives. Preprocessor provides certain features, which are called preprocessor directives. Preprocessor directive 以 # 為開頭。(例如：#include &amp;lt;stdio.h&amp;gt;) Preprocessor directives 可以被放在程式中的任何地方。但建議放在開頭，並且每個必須獨立一行。   1 2 3 4 5 6  #include &amp;lt;stdio.h&amp;gt;#define MACRO_DEMO 123 int main() { printf(&amp;#34;demo:␣%d\n&amp;#34;, MACRO_DEMO); return 0; }    以 gcc -E main.c 查看預處理後的狀態。  Macro 巨集  #define is known as macro expansion.">
+<meta name=twitter:description content="Preprocessor 預處理器 在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。 Objective: Produce a source code file with preprocessing commands properly sorted out. Preprocessor commands are known as Directives. Preprocessor provides certain features, which are called preprocessor directives. Preprocessor directive 以 # 為開">
 <link rel="shortcut icon" href=/image/favicon.png>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
@@ -54,8 +54,8 @@ extended">
 <li>在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。</li>
 <li>Objective: Produce a source code file with preprocessing commands properly sorted out.
 <img src=/p/computer_programming_2-06/computer_programming_2-06-01.jpg width=896 height=385 srcset="/p/computer_programming_2-06/computer_programming_2-06-01_huf7812d2979363ef4f58bc7b553e0d967_57019_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-06/computer_programming_2-06-01_huf7812d2979363ef4f58bc7b553e0d967_57019_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=232 data-flex-basis=558px></li>
-<li>Preprocessor commands are known as Directives.</li>
-<li>Preprocessor provides certain features, which are called preprocessor directives.</li>
+<li>Preprocessor commands are known as <font color=blue>Directives</font>.</li>
+<li>Preprocessor provides certain features, which are called <font color=blue>preprocessor directives</font>.</li>
 <li>Preprocessor directive 以 <code>#</code> 為開頭。(例如：<code>#include &lt;stdio.h></code>)</li>
 <li>Preprocessor directives 可以被放在程式中的任何地方。但建議放在開頭，並且每個必須獨立一行。</li>
 </ul>
@@ -83,21 +83,21 @@ extended">
 </ul>
 <h1 id=macro-巨集>Macro 巨集</h1>
 <ul>
-<li><code>#define</code> is known as macro expansion.</li>
+<li><code>#define</code> is known as <font color=blue>macro expansion</font>.</li>
 <li>General Form: <code>#define macro_template macro_expansion</code></li>
 </ul>
 <h2 id=macro-expansion>Macro Expansion</h2>
 <ul>
 <li>Preprocessor searches for macro definition.</li>
 <li>After finding macro definition, it searches the whole program for <strong>macro_template</strong>.</li>
-<li>Replace every <strong>macro_template</strong> with <strong>macro_expansion</strong>.
+<li><font color=red>Replace</font> every <strong>macro_template</strong> with <strong>macro_expansion</strong>.
 <ul>
 <li>Replacement will not occur if the template is in a quoted string.</li>
 </ul>
 </li>
 <li>Notes:
 <ul>
-<li>通常 macro_template 會使用大寫字母</li>
+<li>通常 macro_template 會使用<font color=blue>大寫字母</font></li>
 <li>不要使用分號 <code>;</code></li>
 </ul>
 </li>
@@ -129,7 +129,7 @@ extended">
 <h3 id=function>Function</h3>
 <ul>
 <li>傳遞參數 -> 執行 -> 回傳結果</li>
-<li>支援遞迴</li>
+<li>支援<font color=red>遞迴</font></li>
 </ul>
 <h2 id=inline-functions>inline Functions</h2>
 <ul>
@@ -164,8 +164,8 @@ extended">
 </li>
 <li>What does Inclusion Mean?
 <ul>
-<li>Nothing but simply copy and paste.</li>
-<li>Nested Inclusion is supported.</li>
+<li>Nothing but simply <font color=blue>copy and paste</font>.</li>
+<li><font color=blue>Nested Inclusion</font> is supported.</li>
 </ul>
 </li>
 </ul>
