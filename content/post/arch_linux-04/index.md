@@ -60,7 +60,7 @@ makepkg -si
         - 修改 ZSH_THEME 為：`ZSH_THEME="powerlevel10k/powerlevel10k"`
     - 更新配置：`source .zshrc`
 - 安裝插件
-    - 下載 zsh-autosuggestion：`git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions`
+    - 下載 zsh-autosuggestion：`git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions`
     - 下載 zsh-syntax-highlighting：`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
     - 修改 .zshrc：`vim ~/.zshrc`
         ```
