@@ -3245,7 +3245,7 @@ fc-list &lt;span class="p">|&lt;/span> grep -i droid
 &lt;/li>
 &lt;li>安裝插件
 &lt;ul>
-&lt;li>下載 zsh-autosuggestion：&lt;code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions&lt;/code>&lt;/li>
+&lt;li>下載 zsh-autosuggestion：&lt;code>git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions&lt;/code>&lt;/li>
 &lt;li>下載 zsh-syntax-highlighting：&lt;code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting&lt;/code>&lt;/li>
 &lt;li>修改 .zshrc：&lt;code>vim ~/.zshrc&lt;/code>
 &lt;div class="highlight">&lt;div class="chroma">
