@@ -1,0 +1,1112 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="題目 HW02 players_20.csv 參考作法 C 語言 在 main() 中讀取 file 跟 inSquad 時偷懶，所沒用動態記憶體配置。 但在讀取 CSV 內容時，有使用動態記憶體配置呦！ 然後可以的話，建議可以直接使用"><title>程式設計(二)-09：111-2 HW0204 參考作法</title>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_2-09/>
+<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-09：111-2 HW0204 參考作法">
+<meta property="og:description" content="題目 HW02 players_20.csv 參考作法 C 語言 在 main() 中讀取 file 跟 inSquad 時偷懶，所沒用動態記憶體配置。 但在讀取 CSV 內容時，有使用動態記憶體配置呦！ 然後可以的話，建議可以直接使用">
+<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_2-09/">
+<meta property="og:site_name" content="小十的部落格">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Go"><meta property="article:published_time" content="2023-04-25T01:56:39+08:00"><meta property="article:modified_time" content="2023-04-25T01:56:39+08:00">
+<meta name=twitter:title content="程式設計(二)-09：111-2 HW0204 參考作法">
+<meta name=twitter:description content="題目 HW02 players_20.csv 參考作法 C 語言 在 main() 中讀取 file 跟 inSquad 時偷懶，所沒用動態記憶體配置。 但在讀取 CSV 內容時，有使用動態記憶體配置呦！ 然後可以的話，建議可以直接使用">
+<link rel="shortcut icon" href=/image/favicon.png>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>
+程式設計(二)
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/computer_programming_2-09/>程式設計(二)-09：111-2 HW0204 參考作法</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Apr 25, 2023</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+5 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=題目>題目</h1>
+<ul>
+<li>
+<a class=link href=./hw02.pdf download=HW02.pdf>HW02</a></li>
+<li>
+<a class=link href=./players_20.csv download=players_20.csv>players_20.csv</a></li>
+</ul>
+<h1 id=參考作法>參考作法</h1>
+<h2 id=c-語言>C 語言</h2>
+<ul>
+<li>在 <code>main()</code> 中讀取 <code>file</code> 跟 <code>inSquad</code> 時偷懶，所沒用動態記憶體配置。</li>
+<li>但在讀取 CSV 內容時，有使用動態記憶體配置呦！</li>
+<li>然後可以的話，建議可以直接使用 <code>mmap()</code> 來讀取檔案，比較簡單，但當時同學還沒上到這個，就沒使用了。（攤～</li>
+</ul>
+<h3 id=makefile>Makefile</h3>
+<ul>
+<li>因為有使用到 <code>Glib</code>，所以要加上一些東西。</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=nf>all</span><span class=o>:</span>
+	gcc hw0204.c <span class=sb>`</span>pkg-config --cflags --libs glib-2.0<span class=sb>`</span> -o hw0204
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=程式碼>程式碼</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span><span class=lnt>275
+</span><span class=lnt>276
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;stdbool.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;ctype.h&gt;</span><span class=cp>
+</span><span class=cp>#include</span> <span class=cpf>&lt;glib.h&gt;</span><span class=cp>
+</span><span class=cp>#define bufSize 256
+</span><span class=cp></span>
+<span class=k>static</span> <span class=kt>char</span> <span class=n>abilityStr</span><span class=p>[</span><span class=mi>27</span><span class=p>][</span><span class=mi>5</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=s>&#34;ls&#34;</span><span class=p>,</span> <span class=s>&#34;st&#34;</span><span class=p>,</span> <span class=s>&#34;rs&#34;</span><span class=p>,</span> <span class=s>&#34;lw&#34;</span><span class=p>,</span> <span class=s>&#34;lf&#34;</span><span class=p>,</span>
+    <span class=s>&#34;cf&#34;</span><span class=p>,</span> <span class=s>&#34;rf&#34;</span><span class=p>,</span> <span class=s>&#34;rw&#34;</span><span class=p>,</span> <span class=s>&#34;lam&#34;</span><span class=p>,</span> <span class=s>&#34;cam&#34;</span><span class=p>,</span>
+    <span class=s>&#34;ram&#34;</span><span class=p>,</span> <span class=s>&#34;lm&#34;</span><span class=p>,</span> <span class=s>&#34;lcm&#34;</span><span class=p>,</span> <span class=s>&#34;cm&#34;</span><span class=p>,</span> <span class=s>&#34;rcm&#34;</span><span class=p>,</span>
+    <span class=s>&#34;rm&#34;</span><span class=p>,</span> <span class=s>&#34;lwb&#34;</span><span class=p>,</span> <span class=s>&#34;ldm&#34;</span><span class=p>,</span> <span class=s>&#34;cdm&#34;</span><span class=p>,</span> <span class=s>&#34;rdm&#34;</span><span class=p>,</span>
+    <span class=s>&#34;rwb&#34;</span><span class=p>,</span> <span class=s>&#34;lb&#34;</span><span class=p>,</span> <span class=s>&#34;lcb&#34;</span><span class=p>,</span> <span class=s>&#34;cb&#34;</span><span class=p>,</span> <span class=s>&#34;rcb&#34;</span><span class=p>,</span>
+    <span class=s>&#34;rb&#34;</span><span class=p>,</span> <span class=s>&#34;gk&#34;</span>
+<span class=p>};</span>
+
+<span class=k>typedef</span> <span class=k>struct</span> <span class=p>{</span>
+    <span class=kt>char</span> <span class=o>*</span><span class=n>sofifa_id</span><span class=p>,</span> <span class=o>*</span><span class=n>short_name</span><span class=p>;</span>
+    <span class=kt>double</span> <span class=n>value_eur</span><span class=p>,</span> <span class=n>wage_eur</span><span class=p>;</span>
+    <span class=kt>char</span> <span class=o>*</span><span class=n>club_name</span><span class=p>;</span>
+    <span class=n>GHashTable</span> <span class=o>*</span><span class=n>ability</span><span class=p>;</span>
+    <span class=kt>bool</span> <span class=n>selected</span><span class=p>;</span>
+<span class=p>}</span> <span class=n>Player</span><span class=p>;</span>
+
+<span class=k>static</span> <span class=n>Player</span> <span class=o>*</span><span class=n>player</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+<span class=k>static</span> <span class=n>size_t</span> <span class=n>playerNum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=k>static</span> <span class=n>size_t</span> <span class=n>playerSize</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=k>static</span> <span class=kt>char</span> <span class=o>*</span><span class=n>cmpPosition</span><span class=p>;</span>
+<span class=k>static</span> <span class=kt>double</span> <span class=n>budget</span><span class=p>[</span><span class=mi>11</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+
+<span class=kt>void</span> <span class=nf>printTeam</span><span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=n>p</span><span class=p>,</span> <span class=kt>char</span> <span class=o>*</span><span class=n>position</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%s/%s/&#34;</span><span class=p>,</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>short_name</span><span class=p>,</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>club_name</span><span class=p>);</span>
+    <span class=kt>double</span> <span class=n>ability</span> <span class=o>=</span> <span class=n>GPOINTER_TO_INT</span><span class=p>(</span><span class=n>g_hash_table_lookup</span><span class=p>(</span><span class=n>p</span><span class=o>-&gt;</span><span class=n>ability</span><span class=p>,</span> <span class=n>position</span><span class=p>));</span>
+    <span class=n>g_print</span><span class=p>(</span><span class=s>&#34;%g/&#34;</span><span class=p>,</span> <span class=n>ability</span><span class=p>);</span>
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d/%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=p>(</span><span class=kt>int</span><span class=p>)(</span><span class=n>p</span><span class=o>-&gt;</span><span class=n>value_eur</span><span class=p>),</span> <span class=p>(</span><span class=kt>int</span><span class=p>)(</span><span class=n>p</span><span class=o>-&gt;</span><span class=n>wage_eur</span><span class=p>));</span>
+<span class=p>}</span>
+
+<span class=kt>double</span> <span class=nf>getAbility</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>str</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kt>double</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>b</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>strchr</span><span class=p>(</span><span class=n>str</span><span class=p>,</span> <span class=sc>&#39;+&#39;</span><span class=p>)</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=n>sscanf</span><span class=p>(</span><span class=n>str</span><span class=p>,</span> <span class=s>&#34;%lf+%lf&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>);</span>
+    <span class=k>else</span> <span class=n>sscanf</span><span class=p>(</span><span class=n>str</span><span class=p>,</span> <span class=s>&#34;%lf&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>);</span>
+    <span class=k>return</span> <span class=n>a</span> <span class=o>+</span> <span class=n>b</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>void</span> <span class=nf>parseLine</span><span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=n>p</span><span class=p>,</span> <span class=kt>char</span> <span class=o>*</span><span class=n>token</span><span class=p>,</span> <span class=kt>int</span> <span class=n>cnt</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>||</span> <span class=n>cnt</span> <span class=o>==</span> <span class=mi>2</span> <span class=o>||</span> <span class=n>cnt</span> <span class=o>==</span> <span class=mi>14</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>char</span> <span class=o>*</span><span class=n>str</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>char</span><span class=p>));</span>
+        <span class=n>strcpy</span><span class=p>(</span><span class=n>str</span><span class=p>,</span> <span class=n>token</span><span class=p>);</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>sofifa_id</span> <span class=o>=</span> <span class=n>str</span><span class=p>;</span>
+        <span class=k>else</span> <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>2</span><span class=p>)</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>short_name</span> <span class=o>=</span> <span class=n>str</span><span class=p>;</span>
+        <span class=k>else</span> <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>14</span><span class=p>)</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>club_name</span> <span class=o>=</span> <span class=n>str</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>else</span> <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>7</span> <span class=o>||</span> <span class=n>cnt</span> <span class=o>==</span> <span class=mi>8</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>char</span> <span class=o>**</span><span class=n>endPtr</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+        <span class=kt>bool</span> <span class=n>spaceFlag</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+        <span class=n>size_t</span> <span class=n>tokenLen</span> <span class=o>=</span> <span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>);</span>
+        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>tokenLen</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>isspace</span><span class=p>(</span><span class=n>token</span><span class=p>[</span><span class=n>i</span><span class=p>]))</span> <span class=p>{</span>
+                <span class=n>spaceFlag</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+                <span class=k>break</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=kt>double</span> <span class=n>eur</span> <span class=o>=</span> <span class=n>spaceFlag</span> <span class=o>?</span> <span class=o>-</span><span class=mi>1</span> <span class=o>:</span> <span class=n>strtod</span><span class=p>(</span><span class=n>token</span><span class=p>,</span> <span class=n>endPtr</span><span class=p>);</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>7</span><span class=p>)</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>value_eur</span> <span class=o>=</span> <span class=n>eur</span><span class=p>;</span>
+        <span class=k>else</span> <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>==</span> <span class=mi>8</span><span class=p>)</span> <span class=n>p</span><span class=o>-&gt;</span><span class=n>wage_eur</span> <span class=o>=</span> <span class=n>eur</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>else</span> <span class=k>if</span><span class=p>(</span><span class=n>cnt</span> <span class=o>&gt;=</span> <span class=mi>78</span> <span class=o>&amp;&amp;</span> <span class=n>cnt</span> <span class=o>&lt;=</span> <span class=mi>104</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>g_hash_table_insert</span><span class=p>(</span><span class=n>p</span><span class=o>-&gt;</span><span class=n>ability</span><span class=p>,</span> <span class=n>abilityStr</span><span class=p>[</span><span class=n>cnt</span> <span class=o>-</span> <span class=mi>78</span><span class=p>],</span> <span class=n>GINT_TO_POINTER</span><span class=p>(</span><span class=n>getAbility</span><span class=p>(</span><span class=n>token</span><span class=p>)));</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kt>void</span> <span class=nf>getPlayer</span><span class=p>(</span><span class=n>FILE</span> <span class=o>*</span><span class=n>fp</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kt>char</span> <span class=o>*</span><span class=n>line</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=n>bufSize</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>char</span><span class=p>));</span>
+    <span class=n>size_t</span> <span class=n>lineCnt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>while</span><span class=p>((</span><span class=n>line</span> <span class=o>=</span> <span class=n>fgets</span><span class=p>(</span><span class=n>line</span><span class=p>,</span> <span class=n>bufSize</span><span class=p>,</span> <span class=n>fp</span><span class=p>))</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>size_t</span> <span class=n>len</span> <span class=o>=</span> <span class=n>strlen</span><span class=p>(</span><span class=n>line</span><span class=p>);</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>len</span> <span class=o>==</span> <span class=n>bufSize</span> <span class=o>-</span> <span class=mi>1</span> <span class=o>&amp;&amp;</span> <span class=n>line</span><span class=p>[</span><span class=n>len</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>!=</span> <span class=sc>&#39;\n&#39;</span><span class=p>)</span> <span class=p>{</span>
+            <span class=kt>int</span> <span class=n>newLen</span> <span class=o>=</span> <span class=n>len</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>;</span>
+            <span class=n>line</span> <span class=o>=</span> <span class=n>realloc</span><span class=p>(</span><span class=n>line</span><span class=p>,</span> <span class=n>newLen</span><span class=p>);</span>
+            <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>line</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>printf</span><span class=p>(</span><span class=s>&#34;realloc failed</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+                <span class=n>exit</span><span class=p>(</span><span class=n>EXIT_FAILURE</span><span class=p>);</span>
+            <span class=p>}</span>
+            <span class=k>while</span><span class=p>(</span><span class=n>fgets</span><span class=p>(</span><span class=n>line</span> <span class=o>+</span> <span class=n>len</span><span class=p>,</span> <span class=n>newLen</span> <span class=o>-</span> <span class=n>len</span><span class=p>,</span> <span class=n>fp</span><span class=p>)</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>len</span> <span class=o>=</span> <span class=n>strlen</span><span class=p>(</span><span class=n>line</span><span class=p>);</span>
+                <span class=k>if</span><span class=p>(</span><span class=n>line</span><span class=p>[</span><span class=n>len</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;\n&#39;</span><span class=p>)</span> <span class=k>break</span><span class=p>;</span>
+                <span class=n>newLen</span> <span class=o>=</span> <span class=n>len</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>;</span>
+                <span class=n>line</span> <span class=o>=</span> <span class=n>realloc</span><span class=p>(</span><span class=n>line</span><span class=p>,</span> <span class=n>newLen</span><span class=p>);</span>
+                <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>line</span><span class=p>)</span> <span class=p>{</span>
+                    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;realloc failed</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+                    <span class=n>exit</span><span class=p>(</span><span class=n>EXIT_FAILURE</span><span class=p>);</span>
+                <span class=p>}</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+
+        <span class=kt>char</span> <span class=o>*</span><span class=n>find</span> <span class=o>=</span> <span class=n>strstr</span><span class=p>(</span><span class=n>line</span><span class=p>,</span> <span class=s>&#34;,,&#34;</span><span class=p>);</span>
+        <span class=k>while</span><span class=p>(</span><span class=n>find</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+            <span class=kt>char</span> <span class=o>*</span><span class=n>tmp</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=n>strlen</span><span class=p>(</span><span class=n>line</span><span class=p>)</span> <span class=o>+</span> <span class=mi>2</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>char</span><span class=p>));</span>
+            <span class=n>tmp</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>line</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+            <span class=n>strncpy</span><span class=p>(</span><span class=n>tmp</span><span class=p>,</span> <span class=n>line</span><span class=p>,</span> <span class=n>find</span> <span class=o>-</span> <span class=n>line</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+            <span class=n>tmp</span><span class=p>[</span><span class=n>find</span> <span class=o>-</span> <span class=n>line</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39; &#39;</span><span class=p>;</span>
+            <span class=n>strncat</span><span class=p>(</span><span class=n>tmp</span> <span class=o>+</span> <span class=p>(</span><span class=n>find</span> <span class=o>-</span> <span class=n>line</span><span class=p>)</span> <span class=o>+</span> <span class=mi>2</span><span class=p>,</span> <span class=n>find</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=n>strlen</span><span class=p>(</span><span class=n>find</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span>
+            <span class=n>free</span><span class=p>(</span><span class=n>line</span><span class=p>);</span>
+            <span class=n>line</span> <span class=o>=</span> <span class=n>tmp</span><span class=p>;</span>
+            <span class=n>find</span> <span class=o>=</span> <span class=n>strstr</span><span class=p>(</span><span class=n>line</span><span class=p>,</span> <span class=s>&#34;,,&#34;</span><span class=p>);</span>
+        <span class=p>}</span>
+
+        <span class=k>if</span><span class=p>(</span><span class=n>lineCnt</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=o>++</span><span class=n>lineCnt</span><span class=p>;</span>
+            <span class=k>continue</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>playerNum</span> <span class=o>==</span> <span class=n>playerSize</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>playerSize</span> <span class=o>=</span> <span class=n>playerSize</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>?</span> <span class=mi>1</span> <span class=o>:</span> <span class=n>playerSize</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>;</span>
+            <span class=n>player</span> <span class=o>=</span> <span class=n>realloc</span><span class=p>(</span><span class=n>player</span><span class=p>,</span> <span class=n>playerSize</span> <span class=o>*</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>Player</span><span class=p>));</span>
+            <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>player</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>printf</span><span class=p>(</span><span class=s>&#34;realloc failed</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+                <span class=n>exit</span><span class=p>(</span><span class=n>EXIT_FAILURE</span><span class=p>);</span>
+            <span class=p>}</span>
+            <span class=k>for</span><span class=p>(</span><span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=n>playerNum</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>playerSize</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>ability</span> <span class=o>=</span> <span class=n>g_hash_table_new</span><span class=p>(</span><span class=n>g_str_hash</span><span class=p>,</span> <span class=n>g_str_equal</span><span class=p>);</span>
+                <span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>selected</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=kt>int</span> <span class=n>cnt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>char</span> <span class=o>*</span><span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=n>line</span><span class=p>,</span> <span class=s>&#34;,&#34;</span><span class=p>);</span>
+        <span class=k>while</span><span class=p>(</span><span class=n>token</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span><span class=p>(</span><span class=n>token</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;\&#34;&#39;</span><span class=p>)</span> <span class=p>{</span>
+                <span class=kt>char</span> <span class=o>*</span><span class=n>tmp</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>char</span><span class=p>));</span>
+                <span class=n>strncpy</span><span class=p>(</span><span class=n>tmp</span><span class=p>,</span> <span class=n>token</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>));</span>
+                <span class=n>tmp</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>tmp</span><span class=p>)]</span> <span class=o>=</span> <span class=sc>&#39;,&#39;</span><span class=p>;</span>
+                <span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=nb>NULL</span><span class=p>,</span> <span class=s>&#34;</span><span class=se>\&#34;</span><span class=s>&#34;</span><span class=p>);</span>
+                <span class=n>tmp</span> <span class=o>=</span> <span class=n>realloc</span><span class=p>(</span><span class=n>tmp</span><span class=p>,</span> <span class=n>strlen</span><span class=p>(</span><span class=n>tmp</span><span class=p>)</span> <span class=o>+</span> <span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+                <span class=n>strncat</span><span class=p>(</span><span class=n>tmp</span><span class=p>,</span> <span class=n>token</span><span class=p>,</span> <span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>));</span>
+                <span class=n>tmp</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>tmp</span><span class=p>)]</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+                <span class=n>parseLine</span><span class=p>(</span><span class=o>&amp;</span><span class=n>player</span><span class=p>[</span><span class=n>playerNum</span><span class=p>],</span> <span class=n>tmp</span><span class=p>,</span> <span class=n>cnt</span><span class=p>);</span>
+                <span class=n>free</span><span class=p>(</span><span class=n>tmp</span><span class=p>);</span>
+            <span class=p>}</span>
+            <span class=k>else</span> <span class=n>parseLine</span><span class=p>(</span><span class=o>&amp;</span><span class=n>player</span><span class=p>[</span><span class=n>playerNum</span><span class=p>],</span> <span class=n>token</span><span class=p>,</span> <span class=n>cnt</span><span class=p>);</span>
+            <span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=nb>NULL</span><span class=p>,</span> <span class=s>&#34;,&#34;</span><span class=p>);</span>
+            <span class=o>++</span><span class=n>cnt</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=o>++</span><span class=n>lineCnt</span><span class=p>;</span>
+        <span class=o>++</span><span class=n>playerNum</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>free</span><span class=p>(</span><span class=n>line</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>cmpDouble</span><span class=p>(</span><span class=k>const</span> <span class=kt>double</span> <span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>double</span> <span class=n>b</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>flag</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span> <span class=k>return</span> <span class=p>(</span><span class=n>a</span> <span class=o>&gt;</span> <span class=n>b</span><span class=p>)</span> <span class=o>?</span> <span class=o>-</span><span class=mi>1</span> <span class=o>:</span> <span class=p>(</span><span class=n>a</span> <span class=o>&lt;</span> <span class=n>b</span><span class=p>)</span> <span class=o>?</span> <span class=mi>1</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span> <span class=c1>// greater
+</span><span class=c1></span>    <span class=k>return</span> <span class=p>(</span><span class=n>a</span> <span class=o>&lt;</span> <span class=n>b</span><span class=p>)</span> <span class=o>?</span> <span class=o>-</span><span class=mi>1</span> <span class=o>:</span> <span class=p>(</span><span class=n>a</span> <span class=o>&gt;</span> <span class=n>b</span><span class=p>)</span> <span class=o>?</span> <span class=mi>1</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span> <span class=c1>// less
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>cmpString</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>*</span><span class=n>b</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>flag</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>flag</span><span class=p>)</span> <span class=k>return</span> <span class=n>strcmp</span><span class=p>(</span><span class=n>b</span><span class=p>,</span> <span class=n>a</span><span class=p>);</span>
+    <span class=k>return</span> <span class=n>strcmp</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>cmpAbility</span><span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>const</span> <span class=n>Player</span> <span class=o>*</span><span class=n>c</span> <span class=o>=</span> <span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=p>)</span><span class=n>a</span><span class=p>;</span>
+    <span class=k>const</span> <span class=n>Player</span> <span class=o>*</span><span class=n>d</span> <span class=o>=</span> <span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>;</span>
+    <span class=k>return</span> <span class=n>cmpDouble</span><span class=p>(</span>
+               <span class=n>GPOINTER_TO_INT</span><span class=p>(</span><span class=n>g_hash_table_lookup</span><span class=p>(</span><span class=n>c</span><span class=o>-&gt;</span><span class=n>ability</span><span class=p>,</span> <span class=n>cmpPosition</span><span class=p>)),</span>
+               <span class=n>GPOINTER_TO_INT</span><span class=p>(</span><span class=n>g_hash_table_lookup</span><span class=p>(</span><span class=n>d</span><span class=o>-&gt;</span><span class=n>ability</span><span class=p>,</span> <span class=n>cmpPosition</span><span class=p>)),</span>
+               <span class=nb>true</span>
+           <span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>cmpBudget</span><span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>Player</span> <span class=o>*</span><span class=n>c</span> <span class=o>=</span> <span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=p>)</span><span class=n>a</span><span class=p>;</span>
+    <span class=n>Player</span> <span class=o>*</span><span class=n>d</span> <span class=o>=</span> <span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>;</span>
+    <span class=k>return</span> <span class=n>cmpDouble</span><span class=p>(</span><span class=n>c</span><span class=o>-&gt;</span><span class=n>value_eur</span><span class=p>,</span> <span class=n>d</span><span class=o>-&gt;</span><span class=n>value_eur</span><span class=p>,</span> <span class=nb>false</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>cmpSofifaId</span><span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>Player</span> <span class=o>*</span><span class=n>c</span> <span class=o>=</span> <span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=p>)</span><span class=n>a</span><span class=p>;</span>
+    <span class=n>Player</span> <span class=o>*</span><span class=n>d</span> <span class=o>=</span> <span class=p>(</span><span class=n>Player</span> <span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>;</span>
+    <span class=k>return</span> <span class=n>cmpString</span><span class=p>(</span><span class=n>c</span><span class=o>-&gt;</span><span class=n>sofifa_id</span><span class=p>,</span> <span class=n>d</span><span class=o>-&gt;</span><span class=n>sofifa_id</span><span class=p>,</span> <span class=nb>false</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>void</span> <span class=nf>getTeam</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=n>position</span><span class=p>,</span> <span class=kt>int</span> <span class=n>pos</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>qsort</span><span class=p>(</span><span class=n>player</span><span class=p>,</span> <span class=n>playerNum</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>Player</span><span class=p>),</span> <span class=n>cmpBudget</span><span class=p>);</span>
+    <span class=n>Player</span> <span class=o>*</span><span class=n>tmpPlayer</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+    <span class=n>size_t</span> <span class=n>tmpPlayerNum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=n>size_t</span> <span class=n>tmpPlayerSize</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>playerNum</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>selected</span> <span class=o>&amp;&amp;</span> <span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>value_eur</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>value_eur</span> <span class=o>&lt;=</span> <span class=n>budget</span><span class=p>[</span><span class=n>pos</span><span class=p>])</span> <span class=p>{</span>
+            <span class=k>if</span><span class=p>(</span><span class=n>tmpPlayerNum</span> <span class=o>==</span> <span class=n>tmpPlayerSize</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>tmpPlayerSize</span> <span class=o>=</span> <span class=n>tmpPlayerSize</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>?</span> <span class=mi>1</span> <span class=o>:</span> <span class=n>tmpPlayerSize</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>;</span>
+                <span class=n>tmpPlayer</span> <span class=o>=</span> <span class=n>realloc</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>,</span> <span class=n>tmpPlayerSize</span> <span class=o>*</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>Player</span><span class=p>));</span>
+                <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>tmpPlayer</span><span class=p>)</span> <span class=p>{</span>
+                    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;realloc failed</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+                    <span class=n>exit</span><span class=p>(</span><span class=n>EXIT_FAILURE</span><span class=p>);</span>
+                <span class=p>}</span>
+            <span class=p>}</span>
+            <span class=n>tmpPlayer</span><span class=p>[</span><span class=n>tmpPlayerNum</span><span class=o>++</span><span class=p>]</span> <span class=o>=</span> <span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>tmpPlayerNum</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;No player can be selected</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=k>return</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=n>cmpPosition</span> <span class=o>=</span> <span class=n>position</span><span class=p>;</span>
+    <span class=n>qsort</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>,</span> <span class=n>tmpPlayerNum</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>Player</span><span class=p>),</span> <span class=n>cmpAbility</span><span class=p>);</span>
+    <span class=n>size_t</span> <span class=n>sameAbilityNum</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=kt>double</span> <span class=n>maxAbility</span> <span class=o>=</span> <span class=n>GPOINTER_TO_INT</span><span class=p>(</span><span class=n>g_hash_table_lookup</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=n>ability</span><span class=p>,</span> <span class=n>position</span><span class=p>));</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>tmpPlayerNum</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>double</span> <span class=n>ability</span> <span class=o>=</span> <span class=n>GPOINTER_TO_INT</span><span class=p>(</span><span class=n>g_hash_table_lookup</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>ability</span><span class=p>,</span> <span class=n>position</span><span class=p>));</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>ability</span> <span class=o>==</span> <span class=n>maxAbility</span><span class=p>)</span> <span class=o>++</span><span class=n>sameAbilityNum</span><span class=p>;</span>
+        <span class=k>else</span> <span class=k>break</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>sameAbilityNum</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=n>printTeam</span><span class=p>(</span><span class=o>&amp;</span><span class=n>tmpPlayer</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>position</span><span class=p>);</span>
+    <span class=k>else</span> <span class=p>{</span>
+        <span class=n>qsort</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>,</span> <span class=n>sameAbilityNum</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>Player</span><span class=p>),</span> <span class=n>cmpBudget</span><span class=p>);</span>
+        <span class=n>size_t</span> <span class=n>sameBudgetNum</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=kt>double</span> <span class=n>minBudget</span> <span class=o>=</span> <span class=n>tmpPlayer</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=n>value_eur</span><span class=p>;</span>
+        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>sameAbilityNum</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>value_eur</span> <span class=o>==</span> <span class=n>minBudget</span><span class=p>)</span> <span class=o>++</span><span class=n>sameBudgetNum</span><span class=p>;</span>
+            <span class=k>else</span> <span class=k>break</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>sameBudgetNum</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=n>printTeam</span><span class=p>(</span><span class=o>&amp;</span><span class=n>tmpPlayer</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>position</span><span class=p>);</span>
+        <span class=k>else</span> <span class=p>{</span>
+            <span class=n>qsort</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>,</span> <span class=n>sameBudgetNum</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>Player</span><span class=p>),</span> <span class=n>cmpSofifaId</span><span class=p>);</span>
+            <span class=n>printTeam</span><span class=p>(</span><span class=o>&amp;</span><span class=n>tmpPlayer</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>position</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>playerNum</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span><span class=p>(</span><span class=n>strcmp</span><span class=p>(</span><span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>sofifa_id</span><span class=p>,</span> <span class=n>tmpPlayer</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=n>sofifa_id</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>player</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>selected</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+            <span class=k>break</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=n>free</span><span class=p>(</span><span class=n>tmpPlayer</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=kt>char</span> <span class=n>file</span><span class=p>[</span><span class=mi>100</span><span class=p>];</span>
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Please enter the dataset: &#34;</span><span class=p>);</span>
+    <span class=n>fgets</span><span class=p>(</span><span class=n>file</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=n>stdin</span><span class=p>);</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>file</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>file</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;\n&#39;</span><span class=p>)</span> <span class=n>file</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>file</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+    <span class=n>FILE</span> <span class=o>*</span><span class=n>fp</span> <span class=o>=</span> <span class=n>fopen</span><span class=p>(</span><span class=n>file</span><span class=p>,</span> <span class=s>&#34;rt&#34;</span><span class=p>);</span>
+    <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>fp</span><span class=p>)</span> <span class=n>exit</span><span class=p>(</span><span class=n>EXIT_FAILURE</span><span class=p>);</span>
+    <span class=n>getPlayer</span><span class=p>(</span><span class=n>fp</span><span class=p>);</span>
+    <span class=n>fclose</span><span class=p>(</span><span class=n>fp</span><span class=p>);</span>
+
+    <span class=kt>char</span> <span class=n>inSquad</span><span class=p>[</span><span class=mi>100</span><span class=p>];</span>
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Please enter the squad: &#34;</span><span class=p>);</span>
+    <span class=n>fgets</span><span class=p>(</span><span class=n>inSquad</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=n>stdin</span><span class=p>);</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>inSquad</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>inSquad</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;\n&#39;</span><span class=p>)</span> <span class=n>inSquad</span><span class=p>[</span><span class=n>strlen</span><span class=p>(</span><span class=n>inSquad</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+    <span class=kt>char</span> <span class=o>**</span><span class=n>squad</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=mi>11</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=p>));</span>
+    <span class=kt>int</span> <span class=n>squadNum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=kt>char</span> <span class=o>*</span><span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=n>inSquad</span><span class=p>,</span> <span class=s>&#34; &#34;</span><span class=p>);</span>
+    <span class=k>while</span><span class=p>(</span><span class=n>token</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>squad</span><span class=p>[</span><span class=n>squadNum</span><span class=p>]</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>char</span><span class=p>));</span>
+        <span class=n>strncpy</span><span class=p>(</span><span class=n>squad</span><span class=p>[</span><span class=n>squadNum</span><span class=p>],</span> <span class=n>token</span><span class=p>,</span> <span class=n>strlen</span><span class=p>(</span><span class=n>token</span><span class=p>));</span>
+        <span class=o>++</span><span class=n>squadNum</span><span class=p>;</span>
+        <span class=n>token</span> <span class=o>=</span> <span class=n>strtok</span><span class=p>(</span><span class=nb>NULL</span><span class=p>,</span> <span class=s>&#34; &#34;</span><span class=p>);</span>
+    <span class=p>}</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>strcmp</span><span class=p>(</span><span class=n>squad</span><span class=p>[</span><span class=mi>10</span><span class=p>],</span> <span class=s>&#34;gk&#34;</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;gk must be the last one of the team.</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+        <span class=n>exit</span><span class=p>(</span><span class=n>EXIT_FAILURE</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Budget:</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=mi>11</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\t</span><span class=s>%s: &#34;</span><span class=p>,</span> <span class=n>squad</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+        <span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%lf&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>budget</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+    <span class=p>}</span>
+
+    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Team:</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=mi>11</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\t</span><span class=s>%s: &#34;</span><span class=p>,</span> <span class=n>squad</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+        <span class=n>getTeam</span><span class=p>(</span><span class=n>squad</span><span class=p>[</span><span class=n>i</span><span class=p>],</span> <span class=n>i</span><span class=p>);</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=golang>Golang</h2>
+<h3 id=程式碼-1>程式碼</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;encoding/csv&#34;</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;os&#34;</span>
+	<span class=s>&#34;sort&#34;</span>
+	<span class=s>&#34;strings&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>var</span> <span class=nx>abilityStr</span> <span class=p>=</span> <span class=p>[]</span><span class=kt>string</span><span class=p>{</span>
+	<span class=s>&#34;ls&#34;</span><span class=p>,</span> <span class=s>&#34;st&#34;</span><span class=p>,</span> <span class=s>&#34;rs&#34;</span><span class=p>,</span> <span class=s>&#34;lw&#34;</span><span class=p>,</span> <span class=s>&#34;lf&#34;</span><span class=p>,</span>
+	<span class=s>&#34;cf&#34;</span><span class=p>,</span> <span class=s>&#34;rf&#34;</span><span class=p>,</span> <span class=s>&#34;rw&#34;</span><span class=p>,</span> <span class=s>&#34;lam&#34;</span><span class=p>,</span> <span class=s>&#34;cam&#34;</span><span class=p>,</span>
+	<span class=s>&#34;ram&#34;</span><span class=p>,</span> <span class=s>&#34;lm&#34;</span><span class=p>,</span> <span class=s>&#34;lcm&#34;</span><span class=p>,</span> <span class=s>&#34;cm&#34;</span><span class=p>,</span> <span class=s>&#34;rcm&#34;</span><span class=p>,</span>
+	<span class=s>&#34;rm&#34;</span><span class=p>,</span> <span class=s>&#34;lwb&#34;</span><span class=p>,</span> <span class=s>&#34;ldm&#34;</span><span class=p>,</span> <span class=s>&#34;cdm&#34;</span><span class=p>,</span> <span class=s>&#34;rdm&#34;</span><span class=p>,</span>
+	<span class=s>&#34;rwb&#34;</span><span class=p>,</span> <span class=s>&#34;lb&#34;</span><span class=p>,</span> <span class=s>&#34;lcb&#34;</span><span class=p>,</span> <span class=s>&#34;cb&#34;</span><span class=p>,</span> <span class=s>&#34;rcb&#34;</span><span class=p>,</span>
+	<span class=s>&#34;rb&#34;</span><span class=p>,</span> <span class=s>&#34;gk&#34;</span><span class=p>,</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Player</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>sofifa_id</span><span class=p>,</span> <span class=nx>short_name</span> <span class=kt>string</span>
+	<span class=nx>value_eur</span><span class=p>,</span> <span class=nx>wage_eur</span>   <span class=kt>int</span>
+	<span class=nx>club_name</span>             <span class=kt>string</span>
+	<span class=nx>ability</span>               <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>int</span>
+	<span class=nx>selected</span>              <span class=kt>bool</span>
+<span class=p>}</span>
+
+<span class=kd>var</span> <span class=nx>players</span> <span class=p>[]</span><span class=nx>Player</span>
+
+<span class=kd>func</span> <span class=nf>readCSV</span><span class=p>(</span><span class=nx>csvFile</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>f</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Open</span><span class=p>(</span><span class=nx>csvFile</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+		<span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=k>defer</span> <span class=nx>f</span><span class=p>.</span><span class=nf>Close</span><span class=p>()</span>
+	<span class=nx>csvReader</span> <span class=o>:=</span> <span class=nx>csv</span><span class=p>.</span><span class=nf>NewReader</span><span class=p>(</span><span class=nx>f</span><span class=p>)</span>
+	<span class=nx>title</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>csvReader</span><span class=p>.</span><span class=nf>Read</span><span class=p>()</span>
+	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+		<span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=k>for</span> <span class=p>{</span>
+		<span class=nx>record</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>csvReader</span><span class=p>.</span><span class=nf>Read</span><span class=p>()</span>
+		<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+			<span class=k>break</span>
+		<span class=p>}</span>
+		<span class=nx>player</span> <span class=o>:=</span> <span class=nx>Player</span><span class=p>{}</span>
+		<span class=nx>player</span><span class=p>.</span><span class=nx>ability</span> <span class=p>=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span>
+		<span class=k>for</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>v</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>record</span> <span class=p>{</span>
+			<span class=k>if</span> <span class=nx>title</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>==</span> <span class=s>&#34;sofifa_id&#34;</span> <span class=p>{</span>
+				<span class=nx>player</span><span class=p>.</span><span class=nx>sofifa_id</span> <span class=p>=</span> <span class=nx>v</span>
+			<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>title</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>==</span> <span class=s>&#34;short_name&#34;</span> <span class=p>{</span>
+				<span class=nx>player</span><span class=p>.</span><span class=nx>short_name</span> <span class=p>=</span> <span class=nx>v</span>
+			<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>title</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>==</span> <span class=s>&#34;value_eur&#34;</span> <span class=p>{</span>
+				<span class=k>if</span> <span class=nx>v</span> <span class=o>!=</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+					<span class=nx>fmt</span><span class=p>.</span><span class=nf>Sscanf</span><span class=p>(</span><span class=nx>v</span><span class=p>,</span> <span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>player</span><span class=p>.</span><span class=nx>value_eur</span><span class=p>)</span>
+				<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+					<span class=nx>player</span><span class=p>.</span><span class=nx>value_eur</span> <span class=p>=</span> <span class=o>-</span><span class=mi>1</span>
+				<span class=p>}</span>
+			<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>title</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>==</span> <span class=s>&#34;wage_eur&#34;</span> <span class=p>{</span>
+				<span class=k>if</span> <span class=nx>v</span> <span class=o>!=</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+					<span class=nx>fmt</span><span class=p>.</span><span class=nf>Sscanf</span><span class=p>(</span><span class=nx>v</span><span class=p>,</span> <span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>player</span><span class=p>.</span><span class=nx>wage_eur</span><span class=p>)</span>
+				<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+					<span class=nx>player</span><span class=p>.</span><span class=nx>wage_eur</span> <span class=p>=</span> <span class=o>-</span><span class=mi>1</span>
+				<span class=p>}</span>
+			<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>title</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>==</span> <span class=s>&#34;club_name&#34;</span> <span class=p>{</span>
+				<span class=nx>player</span><span class=p>.</span><span class=nx>club_name</span> <span class=p>=</span> <span class=nx>v</span>
+			<span class=p>}</span>
+			<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>ability</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>abilityStr</span> <span class=p>{</span>
+				<span class=k>if</span> <span class=nx>title</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>==</span> <span class=nx>ability</span> <span class=p>{</span>
+					<span class=kd>var</span> <span class=nx>a</span><span class=p>,</span> <span class=nx>b</span> <span class=kt>int</span>
+					<span class=k>if</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>Contains</span><span class=p>(</span><span class=nx>v</span><span class=p>,</span> <span class=s>&#34;+&#34;</span><span class=p>)</span> <span class=p>{</span>
+						<span class=nx>fmt</span><span class=p>.</span><span class=nf>Sscanf</span><span class=p>(</span><span class=nx>v</span><span class=p>,</span> <span class=s>&#34;%d+%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>a</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>b</span><span class=p>)</span>
+						<span class=nx>player</span><span class=p>.</span><span class=nx>ability</span><span class=p>[</span><span class=nx>ability</span><span class=p>]</span> <span class=p>=</span> <span class=nx>a</span> <span class=o>+</span> <span class=nx>b</span>
+					<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>v</span> <span class=o>!=</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+						<span class=nx>fmt</span><span class=p>.</span><span class=nf>Sscanf</span><span class=p>(</span><span class=nx>v</span><span class=p>,</span> <span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>a</span><span class=p>)</span>
+						<span class=nx>player</span><span class=p>.</span><span class=nx>ability</span><span class=p>[</span><span class=nx>ability</span><span class=p>]</span> <span class=p>=</span> <span class=nx>a</span>
+					<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+						<span class=nx>player</span><span class=p>.</span><span class=nx>ability</span><span class=p>[</span><span class=nx>ability</span><span class=p>]</span> <span class=p>=</span> <span class=o>-</span><span class=mi>1</span>
+					<span class=p>}</span>
+				<span class=p>}</span>
+			<span class=p>}</span>
+		<span class=p>}</span>
+		<span class=nx>players</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>players</span><span class=p>,</span> <span class=nx>player</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>printPlayer</span><span class=p>(</span><span class=nx>squad</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>player</span> <span class=nx>Player</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span>
+		<span class=nx>squad</span><span class=p>,</span> <span class=s>&#34;: &#34;</span><span class=p>,</span>
+		<span class=nx>player</span><span class=p>.</span><span class=nx>short_name</span><span class=p>,</span> <span class=s>&#34;/&#34;</span><span class=p>,</span>
+		<span class=nx>player</span><span class=p>.</span><span class=nx>club_name</span><span class=p>,</span> <span class=s>&#34;/&#34;</span><span class=p>,</span>
+		<span class=nx>player</span><span class=p>.</span><span class=nx>ability</span><span class=p>[</span><span class=nx>squad</span><span class=p>],</span> <span class=s>&#34;/&#34;</span><span class=p>,</span>
+		<span class=nx>player</span><span class=p>.</span><span class=nx>value_eur</span><span class=p>,</span> <span class=s>&#34;/&#34;</span><span class=p>,</span>
+		<span class=nx>player</span><span class=p>.</span><span class=nx>wage_eur</span><span class=p>,</span>
+	<span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>csvFile</span> <span class=kt>string</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Scanf</span><span class=p>(</span><span class=s>&#34;%s&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>csvFile</span><span class=p>)</span>
+	<span class=nf>readCSV</span><span class=p>(</span><span class=nx>csvFile</span><span class=p>)</span>
+	<span class=kd>var</span> <span class=nx>squad</span> <span class=p>[]</span><span class=kt>string</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>11</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+		<span class=kd>var</span> <span class=nx>id</span> <span class=kt>string</span>
+		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Scanf</span><span class=p>(</span><span class=s>&#34;%s&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>id</span><span class=p>)</span>
+		<span class=nx>squad</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>squad</span><span class=p>,</span> <span class=nx>id</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=kd>var</span> <span class=nx>budget</span> <span class=p>[]</span><span class=kt>int</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>11</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+		<span class=kd>var</span> <span class=nx>b</span> <span class=kt>int</span>
+		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>b</span><span class=p>)</span>
+		<span class=nx>budget</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>budget</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=k>for</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>id</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>squad</span> <span class=p>{</span>
+		<span class=nx>tmpPlayers</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=nx>Player</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
+		<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>player</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>players</span> <span class=p>{</span>
+			<span class=k>if</span> <span class=p>!</span><span class=nx>player</span><span class=p>.</span><span class=nx>selected</span> <span class=o>&amp;&amp;</span> <span class=nx>player</span><span class=p>.</span><span class=nx>value_eur</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=nx>player</span><span class=p>.</span><span class=nx>value_eur</span> <span class=o>&lt;=</span> <span class=nx>budget</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=p>{</span>
+				<span class=nx>tmpPlayers</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>tmpPlayers</span><span class=p>,</span> <span class=nx>player</span><span class=p>)</span>
+			<span class=p>}</span>
+		<span class=p>}</span>
+		<span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=nx>tmpPlayers</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span> <span class=p>{</span>
+			<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;No player can be selected&#34;</span><span class=p>)</span>
+		<span class=p>}</span>
+		<span class=nx>sort</span><span class=p>.</span><span class=nf>Slice</span><span class=p>(</span><span class=nx>tmpPlayers</span><span class=p>,</span> <span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=nx>j</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>bool</span> <span class=p>{</span>
+			<span class=k>return</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=nx>i</span><span class=p>].</span><span class=nx>ability</span><span class=p>[</span><span class=nx>id</span><span class=p>]</span> <span class=p>&gt;</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=nx>j</span><span class=p>].</span><span class=nx>ability</span><span class=p>[</span><span class=nx>id</span><span class=p>]</span>
+		<span class=p>})</span>
+		<span class=nx>cntSameAbility</span> <span class=o>:=</span> <span class=mi>0</span>
+		<span class=nx>maxAbility</span> <span class=o>:=</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>ability</span><span class=p>[</span><span class=nx>id</span><span class=p>]</span>
+		<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>player</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>tmpPlayers</span> <span class=p>{</span>
+			<span class=k>if</span> <span class=nx>player</span><span class=p>.</span><span class=nx>ability</span><span class=p>[</span><span class=nx>id</span><span class=p>]</span> <span class=o>==</span> <span class=nx>maxAbility</span> <span class=p>{</span>
+				<span class=nx>cntSameAbility</span><span class=o>++</span>
+			<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+				<span class=k>break</span>
+			<span class=p>}</span>
+		<span class=p>}</span>
+		<span class=k>if</span> <span class=nx>cntSameAbility</span> <span class=o>==</span> <span class=mi>1</span> <span class=p>{</span>
+			<span class=nf>printPlayer</span><span class=p>(</span><span class=nx>id</span><span class=p>,</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+		<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+			<span class=nx>sort</span><span class=p>.</span><span class=nf>Slice</span><span class=p>(</span><span class=nx>tmpPlayers</span><span class=p>[:</span><span class=nx>cntSameAbility</span><span class=p>],</span> <span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=nx>j</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>bool</span> <span class=p>{</span>
+				<span class=k>return</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=nx>i</span><span class=p>].</span><span class=nx>value_eur</span> <span class=p>&lt;</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=nx>j</span><span class=p>].</span><span class=nx>value_eur</span>
+			<span class=p>})</span>
+			<span class=nx>cntSameBudget</span> <span class=o>:=</span> <span class=mi>0</span>
+			<span class=nx>minBudget</span> <span class=o>:=</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>value_eur</span>
+			<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>player</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>tmpPlayers</span><span class=p>[:</span><span class=nx>cntSameAbility</span><span class=p>]</span> <span class=p>{</span>
+				<span class=k>if</span> <span class=nx>player</span><span class=p>.</span><span class=nx>value_eur</span> <span class=o>==</span> <span class=nx>minBudget</span> <span class=p>{</span>
+					<span class=nx>cntSameBudget</span><span class=o>++</span>
+				<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+					<span class=k>break</span>
+				<span class=p>}</span>
+			<span class=p>}</span>
+			<span class=k>if</span> <span class=nx>cntSameBudget</span> <span class=o>==</span> <span class=mi>1</span> <span class=p>{</span>
+				<span class=nf>printPlayer</span><span class=p>(</span><span class=nx>id</span><span class=p>,</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+			<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+				<span class=nx>sort</span><span class=p>.</span><span class=nf>Slice</span><span class=p>(</span><span class=nx>tmpPlayers</span><span class=p>[:</span><span class=nx>cntSameBudget</span><span class=p>],</span> <span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=nx>j</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>bool</span> <span class=p>{</span>
+					<span class=k>return</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=nx>i</span><span class=p>].</span><span class=nx>sofifa_id</span> <span class=p>&lt;</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=nx>j</span><span class=p>].</span><span class=nx>sofifa_id</span>
+				<span class=p>})</span>
+				<span class=nf>printPlayer</span><span class=p>(</span><span class=nx>id</span><span class=p>,</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+			<span class=p>}</span>
+		<span class=p>}</span>
+		<span class=k>for</span> <span class=nx>j</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=p>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=nx>players</span><span class=p>);</span> <span class=nx>j</span><span class=o>++</span> <span class=p>{</span>
+			<span class=k>if</span> <span class=nx>players</span><span class=p>[</span><span class=nx>j</span><span class=p>].</span><span class=nx>sofifa_id</span> <span class=o>==</span> <span class=nx>tmpPlayers</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>sofifa_id</span> <span class=p>{</span>
+				<span class=nx>players</span><span class=p>[</span><span class=nx>j</span><span class=p>].</span><span class=nx>selected</span> <span class=p>=</span> <span class=kc>true</span>
+			<span class=p>}</span>
+		<span class=p>}</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/c/>C</a>
+<a href=/tags/go/>Go</a>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/computer_programming_2-08/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-08：Linux List</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-07/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-07：Some Tricks</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-06/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-06：Macro</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-05/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/computer_programming_2-04/>
+<div class=article-details>
+<h2 class=article-title>程式設計(二)-04：File Processing-02</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2023 小十的部落格
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#題目>題目</a></li>
+<li><a href=#參考作法>參考作法</a>
+<ul>
+<li><a href=#c-語言>C 語言</a>
+<ul>
+<li><a href=#makefile>Makefile</a></li>
+<li><a href=#程式碼>程式碼</a></li>
+</ul>
+</li>
+<li><a href=#golang>Golang</a>
+<ul>
+<li><a href=#程式碼-1>程式碼</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
