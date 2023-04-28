@@ -4560,6 +4560,7 @@ Include = /etc/pacman.d/mirrorlist
 &lt;li>安裝必要的軟體包
 &lt;ul>
 &lt;li>必要：&lt;code>pacstrap /mnt base linux linux-firmware&lt;/code>&lt;/li>
+&lt;li>可以先安裝 Microcode，例如：&lt;code>pacstrap /mnt intel-ucode&lt;/code> （詳細請參考第八點）&lt;/li>
 &lt;li>依照需求安裝：&lt;code>pacstrap /mnt vim iwd man-db man-pages texinfo&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -4671,7 +4672,7 @@ DHCP=yes
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">default arch-* # arch 那裡應為一字串不用更改
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">default arch.conf
 timeout 10
 console-mode max
 editor no
@@ -4681,6 +4682,8 @@ editor no
 &lt;li>&lt;code>vim /boot/loader/entries/arch.conf&lt;/code>，內容如下
 &lt;ul>
 &lt;li>UUID 請自行填入，可於 &lt;code>/etc/fstab&lt;/code> 中查看，請選擇 &lt;code>/&lt;/code> 目錄的。&lt;/li>
+&lt;li>&lt;code>ucode&lt;/code> 的部分請依照您自己的 CPU 來選擇，可於 &lt;a class="link" href="https://wiki.archlinux.org/title/Microcode" target="_blank" rel="noopener"
+>Arch Wiki Microcode&lt;/a> 查看。（在前面第六步的時候可以一起安裝）&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -4688,10 +4691,12 @@ editor no
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">title Arch Linux
 linux /vmlinuz-linux
+initrd /intel-ucode.img
 initrd /initramfs-linux.img
 options root=&amp;#34;UUID=XXX-XXX-XXX&amp;#34; rw
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
