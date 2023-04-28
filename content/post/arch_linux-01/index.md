@@ -55,6 +55,7 @@ tags:
     - 可以執行 `timedatectl status` 檢查時間同步服務的狀態。
 6. 安裝必要的軟體包
     - 必要：`pacstrap /mnt base linux linux-firmware`
+    - 可以先安裝 Microcode，例如：`pacstrap /mnt intel-ucode` （詳細請參考第八點）
     - 依照需求安裝：`pacstrap /mnt vim iwd man-db man-pages texinfo`
 7. 配置系統
     - 生成 fstab 文件
@@ -98,16 +99,18 @@ tags:
     - 啟動選單配置
         - `vim /boot/loader/loader.conf`，內容如下
             ```
-            default arch-* # arch 那裡應為一字串不用更改
+            default arch.conf
             timeout 10
             console-mode max
             editor no
             ```
         - `vim /boot/loader/entries/arch.conf`，內容如下
             - UUID 請自行填入，可於 `/etc/fstab` 中查看，請選擇 `/` 目錄的。
+            - `ucode` 的部分請依照您自己的 CPU 來選擇，可於 [Arch Wiki Microcode](https://wiki.archlinux.org/title/Microcode) 查看。（在前面第六步的時候可以一起安裝）
             ```
             title Arch Linux
             linux /vmlinuz-linux
+            initrd  /intel-ucode.img
             initrd /initramfs-linux.img
             options root="UUID=XXX-XXX-XXX" rw
             ```
