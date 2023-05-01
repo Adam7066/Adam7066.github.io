@@ -6,10 +6,9 @@ tags:
     - Caddy
 ---
 # 簡介
-- Caddy伺服器是一個開源的，使用 Golang 編寫，支援 HTTP/2 的 Web 伺服器端。
+- [Caddy Server](https://caddyserver.com) 是一個開源的，使用 Golang 編寫，支援 HTTP/2 的 Web 伺服器端。
 - Caddy 一個顯著的特性是預設啟用 HTTPS。
 - 是第一個無需額外組態即可提供 HTTPS 特性的 Web 伺服器。
-- [官方網站](https://caddyserver.com)
 
 # 前言
 - 一開始我是想說直接裝在 server 上，但由於我 DNS、SSL 簽證是透過 [Cloudflare](https://www.cloudflare.com/zh-tw/) 來處理的，這就得需要使用到 [xcaddy](https://github.com/caddyserver/xcaddy)。
