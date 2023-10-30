@@ -30,12 +30,12 @@ categories:
 # 基本排序
 #### 氣泡排序法
 ```c
-for(int i = 0; i < n; ++i) {
-    for(int j = i; j < n; ++j) {
-        if(a[j] < a[i]) {
-            a[i] = a[i] ^ a[j];
-            a[j] = a[i] ^ a[j];
-            a[i] = a[i] ^ a[j];
+for(int i = 0; i < n-1; ++i) {
+    for(int j = 0; j < n-1-i; ++j) {
+        if(a[j] > a[j+1]) {
+            a[j] = a[j] ^ a[j+1];
+            a[j+1] = a[j] ^ a[j+1];
+            a[j] = a[j] ^ a[j+1];
         }
     }
 }
