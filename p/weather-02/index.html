@@ -1,74 +1,14 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值"><title>簡易氣象站-02</title>
-<link rel=canonical href=https://blog.smallten.me/p/weather-02/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="簡易氣象站-02">
-<meta property="og:description" content="簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值">
-<meta property="og:url" content="https://blog.smallten.me/p/weather-02/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arduino"><meta property="article:tag" content="Python"><meta property="article:tag" content="Raspberry Pi"><meta property="article:published_time" content="2020-07-12T09:31:38+08:00"><meta property="article:modified_time" content="2020-07-12T09:31:38+08:00">
-<meta name=twitter:title content="簡易氣象站-02">
-<meta name=twitter:description content="簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/%E7%B0%A1%E6%98%93%E6%B0%A3%E8%B1%A1%E7%AB%99/>
-簡易氣象站
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/weather-02/>簡易氣象站-02</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Jul 12, 2020</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-2 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=簡介>簡介</h1>
-<ul>
-<li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。</li>
-</ul>
-<h1 id=硬體>硬體</h1>
-<ul>
-<li>上一小節的成品</li>
-<li>Raspberry pi * 1</li>
-</ul>
-<h1 id=教學開始>教學開始</h1>
-<ol>
-<li>打開Raspberry pi的Terminal，並輸入 <code>ls /dev/tty*</code></li>
-<li>將Arduino的Usb接上Raspberry pi</li>
-<li>再次於Terminal中輸入 <code>ls /dev/tty*</code>，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ <code>dev/ttyACM0</code>，請依照情況自行修改)</li>
-<li>於Terminal中輸入 <code>python3 -m pip install pyserial</code></li>
-<li>將以下程式碼建立成一個python檔，再以python3執行即可</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。 硬體 上一小節的成品 Raspberry pi * 1 教學開始 打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1) ser.flush() while True: flag = False if ser.in_waiting>0: arduinoData = ser.readline().decode(encoding='utf-8', errors='ignore').rstrip().split(';') if len(arduinoData)!=4 or arduinoData=='': continue for i in range(0,3): if arduinoData[i]=='0': flag = True break if flag: continue else: temperature_value['text'] = arduinoData[0] + ' 度C' humidity_value['text'] = arduinoData[1] + ' %' pmat25_value['text'] = arduinoData[2] + ' ug/m^3' wind_value['text'] = arduinoData[3] + ' 級' break window.after(1000, getData) if __name__=='__main__': window = tk.Tk() window.title('Weather') window.geometry('500x250') window.resizable(False, False) header_label = tk.Label(window, text='環境監測', font=('Arial', 20), width=30, height=2, borderwidth=2, relief='solid') header_label.pack(side=tk.TOP) temperature_frame = tk.Frame(window) temperature_frame.pack(side=tk.TOP) temperature_label = tk.Label(temperature_frame, text='溫度: ', font=('Arial', 16)) temperature_label.pack(side=tk.LEFT) temperature_value = tk.Label(temperature_frame, font=('Arial', 16)) temperature_value.pack(side=tk.LEFT) humidity_frame = tk.Frame(window) humidity_frame.pack(side=tk.TOP) humidity_label = tk.Label(humidity_frame, text='濕度: ', font=('Arial', 16)) humidity_label.pack(side=tk.LEFT) humidity_value = tk.Label(humidity_frame, font=('Arial', 16)) humidity_value.pack(side=tk.LEFT) pmat25_frame = tk.Frame(window) pmat25_frame.pack(side=tk.TOP) pmat25_label = tk.Label(pmat25_frame, text='PM2.5: ', font=('Arial', 16)) pmat25_label.pack(side=tk.LEFT) pmat25_value = tk.Label(pmat25_frame, font=('Arial', 16)) pmat25_value.pack(side=tk.LEFT) wind_frame = tk.Frame(window) wind_frame.pack(side=tk.TOP) wind_label = tk.Label(wind_frame, text='風速: ', font=('Arial', 16)) wind_label.pack(side=tk.LEFT) wind_value = tk.Label(wind_frame, font=('Arial', 16)) wind_value.pack(side=tk.LEFT) getData() window.mainloop() 最終成果圖 "><title>簡易氣象站-02</title>
+<link rel=canonical href=https://blog.smallten.me/p/weather-02/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="簡易氣象站-02"><meta property='og:description' content="簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。 硬體 上一小節的成品 Raspberry pi * 1 教學開始 打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1) ser.flush() while True: flag = False if ser.in_waiting>0: arduinoData = ser.readline().decode(encoding='utf-8', errors='ignore').rstrip().split(';') if len(arduinoData)!=4 or arduinoData=='': continue for i in range(0,3): if arduinoData[i]=='0': flag = True break if flag: continue else: temperature_value['text'] = arduinoData[0] + ' 度C' humidity_value['text'] = arduinoData[1] + ' %' pmat25_value['text'] = arduinoData[2] + ' ug/m^3' wind_value['text'] = arduinoData[3] + ' 級' break window.after(1000, getData) if __name__=='__main__': window = tk.Tk() window.title('Weather') window.geometry('500x250') window.resizable(False, False) header_label = tk.Label(window, text='環境監測', font=('Arial', 20), width=30, height=2, borderwidth=2, relief='solid') header_label.pack(side=tk.TOP) temperature_frame = tk.Frame(window) temperature_frame.pack(side=tk.TOP) temperature_label = tk.Label(temperature_frame, text='溫度: ', font=('Arial', 16)) temperature_label.pack(side=tk.LEFT) temperature_value = tk.Label(temperature_frame, font=('Arial', 16)) temperature_value.pack(side=tk.LEFT) humidity_frame = tk.Frame(window) humidity_frame.pack(side=tk.TOP) humidity_label = tk.Label(humidity_frame, text='濕度: ', font=('Arial', 16)) humidity_label.pack(side=tk.LEFT) humidity_value = tk.Label(humidity_frame, font=('Arial', 16)) humidity_value.pack(side=tk.LEFT) pmat25_frame = tk.Frame(window) pmat25_frame.pack(side=tk.TOP) pmat25_label = tk.Label(pmat25_frame, text='PM2.5: ', font=('Arial', 16)) pmat25_label.pack(side=tk.LEFT) pmat25_value = tk.Label(pmat25_frame, font=('Arial', 16)) pmat25_value.pack(side=tk.LEFT) wind_frame = tk.Frame(window) wind_frame.pack(side=tk.TOP) wind_label = tk.Label(wind_frame, text='風速: ', font=('Arial', 16)) wind_label.pack(side=tk.LEFT) wind_value = tk.Label(wind_frame, font=('Arial', 16)) wind_value.pack(side=tk.LEFT) getData() window.mainloop() 最終成果圖 "><meta property='og:url' content='https://blog.smallten.me/p/weather-02/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Arduino'><meta property='article:tag' content='Python'><meta property='article:tag' content='Raspberry Pi'><meta property='article:published_time' content='2020-07-12T09:31:38+08:00'><meta property='article:modified_time' content='2020-07-12T09:31:38+08:00'><meta name=twitter:title content="簡易氣象站-02"><meta name=twitter:description content="簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。 硬體 上一小節的成品 Raspberry pi * 1 教學開始 打開Raspberry pi的Terminal，並輸入 ls /dev/tty* 將Arduino的Usb接上Raspberry pi 再次於Terminal中輸入 ls /dev/tty*，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ dev/ttyACM0，請依照情況自行修改) 於Terminal中輸入 python3 -m pip install pyserial 將以下程式碼建立成一個python檔，再以python3執行即可 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 # -*- coding: UTF-8 -*- import serial import tkinter as tk def getData(): ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1) ser.flush() while True: flag = False if ser.in_waiting>0: arduinoData = ser.readline().decode(encoding='utf-8', errors='ignore').rstrip().split(';') if len(arduinoData)!=4 or arduinoData=='': continue for i in range(0,3): if arduinoData[i]=='0': flag = True break if flag: continue else: temperature_value['text'] = arduinoData[0] + ' 度C' humidity_value['text'] = arduinoData[1] + ' %' pmat25_value['text'] = arduinoData[2] + ' ug/m^3' wind_value['text'] = arduinoData[3] + ' 級' break window.after(1000, getData) if __name__=='__main__': window = tk.Tk() window.title('Weather') window.geometry('500x250') window.resizable(False, False) header_label = tk.Label(window, text='環境監測', font=('Arial', 20), width=30, height=2, borderwidth=2, relief='solid') header_label.pack(side=tk.TOP) temperature_frame = tk.Frame(window) temperature_frame.pack(side=tk.TOP) temperature_label = tk.Label(temperature_frame, text='溫度: ', font=('Arial', 16)) temperature_label.pack(side=tk.LEFT) temperature_value = tk.Label(temperature_frame, font=('Arial', 16)) temperature_value.pack(side=tk.LEFT) humidity_frame = tk.Frame(window) humidity_frame.pack(side=tk.TOP) humidity_label = tk.Label(humidity_frame, text='濕度: ', font=('Arial', 16)) humidity_label.pack(side=tk.LEFT) humidity_value = tk.Label(humidity_frame, font=('Arial', 16)) humidity_value.pack(side=tk.LEFT) pmat25_frame = tk.Frame(window) pmat25_frame.pack(side=tk.TOP) pmat25_label = tk.Label(pmat25_frame, text='PM2.5: ', font=('Arial', 16)) pmat25_label.pack(side=tk.LEFT) pmat25_value = tk.Label(pmat25_frame, font=('Arial', 16)) pmat25_value.pack(side=tk.LEFT) wind_frame = tk.Frame(window) wind_frame.pack(side=tk.TOP) wind_label = tk.Label(wind_frame, text='風速: ', font=('Arial', 16)) wind_label.pack(side=tk.LEFT) wind_value = tk.Label(wind_frame, font=('Arial', 16)) wind_value.pack(side=tk.LEFT) getData() window.mainloop() 最終成果圖 "><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#簡介>簡介</a></li><li><a href=#硬體>硬體</a></li><li><a href=#教學開始>教學開始</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%B0%A1%E6%98%93%E6%B0%A3%E8%B1%A1%E7%AB%99/>簡易氣象站</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/weather-02/>簡易氣象站-02</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 12, 2020</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h1 id=簡介><a href=#%e7%b0%a1%e4%bb%8b class=header-anchor></a>簡介</h1><ul><li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。</li></ul><h1 id=硬體><a href=#%e7%a1%ac%e9%ab%94 class=header-anchor></a>硬體</h1><ul><li>上一小節的成品</li><li>Raspberry pi * 1</li></ul><h1 id=教學開始><a href=#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b class=header-anchor></a>教學開始</h1><ol><li>打開Raspberry pi的Terminal，並輸入 <code>ls /dev/tty*</code></li><li>將Arduino的Usb接上Raspberry pi</li><li>再次於Terminal中輸入 <code>ls /dev/tty*</code>，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ <code>dev/ttyACM0</code>，請依照情況自行修改)</li><li>於Terminal中輸入 <code>python3 -m pip install pyserial</code></li><li>將以下程式碼建立成一個python檔，再以python3執行即可</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -134,170 +74,80 @@ extended">
 </span><span class=lnt>64
 </span><span class=lnt>65
 </span><span class=lnt>66
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># -*- coding: UTF-8 -*-</span>
-<span class=kn>import</span> <span class=nn>serial</span>
-<span class=kn>import</span> <span class=nn>tkinter</span> <span class=k>as</span> <span class=nn>tk</span>
-
-<span class=k>def</span> <span class=nf>getData</span><span class=p>():</span>
-    <span class=n>ser</span> <span class=o>=</span> <span class=n>serial</span><span class=o>.</span><span class=n>Serial</span><span class=p>(</span><span class=s1>&#39;/dev/ttyACM0&#39;</span><span class=p>,</span> <span class=mi>9600</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
-    <span class=n>ser</span><span class=o>.</span><span class=n>flush</span><span class=p>()</span>
-    <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
-        <span class=n>flag</span> <span class=o>=</span> <span class=kc>False</span>
-        <span class=k>if</span> <span class=n>ser</span><span class=o>.</span><span class=n>in_waiting</span><span class=o>&gt;</span><span class=mi>0</span><span class=p>:</span>
-            <span class=n>arduinoData</span> <span class=o>=</span> <span class=n>ser</span><span class=o>.</span><span class=n>readline</span><span class=p>()</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s1>&#39;utf-8&#39;</span><span class=p>,</span> <span class=n>errors</span><span class=o>=</span><span class=s1>&#39;ignore&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>rstrip</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;;&#39;</span><span class=p>)</span>
-            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>arduinoData</span><span class=p>)</span><span class=o>!=</span><span class=mi>4</span> <span class=ow>or</span> <span class=n>arduinoData</span><span class=o>==</span><span class=s1>&#39;&#39;</span><span class=p>:</span>
-                <span class=k>continue</span>
-            <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>3</span><span class=p>):</span>
-                <span class=k>if</span> <span class=n>arduinoData</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=s1>&#39;0&#39;</span><span class=p>:</span>
-                    <span class=n>flag</span> <span class=o>=</span> <span class=kc>True</span>
-                    <span class=k>break</span>
-            <span class=k>if</span> <span class=n>flag</span><span class=p>:</span>
-                <span class=k>continue</span>
-            <span class=k>else</span><span class=p>:</span>
-                <span class=n>temperature_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; 度C&#39;</span>
-                <span class=n>humidity_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; %&#39;</span>
-                <span class=n>pmat25_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; ug/m^3&#39;</span>
-                <span class=n>wind_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; 級&#39;</span>
-                <span class=k>break</span>
-    <span class=n>window</span><span class=o>.</span><span class=n>after</span><span class=p>(</span><span class=mi>1000</span><span class=p>,</span> <span class=n>getData</span><span class=p>)</span>
-
-<span class=k>if</span> <span class=vm>__name__</span><span class=o>==</span><span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-    <span class=n>window</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Tk</span><span class=p>()</span>
-    <span class=n>window</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s1>&#39;Weather&#39;</span><span class=p>)</span>
-    <span class=n>window</span><span class=o>.</span><span class=n>geometry</span><span class=p>(</span><span class=s1>&#39;500x250&#39;</span><span class=p>)</span>
-    <span class=n>window</span><span class=o>.</span><span class=n>resizable</span><span class=p>(</span><span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>)</span>
-
-    <span class=n>header_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>window</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;環境監測&#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>20</span><span class=p>),</span> <span class=n>width</span><span class=o>=</span><span class=mi>30</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> <span class=n>borderwidth</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> <span class=n>relief</span><span class=o>=</span><span class=s1>&#39;solid&#39;</span><span class=p>)</span>
-    <span class=n>header_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
-
-    <span class=n>temperature_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
-    <span class=n>temperature_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
-    <span class=n>temperature_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>temperature_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;溫度: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>temperature_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-    <span class=n>temperature_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>temperature_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>temperature_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-
-    <span class=n>humidity_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
-    <span class=n>humidity_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
-    <span class=n>humidity_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>humidity_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;濕度: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>humidity_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-    <span class=n>humidity_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>humidity_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>humidity_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-
-    <span class=n>pmat25_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
-    <span class=n>pmat25_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
-    <span class=n>pmat25_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>pmat25_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;PM2.5: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>pmat25_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-    <span class=n>pmat25_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>pmat25_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>pmat25_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-
-    <span class=n>wind_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
-    <span class=n>wind_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
-    <span class=n>wind_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>wind_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;風速: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>wind_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-    <span class=n>wind_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>wind_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
-    <span class=n>wind_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
-
-    <span class=n>getData</span><span class=p>()</span>
-    <span class=n>window</span><span class=o>.</span><span class=n>mainloop</span><span class=p>()</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>最終成果圖
-<img src=/p/weather-02/weather-02-01.png width=1204 height=667 srcset="/p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_480x0_resize_box_3.png 480w, /p/weather-02/weather-02-01_hu20a2b6b3b028921376cf98bcdf6883e5_62784_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=180 data-flex-basis=433px></li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/arduino/>Arduino</a>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># -*- coding: UTF-8 -*-</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>serial</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>tkinter</span> <span class=k>as</span> <span class=nn>tk</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>getData</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>ser</span> <span class=o>=</span> <span class=n>serial</span><span class=o>.</span><span class=n>Serial</span><span class=p>(</span><span class=s1>&#39;/dev/ttyACM0&#39;</span><span class=p>,</span> <span class=mi>9600</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>ser</span><span class=o>.</span><span class=n>flush</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>flag</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>ser</span><span class=o>.</span><span class=n>in_waiting</span><span class=o>&gt;</span><span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>arduinoData</span> <span class=o>=</span> <span class=n>ser</span><span class=o>.</span><span class=n>readline</span><span class=p>()</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s1>&#39;utf-8&#39;</span><span class=p>,</span> <span class=n>errors</span><span class=o>=</span><span class=s1>&#39;ignore&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>rstrip</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>arduinoData</span><span class=p>)</span><span class=o>!=</span><span class=mi>4</span> <span class=ow>or</span> <span class=n>arduinoData</span><span class=o>==</span><span class=s1>&#39;&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>3</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=n>arduinoData</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=s1>&#39;0&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>flag</span> <span class=o>=</span> <span class=kc>True</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>flag</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>temperature_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; 度C&#39;</span>
+</span></span><span class=line><span class=cl>                <span class=n>humidity_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; %&#39;</span>
+</span></span><span class=line><span class=cl>                <span class=n>pmat25_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; ug/m^3&#39;</span>
+</span></span><span class=line><span class=cl>                <span class=n>wind_value</span><span class=p>[</span><span class=s1>&#39;text&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>arduinoData</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39; 級&#39;</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>    <span class=n>window</span><span class=o>.</span><span class=n>after</span><span class=p>(</span><span class=mi>1000</span><span class=p>,</span> <span class=n>getData</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span><span class=o>==</span><span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>window</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Tk</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>window</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s1>&#39;Weather&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>window</span><span class=o>.</span><span class=n>geometry</span><span class=p>(</span><span class=s1>&#39;500x250&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>window</span><span class=o>.</span><span class=n>resizable</span><span class=p>(</span><span class=kc>False</span><span class=p>,</span> <span class=kc>False</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>header_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>window</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;環境監測&#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>20</span><span class=p>),</span> <span class=n>width</span><span class=o>=</span><span class=mi>30</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> <span class=n>borderwidth</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> <span class=n>relief</span><span class=o>=</span><span class=s1>&#39;solid&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>header_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>temperature_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>temperature_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>temperature_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>temperature_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;溫度: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>temperature_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>temperature_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>temperature_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>temperature_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>humidity_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>humidity_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>humidity_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>humidity_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;濕度: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>humidity_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>humidity_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>humidity_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>humidity_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>pmat25_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>pmat25_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>pmat25_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>pmat25_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;PM2.5: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>pmat25_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>pmat25_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>pmat25_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>pmat25_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>wind_frame</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Frame</span><span class=p>(</span><span class=n>window</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>wind_frame</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>TOP</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>wind_label</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>wind_frame</span><span class=p>,</span> <span class=n>text</span><span class=o>=</span><span class=s1>&#39;風速: &#39;</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>wind_label</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>wind_value</span> <span class=o>=</span> <span class=n>tk</span><span class=o>.</span><span class=n>Label</span><span class=p>(</span><span class=n>wind_frame</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;Arial&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>wind_value</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=n>side</span><span class=o>=</span><span class=n>tk</span><span class=o>.</span><span class=n>LEFT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>getData</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>window</span><span class=o>.</span><span class=n>mainloop</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>最終成果圖
+<img src=/p/weather-02/weather-02-01.png width=1204 height=667 srcset="/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, /p/weather-02/weather-02-01_hu10364560669476692956.png 1024w" loading=lazy class=gallery-image data-flex-grow=180 data-flex-basis=433px></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/arduino/>Arduino</a>
 <a href=/tags/python/>Python</a>
-<a href=/tags/raspberry-pi/>Raspberry Pi</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article>
-<a href=/p/weather-01/>
-<div class=article-details>
-<h2 class=article-title>簡易氣象站-01</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+<a href=/tags/raspberry-pi/>Raspberry Pi</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/weather-01/><div class=article-details><h2 class=article-title>簡易氣象站-01</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#簡介>簡介</a></li>
-<li><a href=#硬體>硬體</a></li>
-<li><a href=#教學開始>教學開始</a></li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

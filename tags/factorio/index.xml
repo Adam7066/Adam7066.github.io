@@ -1,1 +1,107 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Factorio on 小十的部落格</title><link>https://blog.smallten.me/tags/factorio/</link><description>Recent content in Factorio on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 08 Sep 2023 13:57:15 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/factorio/index.xml" rel="self" type="application/rss+xml"/><item><title>Factorio-01：使用 LinuxGSM 開伺服器</title><link>https://blog.smallten.me/p/factorio-01/</link><pubDate>Fri, 08 Sep 2023 13:57:15 +0800</pubDate><guid>https://blog.smallten.me/p/factorio-01/</guid><description>前情提要 最早玩 Factorio 開 server 是直接使用遊戲內建的方式，然後好友們直接透過 steam 連線進來，但是這樣有個缺點，那就是當自己不玩沒開遊戲時，朋友們也玩不了，因</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Factorio on 小十的部落格</title><link>https://blog.smallten.me/tags/factorio/</link><description>Recent content in Factorio on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 08 Sep 2023 13:57:15 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/factorio/index.xml" rel="self" type="application/rss+xml"/><item><title>Factorio-01：使用 LinuxGSM 開伺服器</title><link>https://blog.smallten.me/p/factorio-01/</link><pubDate>Fri, 08 Sep 2023 13:57:15 +0800</pubDate><guid>https://blog.smallten.me/p/factorio-01/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+&lt;/h1>&lt;p>最早玩 Factorio 開 server 是直接使用遊戲內建的方式，然後好友們直接透過 steam 連線進來，但是這樣有個缺點，那就是當自己不玩沒開遊戲時，朋友們也玩不了，因此之後玩時都會開個獨立的 server。&lt;/p>
+&lt;p>之前有使用過以下方法來開 server 也玩了不少次了：&lt;/p>
+&lt;ul>
+&lt;li>直接在&lt;a class="link" href="https://factorio.com/" target="_blank" rel="noopener"
+>官網&lt;/a>下載 server file：&lt;a class="link" href="https://factorio.com/download" target="_blank" rel="noopener"
+>Download page&lt;/a>&lt;/li>
+&lt;li>或是用 Docker 開 server&lt;/li>
+&lt;/ul>
+&lt;p>但最近發現了一個酷東西叫做 &lt;a class="link" href="https://linuxgsm.com/" target="_blank" rel="noopener"
+>LinuxGSM&lt;/a> 看起來蠻方便的，而且支援不少種遊戲，甚至連有的遊戲需要 SteamCMD 也都幫您處理好了，因此想說來嘗試一下。&lt;/p>
+&lt;h1 id="前置作業">&lt;a href="#%e5%89%8d%e7%bd%ae%e4%bd%9c%e6%a5%ad" class="header-anchor">&lt;/a>前置作業
+&lt;/h1>&lt;ul>
+&lt;li>開一臺要跑 server 的機器，&lt;a class="link" href="https://linuxgsm.com/servers/fctrserver/" target="_blank" rel="noopener"
+>規格要求&lt;/a>&lt;/li>
+&lt;li>這邊我開了一臺 ubuntu-23.10 x86-64 的 VM&lt;/li>
+&lt;/ul>
+&lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
+&lt;/h1>&lt;h2 id="安裝相關依賴">&lt;a href="#%e5%ae%89%e8%a3%9d%e7%9b%b8%e9%97%9c%e4%be%9d%e8%b3%b4" class="header-anchor">&lt;/a>安裝相關依賴
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386&lt;span class="p">;&lt;/span> sudo apt update&lt;span class="p">;&lt;/span> sudo apt install curl wget file tar bzip2 gzip unzip bsdmainutils python3 util-linux ca-certificates binutils bc jq tmux netcat lib32gcc-s1 lib32stdc++6 xz-utils
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>其他環境可參考：&lt;a class="link" href="https://linuxgsm.com/servers/fctrserver/" target="_blank" rel="noopener"
+>這頁的 Dependencies&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="安裝-linuxgsm">&lt;a href="#%e5%ae%89%e8%a3%9d-linuxgsm" class="header-anchor">&lt;/a>安裝 LinuxGSM
+&lt;/h2>&lt;ol>
+&lt;li>新增一個使用者：&lt;code>sudo adduser fctrserver&lt;/code>
+&lt;ul>
+&lt;li>注意!! 不要用文檔上給的範例密碼!!&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>登入剛剛創出的使用者 &lt;code>su - fctrserver&lt;/code>
+&lt;ul>
+&lt;li>之後可以直接使用這個使用者登入，不用進去在切換&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>下載 linuxgsm.sh
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">wget -O linuxgsm.sh https://linuxgsm.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> chmod +x linuxgsm.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> bash linuxgsm.sh fctrserver
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>安裝：&lt;code>./fctrserver install&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="如何使用">&lt;a href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8" class="header-anchor">&lt;/a>如何使用
+&lt;/h2>&lt;ul>
+&lt;li>運行 server：&lt;code>./fctrserver start&lt;/code>&lt;/li>
+&lt;li>停止 server：&lt;code>./fctrserver stop&lt;/code>&lt;/li>
+&lt;li>重啟 server：&lt;code>./fctrserver restart&lt;/code>&lt;/li>
+&lt;li>輸入指令：&lt;code>./fctrserver console&lt;/code>
+&lt;ul>
+&lt;li>指令可參考 &lt;a class="link" href="https://wiki.factorio.com/Console" target="_blank" rel="noopener"
+>Factorio Wiki&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>更新 server：&lt;code>./fctrserver update&lt;/code>&lt;/li>
+&lt;li>查看 server 狀態：&lt;code>./fctrserver details&lt;/code>&lt;/li>
+&lt;li>備份 server：&lt;code>./fctrserver backup&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="設定-server">&lt;a href="#%e8%a8%ad%e5%ae%9a-server" class="header-anchor">&lt;/a>設定 Server
+&lt;/h2>&lt;ol>
+&lt;li>mods：把 zip 檔案放到 &lt;code>~/serverfiles/mods&lt;/code> 裡面
+&lt;ul>
+&lt;li>&lt;code>mod-list.json&lt;/code>：記錄了 mod 名稱、是否啟用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>地圖：我偏好使用遊戲本身的圖形化方式去建立，完成後再將檔案傳上去 server
+&lt;ul>
+&lt;li>地圖檔案放到 &lt;code>~/serverfiles/saves&lt;/code> 裡面&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>server 設定：修改 &lt;code>~/serverfiles/data/fctrserver.json&lt;/code> 檔
+&lt;ul>
+&lt;li>設定都有註解，就不多解釋&lt;/li>
+&lt;li>其中一項 &lt;code>token&lt;/code> 有需要的話，可以從 &lt;a class="link" href="https://factorio.com/" target="_blank" rel="noopener"
+>官網登入，個人資料頁&lt;/a> 取得&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>RCON 密碼：修改 &lt;code>~/lgsm/config-lgsm/fctrserver/fctrserver.cfg&lt;/code> 檔案
+&lt;ul>
+&lt;li>新增一行 &lt;code>rconpassword=&amp;quot;your-password&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="管理員權限">&lt;a href="#%e7%ae%a1%e7%90%86%e5%93%a1%e6%ac%8a%e9%99%90" class="header-anchor">&lt;/a>管理員權限
+&lt;/h2>&lt;ol>
+&lt;li>請先確認上方都已設定完，並且 server 也已經啟動&lt;/li>
+&lt;li>使用 &lt;code>./fctrserver console&lt;/code> 進入 server console&lt;/li>
+&lt;li>指令：&lt;code>promote &amp;lt;player&amp;gt;&lt;/code>&lt;/li>
+&lt;li>可以發現已經變成 admin 了&lt;/li>
+&lt;li>補充：
+&lt;ul>
+&lt;li>server 裡管理員名單位置：&lt;code>~/serverfiles/server-adminlist.json&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

@@ -1,398 +1,53 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="前言 在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。 安裝設備 筆電：Zen"><title>Arch Linux-01：系統安裝</title>
-<link rel=canonical href=https://blog.smallten.me/p/arch_linux-01/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Arch Linux-01：系統安裝">
-<meta property="og:description" content="前言 在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。 安裝設備 筆電：Zen">
-<meta property="og:url" content="https://blog.smallten.me/p/arch_linux-01/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arch Linux"><meta property="article:published_time" content="2021-08-11T13:50:32+08:00"><meta property="article:modified_time" content="2021-08-11T13:50:32+08:00">
-<meta name=twitter:title content="Arch Linux-01：系統安裝">
-<meta name=twitter:description content="前言 在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。 安裝設備 筆電：Zen">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<h2 class=article-title>
-<a href=/p/arch_linux-01/>Arch Linux-01：系統安裝</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Aug 11, 2021</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-3 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=前言>前言</h1>
-<p>  在被<a class=link href=https://github.com/jw910731/ target=_blank rel=noopener>吳文元</a>朋朋洗腦、推坑、直銷 <a class=link href=https://archlinux.org/ target=_blank rel=noopener>Arch Linux</a> 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。</p>
-<h1 id=安裝設備>安裝設備</h1>
-<ul>
-<li>筆電：<a class=link href=https://www.asus.com/tw/Commercial-Laptops/ASUS-ZenBook-14-UX433FN/ target=_blank rel=noopener>Zenbook 14 UX433FN</a></li>
-<li>顯卡：
-<ul>
-<li>GPU0 Intel UHD 620</li>
-<li>GPU1 Nvidia MX150</li>
-</ul>
-</li>
-</ul>
-<h1 id=開始安裝>開始安裝</h1>
-<ul>
-<li>完整官方導覽：<a class=link href=https://wiki.archlinux.org/title/Installation_guide target=_blank rel=noopener>Installation guide</a></li>
-</ul>
-<h2 id=前置作業>前置作業</h2>
-<ol>
-<li>製作開機碟
-<ul>
-<li>到 <a class=link href=https://archlinux.org/download/ target=_blank rel=noopener>Arch Linux Download</a> 下載映像檔 (.iso)
-<ul>
-<li><a class=link href=https://free.nchc.org.tw/arch/iso/ target=_blank rel=noopener>NCHC</a>、<a class=link href=http://archlinux.cs.nctu.edu.tw/iso/ target=_blank rel=noopener>NCTU</a></li>
-</ul>
-</li>
-<li>使用 <a class=link href=https://rufus.ie/zh_TW/ target=_blank rel=noopener>Rufus</a> 寫入隨身碟</li>
-</ul>
-</li>
-<li>壓縮磁碟區
-<blockquote>
-<p>由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。</p>
-</blockquote>
-<ul>
-<li>在 Windows 10 中開啟硬碟管理員</li>
-<li>以壓縮磁碟區的方式創造出未分配的空間。</li>
-</ul>
-</li>
-</ol>
-<h2 id=安裝系統>安裝系統</h2>
-<ol>
-<li>插上隨身碟，並以隨身碟開機</li>
-<li>檢查硬碟、分配磁區
-<blockquote>
-<p>由於新手上路，這邊我們就分配單一磁區給 <code>/</code> 就好。
-至於其他像是 <code>[SWAP]</code> 之類的，有需要就自行處理。</p>
-</blockquote>
-<ul>
-<li><code>fdisk -l</code>: 查看硬碟狀態</li>
-<li><code>cfdisk /dev/nvme0n1</code> 選擇硬碟(依照情況自行更改名稱)
-<ul>
-<li>進去後選取 Free space -> New -> 輸入 Size (例如: 200G) -> Write -> 輸入 yes -> Quit</li>
-</ul>
-</li>
-<li>格式化為 ext4 格式：<code>mkfs.ext4 /dev/nvme0n1p5</code> 選擇磁區(依照情況自行更改名稱)</li>
-</ul>
-</li>
-<li>掛載硬碟
-<ul>
-<li>掛載 root 分區：<code>mount /dev/nvme0n1p5 /mnt</code></li>
-<li>先創建 boot 資料夾：<code>mkdir /mnt/boot</code></li>
-<li>掛載 efi 分區：<code>mount /dev/nvme0n1p1 /mnt/boot</code> (依照情況自行更改名稱)
-<ul>
-<li>這邊我們選擇跟 Windows 10 共用 efi 分區</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>連接網路，以下為 Wifi 連接方式
-<ul>
-<li>輸入 <code>iwctl</code></li>
-<li>查詢設備：<code>device list</code> (以下依照情況自行更改名稱，這邊以 <code>wlan0</code> 為例)</li>
-<li>掃描 wifi：<code>station wlan0 scan</code></li>
-<li>列出 wifi：<code>station wlan0 get-networks</code></li>
-<li>連接 wifi：<code>station wlan0 connect Wifi-Name</code></li>
-<li>有密碼的話輸入密碼</li>
-<li>輸入 <code>exit</code> 離開</li>
-<li>輸入 <code>ping www.google.com</code> 檢查是否連接成功</li>
-</ul>
-</li>
-<li>更新系統時間
-<ul>
-<li><code>timedatectl set-ntp true</code></li>
-<li>可以執行 <code>timedatectl status</code> 檢查時間同步服務的狀態。</li>
-</ul>
-</li>
-<li>安裝必要的軟體包
-<ul>
-<li>必要：<code>pacstrap /mnt base linux linux-firmware</code></li>
-<li>可以先安裝 Microcode，例如：<code>pacstrap /mnt intel-ucode</code> （詳細請參考第八點）</li>
-<li>依照需求安裝：<code>pacstrap /mnt vim iwd man-db man-pages texinfo</code></li>
-</ul>
-</li>
-<li>配置系統
-<ul>
-<li>
-<p>生成 fstab 文件</p>
-<ul>
-<li><code>genfstab -U /mnt >> /mnt/etc/fstab</code></li>
-<li>檢查生成的 fstab 文件：<code>cat /mnt/etc/fstab</code></li>
-</ul>
-</li>
-<li>
-<p>切換到裝好的系統：<code>arch-chroot /mnt</code></p>
-</li>
-<li>
-<p>設定時區：<code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p>
-</li>
-<li>
-<p>同步硬體時鐘：<code>hwclock --systohc</code></p>
-</li>
-<li>
-<p>在地化</p>
-<ul>
-<li><code>vim /etc/locale.gen</code>
-<ul>
-<li>取消註解 <code>en_US.UTF-8 UTF-8</code>、<code>zh_TW.UTF-8 UTF-8</code></li>
-</ul>
-</li>
-<li>生成 locale 訊息：<code>locale-gen</code></li>
-<li><code>vim /etc/locale.conf</code>
-<ul>
-<li>添加設定：<code>LANG=en_US.UTF-8</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>配置網路</p>
-<ul>
-<li>創建 hostname 文件：<code>vim /etc/hostname</code>
-<ul>
-<li>輸入你要的名稱，例如：<code>myhostname</code></li>
-</ul>
-</li>
-<li>修改 hosts：<code>vim /etc/hosts</code>，內容如下
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="前言 在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。\n安裝設備 筆電：Zenbook 14 UX433FN 顯卡： GPU0 Intel UHD 620 GPU1 Nvidia MX150 開始安裝 完整官方導覽：Installation guide 前置作業 製作開機碟 到 Arch Linux Download 下載映像檔 (.iso) NCHC、NCTU 使用 Rufus 寫入隨身碟 壓縮磁碟區 由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。\n在 Windows 10 中開啟硬碟管理員 以壓縮磁碟區的方式創造出未分配的空間。 安裝系統 插上隨身碟，並以隨身碟開機 檢查硬碟、分配磁區 由於新手上路，這邊我們就分配單一磁區給 / 就好。 至於其他像是 [SWAP] 之類的，有需要就自行處理。\nfdisk -l: 查看硬碟狀態 cfdisk /dev/nvme0n1 選擇硬碟(依照情況自行更改名稱) 進去後選取 Free space -> New -> 輸入 Size (例如: 200G) -> Write -> 輸入 yes -> Quit 格式化為 ext4 格式：mkfs.ext4 /dev/nvme0n1p5 選擇磁區(依照情況自行更改名稱) 掛載硬碟 掛載 root 分區：mount /dev/nvme0n1p5 /mnt 先創建 boot 資料夾：mkdir /mnt/boot 掛載 efi 分區：mount /dev/nvme0n1p1 /mnt/boot (依照情況自行更改名稱) 這邊我們選擇跟 Windows 10 共用 efi 分區 連接網路，以下為 Wifi 連接方式 輸入 iwctl 查詢設備：device list (以下依照情況自行更改名稱，這邊以 wlan0 為例) 掃描 wifi：station wlan0 scan 列出 wifi：station wlan0 get-networks 連接 wifi：station wlan0 connect Wifi-Name 有密碼的話輸入密碼 輸入 exit 離開 輸入 ping www.google.com 檢查是否連接成功 更新系統時間 timedatectl set-ntp true 可以執行 timedatectl status 檢查時間同步服務的狀態。 安裝必要的軟體包 必要：pacstrap /mnt base linux linux-firmware 可以先安裝 Microcode，例如：pacstrap /mnt intel-ucode （詳細請參考第八點） 依照需求安裝：pacstrap /mnt vim iwd man-db man-pages texinfo 配置系統 生成 fstab 文件\n"><title>Arch Linux-01：系統安裝</title>
+<link rel=canonical href=https://blog.smallten.me/p/arch_linux-01/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="Arch Linux-01：系統安裝"><meta property='og:description' content="前言 在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。\n安裝設備 筆電：Zenbook 14 UX433FN 顯卡： GPU0 Intel UHD 620 GPU1 Nvidia MX150 開始安裝 完整官方導覽：Installation guide 前置作業 製作開機碟 到 Arch Linux Download 下載映像檔 (.iso) NCHC、NCTU 使用 Rufus 寫入隨身碟 壓縮磁碟區 由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。\n在 Windows 10 中開啟硬碟管理員 以壓縮磁碟區的方式創造出未分配的空間。 安裝系統 插上隨身碟，並以隨身碟開機 檢查硬碟、分配磁區 由於新手上路，這邊我們就分配單一磁區給 / 就好。 至於其他像是 [SWAP] 之類的，有需要就自行處理。\nfdisk -l: 查看硬碟狀態 cfdisk /dev/nvme0n1 選擇硬碟(依照情況自行更改名稱) 進去後選取 Free space -> New -> 輸入 Size (例如: 200G) -> Write -> 輸入 yes -> Quit 格式化為 ext4 格式：mkfs.ext4 /dev/nvme0n1p5 選擇磁區(依照情況自行更改名稱) 掛載硬碟 掛載 root 分區：mount /dev/nvme0n1p5 /mnt 先創建 boot 資料夾：mkdir /mnt/boot 掛載 efi 分區：mount /dev/nvme0n1p1 /mnt/boot (依照情況自行更改名稱) 這邊我們選擇跟 Windows 10 共用 efi 分區 連接網路，以下為 Wifi 連接方式 輸入 iwctl 查詢設備：device list (以下依照情況自行更改名稱，這邊以 wlan0 為例) 掃描 wifi：station wlan0 scan 列出 wifi：station wlan0 get-networks 連接 wifi：station wlan0 connect Wifi-Name 有密碼的話輸入密碼 輸入 exit 離開 輸入 ping www.google.com 檢查是否連接成功 更新系統時間 timedatectl set-ntp true 可以執行 timedatectl status 檢查時間同步服務的狀態。 安裝必要的軟體包 必要：pacstrap /mnt base linux linux-firmware 可以先安裝 Microcode，例如：pacstrap /mnt intel-ucode （詳細請參考第八點） 依照需求安裝：pacstrap /mnt vim iwd man-db man-pages texinfo 配置系統 生成 fstab 文件\n"><meta property='og:url' content='https://blog.smallten.me/p/arch_linux-01/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Arch Linux'><meta property='article:published_time' content='2021-08-11T13:50:32+08:00'><meta property='article:modified_time' content='2021-08-11T13:50:32+08:00'><meta name=twitter:title content="Arch Linux-01：系統安裝"><meta name=twitter:description content="前言 在被吳文元朋朋洗腦、推坑、直銷 Arch Linux 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。\n安裝設備 筆電：Zenbook 14 UX433FN 顯卡： GPU0 Intel UHD 620 GPU1 Nvidia MX150 開始安裝 完整官方導覽：Installation guide 前置作業 製作開機碟 到 Arch Linux Download 下載映像檔 (.iso) NCHC、NCTU 使用 Rufus 寫入隨身碟 壓縮磁碟區 由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。\n在 Windows 10 中開啟硬碟管理員 以壓縮磁碟區的方式創造出未分配的空間。 安裝系統 插上隨身碟，並以隨身碟開機 檢查硬碟、分配磁區 由於新手上路，這邊我們就分配單一磁區給 / 就好。 至於其他像是 [SWAP] 之類的，有需要就自行處理。\nfdisk -l: 查看硬碟狀態 cfdisk /dev/nvme0n1 選擇硬碟(依照情況自行更改名稱) 進去後選取 Free space -> New -> 輸入 Size (例如: 200G) -> Write -> 輸入 yes -> Quit 格式化為 ext4 格式：mkfs.ext4 /dev/nvme0n1p5 選擇磁區(依照情況自行更改名稱) 掛載硬碟 掛載 root 分區：mount /dev/nvme0n1p5 /mnt 先創建 boot 資料夾：mkdir /mnt/boot 掛載 efi 分區：mount /dev/nvme0n1p1 /mnt/boot (依照情況自行更改名稱) 這邊我們選擇跟 Windows 10 共用 efi 分區 連接網路，以下為 Wifi 連接方式 輸入 iwctl 查詢設備：device list (以下依照情況自行更改名稱，這邊以 wlan0 為例) 掃描 wifi：station wlan0 scan 列出 wifi：station wlan0 get-networks 連接 wifi：station wlan0 connect Wifi-Name 有密碼的話輸入密碼 輸入 exit 離開 輸入 ping www.google.com 檢查是否連接成功 更新系統時間 timedatectl set-ntp true 可以執行 timedatectl status 檢查時間同步服務的狀態。 安裝必要的軟體包 必要：pacstrap /mnt base linux linux-firmware 可以先安裝 Microcode，例如：pacstrap /mnt intel-ucode （詳細請參考第八點） 依照需求安裝：pacstrap /mnt vim iwd man-db man-pages texinfo 配置系統 生成 fstab 文件\n"><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#安裝設備>安裝設備</a></li><li><a href=#開始安裝>開始安裝</a><ul><li><a href=#前置作業>前置作業</a></li><li><a href=#安裝系統>安裝系統</a></li></ul></li><li><a href=#補充>補充</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/p/arch_linux-01/>Arch Linux-01：系統安裝</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Aug 11, 2021</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h1 id=前言><a href=#%e5%89%8d%e8%a8%80 class=header-anchor></a>前言</h1><p>  在被<a class=link href=https://github.com/jw910731/ target=_blank rel=noopener>吳文元</a>朋朋洗腦、推坑、直銷 <a class=link href=https://archlinux.org/ target=_blank rel=noopener>Arch Linux</a> 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。</p><h1 id=安裝設備><a href=#%e5%ae%89%e8%a3%9d%e8%a8%ad%e5%82%99 class=header-anchor></a>安裝設備</h1><ul><li>筆電：<a class=link href=https://www.asus.com/tw/Commercial-Laptops/ASUS-ZenBook-14-UX433FN/ target=_blank rel=noopener>Zenbook 14 UX433FN</a></li><li>顯卡：<ul><li>GPU0 Intel UHD 620</li><li>GPU1 Nvidia MX150</li></ul></li></ul><h1 id=開始安裝><a href=#%e9%96%8b%e5%a7%8b%e5%ae%89%e8%a3%9d class=header-anchor></a>開始安裝</h1><ul><li>完整官方導覽：<a class=link href=https://wiki.archlinux.org/title/Installation_guide target=_blank rel=noopener>Installation guide</a></li></ul><h2 id=前置作業><a href=#%e5%89%8d%e7%bd%ae%e4%bd%9c%e6%a5%ad class=header-anchor></a>前置作業</h2><ol><li>製作開機碟<ul><li>到 <a class=link href=https://archlinux.org/download/ target=_blank rel=noopener>Arch Linux Download</a> 下載映像檔 (.iso)<ul><li><a class=link href=https://free.nchc.org.tw/arch/iso/ target=_blank rel=noopener>NCHC</a>、<a class=link href=http://archlinux.cs.nctu.edu.tw/iso/ target=_blank rel=noopener>NCTU</a></li></ul></li><li>使用 <a class=link href=https://rufus.ie/zh_TW/ target=_blank rel=noopener>Rufus</a> 寫入隨身碟</li></ul></li><li>壓縮磁碟區<blockquote><p>由於我要在一塊已有 Windows 10 的硬碟上安裝 Arch linux，因此得來切磁區。</p></blockquote><ul><li>在 Windows 10 中開啟硬碟管理員</li><li>以壓縮磁碟區的方式創造出未分配的空間。</li></ul></li></ol><h2 id=安裝系統><a href=#%e5%ae%89%e8%a3%9d%e7%b3%bb%e7%b5%b1 class=header-anchor></a>安裝系統</h2><ol><li>插上隨身碟，並以隨身碟開機</li><li>檢查硬碟、分配磁區<blockquote><p>由於新手上路，這邊我們就分配單一磁區給 <code>/</code> 就好。
+至於其他像是 <code>[SWAP]</code> 之類的，有需要就自行處理。</p></blockquote><ul><li><code>fdisk -l</code>: 查看硬碟狀態</li><li><code>cfdisk /dev/nvme0n1</code> 選擇硬碟(依照情況自行更改名稱)<ul><li>進去後選取 Free space -> New -> 輸入 Size (例如: 200G) -> Write -> 輸入 yes -> Quit</li></ul></li><li>格式化為 ext4 格式：<code>mkfs.ext4 /dev/nvme0n1p5</code> 選擇磁區(依照情況自行更改名稱)</li></ul></li><li>掛載硬碟<ul><li>掛載 root 分區：<code>mount /dev/nvme0n1p5 /mnt</code></li><li>先創建 boot 資料夾：<code>mkdir /mnt/boot</code></li><li>掛載 efi 分區：<code>mount /dev/nvme0n1p1 /mnt/boot</code> (依照情況自行更改名稱)<ul><li>這邊我們選擇跟 Windows 10 共用 efi 分區</li></ul></li></ul></li><li>連接網路，以下為 Wifi 連接方式<ul><li>輸入 <code>iwctl</code></li><li>查詢設備：<code>device list</code> (以下依照情況自行更改名稱，這邊以 <code>wlan0</code> 為例)</li><li>掃描 wifi：<code>station wlan0 scan</code></li><li>列出 wifi：<code>station wlan0 get-networks</code></li><li>連接 wifi：<code>station wlan0 connect Wifi-Name</code></li><li>有密碼的話輸入密碼</li><li>輸入 <code>exit</code> 離開</li><li>輸入 <code>ping www.google.com</code> 檢查是否連接成功</li></ul></li><li>更新系統時間<ul><li><code>timedatectl set-ntp true</code></li><li>可以執行 <code>timedatectl status</code> 檢查時間同步服務的狀態。</li></ul></li><li>安裝必要的軟體包<ul><li>必要：<code>pacstrap /mnt base linux linux-firmware</code></li><li>可以先安裝 Microcode，例如：<code>pacstrap /mnt intel-ucode</code> （詳細請參考第八點）</li><li>依照需求安裝：<code>pacstrap /mnt vim iwd man-db man-pages texinfo</code></li></ul></li><li>配置系統<ul><li><p>生成 fstab 文件</p><ul><li><code>genfstab -U /mnt >> /mnt/etc/fstab</code></li><li>檢查生成的 fstab 文件：<code>cat /mnt/etc/fstab</code></li></ul></li><li><p>切換到裝好的系統：<code>arch-chroot /mnt</code></p></li><li><p>設定時區：<code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p></li><li><p>同步硬體時鐘：<code>hwclock --systohc</code></p></li><li><p>在地化</p><ul><li><code>vim /etc/locale.gen</code><ul><li>取消註解 <code>en_US.UTF-8 UTF-8</code>、<code>zh_TW.UTF-8 UTF-8</code></li></ul></li><li>生成 locale 訊息：<code>locale-gen</code></li><li><code>vim /etc/locale.conf</code><ul><li>添加設定：<code>LANG=en_US.UTF-8</code></li></ul></li></ul></li><li><p>配置網路</p><ul><li>創建 hostname 文件：<code>vim /etc/hostname</code><ul><li>輸入你要的名稱，例如：<code>myhostname</code></li></ul></li><li>修改 hosts：<code>vim /etc/hosts</code>，內容如下<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>127.0.0.1	localhost
-::1		localhost
-127.0.1.1	myhostname.localdomain	myhostname
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-<li>
-<p>設定 DHCP</p>
-<ul>
-<li><code>vim /etc/systemd/network/20-wired.network</code>，內容如下
-<ul>
-<li><code>enp1s0</code> 為網卡名稱，請用 <code>ip a</code> 自行查看更改</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>127.0.0.1	localhost
+</span></span><span class=line><span class=cl>::1		localhost
+</span></span><span class=line><span class=cl>127.0.1.1	myhostname.localdomain	myhostname
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p>設定 DHCP</p><ul><li><code>vim /etc/systemd/network/20-wired.network</code>，內容如下<ul><li><code>enp1s0</code> 為網卡名稱，請用 <code>ip a</code> 自行查看更改</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>[Match]
-Name=enp1s0
-
-[Network]
-DHCP=yes
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>啟用：<code>systemctl enable --now systemd-networkd.service</code></li>
-</ul>
-</li>
-<li>
-<p>啟用 DNS：<code>systemctl enable --now systemd-resolved</code></p>
-</li>
-<li>
-<p>修改 root 密碼：<code>passwd</code></p>
-</li>
-</ul>
-</li>
-<li>開機引導，這邊我們使用 <a class=link href=https://wiki.archlinux.org/title/systemd-boot target=_blank rel=noopener>systemd-boot</a>
-<ul>
-<li>將 systemd-boot 安裝到 efi 分區：<code>bootctl --path=/boot install</code></li>
-<li>手動更新 systemd-boot：<code>bootctl --path=/boot update</code></li>
-<li>啟動選單配置
-<ul>
-<li><code>vim /boot/loader/loader.conf</code>，內容如下
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[Match]
+</span></span><span class=line><span class=cl>Name=enp1s0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[Network]
+</span></span><span class=line><span class=cl>DHCP=yes
+</span></span></code></pre></td></tr></table></div></div></li><li>啟用：<code>systemctl enable --now systemd-networkd.service</code></li></ul></li><li><p>啟用 DNS：<code>systemctl enable --now systemd-resolved</code></p></li><li><p>修改 root 密碼：<code>passwd</code></p></li></ul></li><li>開機引導，這邊我們使用 <a class=link href=https://wiki.archlinux.org/title/systemd-boot target=_blank rel=noopener>systemd-boot</a><ul><li>將 systemd-boot 安裝到 efi 分區：<code>bootctl --path=/boot install</code></li><li>手動更新 systemd-boot：<code>bootctl --path=/boot update</code></li><li>啟動選單配置<ul><li><code>vim /boot/loader/loader.conf</code>，內容如下<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>default arch.conf
-timeout 10
-console-mode max
-editor no
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><code>vim /boot/loader/entries/arch.conf</code>，內容如下
-<ul>
-<li>UUID 請自行填入，可於 <code>/etc/fstab</code> 中查看，請選擇 <code>/</code> 目錄的。</li>
-<li><code>ucode</code> 的部分請依照您自己的 CPU 來選擇，可於 <a class=link href=https://wiki.archlinux.org/title/Microcode target=_blank rel=noopener>Arch Wiki Microcode</a> 查看。（在前面第六步的時候可以一起安裝）</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>default arch.conf
+</span></span><span class=line><span class=cl>timeout 10
+</span></span><span class=line><span class=cl>console-mode max
+</span></span><span class=line><span class=cl>editor no
+</span></span></code></pre></td></tr></table></div></div></li><li><code>vim /boot/loader/entries/arch.conf</code>，內容如下<ul><li>UUID 請自行填入，可於 <code>/etc/fstab</code> 中查看，請選擇 <code>/</code> 目錄的。</li><li><code>ucode</code> 的部分請依照您自己的 CPU 來選擇，可於 <a class=link href=https://wiki.archlinux.org/title/Microcode target=_blank rel=noopener>Arch Wiki Microcode</a> 查看。（在前面第六步的時候可以一起安裝）</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>title Arch Linux
-linux /vmlinuz-linux
-initrd  /intel-ucode.img
-initrd /initramfs-linux.img
-options root=&#34;UUID=XXX-XXX-XXX&#34; rw
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><code>cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-fallback.conf</code></li>
-<li><code>vim /boot/loader/entries/arch-fallback.conf</code>
-<ul>
-<li>將 <code>/initramfs-linux.img</code> 更改為 <code>/initramfs-linux-fallback.img</code> 即可</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>重新啟動
-<ul>
-<li>退出 chroot 環境：輸入 <code>exit</code> 或是按下 <code>Ctrl+d</code></li>
-<li>卸載分區：<code>umount -R /mnt</code></li>
-<li>重新啟動：<code>reboot</code></li>
-<li>記得重開時要移除隨身碟呀</li>
-</ul>
-</li>
-</ol>
-<h1 id=補充>補充</h1>
-<ul>
-<li>這台電腦進 BIOS 方法：按住 <code>F2</code>，再按電源，直到進入 BIOS 再放開 <code>F2</code></li>
-<li>在 BIOS 新增開機選項
-<ol>
-<li>Boot -> Add New Boot Option</li>
-<li>Add boot option：輸入選項名稱</li>
-<li>Path for boot option：<code>\EFI\systemd\systemd-bootx64.efi</code></li>
-<li>Create -> Ok</li>
-</ol>
-</li>
-<li>開機選單消失問題：<a class=link href=https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Windows_changes_boot_order target=_blank rel=noopener>Windows_changes_boot_order</a></li>
-<li>字體太小問題
-<ul>
-<li><a class=link href=https://wiki.archlinux.org/title/HiDPI#Linux_console target=_blank rel=noopener>HiDPI - Linux Console</a></li>
-<li><a class=link href=https://wiki.archlinux.org/title/Linux_console#Fonts target=_blank rel=noopener>Linux_console - Fonts</a></li>
-</ul>
-</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/arch-linux/>Arch Linux</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>title Arch Linux
+</span></span><span class=line><span class=cl>linux /vmlinuz-linux
+</span></span><span class=line><span class=cl>initrd  /intel-ucode.img
+</span></span><span class=line><span class=cl>initrd /initramfs-linux.img
+</span></span><span class=line><span class=cl>options root=&#34;UUID=XXX-XXX-XXX&#34; rw
+</span></span></code></pre></td></tr></table></div></div></li><li><code>cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-fallback.conf</code></li><li><code>vim /boot/loader/entries/arch-fallback.conf</code><ul><li>將 <code>/initramfs-linux.img</code> 更改為 <code>/initramfs-linux-fallback.img</code> 即可</li></ul></li></ul></li></ul></li><li>重新啟動<ul><li>退出 chroot 環境：輸入 <code>exit</code> 或是按下 <code>Ctrl+d</code></li><li>卸載分區：<code>umount -R /mnt</code></li><li>重新啟動：<code>reboot</code></li><li>記得重開時要移除隨身碟呀</li></ul></li></ol><h1 id=補充><a href=#%e8%a3%9c%e5%85%85 class=header-anchor></a>補充</h1><ul><li>這台電腦進 BIOS 方法：按住 <code>F2</code>，再按電源，直到進入 BIOS 再放開 <code>F2</code></li><li>在 BIOS 新增開機選項<ol><li>Boot -> Add New Boot Option</li><li>Add boot option：輸入選項名稱</li><li>Path for boot option：<code>\EFI\systemd\systemd-bootx64.efi</code></li><li>Create -> Ok</li></ol></li><li>開機選單消失問題：<a class=link href=https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Windows_changes_boot_order target=_blank rel=noopener>Windows_changes_boot_order</a></li><li>字體太小問題<ul><li><a class=link href=https://wiki.archlinux.org/title/HiDPI#Linux_console target=_blank rel=noopener>HiDPI - Linux Console</a></li><li><a class=link href=https://wiki.archlinux.org/title/Linux_console#Fonts target=_blank rel=noopener>Linux_console - Fonts</a></li></ul></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/arch-linux/>Arch Linux</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#前言>前言</a></li>
-<li><a href=#安裝設備>安裝設備</a></li>
-<li><a href=#開始安裝>開始安裝</a>
-<ul>
-<li><a href=#前置作業>前置作業</a></li>
-<li><a href=#安裝系統>安裝系統</a></li>
-</ul>
-</li>
-<li><a href=#補充>補充</a></li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

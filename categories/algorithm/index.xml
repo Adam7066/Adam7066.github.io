@@ -1,1 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algorithm on 小十的部落格</title><link>https://blog.smallten.me/categories/algorithm/</link><description>Recent content in Algorithm on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 08 Dec 2020 16:02:25 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/categories/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>演算法-01：蓄水池抽樣法</title><link>https://blog.smallten.me/p/algorithm-01/</link><pubDate>Tue, 08 Dec 2020 16:02:25 +0800</pubDate><guid>https://blog.smallten.me/p/algorithm-01/</guid><description>蓄水池抽樣法 (Reservoir Sampling) 從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。 定理 該</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algorithm on 小十的部落格</title><link>https://blog.smallten.me/categories/algorithm/</link><description>Recent content in Algorithm on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 08 Dec 2020 16:02:25 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/categories/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>演算法-01：蓄水池抽樣法</title><link>https://blog.smallten.me/p/algorithm-01/</link><pubDate>Tue, 08 Dec 2020 16:02:25 +0800</pubDate><guid>https://blog.smallten.me/p/algorithm-01/</guid><description>&lt;h1 id="蓄水池抽樣法-reservoir-sampling">&lt;a href="#%e8%93%84%e6%b0%b4%e6%b1%a0%e6%8a%bd%e6%a8%a3%e6%b3%95-reservoir-sampling" class="header-anchor">&lt;/a>蓄水池抽樣法 (Reservoir Sampling)
+&lt;/h1>&lt;ul>
+&lt;li>從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。&lt;/li>
+&lt;/ul>
+&lt;h3 id="定理">&lt;a href="#%e5%ae%9a%e7%90%86" class="header-anchor">&lt;/a>定理
+&lt;/h3>&lt;p>該算法保證每個元素以 \( k \over n \) 的機率被選入蓄水池中。&lt;/p>
+&lt;h3 id="證明">&lt;a href="#%e8%ad%89%e6%98%8e" class="header-anchor">&lt;/a>證明
+&lt;/h3>&lt;ol>
+&lt;li>第 i 個元素進入蓄水池的機率為 \( k \over i \)，蓄水池內每個元素被替換的機率為\( 1 \over k \)&lt;/li>
+&lt;li>因此在第 i 輪第 j 個元素被替換的機率為 \( {k \over i}\times{1 \over k} = {1 \over i} \)，接下來用 M.I. (數學歸納法)來證明，當 n 次循環結束時每個元素進入蓄水池的機率為 \( k \over n \)&lt;/li>
+&lt;li>假設在 (i-1) 次迭代後，任意一個元素進入 蓄水池的概率為 \( k \over i-1 \)。由上面的結論，在第 i 次迭代時，該元素被替換的概率為 \( 1 \over i \)， 那麼其不被替換的概率則為 \( 1 - {1 \over i} = {i - 1 \over i} \)&lt;/li>
+&lt;li>故在第 i 次迭代後，該元素在蓄水池內的概率為 \( {k \over i-1} \times {i-1 \over i} = {k \over i} \)，歸納結束。&lt;/li>
+&lt;li>因此當循環結束時，每個元素進入蓄水池的概率為 \( k \over n \)，命題得證。&lt;/li>
+&lt;/ol>
+&lt;h3 id="例題">&lt;a href="#%e4%be%8b%e9%a1%8c" class="header-anchor">&lt;/a>例題
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://leetcode.com/problems/linked-list-random-node/" target="_blank" rel="noopener"
+>Leetcode 382.Linked List Random Node&lt;/a>&lt;/li>
+&lt;li>解法： Cpp&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Solution&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ListNode&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">public&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Solution&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ListNode&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">head&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="nf">getRandom&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">ans&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ListNode&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">t&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">t&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">){&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rand&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">ans&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">t&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">t&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">t&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">next&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">ans&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

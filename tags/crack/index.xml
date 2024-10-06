@@ -1,1 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crack on 小十的部落格</title><link>https://blog.smallten.me/tags/crack/</link><description>Recent content in Crack on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 26 Jul 2021 11:50:17 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/crack/index.xml" rel="self" type="application/rss+xml"/><item><title>PlayStation Vita-03：NoPayStation Browser</title><link>https://blog.smallten.me/p/psv-03/</link><pubDate>Mon, 26 Jul 2021 11:50:17 +0800</pubDate><guid>https://blog.smallten.me/p/psv-03/</guid><description>下載 NPS Clients，並放到一個資料夾中。 下載 pkg2Zip，並將 pkg2zip.exe 放到同一個資料夾中。 執行 NPS_Browser.exe。 複製以下連結： Games</description></item><item><title>PlayStation Vita-02：NoNpDrm</title><link>https://blog.smallten.me/p/psv-02/</link><pubDate>Mon, 26 Jul 2021 11:46:32 +0800</pubDate><guid>https://blog.smallten.me/p/psv-02/</guid><description>在 PSV 執行 Vita Shell，然後按一下 Select 按鈕，最後以 USB 連接 PC。 下載 NoNpDrm，並將 nonpdrm.skprx 放進 tai 資料夾中。 回到 PSV 的 Vita Shell 中，並到達 ux0:tai/，</description></item><item><title>PlayStation Vita-01：H-encore 2</title><link>https://blog.smallten.me/p/psv-01/</link><pubDate>Mon, 26 Jul 2021 11:04:05 +0800</pubDate><guid>https://blog.smallten.me/p/psv-01/</guid><description>下載 Qcma 並安裝到電腦上。 PSV 以 USB 的方式連接到 PC。 下載 Final h-encore，然後將其解壓縮，最後執行它。 點擊 Let&amp;rsquo;s Go ，然後等到 100% 完成。 回到 PSV 的檔案管理</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crack on 小十的部落格</title><link>https://blog.smallten.me/tags/crack/</link><description>Recent content in Crack on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 26 Jul 2021 11:50:17 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/crack/index.xml" rel="self" type="application/rss+xml"/><item><title>PlayStation Vita-03：NoPayStation Browser</title><link>https://blog.smallten.me/p/psv-03/</link><pubDate>Mon, 26 Jul 2021 11:50:17 +0800</pubDate><guid>https://blog.smallten.me/p/psv-03/</guid><description>&lt;ol>
+&lt;li>下載 &lt;a class="link" href="https://nopaystation.com/" target="_blank" rel="noopener"
+>NPS Clients&lt;/a>，並放到一個資料夾中。&lt;/li>
+&lt;li>下載 &lt;a class="link" href="https://github.com/mmozeiko/pkg2zip/releases" target="_blank" rel="noopener"
+>pkg2Zip&lt;/a>，並將 &lt;code>pkg2zip.exe&lt;/code> 放到同一個資料夾中。&lt;/li>
+&lt;li>執行 &lt;code>NPS_Browser.exe&lt;/code>。&lt;/li>
+&lt;li>複製以下連結：
+&lt;ul>
+&lt;li>Games
+&lt;ul>
+&lt;li>PSV tsv &lt;code>http://nopaystation.com/tsv/PSV_GAMES.tsv&lt;/code>&lt;/li>
+&lt;li>PSM tsv &lt;code>http://nopaystation.com/tsv/PSM_GAMES.tsv&lt;/code>&lt;/li>
+&lt;li>PSX tsv &lt;code>http://nopaystation.com/tsv/PSX_GAMES.tsv&lt;/code>&lt;/li>
+&lt;li>PSP tsv &lt;code>http://nopaystation.com/tsv/PSP_GAMES.tsv&lt;/code>&lt;/li>
+&lt;li>PS3 tsv &lt;code>http://nopaystation.com/tsv/PS3_GAMES.tsv&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>DLCs:
+&lt;ul>
+&lt;li>PSV tsv &lt;code>http://nopaystation.com/tsv/PSV_DLCS.tsv&lt;/code>&lt;/li>
+&lt;li>PSP tsv &lt;code>http://nopaystation.com/tsv/PSP_DLCS.tsv&lt;/code>&lt;/li>
+&lt;li>PS3 tsv &lt;code>http://nopaystation.com/tsv/PS3_DLCS.tsv&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Themes:
+&lt;ul>
+&lt;li>PSV tsv &lt;code>http://nopaystation.com/tsv/PSV_THEMES.tsv&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>設定 Download and unpack dir: 檔案下載後的位置。&lt;/li>
+&lt;li>設定 Any pkg dec tool: 路徑為 &lt;code>pkg2Zip.exe&lt;/code> 的位置。&lt;/li>
+&lt;li>設定 Your pkg dec params: &lt;code>-x {pkgFile} &amp;quot;{zRifKey}&amp;quot;&lt;/code>。&lt;/li>
+&lt;li>設定 HMAC key for updates: &lt;code>E5E278AA1EE34082A088279C83F9BBC806821C52F2AB5D2B4ABD995450355114&lt;/code>。&lt;/li>
+&lt;li>設定 CompPack URL: &lt;code>https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries.txt&lt;/code>&lt;/li>
+&lt;li>設定 CompPack Patch URL: &lt;code>https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries_patch.txt&lt;/code>&lt;/li>
+&lt;li>重新啟動 NPS Browser。&lt;/li>
+&lt;li>下載你要的檔案，並將其放進 PSV 對應路徑中。&lt;/li>
+&lt;li>進入 Vita Shell，按下三角形按鈕，選擇 Refresh LiveArea&lt;/li>
+&lt;/ol></description></item><item><title>PlayStation Vita-02：NoNpDrm</title><link>https://blog.smallten.me/p/psv-02/</link><pubDate>Mon, 26 Jul 2021 11:46:32 +0800</pubDate><guid>https://blog.smallten.me/p/psv-02/</guid><description>&lt;ol>
+&lt;li>在 PSV 執行 Vita Shell，然後按一下 Select 按鈕，最後以 USB 連接 PC。&lt;/li>
+&lt;li>下載 &lt;a class="link" href="https://github.com/TheOfficialFloW/NoNpDrm/releases" target="_blank" rel="noopener"
+>NoNpDrm&lt;/a>，並將 &lt;code>nonpdrm.skprx&lt;/code> 放進 tai 資料夾中。&lt;/li>
+&lt;li>回到 PSV 的 Vita Shell 中，並到達 &lt;code>ux0:tai/&lt;/code>，選擇 &lt;code>config.txt&lt;/code>。&lt;/li>
+&lt;li>找到並移到 &lt;code>*KERNEL&lt;/code> 那行，按一下三角形按鈕，選 Insert empty line。&lt;/li>
+&lt;li>選擇下方新增的空白行，並輸入 &lt;code>ux0:tai/nonpdrm.skprx&lt;/code>，然後儲存離開。&lt;/li>
+&lt;li>到設定中的 HENkaku 設置，選擇 重載 taiHEN config.txt。&lt;/li>
+&lt;li>重新啟動 PSV。&lt;/li>
+&lt;/ol></description></item><item><title>PlayStation Vita-01：H-encore 2</title><link>https://blog.smallten.me/p/psv-01/</link><pubDate>Mon, 26 Jul 2021 11:04:05 +0800</pubDate><guid>https://blog.smallten.me/p/psv-01/</guid><description>&lt;ol>
+&lt;li>下載 &lt;a class="link" href="https://codestation.github.io/qcma/" target="_blank" rel="noopener"
+>Qcma&lt;/a> 並安裝到電腦上。&lt;/li>
+&lt;li>PSV 以 USB 的方式連接到 PC。&lt;/li>
+&lt;li>下載 &lt;a class="link" href="https://github.com/soarqin/finalhe/releases" target="_blank" rel="noopener"
+>Final h-encore&lt;/a>，然後將其解壓縮，最後執行它。&lt;/li>
+&lt;li>點擊 Let&amp;rsquo;s Go ，然後等到 100% 完成。&lt;/li>
+&lt;li>回到 PSV 的檔案管理 (Content Manager)，然後選擇複製內容(Copy Content) PC to PSV，之後 Applications &amp;gt; PS Vita，最後選 h-encore 2 再按 複製(Copy) &amp;gt; OK。&lt;/li>
+&lt;li>拔掉 USB，執行 PSV 桌面上的 h-encore 2。&lt;/li>
+&lt;li>PSV 記得要連網，然後選 Install HENkaku &amp;gt; Download VitaShell &amp;gt; Exit&lt;/li>
+&lt;li>到設定確認系統資訊，確認成功後，再去設定 HENkaku。&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>之後若有重開機的話，得重新進入 h-encore 2 再離開即可。&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

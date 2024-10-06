@@ -1,1 +1,150 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Caddy on 小十的部落格</title><link>https://blog.smallten.me/tags/caddy/</link><description>Recent content in Caddy on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 28 Apr 2023 10:45:52 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/caddy/index.xml" rel="self" type="application/rss+xml"/><item><title>Caddy-01：第一次架站就上手</title><link>https://blog.smallten.me/p/caddy-01/</link><pubDate>Fri, 28 Apr 2023 10:45:52 +0800</pubDate><guid>https://blog.smallten.me/p/caddy-01/</guid><description>簡介 Caddy Server 是一個開源的，使用 Golang 編寫，支援 HTTP/2 的 Web 伺服器端。 Caddy 一個顯著的特性是預設啟用 HTTPS。 是第一個無需額外組態即可提供 HTTPS 特性的 Web 伺服器。 前</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Caddy on 小十的部落格</title><link>https://blog.smallten.me/tags/caddy/</link><description>Recent content in Caddy on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 28 Apr 2023 10:45:52 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/caddy/index.xml" rel="self" type="application/rss+xml"/><item><title>Caddy-01：第一次架站就上手</title><link>https://blog.smallten.me/p/caddy-01/</link><pubDate>Fri, 28 Apr 2023 10:45:52 +0800</pubDate><guid>https://blog.smallten.me/p/caddy-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://caddyserver.com" target="_blank" rel="noopener"
+>Caddy Server&lt;/a> 是一個開源的，使用 Golang 編寫，支援 HTTP/2 的 Web 伺服器端。&lt;/li>
+&lt;li>Caddy 一個顯著的特性是預設啟用 HTTPS。&lt;/li>
+&lt;li>是第一個無需額外組態即可提供 HTTPS 特性的 Web 伺服器。&lt;/li>
+&lt;/ul>
+&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
+&lt;/h1>&lt;ul>
+&lt;li>一開始我是想說直接裝在 server 上，但由於我 DNS、SSL 簽證是透過 &lt;a class="link" href="https://www.cloudflare.com/zh-tw/" target="_blank" rel="noopener"
+>Cloudflare&lt;/a> 來處理的，這就得需要使用到 &lt;a class="link" href="https://github.com/caddyserver/xcaddy" target="_blank" rel="noopener"
+>xcaddy&lt;/a>。&lt;/li>
+&lt;li>但我一直處理不好，所以最後還是跑去使用 Docker 的方式了。&lt;/li>
+&lt;/ul>
+&lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
+&lt;/h1>&lt;h2 id="前置作業">&lt;a href="#%e5%89%8d%e7%bd%ae%e4%bd%9c%e6%a5%ad" class="header-anchor">&lt;/a>前置作業
+&lt;/h2>&lt;h3 id="安裝-docker">&lt;a href="#%e5%ae%89%e8%a3%9d-docker" class="header-anchor">&lt;/a>安裝 Docker
+&lt;/h3>&lt;ul>
+&lt;li>請在 Server 上安裝 &lt;a class="link" href="https://www.docker.com" target="_blank" rel="noopener"
+>Docker&lt;/a>，這邊就不多做介紹了。&lt;/li>
+&lt;/ul>
+&lt;h3 id="安裝-docker-compose">&lt;a href="#%e5%ae%89%e8%a3%9d-docker-compose" class="header-anchor">&lt;/a>安裝 Docker Compose
+&lt;/h3>&lt;ul>
+&lt;li>請在 Server 上安裝 &lt;a class="link" href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener"
+>Docker Compose&lt;/a>，這邊就不多做介紹了。&lt;/li>
+&lt;/ul>
+&lt;h3 id="設定-dns">&lt;a href="#%e8%a8%ad%e5%ae%9a-dns" class="header-anchor">&lt;/a>設定 DNS
+&lt;/h3>&lt;ul>
+&lt;li>到 Cloudflare 將你的網域設定到你的 Server IP。&lt;/li>
+&lt;/ul>
+&lt;h3 id="取得-token">&lt;a href="#%e5%8f%96%e5%be%97-token" class="header-anchor">&lt;/a>取得 Token
+&lt;/h3>&lt;ul>
+&lt;li>到 Cloudflare -&amp;gt; 右上角用戶 icon -&amp;gt; 我的設定檔 -&amp;gt; API 權杖 -&amp;gt; 建立 Token&lt;/li>
+&lt;/ul>
+&lt;h2 id="目錄結構">&lt;a href="#%e7%9b%ae%e9%8c%84%e7%b5%90%e6%a7%8b" class="header-anchor">&lt;/a>目錄結構
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">caddy/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> |-- Caddyfile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> |-- Dockerfile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> |-- docker-compose.yaml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> |-- site/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> |-- web/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> |-- index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="檔案內容">&lt;a href="#%e6%aa%94%e6%a1%88%e5%85%a7%e5%ae%b9" class="header-anchor">&lt;/a>檔案內容
+&lt;/h2>&lt;h3 id="caddyfile">&lt;a href="#caddyfile" class="header-anchor">&lt;/a>Caddyfile
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-caddyfile" data-lang="caddyfile">&lt;span class="line">&lt;span class="cl">&lt;span class="gh">smallten.me&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">tls&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">dns&lt;/span> &lt;span class="s">cloudflare&lt;/span> &lt;span class="s">your_token&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">root&lt;/span> &lt;span class="nd">*&lt;/span> &lt;span class="s">./web&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">file_server&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">encode&lt;/span> &lt;span class="s">gzip&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">try_files&lt;/span> &lt;span class="se">{path}&lt;/span> &lt;span class="s">/index.html&lt;/span>&lt;span class="c1"> # Required by Vue Router HTML5 mode
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>更多內容可以參考 &lt;a class="link" href="https://caddyserver.com/docs/caddyfile" target="_blank" rel="noopener"
+>caddyfile&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="dockerfile">&lt;a href="#dockerfile" class="header-anchor">&lt;/a>Dockerfile
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> caddy:builder AS builder&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> xcaddy build --with github.com/caddy-dns/cloudflare&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="s"> caddy:latest&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> --from&lt;span class="o">=&lt;/span>builder /usr/bin/caddy /usr/bin/caddy&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="docker-composeyaml">&lt;a href="#docker-composeyaml" class="header-anchor">&lt;/a>docker-compose.yaml
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">caddy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">80&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">80&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">443&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">443&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">443&lt;/span>&lt;span class="l">/udp&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">$PWD/Caddyfile:/etc/caddy/Caddyfile&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">$PWD/site:/srv&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">caddy_data:/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">caddy_config:/config&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">caddy_data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">external&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">caddy_config&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

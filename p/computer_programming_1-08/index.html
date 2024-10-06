@@ -1,141 +1,20 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Pointer 許多人不喜歡C是因為有「指標」 這可能是C中最困難的一個部分 指標是一個變數，其值為記憶體位置 宣告：int32_t *p p 是一個指標 指向的記憶體區"><title>程式設計(一)-08：Pointer</title>
-<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-08/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-08：Pointer">
-<meta property="og:description" content="Pointer 許多人不喜歡C是因為有「指標」 這可能是C中最困難的一個部分 指標是一個變數，其值為記憶體位置 宣告：int32_t *p p 是一個指標 指向的記憶體區">
-<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_1-08/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2020-12-23T19:38:14+08:00"><meta property="article:modified_time" content="2020-12-23T19:38:14+08:00">
-<meta name=twitter:title content="程式設計(一)-08：Pointer">
-<meta name=twitter:description content="Pointer 許多人不喜歡C是因為有「指標」 這可能是C中最困難的一個部分 指標是一個變數，其值為記憶體位置 宣告：int32_t *p p 是一個指標 指向的記憶體區">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%B8%80/>
-程式設計(一)
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/computer_programming_1-08/>程式設計(一)-08：Pointer</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Dec 23, 2020</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-3 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=pointer>Pointer</h1>
-<ul>
-<li>許多人不喜歡C是因為有「指標」</li>
-<li>這可能是C中最困難的一個部分</li>
-</ul>
-<hr>
-<ul>
-<li>指標是一個變數，其值為記憶體位置
-<img src=/p/computer_programming_1-08/computer_programming_1-08-01.png width=624 height=482 srcset="/p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-01_hu398bb37b63fd8209945f2f56af9b6d3e_23889_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=129 data-flex-basis=310px></li>
-<li>宣告：<code>int32_t *p</code>
-<ul>
-<li>p 是一個指標</li>
-<li>指向的記憶體區塊被視為整數</li>
-</ul>
-</li>
-<li>初始化：<code>int32_t *p = NULL</code></li>
-<li>address operator <code>&</code>：返回其變數的記憶體位置
-<ul>
-<li>如果想要印出記憶體位置，你可以使用<code>%p</code></li>
-</ul>
-</li>
-<li>indirection operator <code>*</code>：也被稱為dereferencing operator，返回指向對象的值
-<img src=/p/computer_programming_1-08/computer_programming_1-08-02.png width=560 height=482 srcset="/p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-02_hu0a8930e11c7536ee883fb5d0dfdd78ad_20157_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=116 data-flex-basis=278px></li>
-<li>void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別</li>
-</ul>
-<h3 id=傳參數至函式>傳參數至函式</h3>
-<ul>
-<li>在C語言中，argument passing 稱為 call-by-value
-<ul>
-<li>電腦將會分配另一個記憶體區塊</li>
-<li>複製輸入的參數到記憶體區塊</li>
-<li>函式將會在新的記憶體區塊執行</li>
-</ul>
-</li>
-<li>這就是為什麼修改函式中的變數，並不會修改到原本外部的變數了。</li>
-<li>在C++有另一種傳送方式稱為 call-by-reference，這邊我們不多加介紹。</li>
-<li>普遍來說，傳址會比傳值更快。</li>
-</ul>
-<h3 id=陣列與指標>陣列與指標</h3>
-<ul>
-<li>在大部分的情況下，我們可以把array視為第一個元素的指標
-<ul>
-<li>現在你應該明白為什麼陣列的值會在函式中被修改</li>
-</ul>
-</li>
-<li>為了避免模棱兩可(搞混)，我較喜歡<code>&(array[0])</code>而不是<code>array</code>、<code>&array</code></li>
-<li>然而你不能寫出 <code>array = &a</code></li>
-<li>int32_t
-<img src=/p/computer_programming_1-08/computer_programming_1-08-03.png width=1376 height=525 srcset="/p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-03_hua4ffcfffdb0d5cbd6f85ca56310f1d36_36032_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=262 data-flex-basis=629px></li>
-<li>int16_t
-<img src=/p/computer_programming_1-08/computer_programming_1-08-04.png width=1376 height=525 srcset="/p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-04_hu92da0828b2a348267cfe3ac686741655_34474_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=262 data-flex-basis=629px></li>
-<li>int8_t
-<img src=/p/computer_programming_1-08/computer_programming_1-08-05.png width=1376 height=525 srcset="/p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-05_hub90ffe0d9cbc8b522addb56c1c004a1c_34140_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=262 data-flex-basis=629px></li>
-<li><code>ptr++</code>
-<ul>
-<li>移動的大小是根據指標的型別</li>
-<li>這在要讀取每一byte的詳細資料時非常好用</li>
-</ul>
-</li>
-<li>事實上，<code>array[n] = *(ptr + n)</code></li>
-</ul>
-<h3 id=endian-issue>Endian Issue</h3>
-<p><img src=/p/computer_programming_1-08/computer_programming_1-08-06.png width=868 height=368 srcset="/p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-06_hu7477f6d92b9b5dc7fc8ef441486939e3_22341_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=235 data-flex-basis=566px></p>
-<h3 id=函式指標>函式指標</h3>
-<ul>
-<li>指標不過是一個記憶體位址。</li>
-<li>當我們宣告某種類型的指標時，這意味著電腦將將訪問記憶體並根據給定的類型解釋存儲在該位址的值。</li>
-<li>您是否知道函式也存儲在記憶體中？</li>
-<li>使用函式指標時，返回的型別和參數應該要和實際的定義相同。
-<ul>
-<li>Really??為什麼在編譯時不會產生errors?</li>
-<li>這是個檢查definition的好習慣。</li>
-</ul>
-</li>
-<li>回呼函式 (Callback function)</li>
-<li>你可以用陣列來儲存函式指標
-<code>void (*f[3])(int32_t) = {f1, f2, f3};</code></li>
-</ul>
-<hr>
-<ul>
-<li>使用了函式指標的例子
-<ul>
-<li>Menu Driven</li>
-<li>Driver
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Pointer 許多人不喜歡C是因為有「指標」 這可能是C中最困難的一個部分 指標是一個變數，其值為記憶體位置 宣告：int32_t *p p 是一個指標 指向的記憶體區塊被視為整數 初始化：int32_t *p = NULL address operator &：返回其變數的記憶體位置 如果想要印出記憶體位置，你可以使用%p indirection operator *：也被稱為dereferencing operator，返回指向對象的值 void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別 傳參數至函式 在C語言中，argument passing 稱為 call-by-value 電腦將會分配另一個記憶體區塊 複製輸入的參數到記憶體區塊 函式將會在新的記憶體區塊執行 這就是為什麼修改函式中的變數，並不會修改到原本外部的變數了。 在C++有另一種傳送方式稱為 call-by-reference，這邊我們不多加介紹。 普遍來說，傳址會比傳值更快。 陣列與指標 在大部分的情況下，我們可以把array視為第一個元素的指標 現在你應該明白為什麼陣列的值會在函式中被修改 為了避免模棱兩可(搞混)，我較喜歡&(array[0])而不是array、&amp;array 然而你不能寫出 array = &amp;a int32_t int16_t int8_t ptr++ 移動的大小是根據指標的型別 這在要讀取每一byte的詳細資料時非常好用 事實上，array[n] = *(ptr + n) Endian Issue "><title>程式設計(一)-08：Pointer</title>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-08/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="程式設計(一)-08：Pointer"><meta property='og:description' content="Pointer 許多人不喜歡C是因為有「指標」 這可能是C中最困難的一個部分 指標是一個變數，其值為記憶體位置 宣告：int32_t *p p 是一個指標 指向的記憶體區塊被視為整數 初始化：int32_t *p = NULL address operator &：返回其變數的記憶體位置 如果想要印出記憶體位置，你可以使用%p indirection operator *：也被稱為dereferencing operator，返回指向對象的值 void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別 傳參數至函式 在C語言中，argument passing 稱為 call-by-value 電腦將會分配另一個記憶體區塊 複製輸入的參數到記憶體區塊 函式將會在新的記憶體區塊執行 這就是為什麼修改函式中的變數，並不會修改到原本外部的變數了。 在C++有另一種傳送方式稱為 call-by-reference，這邊我們不多加介紹。 普遍來說，傳址會比傳值更快。 陣列與指標 在大部分的情況下，我們可以把array視為第一個元素的指標 現在你應該明白為什麼陣列的值會在函式中被修改 為了避免模棱兩可(搞混)，我較喜歡&(array[0])而不是array、&amp;array 然而你不能寫出 array = &amp;a int32_t int16_t int8_t ptr++ 移動的大小是根據指標的型別 這在要讀取每一byte的詳細資料時非常好用 事實上，array[n] = *(ptr + n) Endian Issue "><meta property='og:url' content='https://blog.smallten.me/p/computer_programming_1-08/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='C'><meta property='article:tag' content='Note'><meta property='article:published_time' content='2020-12-23T19:38:14+08:00'><meta property='article:modified_time' content='2020-12-23T19:38:14+08:00'><meta name=twitter:title content="程式設計(一)-08：Pointer"><meta name=twitter:description content="Pointer 許多人不喜歡C是因為有「指標」 這可能是C中最困難的一個部分 指標是一個變數，其值為記憶體位置 宣告：int32_t *p p 是一個指標 指向的記憶體區塊被視為整數 初始化：int32_t *p = NULL address operator &：返回其變數的記憶體位置 如果想要印出記憶體位置，你可以使用%p indirection operator *：也被稱為dereferencing operator，返回指向對象的值 void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別 傳參數至函式 在C語言中，argument passing 稱為 call-by-value 電腦將會分配另一個記憶體區塊 複製輸入的參數到記憶體區塊 函式將會在新的記憶體區塊執行 這就是為什麼修改函式中的變數，並不會修改到原本外部的變數了。 在C++有另一種傳送方式稱為 call-by-reference，這邊我們不多加介紹。 普遍來說，傳址會比傳值更快。 陣列與指標 在大部分的情況下，我們可以把array視為第一個元素的指標 現在你應該明白為什麼陣列的值會在函式中被修改 為了避免模棱兩可(搞混)，我較喜歡&(array[0])而不是array、&amp;array 然而你不能寫出 array = &amp;a int32_t int16_t int8_t ptr++ 移動的大小是根據指標的型別 這在要讀取每一byte的詳細資料時非常好用 事實上，array[n] = *(ptr + n) Endian Issue "><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#pointer>Pointer</a><ul><li><ul><li><a href=#傳參數至函式>傳參數至函式</a></li><li><a href=#陣列與指標>陣列與指標</a></li><li><a href=#endian-issue>Endian Issue</a></li><li><a href=#函式指標>函式指標</a></li><li><a href=#記憶體管理>記憶體管理</a></li><li><a href=#double-pointer>Double Pointer</a></li><li><a href=#小工具>小工具</a></li></ul></li></ul></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%B8%80/>程式設計(一)</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/computer_programming_1-08/>程式設計(一)-08：Pointer</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Dec 23, 2020</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>3 minute read</time></div></footer></div></header><section class=article-content><h1 id=pointer><a href=#pointer class=header-anchor></a>Pointer</h1><ul><li>許多人不喜歡C是因為有「指標」</li><li>這可能是C中最困難的一個部分</li></ul><hr><ul><li>指標是一個變數，其值為記憶體位置
+<img src=/p/computer_programming_1-08/computer_programming_1-08-01.png width=624 height=482 srcset="/p/computer_programming_1-08/computer_programming_1-08-01_hu10239324899219864129.png 480w, /p/computer_programming_1-08/computer_programming_1-08-01_hu2725014591566561077.png 1024w" loading=lazy class=gallery-image data-flex-grow=129 data-flex-basis=310px></li><li>宣告：<code>int32_t *p</code><ul><li>p 是一個指標</li><li>指向的記憶體區塊被視為整數</li></ul></li><li>初始化：<code>int32_t *p = NULL</code></li><li>address operator <code>&</code>：返回其變數的記憶體位置<ul><li>如果想要印出記憶體位置，你可以使用<code>%p</code></li></ul></li><li>indirection operator <code>*</code>：也被稱為dereferencing operator，返回指向對象的值
+<img src=/p/computer_programming_1-08/computer_programming_1-08-02.png width=560 height=482 srcset="/p/computer_programming_1-08/computer_programming_1-08-02_hu9893268616403783829.png 480w, /p/computer_programming_1-08/computer_programming_1-08-02_hu12946903521331953612.png 1024w" loading=lazy class=gallery-image data-flex-grow=116 data-flex-basis=278px></li><li>void *：是一個通用的指標型別(generic pointer type)，可以不透過explicit cast轉換成任意指標的型別</li></ul><h3 id=傳參數至函式><a href=#%e5%82%b3%e5%8f%83%e6%95%b8%e8%87%b3%e5%87%bd%e5%bc%8f class=header-anchor></a>傳參數至函式</h3><ul><li>在C語言中，argument passing 稱為 call-by-value<ul><li>電腦將會分配另一個記憶體區塊</li><li>複製輸入的參數到記憶體區塊</li><li>函式將會在新的記憶體區塊執行</li></ul></li><li>這就是為什麼修改函式中的變數，並不會修改到原本外部的變數了。</li><li>在C++有另一種傳送方式稱為 call-by-reference，這邊我們不多加介紹。</li><li>普遍來說，傳址會比傳值更快。</li></ul><h3 id=陣列與指標><a href=#%e9%99%a3%e5%88%97%e8%88%87%e6%8c%87%e6%a8%99 class=header-anchor></a>陣列與指標</h3><ul><li>在大部分的情況下，我們可以把array視為第一個元素的指標<ul><li>現在你應該明白為什麼陣列的值會在函式中被修改</li></ul></li><li>為了避免模棱兩可(搞混)，我較喜歡<code>&(array[0])</code>而不是<code>array</code>、<code>&amp;array</code></li><li>然而你不能寫出 <code>array = &amp;a</code></li><li>int32_t
+<img src=/p/computer_programming_1-08/computer_programming_1-08-03.png width=1376 height=525 srcset="/p/computer_programming_1-08/computer_programming_1-08-03_hu11414209631372358286.png 480w, /p/computer_programming_1-08/computer_programming_1-08-03_hu8730481397378728669.png 1024w" loading=lazy class=gallery-image data-flex-grow=262 data-flex-basis=629px></li><li>int16_t
+<img src=/p/computer_programming_1-08/computer_programming_1-08-04.png width=1376 height=525 srcset="/p/computer_programming_1-08/computer_programming_1-08-04_hu7466818830848826975.png 480w, /p/computer_programming_1-08/computer_programming_1-08-04_hu12017319852796587965.png 1024w" loading=lazy class=gallery-image data-flex-grow=262 data-flex-basis=629px></li><li>int8_t
+<img src=/p/computer_programming_1-08/computer_programming_1-08-05.png width=1376 height=525 srcset="/p/computer_programming_1-08/computer_programming_1-08-05_hu8369396309401679804.png 480w, /p/computer_programming_1-08/computer_programming_1-08-05_hu4168175412342961283.png 1024w" loading=lazy class=gallery-image data-flex-grow=262 data-flex-basis=629px></li><li><code>ptr++</code><ul><li>移動的大小是根據指標的型別</li><li>這在要讀取每一byte的詳細資料時非常好用</li></ul></li><li>事實上，<code>array[n] = *(ptr + n)</code></li></ul><h3 id=endian-issue><a href=#endian-issue class=header-anchor></a>Endian Issue</h3><p><img src=/p/computer_programming_1-08/computer_programming_1-08-06.png width=868 height=368 srcset="/p/computer_programming_1-08/computer_programming_1-08-06_hu6343136376056633573.png 480w, /p/computer_programming_1-08/computer_programming_1-08-06_hu10875924417879093718.png 1024w" loading=lazy class=gallery-image data-flex-grow=235 data-flex-basis=566px></p><h3 id=函式指標><a href=#%e5%87%bd%e5%bc%8f%e6%8c%87%e6%a8%99 class=header-anchor></a>函式指標</h3><ul><li>指標不過是一個記憶體位址。</li><li>當我們宣告某種類型的指標時，這意味著電腦將將訪問記憶體並根據給定的類型解釋存儲在該位址的值。</li><li>您是否知道函式也存儲在記憶體中？</li><li>使用函式指標時，返回的型別和參數應該要和實際的定義相同。<ul><li>Really??為什麼在編譯時不會產生errors?</li><li>這是個檢查definition的好習慣。</li></ul></li><li>回呼函式 (Callback function)</li><li>你可以用陣列來儲存函式指標
+<code>void (*f[3])(int32_t) = {f1, f2, f3};</code></li></ul><hr><ul><li>使用了函式指標的例子<ul><li>Menu Driven</li><li>Driver<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -144,122 +23,42 @@ extended">
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>struct</span> <span class=n>file_operations</span> <span class=n>scull_fops</span> <span class=o>=</span> <span class=p>{</span>
-    <span class=p>.</span><span class=n>owner</span> <span class=o>=</span> <span class=n>THIS_MODULE</span> <span class=p>,</span>
-    <span class=p>.</span><span class=n>llseek</span> <span class=o>=</span> <span class=n>scull_llseek</span> <span class=p>,</span>
-    <span class=p>.</span><span class=n>read</span> <span class=o>=</span> <span class=n>scull_read</span> <span class=p>,</span>
-    <span class=p>.</span><span class=n>write</span> <span class=o>=</span> <span class=n>scull_write</span> <span class=p>,</span>
-    <span class=p>.</span><span class=n>ioctl</span> <span class=o>=</span> <span class=n>scull_ioctl</span> <span class=p>,</span>
-    <span class=p>.</span><span class=n>open</span> <span class=o>=</span> <span class=n>scull_open</span> <span class=p>,</span>
-    <span class=p>.</span><span class=n>release</span> <span class=o>=</span> <span class=n>scull_release</span> <span class=p>,</span>
-<span class=p>};</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>Firewall</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>struct</span> <span class=n>file_operations</span> <span class=n>scull_fops</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>owner</span> <span class=o>=</span> <span class=n>THIS_MODULE</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>llseek</span> <span class=o>=</span> <span class=n>scull_llseek</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>read</span> <span class=o>=</span> <span class=n>scull_read</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>write</span> <span class=o>=</span> <span class=n>scull_write</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>ioctl</span> <span class=o>=</span> <span class=n>scull_ioctl</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>open</span> <span class=o>=</span> <span class=n>scull_open</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>release</span> <span class=o>=</span> <span class=n>scull_release</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div></li><li>Firewall</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>static</span> <span class=kt>unsigned</span> <span class=kt>int</span> <span class=n>hook_func</span><span class=p>(</span>
-    <span class=k>const</span> <span class=k>struct</span> <span class=n>nf_hook_ops</span> <span class=o>*</span><span class=n>ops</span> <span class=p>,</span>
-    <span class=k>struct</span> <span class=n>sk_buff</span> <span class=o>*</span><span class=n>skb</span> <span class=p>,</span>
-    <span class=k>const</span> <span class=k>struct</span> <span class=n>net_device</span> <span class=o>*</span><span class=n>in</span> <span class=p>,</span>
-    <span class=k>const</span> <span class=k>struct</span> <span class=n>net_device</span> <span class=o>*</span><span class=n>out</span> <span class=p>,</span>
-    <span class=kt>int</span> <span class=p>(</span><span class=o>*</span><span class=n>okfn</span><span class=p>)(</span> <span class=k>struct</span> <span class=n>sk_buff</span> <span class=o>*</span><span class=p>)</span>
-<span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h3 id=記憶體管理>記憶體管理</h3>
-<ul>
-<li>記憶體管理
-<ul>
-<li>分配記憶體當你宣告一個變數</li>
-<li>垃圾回收 ( GC )</li>
-</ul>
-</li>
-<li>為什麼許多現代的程式語言不支援記憶體管理
-<ul>
-<li>軟體工程師是人類</li>
-<li>人是不可被信任的</li>
-</ul>
-</li>
-<li>然而，如果軟體工程師知道他們在做什麼，那麼他們可以更有效率的管理記憶體</li>
-<li>如果不考慮記憶體，請使用陣列</li>
-<li>如果你想陣列的大小可以被動態的改變，那麼去讀 C++ 並學習如何使用 container</li>
-</ul>
-<hr>
-<h4 id=malloc>malloc</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>static</span> <span class=kt>unsigned</span> <span class=kt>int</span> <span class=nf>hook_func</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=k>struct</span> <span class=n>nf_hook_ops</span> <span class=o>*</span><span class=n>ops</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>sk_buff</span> <span class=o>*</span><span class=n>skb</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=k>struct</span> <span class=n>net_device</span> <span class=o>*</span><span class=n>in</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=k>const</span> <span class=k>struct</span> <span class=n>net_device</span> <span class=o>*</span><span class=n>out</span> <span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=p>(</span><span class=o>*</span><span class=n>okfn</span><span class=p>)(</span> <span class=k>struct</span> <span class=n>sk_buff</span> <span class=o>*</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><h3 id=記憶體管理><a href=#%e8%a8%98%e6%86%b6%e9%ab%94%e7%ae%a1%e7%90%86 class=header-anchor></a>記憶體管理</h3><ul><li>記憶體管理<ul><li>分配記憶體當你宣告一個變數</li><li>垃圾回收 ( GC )</li></ul></li><li>為什麼許多現代的程式語言不支援記憶體管理<ul><li>軟體工程師是人類</li><li>人是不可被信任的</li></ul></li><li>然而，如果軟體工程師知道他們在做什麼，那麼他們可以更有效率的管理記憶體</li><li>如果不考慮記憶體，請使用陣列</li><li>如果你想陣列的大小可以被動態的改變，那麼去讀 C++ 並學習如何使用 container</li></ul><hr><h4 id=malloc><a href=#malloc class=header-anchor></a>malloc</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=n>ptr</span> <span class=o>=</span> <span class=n>malloc</span><span class=p>(</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=n>size</span><span class=p>);</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li><code>malloc()</code> 分配 size bytes 並回傳一個指向所分配的記憶體的指標</li>
-<li>記憶體沒有初始化</li>
-<li>若要初始化，請使用 <code>memset</code></li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=n>ptr</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=n>size</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><code>malloc()</code> 分配 size bytes 並回傳一個指向所分配的記憶體的指標</li><li>記憶體沒有初始化</li><li>若要初始化，請使用 <code>memset</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=n>memset</span><span class=p>(</span><span class=n>ptr</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=n>size</span><span class=p>);</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=calloc>calloc</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=nf>memset</span><span class=p>(</span><span class=n>ptr</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=n>size</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=calloc><a href=#calloc class=header-anchor></a>calloc</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=n>ptr</span> <span class=o>=</span> <span class=n>calloc</span><span class=p>(</span><span class=n>size</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>));</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>在現代的 C 中，你應該使用 <code>calloc</code></li>
-<li>第一個參數：多少個區塊你想去分配?</li>
-<li>第二個參數：每個區塊的大小。</li>
-<li>記憶體被初始化成 <code>0</code></li>
-</ul>
-<h4 id=free>free</h4>
-<p><img src=/p/computer_programming_1-08/computer_programming_1-08-07.png width=600 height=313 srcset="/p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-07_hu4225d066f38677261377ab43a001df66_249554_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=191 data-flex-basis=460px></p>
-<ul>
-<li><code>free(ptr)</code>：釋放 <code>ptr</code> 指向的記憶體空間，該記憶體空間必須是由之前使用 <code>malloc()、calloc()、realloc()</code> 所回傳的。</li>
-<li>此外，若已經 <code>free(ptr)</code>，再次使用會發生未定義行為。</li>
-</ul>
-<h3 id=double-pointer>Double Pointer</h3>
-<p><img src=/p/computer_programming_1-08/computer_programming_1-08-08.png width=751 height=683 srcset="/p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_480x0_resize_box_3.png 480w, /p/computer_programming_1-08/computer_programming_1-08-08_hu6578b51f70e0abcf77c88775e521c8ab_200051_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=109 data-flex-basis=263px></p>
-<ul>
-<li>使用場景：
-<ul>
-<li>在函式中分配記憶體</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=n>ptr</span> <span class=o>=</span> <span class=nf>calloc</span><span class=p>(</span><span class=n>size</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>在現代的 C 中，你應該使用 <code>calloc</code></li><li>第一個參數：多少個區塊你想去分配?</li><li>第二個參數：每個區塊的大小。</li><li>記憶體被初始化成 <code>0</code></li></ul><h4 id=free><a href=#free class=header-anchor></a>free</h4><p><img src=/p/computer_programming_1-08/computer_programming_1-08-07.png width=600 height=313 srcset="/p/computer_programming_1-08/computer_programming_1-08-07_hu5108118448464950708.png 480w, /p/computer_programming_1-08/computer_programming_1-08-07_hu8234317116073716682.png 1024w" loading=lazy class=gallery-image data-flex-grow=191 data-flex-basis=460px></p><ul><li><code>free(ptr)</code>：釋放 <code>ptr</code> 指向的記憶體空間，該記憶體空間必須是由之前使用 <code>malloc()、calloc()、realloc()</code> 所回傳的。</li><li>此外，若已經 <code>free(ptr)</code>，再次使用會發生未定義行為。</li></ul><h3 id=double-pointer><a href=#double-pointer class=header-anchor></a>Double Pointer</h3><p><img src=/p/computer_programming_1-08/computer_programming_1-08-08.png width=751 height=683 srcset="/p/computer_programming_1-08/computer_programming_1-08-08_hu6297739127714055848.png 480w, /p/computer_programming_1-08/computer_programming_1-08-08_hu6087289841606029318.png 1024w" loading=lazy class=gallery-image data-flex-grow=109 data-flex-basis=263px></p><ul><li>使用場景：<ul><li>在函式中分配記憶體</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -277,34 +76,25 @@ extended">
 </span><span class=lnt>16
 </span><span class=lnt>17
 </span><span class=lnt>18
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>void</span> <span class=nf>table</span><span class=p>(</span><span class=kt>int32_t</span> <span class=o>**</span><span class=n>pp</span><span class=p>,</span> <span class=kt>int32_t</span> <span class=n>n</span><span class=p>){</span>
-    <span class=o>*</span><span class=n>pp</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int32_t</span> <span class=o>*</span><span class=p>)</span><span class=n>calloc</span><span class=p>(</span><span class=n>n</span> <span class=o>*</span> <span class=n>n</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int32_t</span><span class=p>));</span>
-    <span class=k>for</span><span class=p>(</span><span class=kt>int32_t</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>){</span>
-        <span class=k>for</span><span class=p>(</span><span class=kt>int32_t</span> <span class=n>j</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>j</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>){</span>
-            <span class=o>*</span><span class=p>(</span><span class=o>*</span><span class=n>pp</span> <span class=o>+</span> <span class=p>(</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=o>*</span> <span class=n>n</span> <span class=o>+</span> <span class=p>(</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>))</span> <span class=o>=</span> <span class=n>i</span> <span class=o>*</span> <span class=n>j</span><span class=p>;</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
-    <span class=kt>int32_t</span> <span class=n>number</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=n>number</span><span class=p>);</span>
-    <span class=kt>int32_t</span> <span class=o>*</span><span class=n>ptr</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-    <span class=n>table</span><span class=p>(</span><span class=o>&amp;</span><span class=n>ptr</span><span class=p>,</span> <span class=n>number</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>分配一個二維陣列</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>void</span> <span class=nf>table</span><span class=p>(</span><span class=kt>int32_t</span> <span class=o>**</span><span class=n>pp</span><span class=p>,</span> <span class=kt>int32_t</span> <span class=n>n</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>pp</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int32_t</span> <span class=o>*</span><span class=p>)</span><span class=nf>calloc</span><span class=p>(</span><span class=n>n</span> <span class=o>*</span> <span class=n>n</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int32_t</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int32_t</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int32_t</span> <span class=n>j</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>j</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=o>*</span><span class=p>(</span><span class=o>*</span><span class=n>pp</span> <span class=o>+</span> <span class=p>(</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=o>*</span> <span class=n>n</span> <span class=o>+</span> <span class=p>(</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>))</span> <span class=o>=</span> <span class=n>i</span> <span class=o>*</span> <span class=n>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int32_t</span> <span class=n>number</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=n>number</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int32_t</span> <span class=o>*</span><span class=n>ptr</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>table</span><span class=p>(</span><span class=o>&amp;</span><span class=n>ptr</span><span class=p>,</span> <span class=n>number</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>分配一個二維陣列</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -327,180 +117,35 @@ extended">
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>size_t</span>  <span class=n>size_row</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>size_column</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Please enter two integers for row and column: &#34;</span><span class=p>);</span>
-    <span class=n>scanf</span><span class=p>(</span> <span class=s>&#34;%lu %lu&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>size_row</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>size_column</span> <span class=p>);</span>
-    <span class=kt>int32_t</span> <span class=o>**</span><span class=n>ptr</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-    <span class=n>ptr</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int32_t</span> <span class=o>**</span><span class=p>)</span><span class=n>calloc</span><span class=p>(</span> <span class=k>sizeof</span><span class=p>(</span> <span class=kt>int32_t</span> <span class=o>*</span> <span class=p>),</span> <span class=n>size_row</span> <span class=p>);</span>
-    <span class=k>for</span><span class=p>(</span> <span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size_row</span> <span class=p>;</span> <span class=n>i</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
-        <span class=o>*</span><span class=p>(</span> <span class=n>ptr</span> <span class=o>+</span> <span class=n>i</span> <span class=p>)</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int32_t</span> <span class=o>*</span><span class=p>)</span><span class=n>calloc</span><span class=p>(</span> <span class=k>sizeof</span><span class=p>(</span> <span class=kt>int32_t</span> <span class=p>),</span> <span class=n>size_column</span> <span class=p>);</span>
-        <span class=k>for</span><span class=p>(</span> <span class=n>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>size_column</span> <span class=p>;</span> <span class=n>j</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
-            <span class=o>*</span><span class=p>(</span> <span class=o>*</span><span class=p>(</span> <span class=n>ptr</span> <span class=o>+</span> <span class=n>i</span> <span class=p>)</span> <span class=o>+</span> <span class=n>j</span> <span class=p>)</span> <span class=o>=</span> <span class=p>(</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=p>)</span> <span class=o>*</span> <span class=p>(</span> <span class=n>j</span> <span class=o>+</span> <span class=mi>1</span> <span class=p>);</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-    <span class=k>for</span><span class=p>(</span> <span class=n>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size_row</span> <span class=p>;</span> <span class=n>i</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
-        <span class=k>for</span><span class=p>(</span> <span class=n>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>size_column</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
-            <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;%4d &#34;</span><span class=p>,</span> <span class=o>*</span><span class=p>(</span> <span class=o>*</span><span class=p>(</span> <span class=n>ptr</span> <span class=o>+</span> <span class=n>i</span> <span class=p>)</span> <span class=o>+</span> <span class=n>j</span> <span class=p>)</span> <span class=p>);</span>
-        <span class=p>}</span>
-        <span class=n>printf</span><span class=p>(</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span> <span class=p>);</span>
-    <span class=p>}</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<hr>
-<h3 id=小工具>小工具</h3>
-<h4 id=cdecl>cdecl</h4>
-<ul>
-<li>安裝：<code>sudo apt install cdecl</code></li>
-<li>使用：<code>cdecl</code> -> <code>explain int ***a;</code></li>
-</ul>
-<h4 id=資源查看>資源查看</h4>
-<ul>
-<li>top / htop</li>
-<li>vmstat ( 較輕量化 )
-<ul>
-<li><code>vmstat -n 1</code> ( <code>-n 1</code> 為一秒輸出一次 )</li>
-</ul>
-</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/c/>C</a>
-<a href=/tags/note/>Note</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article>
-<a href=/p/computer_programming_1-07/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-07：Array</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-05/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-05：Function</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-04/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-04：Loop</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-03/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-03：Condition Control</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-02/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-02：Arithmetic</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>size_t</span>  <span class=n>size_row</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>size_column</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Please enter two integers for row and column: &#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>scanf</span><span class=p>(</span> <span class=s>&#34;%lu %lu&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>size_row</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>size_column</span> <span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int32_t</span> <span class=o>**</span><span class=n>ptr</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>ptr</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int32_t</span> <span class=o>**</span><span class=p>)</span><span class=nf>calloc</span><span class=p>(</span> <span class=k>sizeof</span><span class=p>(</span> <span class=kt>int32_t</span> <span class=o>*</span> <span class=p>),</span> <span class=n>size_row</span> <span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span> <span class=kt>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size_row</span> <span class=p>;</span> <span class=n>i</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=o>*</span><span class=p>(</span> <span class=n>ptr</span> <span class=o>+</span> <span class=n>i</span> <span class=p>)</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int32_t</span> <span class=o>*</span><span class=p>)</span><span class=nf>calloc</span><span class=p>(</span> <span class=k>sizeof</span><span class=p>(</span> <span class=kt>int32_t</span> <span class=p>),</span> <span class=n>size_column</span> <span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span> <span class=kt>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>size_column</span> <span class=p>;</span> <span class=n>j</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=o>*</span><span class=p>(</span> <span class=o>*</span><span class=p>(</span> <span class=n>ptr</span> <span class=o>+</span> <span class=n>i</span> <span class=p>)</span> <span class=o>+</span> <span class=n>j</span> <span class=p>)</span> <span class=o>=</span> <span class=p>(</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=p>)</span> <span class=o>*</span> <span class=p>(</span> <span class=n>j</span> <span class=o>+</span> <span class=mi>1</span> <span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span> <span class=kt>size_t</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size_row</span> <span class=p>;</span> <span class=n>i</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span> <span class=kt>size_t</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>size_column</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span> <span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nf>printf</span><span class=p>(</span> <span class=s>&#34;%4d &#34;</span><span class=p>,</span> <span class=o>*</span><span class=p>(</span> <span class=o>*</span><span class=p>(</span> <span class=n>ptr</span> <span class=o>+</span> <span class=n>i</span> <span class=p>)</span> <span class=o>+</span> <span class=n>j</span> <span class=p>)</span> <span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span> <span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><hr><h3 id=小工具><a href=#%e5%b0%8f%e5%b7%a5%e5%85%b7 class=header-anchor></a>小工具</h3><h4 id=cdecl><a href=#cdecl class=header-anchor></a>cdecl</h4><ul><li>安裝：<code>sudo apt install cdecl</code></li><li>使用：<code>cdecl</code> -> <code>explain int ***a;</code></li></ul><h4 id=資源查看><a href=#%e8%b3%87%e6%ba%90%e6%9f%a5%e7%9c%8b class=header-anchor></a>資源查看</h4><ul><li>top / htop</li><li>vmstat ( 較輕量化 )<ul><li><code>vmstat -n 1</code> ( <code>-n 1</code> 為一秒輸出一次 )</li></ul></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a>
+<a href=/tags/note/>Note</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/computer_programming_1-07/><div class=article-details><h2 class=article-title>程式設計(一)-07：Array</h2></div></a></article><article><a href=/p/computer_programming_1-05/><div class=article-details><h2 class=article-title>程式設計(一)-05：Function</h2></div></a></article><article><a href=/p/computer_programming_1-04/><div class=article-details><h2 class=article-title>程式設計(一)-04：Loop</h2></div></a></article><article><a href=/p/computer_programming_1-03/><div class=article-details><h2 class=article-title>程式設計(一)-03：Condition Control</h2></div></a></article><article><a href=/p/computer_programming_1-02/><div class=article-details><h2 class=article-title>程式設計(一)-02：Arithmetic</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#pointer>Pointer</a>
-<ul>
-<li>
-<ul>
-<li><a href=#傳參數至函式>傳參數至函式</a></li>
-<li><a href=#陣列與指標>陣列與指標</a></li>
-<li><a href=#endian-issue>Endian Issue</a></li>
-<li><a href=#函式指標>函式指標</a></li>
-<li><a href=#記憶體管理>記憶體管理</a></li>
-<li><a href=#double-pointer>Double Pointer</a></li>
-<li><a href=#小工具>小工具</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

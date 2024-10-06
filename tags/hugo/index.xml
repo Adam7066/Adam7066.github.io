@@ -1,1 +1,481 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 小十的部落格</title><link>https://blog.smallten.me/tags/hugo/</link><description>Recent content in Hugo on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Feb 2021 04:06:17 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo-02：優化 Blog</title><link>https://blog.smallten.me/p/hugo-02/</link><pubDate>Sun, 07 Feb 2021 04:06:17 +0800</pubDate><guid>https://blog.smallten.me/p/hugo-02/</guid><description>簡介 這部份是紀錄我修改的主題內容，並將 codeblocks 區塊美化，以及支援 KaTex 和 Google Analytics 教學開始 我使用的主題為 Stack 主題內容修改 找到 assets/scss/varia</description></item><item><title>Hugo-01：建立一個Hugo Blog</title><link>https://blog.smallten.me/p/hugo-01/</link><pubDate>Sun, 07 Feb 2021 03:22:22 +0800</pubDate><guid>https://blog.smallten.me/p/hugo-01/</guid><description>簡介 這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上 相關連結 Hugo - Hugo 官網 Hugo Themes - 選擇自己喜歡的主題 Hugo Releases - 下載 Hugo 並安裝進電腦 教學開始 建立 Hugo Blog 安裝 Hugo 這</description></item><item><title>First Hugo Blog</title><link>https://blog.smallten.me/p/first-hugo-blog/</link><pubDate>Fri, 18 Dec 2020 01:16:06 +0800</pubDate><guid>https://blog.smallten.me/p/first-hugo-blog/</guid><description>第一個 Hugo Blog 由於秉持著「人生總折騰」的道理，我來轉移 Blog 了(誤///)，好啦，其實是單純希望有個穩定且又能全天候供應的 Blog 而已，由於我的隊友兩人分</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on 小十的部落格</title><link>https://blog.smallten.me/tags/hugo/</link><description>Recent content in Hugo on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Feb 2021 04:06:17 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo-02：優化 Blog</title><link>https://blog.smallten.me/p/hugo-02/</link><pubDate>Sun, 07 Feb 2021 04:06:17 +0800</pubDate><guid>https://blog.smallten.me/p/hugo-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/h1>&lt;ul>
+&lt;li>這部份是紀錄我修改的主題內容，並將 codeblocks 區塊美化，以及支援 &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+>KaTex&lt;/a> 和 Google Analytics&lt;/li>
+&lt;/ul>
+&lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
+&lt;/h1>&lt;ul>
+&lt;li>我使用的主題為 &lt;a class="link" href="https://themes.gohugo.io/hugo-theme-stack/" target="_blank" rel="noopener"
+>Stack&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="主題內容修改">&lt;a href="#%e4%b8%bb%e9%a1%8c%e5%85%a7%e5%ae%b9%e4%bf%ae%e6%94%b9" class="header-anchor">&lt;/a>主題內容修改
+&lt;/h2>&lt;ul>
+&lt;li>找到 &lt;code>assets/scss/variables.scss&lt;/code>，並修改
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="na">--link-background-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">90&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">240&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">250&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">//189, 195, 199;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">--code-text-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mh">#ef3982&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">//rgba(255, 255, 255, 0.9);
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="codeblocks-區塊美化">&lt;a href="#codeblocks-%e5%8d%80%e5%a1%8a%e7%be%8e%e5%8c%96" class="header-anchor">&lt;/a>Codeblocks 區塊美化
+&lt;/h2>&lt;blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>Stack 主題&lt;/a>已內建，因此不再需要自己建立!! 只需在 &lt;code>config.yaml&lt;/code> 設定即可。&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>到 &lt;code>static/css/&lt;/code> 下建立 &lt;code>copy-to-clipboard.css&lt;/code>，內容如下
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">highlight&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">position&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">relative&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">highlight&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">ln&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kp">-moz-&lt;/span>&lt;span class="k">user-select&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kp">-webkit-&lt;/span>&lt;span class="k">user-select&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kp">-ms-&lt;/span>&lt;span class="k">user-select&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">user-select&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">highlight-copy-btn&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">position&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">absolute&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">top&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">7&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">right&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">7&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">padding&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">0.8&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">line-height&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.8&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mh">#fff&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mh">#777&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">min-width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">55&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">text-align&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">center&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">highlight-copy-btn&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">hover&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mh">#666&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>到 &lt;code>static/js/&lt;/code> 下建立 &lt;code>copy-to-clipboard.js&lt;/code>，內容如下
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;use strict&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryCommandSupported&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;copy&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">function&lt;/span> &lt;span class="nx">flashCopyMessage&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">el&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">msg&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">el&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">textContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">msg&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">setTimeout&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kd">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">el&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">textContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Copy&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">function&lt;/span> &lt;span class="nx">selectText&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">node&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">selection&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">window&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getSelection&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">range&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createRange&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">range&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">selectNodeContents&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">node&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">removeAllRanges&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">addRange&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">range&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">selection&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">function&lt;/span> &lt;span class="nx">addCopyButton&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">containerEl&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">copyBtn&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createElement&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;button&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">copyBtn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">className&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;highlight-copy-btn&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">copyBtn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">textContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Copy&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">codeEl&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">containerEl&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">firstElementChild&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">copyBtn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">addEventListener&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;click&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kd">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">try&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">selection&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">selectText&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">codeEl&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">execCommand&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;copy&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">removeAllRanges&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">flashCopyMessage&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">copyBtn&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Copied!&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">catch&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">e&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">e&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">flashCopyMessage&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">copyBtn&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;Failed :\&amp;#39;(&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">containerEl&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">appendChild&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">copyBtn&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Add copy button to code blocks
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kd">var&lt;/span> &lt;span class="nx">highlightBlocks&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getElementsByClassName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;highlight&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">Array&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">prototype&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">forEach&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">call&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">highlightBlocks&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">addCopyButton&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">})();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>修改 &lt;code>config.yaml&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">custom_css&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;css/copy-to-clipboard.css&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">pygmentsUseClasses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">markup&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">highlight&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lineNos&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">lineNumbersInTable&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>修改 &lt;code>layouts/partials/head/custom.html&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ range .Site.Params.custom_css -}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;{{ . | absURL }}&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{- end }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{ range .Site.Params.custom_js -}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;text/javascript&amp;#34;&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;{{ . | absURL }}&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{- end }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>修改 &lt;code>layouts/partials/footer/custom.html&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/js/copy-to-clipboard.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>這樣程式碼區塊就有 Copy Button，並且直接複製時不會選取到行號了&lt;/li>
+&lt;/ol>
+&lt;h2 id="katex">&lt;a href="#katex" class="header-anchor">&lt;/a>KaTex
+&lt;/h2>&lt;blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>Stack 主題&lt;/a>已內建，因此不再需要自己建立!! 只需在 &lt;code>config.yaml&lt;/code> 設定即可。&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>到 &lt;code>layouts/partials/&lt;/code> 下新增 &lt;code>math.html&lt;/code>，內容如下
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ if or .Params.math .Site.Params.math }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css&amp;#34;&lt;/span> &lt;span class="na">integrity&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X&amp;#34;&lt;/span> &lt;span class="na">crossorigin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;anonymous&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">defer&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js&amp;#34;&lt;/span> &lt;span class="na">integrity&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4&amp;#34;&lt;/span> &lt;span class="na">crossorigin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;anonymous&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">defer&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js&amp;#34;&lt;/span> &lt;span class="na">integrity&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa&amp;#34;&lt;/span> &lt;span class="na">crossorigin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;anonymous&amp;#34;&lt;/span> &lt;span class="na">onload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;renderMathInElement(document.body);&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">addEventListener&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;DOMContentLoaded&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kd">function&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">renderMathInElement&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">document&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">delimiters&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nx">left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;$$&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">right&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;$$&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nx">left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;\\[&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">right&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;\\]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nx">left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;$&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">right&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;$&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nx">left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;\\(&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">right&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;\\)&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{ end }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>修改 &lt;code>layouts/partials/head/custom.html&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ partial &amp;#34;math.html&amp;#34; . }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="google-analytics">&lt;a href="#google-analytics" class="header-anchor">&lt;/a>Google Analytics
+&lt;/h2>&lt;ol>
+&lt;li>到 Google Analytics 創建一個資料串流&lt;/li>
+&lt;li>由於 Hugo 內建的 GA 模板，似乎還不支援 GA4，因此我們使用 &lt;code>gtag.js&lt;/code>&lt;/li>
+&lt;li>複製剛剛建立的資料串流中的 &lt;code>gtag.js&lt;/code> 內容到 &lt;code>layouts/partials/google_analytics.html&lt;/code>中&lt;/li>
+&lt;li>修改 &lt;code>layouts/partials/head/custom.html&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ if not .Site.IsServer }}{{ partial &amp;#34;google_analytics.html&amp;#34; . }}{{ end }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>這裡的 &lt;code>if&lt;/code> 是避免在 local 測試時的數據也被紀錄下來&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Hugo 於 0.82.0 版本已更新了&lt;a class="link" href="https://gohugo.io/templates/internal/#google-analytics" target="_blank" rel="noopener"
+>對 GA4 的支援&lt;/a>，使用方法如下&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>同上&lt;/li>
+&lt;li>在 &lt;code>config.yaml&lt;/code> 中設定 &lt;code>googleAnalytics: G-&lt;/code>&lt;/li>
+&lt;li>修改 &lt;code>layouts/partials/head/custom.html&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ if not .Site.IsServer }}{{ template &amp;#34;_internal/google_analytics.html&amp;#34; . }}{{ end }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>這裡的 &lt;code>if&lt;/code> 是避免在 local 測試時的數據也被紀錄下來&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>Hugo-01：建立一個Hugo Blog</title><link>https://blog.smallten.me/p/hugo-01/</link><pubDate>Sun, 07 Feb 2021 03:22:22 +0800</pubDate><guid>https://blog.smallten.me/p/hugo-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/h1>&lt;ul>
+&lt;li>這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上&lt;/li>
+&lt;/ul>
+&lt;h1 id="相關連結">&lt;a href="#%e7%9b%b8%e9%97%9c%e9%80%a3%e7%b5%90" class="header-anchor">&lt;/a>相關連結
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>Hugo&lt;/a> - Hugo 官網&lt;/li>
+&lt;li>&lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
+>Hugo Themes&lt;/a> - 選擇自己喜歡的主題&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>Hugo Releases&lt;/a> - 下載 Hugo 並安裝進電腦&lt;/li>
+&lt;/ul>
+&lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
+&lt;/h1>&lt;h2 id="建立-hugo-blog">&lt;a href="#%e5%bb%ba%e7%ab%8b-hugo-blog" class="header-anchor">&lt;/a>建立 Hugo Blog
+&lt;/h2>&lt;ol>
+&lt;li>安裝 Hugo
+&lt;ul>
+&lt;li>這裡以 Ubuntu 為示範&lt;/li>
+&lt;li>先至 &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>Hugo Releases&lt;/a> 下載自己所需的版本
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ dpkg -i hugo_extended_0.79.0_Linux-64bit.deb &lt;span class="c1"># 記得依照檔案自行更改&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>創建一個 Hugo Site
+&lt;ul>
+&lt;li>這裡創建一個名為 blog
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">cd&lt;/span> ~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ hugo new site blog &lt;span class="c1"># 可自行修改名稱&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>新增主題
+&lt;ul>
+&lt;li>這裡我選擇了 &lt;a class="link" href="https://themes.gohugo.io/hugo-theme-stack/" target="_blank" rel="noopener"
+>Stack&lt;/a> 這個主題&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">cd&lt;/span> ~/blog/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>跟著主題的教學文檔修改 config file&lt;/li>
+&lt;li>如要建立新文章時
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ hugo new post/test.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>此時會在 &lt;code>content/post/&lt;/code> 下，建立新文章，檔名為 &lt;code>test.md&lt;/code>&lt;/li>
+&lt;li>&lt;code>draft&lt;/code>: 草稿&lt;/li>
+&lt;li>&lt;code>slug&lt;/code>: 此文章的 url (可自行建立)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>本機測試
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ hugo server -D
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;code>-D&lt;/code>: 將會連草稿都顯示出來&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="部署到-github">&lt;a href="#%e9%83%a8%e7%bd%b2%e5%88%b0-github" class="header-anchor">&lt;/a>部署到 GitHub
+&lt;/h2>&lt;ol>
+&lt;li>在 GitHub 上建立一個新的 Repository
+&lt;ul>
+&lt;li>名稱為 &lt;code>&amp;quot;Your account&amp;quot;.github.io&lt;/code> (&amp;ldquo;Your account&amp;rdquo; 使用自己 GitHub 的名稱)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>將剛才建立好的 Blog 上到這個 Repo
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">cd&lt;/span> ~/blog/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git add --all
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git commit -m &lt;span class="s2">&amp;#34;blog init&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git branch -M main
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git remote add origin git@github.com... &lt;span class="c1">#這裡使用了 ssh 的方式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git push -u origin main
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>使用 GitHub Actions
+&lt;ul>
+&lt;li>建立一個 workflows 名叫 &lt;code>hugo_publish.yml&lt;/code> (有些地方須自行依照情況修改)&lt;/li>
+&lt;li>內容：&lt;a class="link" href="https://github.com/Adam7066/Adam7066.github.io/blob/master/.github/workflows/hugo_publish.yml" target="_blank" rel="noopener"
+>hugo_publish.yml&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>修改 Repo 的設定
+&lt;ul>
+&lt;li>先找到 GitHub Pages 的地方&lt;/li>
+&lt;li>將 Source 改成 &lt;code>Branch: gh-pages&lt;/code>&lt;/li>
+&lt;li>有 custom domain 的記得填入&lt;/li>
+&lt;li>Enforce HTTPS 打勾&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>這樣就完成了，之後只要 push 時，便會自動更新網站了&lt;/li>
+&lt;/ol></description></item><item><title>First Hugo Blog</title><link>https://blog.smallten.me/p/first-hugo-blog/</link><pubDate>Fri, 18 Dec 2020 01:16:06 +0800</pubDate><guid>https://blog.smallten.me/p/first-hugo-blog/</guid><description>&lt;h1 id="第一個-hugo-blog">&lt;a href="#%e7%ac%ac%e4%b8%80%e5%80%8b-hugo-blog" class="header-anchor">&lt;/a>第一個 Hugo Blog
+&lt;/h1>&lt;p>  由於秉持著「人生總折騰」的道理，我來轉移 Blog 了(誤///)，好啦，其實是單純希望有個穩定且又能全天候供應的 Blog 而已，由於我的隊友兩人分別使用了 Hexo 及 Hugo ，因此一開始讓我有點難抉擇，但最終我還是選擇了 Hugo 。&lt;/p>
+&lt;p>  至於第二個選擇的難關就是主題了，挑了好久都沒看到順眼的，差點就要聽吳文元說的沒有喜歡的就自己寫呀(怕///)，最終還是挑到了一個稍微滿意的主題 &lt;a class="link" href="https://themes.gohugo.io/hugo-theme-stack/" target="_blank" rel="noopener"
+>Stack&lt;/a>。&lt;/p>
+&lt;p>  至於架設的過程到目前為止還算是蠻順利的，希望之後也不會遇到什麼大坑。&lt;/p></description></item></channel></rss>

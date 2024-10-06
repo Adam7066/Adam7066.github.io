@@ -1,1 +1,167 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Raspberry Pi on 小十的部落格</title><link>https://blog.smallten.me/tags/raspberry-pi/</link><description>Recent content in Raspberry Pi on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 Jul 2020 09:31:38 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml"/><item><title>簡易氣象站-02</title><link>https://blog.smallten.me/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://blog.smallten.me/p/weather-02/</guid><description>簡介 這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Raspberry Pi on 小十的部落格</title><link>https://blog.smallten.me/tags/raspberry-pi/</link><description>Recent content in Raspberry Pi on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 Jul 2020 09:31:38 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml"/><item><title>簡易氣象站-02</title><link>https://blog.smallten.me/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://blog.smallten.me/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/h1>&lt;ul>
+&lt;li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。&lt;/li>
+&lt;/ul>
+&lt;h1 id="硬體">&lt;a href="#%e7%a1%ac%e9%ab%94" class="header-anchor">&lt;/a>硬體
+&lt;/h1>&lt;ul>
+&lt;li>上一小節的成品&lt;/li>
+&lt;li>Raspberry pi * 1&lt;/li>
+&lt;/ul>
+&lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
+&lt;/h1>&lt;ol>
+&lt;li>打開Raspberry pi的Terminal，並輸入 &lt;code>ls /dev/tty*&lt;/code>&lt;/li>
+&lt;li>將Arduino的Usb接上Raspberry pi&lt;/li>
+&lt;li>再次於Terminal中輸入 &lt;code>ls /dev/tty*&lt;/code>，比較兩次的差異，即可知Arduino使用的序列埠為何(例如此時為/ &lt;code>dev/ttyACM0&lt;/code>，請依照情況自行修改)&lt;/li>
+&lt;li>於Terminal中輸入 &lt;code>python3 -m pip install pyserial&lt;/code>&lt;/li>
+&lt;li>將以下程式碼建立成一個python檔，再以python3執行即可&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -*- coding: UTF-8 -*-&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">serial&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">tkinter&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nn">tk&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">getData&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ser&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">serial&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Serial&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/dev/ttyACM0&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">9600&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">timeout&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">flush&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">flag&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">False&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">ser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">in_waiting&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">arduinoData&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">readline&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">errors&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;ignore&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">rstrip&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;;&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">arduinoData&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">!=&lt;/span>&lt;span class="mi">4&lt;/span> &lt;span class="ow">or&lt;/span> &lt;span class="n">arduinoData&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">arduinoData&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s1">&amp;#39;0&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">flag&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">flag&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_value&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;text&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">arduinoData&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39; 度C&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_value&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;text&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">arduinoData&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39; %&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_value&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;text&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">arduinoData&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39; ug/m^3&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_value&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;text&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">arduinoData&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39; 級&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">window&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">after&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1000&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">getData&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s1">&amp;#39;__main__&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">window&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Tk&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">window&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Weather&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">window&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">geometry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;500x250&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">window&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">resizable&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">header_label&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">window&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;環境監測&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">width&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">30&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">height&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">borderwidth&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">relief&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;solid&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">header_label&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TOP&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_frame&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Frame&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">window&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_frame&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TOP&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_label&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">temperature_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;溫度: &amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_label&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">temperature_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">temperature_value&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_frame&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Frame&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">window&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_frame&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TOP&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_label&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">humidity_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;濕度: &amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_label&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">humidity_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">humidity_value&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_frame&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Frame&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">window&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_frame&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TOP&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_label&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pmat25_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;PM2.5: &amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_label&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pmat25_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pmat25_value&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_frame&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Frame&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">window&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_frame&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TOP&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_label&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">wind_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;風速: &amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_label&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Label&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">wind_frame&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">font&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Arial&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">wind_value&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">pack&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">side&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">tk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">LEFT&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">getData&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">window&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">mainloop&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>最終成果圖
+&lt;img src="https://blog.smallten.me/p/weather-02/weather-02-01.png"
+width="1204"
+height="667"
+srcset="https://blog.smallten.me/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://blog.smallten.me/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="180"
+data-flex-basis="433px"
+>&lt;/li>
+&lt;/ul></description></item></channel></rss>

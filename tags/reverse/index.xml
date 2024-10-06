@@ -1,1 +1,211 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reverse on 小十的部落格</title><link>https://blog.smallten.me/tags/reverse/</link><description>Recent content in Reverse on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 07 Mar 2022 23:10:59 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/reverse/index.xml" rel="self" type="application/rss+xml"/><item><title>Reverse-01：Qiling framework</title><link>https://blog.smallten.me/p/ctf-01/</link><pubDate>Mon, 07 Mar 2022 23:10:59 +0800</pubDate><guid>https://blog.smallten.me/p/ctf-01/</guid><description>簡介 活動：2022/03/07 CTF 讀書會 講師：asef18766 陳兆閔 相關資源 Qiling rootfs Qiling hijack Qiling hook Lab1 相關檔案 crackme Lab1 解題過程 先 file 以及 執行 看看 丟 ghidra 後，可以發</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reverse on 小十的部落格</title><link>https://blog.smallten.me/tags/reverse/</link><description>Recent content in Reverse on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 07 Mar 2022 23:10:59 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/reverse/index.xml" rel="self" type="application/rss+xml"/><item><title>Reverse-01：Qiling framework</title><link>https://blog.smallten.me/p/ctf-01/</link><pubDate>Mon, 07 Mar 2022 23:10:59 +0800</pubDate><guid>https://blog.smallten.me/p/ctf-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/h1>&lt;ul>
+&lt;li>活動：2022/03/07 CTF 讀書會&lt;/li>
+&lt;li>講師：asef18766 陳兆閔&lt;/li>
+&lt;/ul>
+&lt;h1 id="相關資源">&lt;a href="#%e7%9b%b8%e9%97%9c%e8%b3%87%e6%ba%90" class="header-anchor">&lt;/a>相關資源
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/qilingframework/qiling" target="_blank" rel="noopener"
+>Qiling&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/qilingframework/rootfs" target="_blank" rel="noopener"
+>rootfs&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.qiling.io/en/latest/hijack/" target="_blank" rel="noopener"
+>Qiling hijack&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.qiling.io/en/latest/hook/" target="_blank" rel="noopener"
+>Qiling hook&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="lab1">&lt;a href="#lab1" class="header-anchor">&lt;/a>Lab1
+&lt;/h1>&lt;h2 id="相關檔案">&lt;a href="#%e7%9b%b8%e9%97%9c%e6%aa%94%e6%a1%88" class="header-anchor">&lt;/a>相關檔案
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;a class="link" href="./lab1_crackme" download="crackme">crackme&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="lab1-解題過程">&lt;a href="#lab1-%e8%a7%a3%e9%a1%8c%e9%81%8e%e7%a8%8b" class="header-anchor">&lt;/a>Lab1 解題過程
+&lt;/h2>&lt;ol>
+&lt;li>先 &lt;code>file&lt;/code> 以及 &lt;code>執行&lt;/code> 看看
+&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-01.png"
+width="1882"
+height="709"
+srcset="https://blog.smallten.me/p/ctf-01/ctf-01-01_hu4400085184708088989.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-01_hu16361486709167860636.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="265"
+data-flex-basis="637px"
+>&lt;/li>
+&lt;li>丟 ghidra 後，可以發現在 &lt;code>lucky&lt;/code> 裡面有那張 ascii art ，而且其中第 24 行 &lt;code>if(local_18 != 0x48763)&lt;/code> 是我們第一個要繞過得部份。
+&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-02.png"
+width="769"
+height="687"
+srcset="https://blog.smallten.me/p/ctf-01/ctf-01-02_hu12313073533518399483.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-02_hu6032264369164013165.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="111"
+data-flex-basis="268px"
+>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="o">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling.os.mapper&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">QlFsMappedObject&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Fake_urandom&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QlFsMappedObject&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">read&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mh">0x48763&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">to_bytes&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;little&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;__main__&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Qiling&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;./crackme&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="s2">&amp;#34;../../rootfs/x8664_linux&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_fs_mapper&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/dev/urandom&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Fake_urandom&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>之後執行 script 時會發現跑得很慢，觀察到 &lt;code>main&lt;/code> 裡面有 &lt;code>sleep&lt;/code> ，因此我們也將其繞過。
+&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-03.png"
+width="764"
+height="692"
+srcset="https://blog.smallten.me/p/ctf-01/ctf-01-03_hu9323495125683517127.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-03_hu13915951650847489425.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="110"
+data-flex-basis="264px"
+>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="o">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling.os.const&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">STRING&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">my_sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ql&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">pass&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;__main__&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Qiling&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;./crackme&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="s2">&amp;#34;../../rootfs/x8664_linux&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">set_api&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;sleep&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">my_sleep&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">QL_INTERCEPT&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">CALL&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>最後會發現 &lt;code>flag&lt;/code> 的 decrypt 是在做 &lt;code>xor&lt;/code> 並暫存在 &lt;code>dl&lt;/code> 中，所以取出它並組成字串就得到 flag 了。
+&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-04.png"
+width="1301"
+height="704"
+srcset="https://blog.smallten.me/p/ctf-01/ctf-01-04_hu12573136774354293211.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-04_hu10985992275515006497.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="184"
+data-flex-basis="443px"
+>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">flag&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">my_hook&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ql&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Qiling&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">global&lt;/span> &lt;span class="n">flag&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">flag&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nb">chr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">reg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">edx&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="mh">0xff&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;__main__&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Qiling&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;./crackme&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="s2">&amp;#34;../../rootfs/x8664_linux&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hook_address&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">my_hook&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mh">0x004015f4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">flag&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="lab1-完整-script">&lt;a href="#lab1-%e5%ae%8c%e6%95%b4-script" class="header-anchor">&lt;/a>Lab1 完整 Script
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="o">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling.os.mapper&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">QlFsMappedObject&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling.const&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="o">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">qiling.os.const&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">STRING&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">flag&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Fake_urandom&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QlFsMappedObject&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">read&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mh">0x48763&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">to_bytes&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;little&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># fixed value for reading /dev/urandom&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">my_sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ql&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">pass&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">my_hook&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ql&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Qiling&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">global&lt;/span> &lt;span class="n">flag&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">flag&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nb">chr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">reg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">edx&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="mh">0xff&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;__main__&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Qiling&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;./crackme&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="s2">&amp;#34;../../rootfs/x8664_linux&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">add_fs_mapper&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/dev/urandom&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Fake_urandom&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">set_api&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;sleep&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">my_sleep&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">QL_INTERCEPT&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">CALL&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hook_address&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">my_hook&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mh">0x004015f4&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ql&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">flag&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="lab1-flag">&lt;a href="#lab1-flag" class="header-anchor">&lt;/a>Lab1 Flag
+&lt;/h2>&lt;ul>
+&lt;li>flag：&lt;code>ntnu{y0R'3r 5uch @ beater}&lt;/code>&lt;/li>
+&lt;/ul></description></item></channel></rss>

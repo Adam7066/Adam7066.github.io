@@ -1,164 +1,50 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="前言 有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式 教學開始 Yay Yay 的 Github 1 2 3 4 pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si 中文輸入法 中文"><title>Arch Linux-04：基本軟體安裝</title>
-<link rel=canonical href=https://blog.smallten.me/p/arch_linux-04/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="Arch Linux-04：基本軟體安裝">
-<meta property="og:description" content="前言 有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式 教學開始 Yay Yay 的 Github 1 2 3 4 pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si 中文輸入法 中文">
-<meta property="og:url" content="https://blog.smallten.me/p/arch_linux-04/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Arch Linux"><meta property="article:published_time" content="2021-08-11T22:18:09+08:00"><meta property="article:modified_time" content="2021-08-11T22:18:09+08:00">
-<meta name=twitter:title content="Arch Linux-04：基本軟體安裝">
-<meta name=twitter:description content="前言 有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式 教學開始 Yay Yay 的 Github 1 2 3 4 pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si 中文輸入法 中文">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<h2 class=article-title>
-<a href=/p/arch_linux-04/>Arch Linux-04：基本軟體安裝</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Aug 11, 2021</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-2 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=前言>前言</h1>
-<p>  有了<a class=link href=../arch_linux-03>桌面環境</a>，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式</p>
-<h1 id=教學開始>教學開始</h1>
-<h2 id=yay>Yay</h2>
-<ul>
-<li>Yay 的 <a class=link href=https://github.com/Jguer/yay target=_blank rel=noopener>Github</a></li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='前言 有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式\n教學開始 Yay Yay 的 Github 1 2 3 4 pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si 中文輸入法 中文輸入法 Wiki 這邊我選擇了之前在 Ubuntu 用習慣的 ibus (IBus (简体中文) Wiki) 安裝注音輸入法：pacman -S ibus ibus-chewing vim /etc/environment 1 2 3 GTK_IM_MODULE=ibus QT_IM_MODULE=ibus XMODIFIERS=@im=ibus vim ~/.xprofile 1 2 3 4 export CTK_IM_MODULE=ibus export XMODIFIERS=@im=ibus export QT_IM_MODULE=ibus ibus-daemon -drxR 重新啟動 Oh My Zsh Oh My Zsh 的 官網、Github 安裝 zsh：pacman -S zsh 看系統是否裝了 zsh：cat /etc/shells 切換 Shell 為 zsh：chsh -s /bin/zsh 安裝 Git 以及 Curl：pacman -S git curl 安裝 oh-my-zsh：sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 配置主題，我選擇的是 powerlevel10k 安裝 Nerd Fonts字體 1 2 3 4 5 6 7 # 下載字體 mkdir -p ~/.local/share/fonts cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf # 快取字體 fc-cache -vf ~/.local/share/fonts/ # 查看是否安裝成功 fc-list | grep -i droid 設定終端字體 設定 -> 編輯目前的設定檔&mldr; -> 外觀 -> 字型 -> DroidSansMono Nerd Font 下載 powerlevel10k：git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k 修改主題：vim ~/.zshrc 修改 ZSH_THEME 為：ZSH_THEME="powerlevel10k/powerlevel10k" 更新配置：source .zshrc 安裝插件 下載 zsh-autosuggestion：git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 下載 zsh-syntax-highlighting：git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 修改 .zshrc：vim ~/.zshrc 1 2 3 4 5 6 7 8 plugins=( git extract archlinux colored-man-pages zsh-syntax-highlighting zsh-autosuggestions ) 更新配置：source .zshrc Vim 配置 請查看 Use Vim as IDE 藍芽設置 使用 Sony WH-1000XM4 測試可行 1 2 3 4 5 pacman -S bluez bluez-utils systemctl start bluetooth.service systemctl enable bluetooth.service pacman -S pulseaudio-bluetooth reboot Asus NumberPad asus-touchpad-numpad-driver GitHub AUR 1 yay -S asus-touchpad-numpad-driver 其他軟體 TLP 1 2 pacman -S tlp systemctl enable --now tlp Google Chrome：yay -S google-chrome 1password：yay -S 1password Neofetch： pacman -S neofetch Keyring：pacman -S gnome-keyring Seahorse：pacman -S seahorse Visual Studio Code：yay -S visual-studio-code-bin 增加在資料夾上右鍵開啟的選項：vim /usr/share/kservices5/vscodehere.desktop 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 [Desktop Entry] Type=Service X-KDE-ServiceTypes=KonqPopupMenu/Plugin MimeType=inode/directory; X-KDE-Priority=TopLevel Actions=openVSCodeHere; X-KDE-AuthorizeAction=shell_access [Desktop Action openVSCodeHere] TryExec=code Exec=code %f Icon=visual-studio-code Name=Open VS Code Here Comment=Opens a VS Code Instance in the current folder Discord：pacman -S discord LibreOffice：pacman -S libreoffice-still libreoffice-still-zh-tw Hugo-Extended：yay -S hugo-bin UxPlay：用於 iPad 的螢幕共享 安裝： 1 2 3 yay -S uxplay-git systemctl start avahi-daemon.service systemctl enable avahi-daemon.service 使用：uxplay '><title>Arch Linux-04：基本軟體安裝</title>
+<link rel=canonical href=https://blog.smallten.me/p/arch_linux-04/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="Arch Linux-04：基本軟體安裝"><meta property='og:description' content='前言 有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式\n教學開始 Yay Yay 的 Github 1 2 3 4 pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si 中文輸入法 中文輸入法 Wiki 這邊我選擇了之前在 Ubuntu 用習慣的 ibus (IBus (简体中文) Wiki) 安裝注音輸入法：pacman -S ibus ibus-chewing vim /etc/environment 1 2 3 GTK_IM_MODULE=ibus QT_IM_MODULE=ibus XMODIFIERS=@im=ibus vim ~/.xprofile 1 2 3 4 export CTK_IM_MODULE=ibus export XMODIFIERS=@im=ibus export QT_IM_MODULE=ibus ibus-daemon -drxR 重新啟動 Oh My Zsh Oh My Zsh 的 官網、Github 安裝 zsh：pacman -S zsh 看系統是否裝了 zsh：cat /etc/shells 切換 Shell 為 zsh：chsh -s /bin/zsh 安裝 Git 以及 Curl：pacman -S git curl 安裝 oh-my-zsh：sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 配置主題，我選擇的是 powerlevel10k 安裝 Nerd Fonts字體 1 2 3 4 5 6 7 # 下載字體 mkdir -p ~/.local/share/fonts cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf # 快取字體 fc-cache -vf ~/.local/share/fonts/ # 查看是否安裝成功 fc-list | grep -i droid 設定終端字體 設定 -> 編輯目前的設定檔&mldr; -> 外觀 -> 字型 -> DroidSansMono Nerd Font 下載 powerlevel10k：git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k 修改主題：vim ~/.zshrc 修改 ZSH_THEME 為：ZSH_THEME="powerlevel10k/powerlevel10k" 更新配置：source .zshrc 安裝插件 下載 zsh-autosuggestion：git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 下載 zsh-syntax-highlighting：git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 修改 .zshrc：vim ~/.zshrc 1 2 3 4 5 6 7 8 plugins=( git extract archlinux colored-man-pages zsh-syntax-highlighting zsh-autosuggestions ) 更新配置：source .zshrc Vim 配置 請查看 Use Vim as IDE 藍芽設置 使用 Sony WH-1000XM4 測試可行 1 2 3 4 5 pacman -S bluez bluez-utils systemctl start bluetooth.service systemctl enable bluetooth.service pacman -S pulseaudio-bluetooth reboot Asus NumberPad asus-touchpad-numpad-driver GitHub AUR 1 yay -S asus-touchpad-numpad-driver 其他軟體 TLP 1 2 pacman -S tlp systemctl enable --now tlp Google Chrome：yay -S google-chrome 1password：yay -S 1password Neofetch： pacman -S neofetch Keyring：pacman -S gnome-keyring Seahorse：pacman -S seahorse Visual Studio Code：yay -S visual-studio-code-bin 增加在資料夾上右鍵開啟的選項：vim /usr/share/kservices5/vscodehere.desktop 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 [Desktop Entry] Type=Service X-KDE-ServiceTypes=KonqPopupMenu/Plugin MimeType=inode/directory; X-KDE-Priority=TopLevel Actions=openVSCodeHere; X-KDE-AuthorizeAction=shell_access [Desktop Action openVSCodeHere] TryExec=code Exec=code %f Icon=visual-studio-code Name=Open VS Code Here Comment=Opens a VS Code Instance in the current folder Discord：pacman -S discord LibreOffice：pacman -S libreoffice-still libreoffice-still-zh-tw Hugo-Extended：yay -S hugo-bin UxPlay：用於 iPad 的螢幕共享 安裝： 1 2 3 yay -S uxplay-git systemctl start avahi-daemon.service systemctl enable avahi-daemon.service 使用：uxplay '><meta property='og:url' content='https://blog.smallten.me/p/arch_linux-04/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Arch Linux'><meta property='article:published_time' content='2021-08-11T22:18:09+08:00'><meta property='article:modified_time' content='2021-08-11T22:18:09+08:00'><meta name=twitter:title content="Arch Linux-04：基本軟體安裝"><meta name=twitter:description content='前言 有了桌面環境，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式\n教學開始 Yay Yay 的 Github 1 2 3 4 pacman -S --needed base-devel git go git clone https://aur.archlinux.org/yay.git cd yay makepkg -si 中文輸入法 中文輸入法 Wiki 這邊我選擇了之前在 Ubuntu 用習慣的 ibus (IBus (简体中文) Wiki) 安裝注音輸入法：pacman -S ibus ibus-chewing vim /etc/environment 1 2 3 GTK_IM_MODULE=ibus QT_IM_MODULE=ibus XMODIFIERS=@im=ibus vim ~/.xprofile 1 2 3 4 export CTK_IM_MODULE=ibus export XMODIFIERS=@im=ibus export QT_IM_MODULE=ibus ibus-daemon -drxR 重新啟動 Oh My Zsh Oh My Zsh 的 官網、Github 安裝 zsh：pacman -S zsh 看系統是否裝了 zsh：cat /etc/shells 切換 Shell 為 zsh：chsh -s /bin/zsh 安裝 Git 以及 Curl：pacman -S git curl 安裝 oh-my-zsh：sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 配置主題，我選擇的是 powerlevel10k 安裝 Nerd Fonts字體 1 2 3 4 5 6 7 # 下載字體 mkdir -p ~/.local/share/fonts cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf # 快取字體 fc-cache -vf ~/.local/share/fonts/ # 查看是否安裝成功 fc-list | grep -i droid 設定終端字體 設定 -> 編輯目前的設定檔&mldr; -> 外觀 -> 字型 -> DroidSansMono Nerd Font 下載 powerlevel10k：git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k 修改主題：vim ~/.zshrc 修改 ZSH_THEME 為：ZSH_THEME="powerlevel10k/powerlevel10k" 更新配置：source .zshrc 安裝插件 下載 zsh-autosuggestion：git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 下載 zsh-syntax-highlighting：git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 修改 .zshrc：vim ~/.zshrc 1 2 3 4 5 6 7 8 plugins=( git extract archlinux colored-man-pages zsh-syntax-highlighting zsh-autosuggestions ) 更新配置：source .zshrc Vim 配置 請查看 Use Vim as IDE 藍芽設置 使用 Sony WH-1000XM4 測試可行 1 2 3 4 5 pacman -S bluez bluez-utils systemctl start bluetooth.service systemctl enable bluetooth.service pacman -S pulseaudio-bluetooth reboot Asus NumberPad asus-touchpad-numpad-driver GitHub AUR 1 yay -S asus-touchpad-numpad-driver 其他軟體 TLP 1 2 pacman -S tlp systemctl enable --now tlp Google Chrome：yay -S google-chrome 1password：yay -S 1password Neofetch： pacman -S neofetch Keyring：pacman -S gnome-keyring Seahorse：pacman -S seahorse Visual Studio Code：yay -S visual-studio-code-bin 增加在資料夾上右鍵開啟的選項：vim /usr/share/kservices5/vscodehere.desktop 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 [Desktop Entry] Type=Service X-KDE-ServiceTypes=KonqPopupMenu/Plugin MimeType=inode/directory; X-KDE-Priority=TopLevel Actions=openVSCodeHere; X-KDE-AuthorizeAction=shell_access [Desktop Action openVSCodeHere] TryExec=code Exec=code %f Icon=visual-studio-code Name=Open VS Code Here Comment=Opens a VS Code Instance in the current folder Discord：pacman -S discord LibreOffice：pacman -S libreoffice-still libreoffice-still-zh-tw Hugo-Extended：yay -S hugo-bin UxPlay：用於 iPad 的螢幕共享 安裝： 1 2 3 yay -S uxplay-git systemctl start avahi-daemon.service systemctl enable avahi-daemon.service 使用：uxplay '><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#教學開始>教學開始</a><ul><li><a href=#yay>Yay</a></li><li><a href=#中文輸入法>中文輸入法</a></li><li><a href=#oh-my-zsh>Oh My Zsh</a></li><li><a href=#vim-配置>Vim 配置</a></li><li><a href=#藍芽設置>藍芽設置</a></li><li><a href=#asus-numberpad>Asus NumberPad</a></li><li><a href=#其他軟體>其他軟體</a></li></ul></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/p/arch_linux-04/>Arch Linux-04：基本軟體安裝</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Aug 11, 2021</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h1 id=前言><a href=#%e5%89%8d%e8%a8%80 class=header-anchor></a>前言</h1><p>  有了<a class=link href=../arch_linux-03>桌面環境</a>，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式</p><h1 id=教學開始><a href=#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b class=header-anchor></a>教學開始</h1><h2 id=yay><a href=#yay class=header-anchor></a>Yay</h2><ul><li>Yay 的 <a class=link href=https://github.com/Jguer/yay target=_blank rel=noopener>Github</a></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pacman -S --needed base-devel git go
-git clone https://aur.archlinux.org/yay.git
-<span class=nb>cd</span> yay
-makepkg -si
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=中文輸入法>中文輸入法</h2>
-<ul>
-<li><a class=link href=https://wiki.archlinux.org/title/Localization_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29/Traditional_Chinese_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29#%E4%B8%AD%E6%96%87%E8%BC%B8%E5%85%A5%E6%B3%95 target=_blank rel=noopener>中文輸入法 Wiki</a></li>
-<li>這邊我選擇了之前在 Ubuntu 用習慣的 <a class=link href=https://wiki.archlinux.org/title/IBus target=_blank rel=noopener>ibus</a> (<a class=link href=https://wiki.archlinux.org/title/IBus_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29 target=_blank rel=noopener>IBus (简体中文) Wiki</a>)
-<ul>
-<li>安裝注音輸入法：<code>pacman -S ibus ibus-chewing</code></li>
-<li><code>vim /etc/environment</code>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pacman -S --needed base-devel git go
+</span></span><span class=line><span class=cl>git clone https://aur.archlinux.org/yay.git
+</span></span><span class=line><span class=cl><span class=nb>cd</span> yay
+</span></span><span class=line><span class=cl>makepkg -si
+</span></span></code></pre></td></tr></table></div></div><h2 id=中文輸入法><a href=#%e4%b8%ad%e6%96%87%e8%bc%b8%e5%85%a5%e6%b3%95 class=header-anchor></a>中文輸入法</h2><ul><li><a class=link href=https://wiki.archlinux.org/title/Localization_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29/Traditional_Chinese_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29#%E4%B8%AD%E6%96%87%E8%BC%B8%E5%85%A5%E6%B3%95 target=_blank rel=noopener>中文輸入法 Wiki</a></li><li>這邊我選擇了之前在 Ubuntu 用習慣的 <a class=link href=https://wiki.archlinux.org/title/IBus target=_blank rel=noopener>ibus</a> (<a class=link href=https://wiki.archlinux.org/title/IBus_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29 target=_blank rel=noopener>IBus (简体中文) Wiki</a>)<ul><li>安裝注音輸入法：<code>pacman -S ibus ibus-chewing</code></li><li><code>vim /etc/environment</code><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>GTK_IM_MODULE=ibus
-QT_IM_MODULE=ibus
-XMODIFIERS=@im=ibus
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><code>vim ~/.xprofile</code>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>GTK_IM_MODULE=ibus
+</span></span><span class=line><span class=cl>QT_IM_MODULE=ibus
+</span></span><span class=line><span class=cl>XMODIFIERS=@im=ibus
+</span></span></code></pre></td></tr></table></div></div></li><li><code>vim ~/.xprofile</code><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>export CTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drxR
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>重新啟動</li>
-</ul>
-</li>
-</ul>
-<h2 id=oh-my-zsh>Oh My Zsh</h2>
-<ul>
-<li>Oh My Zsh 的 <a class=link href=https://ohmyz.sh/ target=_blank rel=noopener>官網</a>、<a class=link href=https://github.com/ohmyzsh/ohmyzsh target=_blank rel=noopener>Github</a></li>
-<li>安裝 zsh：<code>pacman -S zsh</code></li>
-<li>看系統是否裝了 zsh：<code>cat /etc/shells</code></li>
-<li>切換 Shell 為 zsh：<code>chsh -s /bin/zsh</code></li>
-<li>安裝 Git 以及 Curl：<code>pacman -S git curl</code></li>
-<li>安裝 oh-my-zsh：<code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></li>
-<li>配置主題，我選擇的是 <a class=link href=https://github.com/romkatv/powerlevel10k target=_blank rel=noopener>powerlevel10k</a>
-<ul>
-<li>安裝 Nerd Fonts字體
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=k>export</span> <span class=n>CTK_IM_MODULE</span><span class=o>=</span><span class=n>ibus</span>
+</span></span><span class=line><span class=cl><span class=k>export</span> <span class=n>XMODIFIERS</span><span class=o>=</span><span class=err>@</span><span class=n>im</span><span class=o>=</span><span class=n>ibus</span>
+</span></span><span class=line><span class=cl><span class=k>export</span> <span class=n>QT_IM_MODULE</span><span class=o>=</span><span class=n>ibus</span>
+</span></span><span class=line><span class=cl><span class=n>ibus</span><span class=o>-</span><span class=n>daemon</span> <span class=o>-</span><span class=n>drxR</span>
+</span></span></code></pre></td></tr></table></div></div></li><li>重新啟動</li></ul></li></ul><h2 id=oh-my-zsh><a href=#oh-my-zsh class=header-anchor></a>Oh My Zsh</h2><ul><li>Oh My Zsh 的 <a class=link href=https://ohmyz.sh/ target=_blank rel=noopener>官網</a>、<a class=link href=https://github.com/ohmyzsh/ohmyzsh target=_blank rel=noopener>Github</a></li><li>安裝 zsh：<code>pacman -S zsh</code></li><li>看系統是否裝了 zsh：<code>cat /etc/shells</code></li><li>切換 Shell 為 zsh：<code>chsh -s /bin/zsh</code></li><li>安裝 Git 以及 Curl：<code>pacman -S git curl</code></li><li>安裝 oh-my-zsh：<code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></li><li>配置主題，我選擇的是 <a class=link href=https://github.com/romkatv/powerlevel10k target=_blank rel=noopener>powerlevel10k</a><ul><li>安裝 Nerd Fonts字體<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># 下載字體</span>
-mkdir -p ~/.local/share/fonts
-<span class=nb>cd</span> ~/.local/share/fonts <span class=o>&amp;&amp;</span> curl -fLo <span class=s2>&#34;Droid Sans Mono for Powerline Nerd Font Complete.otf&#34;</span> https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-<span class=c1># 快取字體</span>
-fc-cache -vf ~/.local/share/fonts/
-<span class=c1># 查看是否安裝成功</span>
-fc-list <span class=p>|</span> grep -i droid
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>設定終端字體
-<ul>
-<li>設定 -> 編輯目前的設定檔&mldr; -> 外觀 -> 字型 -> <code>DroidSansMono Nerd Font</code></li>
-</ul>
-</li>
-<li>下載 powerlevel10k：<code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k</code></li>
-<li>修改主題：<code>vim ~/.zshrc</code>
-<ul>
-<li>修改 ZSH_THEME 為：<code>ZSH_THEME="powerlevel10k/powerlevel10k"</code></li>
-</ul>
-</li>
-<li>更新配置：<code>source .zshrc</code></li>
-</ul>
-</li>
-<li>安裝插件
-<ul>
-<li>下載 zsh-autosuggestion：<code>git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></li>
-<li>下載 zsh-syntax-highlighting：<code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></li>
-<li>修改 .zshrc：<code>vim ~/.zshrc</code>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 下載字體</span>
+</span></span><span class=line><span class=cl>mkdir -p ~/.local/share/fonts
+</span></span><span class=line><span class=cl><span class=nb>cd</span> ~/.local/share/fonts <span class=o>&amp;&amp;</span> curl -fLo <span class=s2>&#34;Droid Sans Mono for Powerline Nerd Font Complete.otf&#34;</span> https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+</span></span><span class=line><span class=cl><span class=c1># 快取字體</span>
+</span></span><span class=line><span class=cl>fc-cache -vf ~/.local/share/fonts/
+</span></span><span class=line><span class=cl><span class=c1># 查看是否安裝成功</span>
+</span></span><span class=line><span class=cl>fc-list <span class=p>|</span> grep -i droid
+</span></span></code></pre></td></tr></table></div></div></li><li>設定終端字體<ul><li>設定 -> 編輯目前的設定檔&mldr; -> 外觀 -> 字型 -> <code>DroidSansMono Nerd Font</code></li></ul></li><li>下載 powerlevel10k：<code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k</code></li><li>修改主題：<code>vim ~/.zshrc</code><ul><li>修改 ZSH_THEME 為：<code>ZSH_THEME="powerlevel10k/powerlevel10k"</code></li></ul></li><li>更新配置：<code>source .zshrc</code></li></ul></li><li>安裝插件<ul><li>下載 zsh-autosuggestion：<code>git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></li><li>下載 zsh-syntax-highlighting：<code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></li><li>修改 .zshrc：<code>vim ~/.zshrc</code><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -166,93 +52,31 @@ fc-list <span class=p>|</span> grep -i droid
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>plugins=(
-    git
-    extract
-    archlinux
-    colored-man-pages
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-)
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>更新配置：<code>source .zshrc</code></li>
-</ul>
-</li>
-</ul>
-<h2 id=vim-配置>Vim 配置</h2>
-<ul>
-<li>請查看 <a class=link href=https://hackmd.io/SWhC4ublSjCBE7EVb6MbEw target=_blank rel=noopener>Use Vim as IDE</a></li>
-</ul>
-<h2 id=藍芽設置>藍芽設置</h2>
-<ul>
-<li>使用 <a class=link href=https://www.sony.com.tw/zh/electronics/headband-headphones/wh-1000xm4 target=_blank rel=noopener>Sony WH-1000XM4</a> 測試可行
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>plugins=(
+</span></span><span class=line><span class=cl>    git
+</span></span><span class=line><span class=cl>    extract
+</span></span><span class=line><span class=cl>    archlinux
+</span></span><span class=line><span class=cl>    colored-man-pages
+</span></span><span class=line><span class=cl>    zsh-syntax-highlighting
+</span></span><span class=line><span class=cl>    zsh-autosuggestions
+</span></span><span class=line><span class=cl>)
+</span></span></code></pre></td></tr></table></div></div></li><li>更新配置：<code>source .zshrc</code></li></ul></li></ul><h2 id=vim-配置><a href=#vim-%e9%85%8d%e7%bd%ae class=header-anchor></a>Vim 配置</h2><ul><li>請查看 <a class=link href=https://hackmd.io/SWhC4ublSjCBE7EVb6MbEw target=_blank rel=noopener>Use Vim as IDE</a></li></ul><h2 id=藍芽設置><a href=#%e8%97%8d%e8%8a%bd%e8%a8%ad%e7%bd%ae class=header-anchor></a>藍芽設置</h2><ul><li>使用 <a class=link href=https://www.sony.com.tw/zh/electronics/headband-headphones/wh-1000xm4 target=_blank rel=noopener>Sony WH-1000XM4</a> 測試可行<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pacman -S bluez bluez-utils
-systemctl start bluetooth.service
-systemctl <span class=nb>enable</span> bluetooth.service
-pacman -S pulseaudio-bluetooth
-reboot
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id=asus-numberpad>Asus NumberPad</h2>
-<ul>
-<li>asus-touchpad-numpad-driver
-<ul>
-<li><a class=link href=https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver target=_blank rel=noopener>GitHub</a></li>
-<li><a class=link href=https://aur.archlinux.org/packages/asus-touchpad-numpad-driver target=_blank rel=noopener>AUR</a></li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>yay -S asus-touchpad-numpad-driver
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id=其他軟體>其他軟體</h2>
-<ul>
-<li><a class=link href=https://wiki.archlinux.org/title/TLP target=_blank rel=noopener>TLP</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pacman -S bluez bluez-utils
+</span></span><span class=line><span class=cl>systemctl start bluetooth.service
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> bluetooth.service
+</span></span><span class=line><span class=cl>pacman -S pulseaudio-bluetooth
+</span></span><span class=line><span class=cl>reboot
+</span></span></code></pre></td></tr></table></div></div></li></ul><h2 id=asus-numberpad><a href=#asus-numberpad class=header-anchor></a>Asus NumberPad</h2><ul><li>asus-touchpad-numpad-driver<ul><li><a class=link href=https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver target=_blank rel=noopener>GitHub</a></li><li><a class=link href=https://aur.archlinux.org/packages/asus-touchpad-numpad-driver target=_blank rel=noopener>AUR</a></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yay -S asus-touchpad-numpad-driver
+</span></span></code></pre></td></tr></table></div></div></li></ul><h2 id=其他軟體><a href=#%e5%85%b6%e4%bb%96%e8%bb%9f%e9%ab%94 class=header-anchor></a>其他軟體</h2><ul><li><a class=link href=https://wiki.archlinux.org/title/TLP target=_blank rel=noopener>TLP</a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pacman -S tlp
-systemctl <span class=nb>enable</span> --now tlp
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>Google Chrome：<code>yay -S google-chrome</code></li>
-<li>1password：<code>yay -S 1password</code></li>
-<li>Neofetch： <code>pacman -S neofetch</code></li>
-<li><a class=link href=https://wiki.archlinux.org/title/GNOME/Keyring target=_blank rel=noopener>Keyring</a>：<code>pacman -S gnome-keyring</code>
-<ul>
-<li>Seahorse：<code>pacman -S seahorse</code></li>
-</ul>
-</li>
-<li><a class=link href=https://wiki.archlinux.org/title/Visual_Studio_Code target=_blank rel=noopener>Visual Studio Code</a>：<code>yay -S visual-studio-code-bin</code>
-<ul>
-<li>增加在資料夾上右鍵開啟的選項：<code>vim /usr/share/kservices5/vscodehere.desktop</code>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pacman -S tlp
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> --now tlp
+</span></span></code></pre></td></tr></table></div></div></li><li>Google Chrome：<code>yay -S google-chrome</code></li><li>1password：<code>yay -S 1password</code></li><li>Neofetch： <code>pacman -S neofetch</code></li><li><a class=link href=https://wiki.archlinux.org/title/GNOME/Keyring target=_blank rel=noopener>Keyring</a>：<code>pacman -S gnome-keyring</code><ul><li>Seahorse：<code>pacman -S seahorse</code></li></ul></li><li><a class=link href=https://wiki.archlinux.org/title/Visual_Studio_Code target=_blank rel=noopener>Visual Studio Code</a>：<code>yay -S visual-studio-code-bin</code><ul><li>增加在資料夾上右鍵開啟的選項：<code>vim /usr/share/kservices5/vscodehere.desktop</code><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -267,136 +91,32 @@ systemctl <span class=nb>enable</span> --now tlp
 </span><span class=lnt>13
 </span><span class=lnt>14
 </span><span class=lnt>15
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>[Desktop Entry]
-Type=Service
-X-KDE-ServiceTypes=KonqPopupMenu/Plugin
-MimeType=inode/directory;
-X-KDE-Priority=TopLevel
-Actions=openVSCodeHere;
-X-KDE-AuthorizeAction=shell_access
-
-[Desktop Action openVSCodeHere]
-TryExec=code
-Exec=code %f
-Icon=visual-studio-code
-
-Name=Open VS Code Here
-Comment=Opens a VS Code Instance in the current folder
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-<li>Discord：<code>pacman -S discord</code></li>
-<li><a class=link href=https://wiki.archlinux.org/title/LibreOffice target=_blank rel=noopener>LibreOffice</a>：<code>pacman -S libreoffice-still libreoffice-still-zh-tw</code></li>
-<li>Hugo-Extended：<code>yay -S hugo-bin</code></li>
-<li>UxPlay：用於 iPad 的螢幕共享
-<ul>
-<li>安裝：
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[Desktop Entry]
+</span></span><span class=line><span class=cl>Type=Service
+</span></span><span class=line><span class=cl>X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+</span></span><span class=line><span class=cl>MimeType=inode/directory;
+</span></span><span class=line><span class=cl>X-KDE-Priority=TopLevel
+</span></span><span class=line><span class=cl>Actions=openVSCodeHere;
+</span></span><span class=line><span class=cl>X-KDE-AuthorizeAction=shell_access
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[Desktop Action openVSCodeHere]
+</span></span><span class=line><span class=cl>TryExec=code
+</span></span><span class=line><span class=cl>Exec=code %f
+</span></span><span class=line><span class=cl>Icon=visual-studio-code
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Name=Open VS Code Here
+</span></span><span class=line><span class=cl>Comment=Opens a VS Code Instance in the current folder
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li>Discord：<code>pacman -S discord</code></li><li><a class=link href=https://wiki.archlinux.org/title/LibreOffice target=_blank rel=noopener>LibreOffice</a>：<code>pacman -S libreoffice-still libreoffice-still-zh-tw</code></li><li>Hugo-Extended：<code>yay -S hugo-bin</code></li><li>UxPlay：用於 iPad 的螢幕共享<ul><li>安裝：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>yay -S uxplay-git
-systemctl start avahi-daemon.service
-systemctl <span class=nb>enable</span> avahi-daemon.service
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>使用：<code>uxplay</code></li>
-</ul>
-</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/arch-linux/>Arch Linux</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yay -S uxplay-git
+</span></span><span class=line><span class=cl>systemctl start avahi-daemon.service
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> avahi-daemon.service
+</span></span></code></pre></td></tr></table></div></div></li><li>使用：<code>uxplay</code></li></ul></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/arch-linux/>Arch Linux</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#前言>前言</a></li>
-<li><a href=#教學開始>教學開始</a>
-<ul>
-<li><a href=#yay>Yay</a></li>
-<li><a href=#中文輸入法>中文輸入法</a></li>
-<li><a href=#oh-my-zsh>Oh My Zsh</a></li>
-<li><a href=#vim-配置>Vim 配置</a></li>
-<li><a href=#藍芽設置>藍芽設置</a></li>
-<li><a href=#asus-numberpad>Asus NumberPad</a></li>
-<li><a href=#其他軟體>其他軟體</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

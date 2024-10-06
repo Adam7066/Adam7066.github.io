@@ -1,1 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Makefile on 小十的部落格</title><link>https://blog.smallten.me/tags/makefile/</link><description>Recent content in Makefile on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 02 Dec 2020 21:45:51 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/makefile/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(一)-06：Makefile</title><link>https://blog.smallten.me/p/computer_programming_1-06/</link><pubDate>Wed, 02 Dec 2020 21:45:51 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-06/</guid><description>Makefile for 程設一 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 CC = gcc CFLAGS = -Wall -Wextra -O2 -std=c11 LDFLAGS = -lm TARGETS = main01 main02 main01_OBJ = main01.o func01.o main02_OBJ = main02.o func02.o .PHONY = all clean all: $(TARGETS) .SECONDEXPANSION: $(TARGETS): $$($$@_OBJ) $(CC) $^ -o $@ $(LDFLAGS) %.o: $@.c clean: -$(RM) $(TARGETS) $(foreach targ,$(TARGETS),$(foreach obj,</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Makefile on 小十的部落格</title><link>https://blog.smallten.me/tags/makefile/</link><description>Recent content in Makefile on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 02 Dec 2020 21:45:51 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/makefile/index.xml" rel="self" type="application/rss+xml"/><item><title>程式設計(一)-06：Makefile</title><link>https://blog.smallten.me/p/computer_programming_1-06/</link><pubDate>Wed, 02 Dec 2020 21:45:51 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-06/</guid><description>&lt;h1 id="makefile-for-程設一">&lt;a href="#makefile-for-%e7%a8%8b%e8%a8%ad%e4%b8%80" class="header-anchor">&lt;/a>Makefile for 程設一
+&lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CFLAGS&lt;/span> &lt;span class="o">=&lt;/span> -Wall -Wextra -O2 -std&lt;span class="o">=&lt;/span>c11
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LDFLAGS&lt;/span> &lt;span class="o">=&lt;/span> -lm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">TARGETS&lt;/span> &lt;span class="o">=&lt;/span> main01 main02
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">main01_OBJ&lt;/span> &lt;span class="o">=&lt;/span> main01.o func01.o
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">main02_OBJ&lt;/span> &lt;span class="o">=&lt;/span> main02.o func02.o
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">.PHONY&lt;/span> &lt;span class="o">=&lt;/span> all clean
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">all&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">TARGETS&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">.SECONDEXPANSION&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">$(TARGETS)&lt;/span>&lt;span class="o">:&lt;/span> $&lt;span class="k">$($$&lt;/span>@&lt;span class="nv">_OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span> &lt;span class="k">$(&lt;/span>LDFLAGS&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> $@.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">clean&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -&lt;span class="k">$(&lt;/span>RM&lt;span class="k">)&lt;/span> &lt;span class="k">$(&lt;/span>TARGETS&lt;span class="k">)&lt;/span> &lt;span class="k">$(&lt;/span>foreach targ,&lt;span class="k">$(&lt;/span>TARGETS&lt;span class="k">)&lt;/span>,&lt;span class="k">$(&lt;/span>foreach obj, &lt;span class="k">$($(&lt;/span>targ&lt;span class="k">)&lt;/span>_OBJ&lt;span class="k">)&lt;/span>, &lt;span class="k">$(&lt;/span>obj&lt;span class="k">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

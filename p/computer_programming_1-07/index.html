@@ -1,91 +1,14 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Array 陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始 int32_t a[10] -&amp;gt; a[0] ~ a[9] 計數變數 i 的型別可以宣告為 size_t，它是一個無號的"><title>程式設計(一)-07：Array</title>
-<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-07/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-07：Array">
-<meta property="og:description" content="Array 陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始 int32_t a[10] -&amp;gt; a[0] ~ a[9] 計數變數 i 的型別可以宣告為 size_t，它是一個無號的">
-<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_1-07/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2020-12-07T19:38:14+08:00"><meta property="article:modified_time" content="2020-12-07T19:38:14+08:00">
-<meta name=twitter:title content="程式設計(一)-07：Array">
-<meta name=twitter:description content="Array 陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始 int32_t a[10] -&amp;gt; a[0] ~ a[9] 計數變數 i 的型別可以宣告為 size_t，它是一個無號的">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%B8%80/>
-程式設計(一)
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/computer_programming_1-07/>程式設計(一)-07：Array</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Dec 07, 2020</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-2 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=array>Array</h1>
-<ul>
-<li>陣列是一種可以儲存大量相同型別資料的方法。</li>
-<li>連續的記憶體位置。</li>
-<li>永遠從0開始
-<ul>
-<li><code>int32_t a[10]</code> -> <code>a[0] ~ a[9]</code></li>
-</ul>
-</li>
-<li>計數變數 i 的型別可以宣告為 <code>size_t</code>，它是一個無號的整數型別。</li>
-<li>初始化
-<ul>
-<li><code>int32_t a[5] = {0, 0, 0, 0, 0};</code></li>
-<li><code>int32_t a[5] = {0};</code></li>
-</ul>
-</li>
-<li>存取陣列元素使用 <code>variable[index]</code></li>
-<li>專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。</li>
-<li>事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。</li>
-</ul>
-<hr>
-<h1 id=define>define</h1>
-<ul>
-<li>是遇處理指令，不是C的詞(statement)</li>
-<li>我們可以使用 <code>#define</code> 去做巨集(MACRO)
-<ul>
-<li>當開發時MACRO有些像function，然而對電腦而言他們是不同的。</li>
-<li>當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。</li>
-<li>函式擁有自己的標記。</li>
-</ul>
-</li>
-</ul>
-<h1 id=基本排序>基本排序</h1>
-<h4 id=氣泡排序法>氣泡排序法</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Array 陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始 int32_t a[10] -> a[0] ~ a[9] 計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化 int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0}; 存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。 define 是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO) 當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。 基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9 for(int i = 0; i < n-1; ++i) { for(int j = 0; j < n-1-i; ++j) { if(a[j] > a[j+1]) { a[j] = a[j] ^ a[j+1]; a[j+1] = a[j] ^ a[j+1]; a[j] = a[j] ^ a[j+1]; } } } qsort 1 2 3 4 5 #include <stdlib.c> int cmp(const void *a, const void *b) { return (*(int*)a - *(int*)b); } qsort(a, n, sizeof(int), cmp); 傳陣列至函式 1 2 3 4 5 6 7 int f(int [][n], int); f(a, 10); int f(int a[][n], int size){ } 除了第一個[]外，剩下的都必須要給大小。(電腦才能計算偏移量) 為甚麼要給size? 因為傳過去的只是陣列的記憶體起始位置而已。 在函式中依然會改到本身的值。 const constant read-only 可變長度陣列 Variable Length Array 雖然有些編譯器支援了以下寫法(C99之後)，但有些依然不支援 1 2 int n = 5; int a[n] = {0}; 但你應該使用 malloc 準確來說，你應該使用 calloc，而不是 `malloc。 我的建議：當考試的時候不要使用這功能( a[n] )，因為你不知道編譯器的版本。 "><title>程式設計(一)-07：Array</title>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-07/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="程式設計(一)-07：Array"><meta property='og:description' content="Array 陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始 int32_t a[10] -> a[0] ~ a[9] 計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化 int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0}; 存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。 define 是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO) 當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。 基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9 for(int i = 0; i < n-1; ++i) { for(int j = 0; j < n-1-i; ++j) { if(a[j] > a[j+1]) { a[j] = a[j] ^ a[j+1]; a[j+1] = a[j] ^ a[j+1]; a[j] = a[j] ^ a[j+1]; } } } qsort 1 2 3 4 5 #include <stdlib.c> int cmp(const void *a, const void *b) { return (*(int*)a - *(int*)b); } qsort(a, n, sizeof(int), cmp); 傳陣列至函式 1 2 3 4 5 6 7 int f(int [][n], int); f(a, 10); int f(int a[][n], int size){ } 除了第一個[]外，剩下的都必須要給大小。(電腦才能計算偏移量) 為甚麼要給size? 因為傳過去的只是陣列的記憶體起始位置而已。 在函式中依然會改到本身的值。 const constant read-only 可變長度陣列 Variable Length Array 雖然有些編譯器支援了以下寫法(C99之後)，但有些依然不支援 1 2 int n = 5; int a[n] = {0}; 但你應該使用 malloc 準確來說，你應該使用 calloc，而不是 `malloc。 我的建議：當考試的時候不要使用這功能( a[n] )，因為你不知道編譯器的版本。 "><meta property='og:url' content='https://blog.smallten.me/p/computer_programming_1-07/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='C'><meta property='article:tag' content='Note'><meta property='article:published_time' content='2020-12-07T19:38:14+08:00'><meta property='article:modified_time' content='2020-12-07T19:38:14+08:00'><meta name=twitter:title content="程式設計(一)-07：Array"><meta name=twitter:description content="Array 陣列是一種可以儲存大量相同型別資料的方法。 連續的記憶體位置。 永遠從0開始 int32_t a[10] -> a[0] ~ a[9] 計數變數 i 的型別可以宣告為 size_t，它是一個無號的整數型別。 初始化 int32_t a[5] = {0, 0, 0, 0, 0}; int32_t a[5] = {0}; 存取陣列元素使用 variable[index] 專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。 事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。 define 是遇處理指令，不是C的詞(statement) 我們可以使用 #define 去做巨集(MACRO) 當開發時MACRO有些像function，然而對電腦而言他們是不同的。 當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。 函式擁有自己的標記。 基本排序 氣泡排序法 1 2 3 4 5 6 7 8 9 for(int i = 0; i < n-1; ++i) { for(int j = 0; j < n-1-i; ++j) { if(a[j] > a[j+1]) { a[j] = a[j] ^ a[j+1]; a[j+1] = a[j] ^ a[j+1]; a[j] = a[j] ^ a[j+1]; } } } qsort 1 2 3 4 5 #include <stdlib.c> int cmp(const void *a, const void *b) { return (*(int*)a - *(int*)b); } qsort(a, n, sizeof(int), cmp); 傳陣列至函式 1 2 3 4 5 6 7 int f(int [][n], int); f(a, 10); int f(int a[][n], int size){ } 除了第一個[]外，剩下的都必須要給大小。(電腦才能計算偏移量) 為甚麼要給size? 因為傳過去的只是陣列的記憶體起始位置而已。 在函式中依然會改到本身的值。 const constant read-only 可變長度陣列 Variable Length Array 雖然有些編譯器支援了以下寫法(C99之後)，但有些依然不支援 1 2 int n = 5; int a[n] = {0}; 但你應該使用 malloc 準確來說，你應該使用 calloc，而不是 `malloc。 我的建議：當考試的時候不要使用這功能( a[n] )，因為你不知道編譯器的版本。 "><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#array>Array</a></li><li><a href=#define>define</a></li><li><a href=#基本排序>基本排序</a><ul><li><ul><li></li></ul></li></ul></li><li><a href=#傳陣列至函式>傳陣列至函式</a></li><li><a href=#const>const</a></li><li><a href=#可變長度陣列>可變長度陣列</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%B8%80/>程式設計(一)</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/computer_programming_1-07/>程式設計(一)-07：Array</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Dec 07, 2020</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>1 minute read</time></div></footer></div></header><section class=article-content><h1 id=array><a href=#array class=header-anchor></a>Array</h1><ul><li>陣列是一種可以儲存大量相同型別資料的方法。</li><li>連續的記憶體位置。</li><li>永遠從0開始<ul><li><code>int32_t a[10]</code> -> <code>a[0] ~ a[9]</code></li></ul></li><li>計數變數 i 的型別可以宣告為 <code>size_t</code>，它是一個無號的整數型別。</li><li>初始化<ul><li><code>int32_t a[5] = {0, 0, 0, 0, 0};</code></li><li><code>int32_t a[5] = {0};</code></li></ul></li><li>存取陣列元素使用 <code>variable[index]</code></li><li>專業說明：電腦將找到第一個元素的地址，然後根據索引移動記憶體位置以訪問數據。</li><li>事實上一維陣列可以處理所有情況，至於多維陣列只是給人類方便閱讀的。</li></ul><hr><h1 id=define><a href=#define class=header-anchor></a>define</h1><ul><li>是遇處理指令，不是C的詞(statement)</li><li>我們可以使用 <code>#define</code> 去做巨集(MACRO)<ul><li>當開發時MACRO有些像function，然而對電腦而言他們是不同的。</li><li>當遇到MACRO，編譯器將簡單的依定義替換掉程式碼。</li><li>函式擁有自己的標記。</li></ul></li></ul><h1 id=基本排序><a href=#%e5%9f%ba%e6%9c%ac%e6%8e%92%e5%ba%8f class=header-anchor></a>基本排序</h1><h4 id=氣泡排序法><a href=#%e6%b0%a3%e6%b3%a1%e6%8e%92%e5%ba%8f%e6%b3%95 class=header-anchor></a>氣泡排序法</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -94,218 +17,49 @@ extended">
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>n</span><span class=o>-</span><span class=mi>1</span><span class=o>-</span><span class=n>i</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>)</span> <span class=p>{</span>
-        <span class=k>if</span><span class=p>(</span><span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>&gt;</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
-            <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
-            <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
-            <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=qsort>qsort</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>n</span><span class=o>-</span><span class=mi>1</span><span class=o>-</span><span class=n>i</span><span class=p>;</span> <span class=o>++</span><span class=n>j</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>&gt;</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>^</span> <span class=n>a</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=qsort><a href=#qsort class=header-anchor></a>qsort</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdlib.c&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>cmp</span><span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>b</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=p>(</span><span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>a</span> <span class=o>-</span> <span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>);</span>
-<span class=p>}</span>
-<span class=n>qsort</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>n</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>),</span> <span class=n>cmp</span><span class=p>);</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id=傳陣列至函式>傳陣列至函式</h1>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.c&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>cmp</span><span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span><span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>a</span> <span class=o>-</span> <span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nf>qsort</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>n</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>),</span> <span class=n>cmp</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=傳陣列至函式><a href=#%e5%82%b3%e9%99%a3%e5%88%97%e8%87%b3%e5%87%bd%e5%bc%8f class=header-anchor></a>傳陣列至函式</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=nf>f</span><span class=p>(</span><span class=kt>int</span> <span class=p>[][</span><span class=n>n</span><span class=p>],</span> <span class=kt>int</span><span class=p>);</span>
-
-<span class=n>f</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=mi>10</span><span class=p>);</span>
-
-<span class=kt>int</span> <span class=nf>f</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>[][</span><span class=n>n</span><span class=p>],</span> <span class=kt>int</span> <span class=n>size</span><span class=p>){</span>
-
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>除了第一個[]外，剩下的都必須要給大小。(電腦才能計算偏移量)</li>
-<li>為甚麼要給size? 因為傳過去的只是陣列的記憶體起始位置而已。</li>
-<li>在函式中依然會改到本身的值。</li>
-</ul>
-<h1 id=const>const</h1>
-<ul>
-<li>constant</li>
-<li>read-only</li>
-</ul>
-<h1 id=可變長度陣列>可變長度陣列</h1>
-<ul>
-<li>Variable Length Array</li>
-<li>雖然有些編譯器支援了以下寫法(C99之後)，但有些依然不支援</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=nf>f</span><span class=p>(</span><span class=kt>int</span> <span class=p>[][</span><span class=n>n</span><span class=p>],</span> <span class=kt>int</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>f</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=mi>10</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>f</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>[][</span><span class=n>n</span><span class=p>],</span> <span class=kt>int</span> <span class=n>size</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>除了第一個[]外，剩下的都必須要給大小。(電腦才能計算偏移量)</li><li>為甚麼要給size? 因為傳過去的只是陣列的記憶體起始位置而已。</li><li>在函式中依然會改到本身的值。</li></ul><h1 id=const><a href=#const class=header-anchor></a>const</h1><ul><li>constant</li><li>read-only</li></ul><h1 id=可變長度陣列><a href=#%e5%8f%af%e8%ae%8a%e9%95%b7%e5%ba%a6%e9%99%a3%e5%88%97 class=header-anchor></a>可變長度陣列</h1><ul><li>Variable Length Array</li><li>雖然有些編譯器支援了以下寫法(C99之後)，但有些依然不支援</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
-<span class=kt>int</span> <span class=n>a</span><span class=p>[</span><span class=n>n</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>但你應該使用 <code>malloc</code>
-<ul>
-<li>準確來說，你應該使用 <code>calloc</code>，而不是 `malloc。</li>
-</ul>
-</li>
-<li>我的建議：當考試的時候不要使用這功能( <code>a[n]</code> )，因為你不知道編譯器的版本。</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/c/>C</a>
-<a href=/tags/note/>Note</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article>
-<a href=/p/computer_programming_1-08/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-08：Pointer</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-05/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-05：Function</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-04/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-04：Loop</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-03/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-03：Condition Control</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-02/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-02：Arithmetic</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>a</span><span class=p>[</span><span class=n>n</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>但你應該使用 <code>malloc</code><ul><li>準確來說，你應該使用 <code>calloc</code>，而不是 `malloc。</li></ul></li><li>我的建議：當考試的時候不要使用這功能( <code>a[n]</code> )，因為你不知道編譯器的版本。</li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a>
+<a href=/tags/note/>Note</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/computer_programming_1-08/><div class=article-details><h2 class=article-title>程式設計(一)-08：Pointer</h2></div></a></article><article><a href=/p/computer_programming_1-05/><div class=article-details><h2 class=article-title>程式設計(一)-05：Function</h2></div></a></article><article><a href=/p/computer_programming_1-04/><div class=article-details><h2 class=article-title>程式設計(一)-04：Loop</h2></div></a></article><article><a href=/p/computer_programming_1-03/><div class=article-details><h2 class=article-title>程式設計(一)-03：Condition Control</h2></div></a></article><article><a href=/p/computer_programming_1-02/><div class=article-details><h2 class=article-title>程式設計(一)-02：Arithmetic</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#array>Array</a></li>
-<li><a href=#define>define</a></li>
-<li><a href=#基本排序>基本排序</a>
-<ul>
-<li>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href=#傳陣列至函式>傳陣列至函式</a></li>
-<li><a href=#const>const</a></li>
-<li><a href=#可變長度陣列>可變長度陣列</a></li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

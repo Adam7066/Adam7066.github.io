@@ -1,257 +1,39 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Hello World 1 2 3 4 5 6 #include &amp;lt;stdio.h&amp;gt;//Your first code. int main(){ printf(&amp;#34;Hello World\n&amp;#34;); return 0; } main是每個C程式的進入點，我們稱它為main function(主函式) int 及 return 是C裡面的Keywor"><title>程式設計(一)-01：Your first program</title>
-<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-01/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(一)-01：Your first program">
-<meta property="og:description" content="Hello World 1 2 3 4 5 6 #include &amp;lt;stdio.h&amp;gt;//Your first code. int main(){ printf(&amp;#34;Hello World\n&amp;#34;); return 0; } main是每個C程式的進入點，我們稱它為main function(主函式) int 及 return 是C裡面的Keywor">
-<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_1-01/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2020-10-04T11:00:48+08:00"><meta property="article:modified_time" content="2020-10-04T11:00:48+08:00">
-<meta name=twitter:title content="程式設計(一)-01：Your first program">
-<meta name=twitter:description content="Hello World 1 2 3 4 5 6 #include &amp;lt;stdio.h&amp;gt;//Your first code. int main(){ printf(&amp;#34;Hello World\n&amp;#34;); return 0; } main是每個C程式的進入點，我們稱它為main function(主函式) int 及 return 是C裡面的Keywor">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%B8%80/>
-程式設計(一)
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/computer_programming_1-01/>程式設計(一)-01：Your first program</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Oct 04, 2020</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-1 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=hello-world>Hello World</h1>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='Hello World 1 2 3 4 5 6 #include <stdio.h> //Your first code. int main(){ printf("Hello World\\n"); return 0; } main是每個C程式的進入點，我們稱它為main function(主函式) int 及 return 是C裡面的Keywords int代表這個函式將會回傳一個整數 每個函式都應該有一個回傳值 每個敘述的結尾都應該要有 ; printf 是一個會顯示格式化字串的函式 \\n -> 換行 \\t -> tab \\\\ -> \\ \\" -> “ # 的那一行是C的預處理器並且不需要;結尾 stdio.h -> standard input / output header(標準輸出/輸入標頭檔) 註解 -> 是給開發者看的 //Your code -> 單行 /*Your code*/ -> 多行 使用編譯器將程式碼編譯成組合語言，再由組譯器組議成機械碼或可執行的二進制檔 IDE -> Integrated Development Environment，不是編譯器 gcc是最受歡迎的C編譯器之一(不完全對!!因為它不只做了編譯的動作…) 一些基本的Linux的操作指令 man -> 不會就問那個男人吧，男人不會就Google ls cd rm pwd gcc main.c 一些參數 -o -v -g -Wall -Wextra -O2 or -Og Makefile 1 2 3 4 all: gcc main.c -o main clean: rm -rf main make 將執行all下的指令 中間縮排應為Tab而不是Space make clean 預設可執行的檔名為 makefile，Makefile，GNUmakefile，若為其他可下 -f 的參數 '><title>程式設計(一)-01：Your first program</title>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_1-01/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="程式設計(一)-01：Your first program"><meta property='og:description' content='Hello World 1 2 3 4 5 6 #include <stdio.h> //Your first code. int main(){ printf("Hello World\\n"); return 0; } main是每個C程式的進入點，我們稱它為main function(主函式) int 及 return 是C裡面的Keywords int代表這個函式將會回傳一個整數 每個函式都應該有一個回傳值 每個敘述的結尾都應該要有 ; printf 是一個會顯示格式化字串的函式 \\n -> 換行 \\t -> tab \\\\ -> \\ \\" -> “ # 的那一行是C的預處理器並且不需要;結尾 stdio.h -> standard input / output header(標準輸出/輸入標頭檔) 註解 -> 是給開發者看的 //Your code -> 單行 /*Your code*/ -> 多行 使用編譯器將程式碼編譯成組合語言，再由組譯器組議成機械碼或可執行的二進制檔 IDE -> Integrated Development Environment，不是編譯器 gcc是最受歡迎的C編譯器之一(不完全對!!因為它不只做了編譯的動作…) 一些基本的Linux的操作指令 man -> 不會就問那個男人吧，男人不會就Google ls cd rm pwd gcc main.c 一些參數 -o -v -g -Wall -Wextra -O2 or -Og Makefile 1 2 3 4 all: gcc main.c -o main clean: rm -rf main make 將執行all下的指令 中間縮排應為Tab而不是Space make clean 預設可執行的檔名為 makefile，Makefile，GNUmakefile，若為其他可下 -f 的參數 '><meta property='og:url' content='https://blog.smallten.me/p/computer_programming_1-01/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='C'><meta property='article:tag' content='Note'><meta property='article:published_time' content='2020-10-04T11:00:48+08:00'><meta property='article:modified_time' content='2020-10-04T11:00:48+08:00'><meta name=twitter:title content="程式設計(一)-01：Your first program"><meta name=twitter:description content='Hello World 1 2 3 4 5 6 #include <stdio.h> //Your first code. int main(){ printf("Hello World\\n"); return 0; } main是每個C程式的進入點，我們稱它為main function(主函式) int 及 return 是C裡面的Keywords int代表這個函式將會回傳一個整數 每個函式都應該有一個回傳值 每個敘述的結尾都應該要有 ; printf 是一個會顯示格式化字串的函式 \\n -> 換行 \\t -> tab \\\\ -> \\ \\" -> “ # 的那一行是C的預處理器並且不需要;結尾 stdio.h -> standard input / output header(標準輸出/輸入標頭檔) 註解 -> 是給開發者看的 //Your code -> 單行 /*Your code*/ -> 多行 使用編譯器將程式碼編譯成組合語言，再由組譯器組議成機械碼或可執行的二進制檔 IDE -> Integrated Development Environment，不是編譯器 gcc是最受歡迎的C編譯器之一(不完全對!!因為它不只做了編譯的動作…) 一些基本的Linux的操作指令 man -> 不會就問那個男人吧，男人不會就Google ls cd rm pwd gcc main.c 一些參數 -o -v -g -Wall -Wextra -O2 or -Og Makefile 1 2 3 4 all: gcc main.c -o main clean: rm -rf main make 將執行all下的指令 中間縮排應為Tab而不是Space make clean 預設可執行的檔名為 makefile，Makefile，GNUmakefile，若為其他可下 -f 的參數 '><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#hello-world>Hello World</a></li><li><a href=#makefile>Makefile</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%B8%80/>程式設計(一)</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/computer_programming_1-01/>程式設計(一)-01：Your first program</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Oct 04, 2020</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>1 minute read</time></div></footer></div></header><section class=article-content><h1 id=hello-world><a href=#hello-world class=header-anchor></a>Hello World</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=c1>//Your first code.
-</span><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Hello World</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>main是每個C程式的進入點，我們稱它為main function(主函式)</li>
-<li><code>int</code> 及 <code>return</code> 是C裡面的Keywords
-<ul>
-<li>int代表這個函式將會回傳一個整數</li>
-<li>每個函式都應該有一個回傳值</li>
-</ul>
-</li>
-<li>每個敘述的結尾都應該要有 <code>;</code></li>
-<li><code>printf</code> 是一個會顯示格式化字串的函式</li>
-<li><code>\n</code> -> 換行</li>
-<li><code>\t</code> -> tab</li>
-<li><code>\\</code> -> \</li>
-<li><code>\"</code> -> “</li>
-<li><code>#</code> 的那一行是C的預處理器並且不需要;結尾</li>
-<li><code>stdio.h</code> -> standard input / output header(標準輸出/輸入標頭檔)</li>
-<li>註解 -> 是給開發者看的
-<ul>
-<li><code>//Your code</code> -> 單行</li>
-<li><code>/*Your code*/</code> -> 多行</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>使用編譯器將程式碼編譯成組合語言，再由組譯器組議成機械碼或可執行的二進制檔</li>
-<li>IDE -> Integrated Development Environment，不是編譯器</li>
-<li>gcc是最受歡迎的C編譯器之一(不完全對!!因為它不只做了編譯的動作…)</li>
-<li>一些基本的Linux的操作指令
-<ul>
-<li><code>man</code> -> 不會就問那個男人吧，男人不會就Google</li>
-<li><code>ls</code></li>
-<li><code>cd</code></li>
-<li><code>rm</code></li>
-<li><code>pwd</code></li>
-</ul>
-</li>
-<li><code>gcc main.c</code> 一些參數
-<ul>
-<li><code>-o</code></li>
-<li><code>-v</code></li>
-<li><code>-g</code></li>
-<li><code>-Wall -Wextra</code></li>
-<li><code>-O2</code> or <code>-Og</code></li>
-</ul>
-</li>
-</ul>
-<h1 id=makefile>Makefile</h1>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1>//Your first code.
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Hello World</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>main是每個C程式的進入點，我們稱它為main function(主函式)</li><li><code>int</code> 及 <code>return</code> 是C裡面的Keywords<ul><li>int代表這個函式將會回傳一個整數</li><li>每個函式都應該有一個回傳值</li></ul></li><li>每個敘述的結尾都應該要有 <code>;</code></li><li><code>printf</code> 是一個會顯示格式化字串的函式</li><li><code>\n</code> -> 換行</li><li><code>\t</code> -> tab</li><li><code>\\</code> -> \</li><li><code>\"</code> -> “</li><li><code>#</code> 的那一行是C的預處理器並且不需要;結尾</li><li><code>stdio.h</code> -> standard input / output header(標準輸出/輸入標頭檔)</li><li>註解 -> 是給開發者看的<ul><li><code>//Your code</code> -> 單行</li><li><code>/*Your code*/</code> -> 多行</li></ul></li></ul><hr><ul><li>使用編譯器將程式碼編譯成組合語言，再由組譯器組議成機械碼或可執行的二進制檔</li><li>IDE -> Integrated Development Environment，不是編譯器</li><li>gcc是最受歡迎的C編譯器之一(不完全對!!因為它不只做了編譯的動作…)</li><li>一些基本的Linux的操作指令<ul><li><code>man</code> -> 不會就問那個男人吧，男人不會就Google</li><li><code>ls</code></li><li><code>cd</code></li><li><code>rm</code></li><li><code>pwd</code></li></ul></li><li><code>gcc main.c</code> 一些參數<ul><li><code>-o</code></li><li><code>-v</code></li><li><code>-g</code></li><li><code>-Wall -Wextra</code></li><li><code>-O2</code> or <code>-Og</code></li></ul></li></ul><h1 id=makefile><a href=#makefile class=header-anchor></a>Makefile</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=nf>all</span><span class=o>:</span>
-    gcc main.c -o main
-<span class=nf>clean</span><span class=o>:</span>
-    rm -rf main
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li><code>make</code> 將執行all下的指令</li>
-<li>中間縮排應為Tab而不是Space</li>
-<li><code>make clean</code></li>
-<li>預設可執行的檔名為 <code>makefile，Makefile，GNUmakefile</code>，若為其他可下 <code>-f</code> 的參數</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/c/>C</a>
-<a href=/tags/note/>Note</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article>
-<a href=/p/computer_programming_1-08/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-08：Pointer</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-07/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-07：Array</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-05/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-05：Function</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-04/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-04：Loop</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_1-03/>
-<div class=article-details>
-<h2 class=article-title>程式設計(一)-03：Condition Control</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=line><span class=cl><span class=nf>all</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    gcc main.c -o main
+</span></span><span class=line><span class=cl><span class=nf>clean</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    rm -rf main
+</span></span></code></pre></td></tr></table></div></div><ul><li><code>make</code> 將執行all下的指令</li><li>中間縮排應為Tab而不是Space</li><li><code>make clean</code></li><li>預設可執行的檔名為 <code>makefile，Makefile，GNUmakefile</code>，若為其他可下 <code>-f</code> 的參數</li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a>
+<a href=/tags/note/>Note</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/computer_programming_1-08/><div class=article-details><h2 class=article-title>程式設計(一)-08：Pointer</h2></div></a></article><article><a href=/p/computer_programming_1-07/><div class=article-details><h2 class=article-title>程式設計(一)-07：Array</h2></div></a></article><article><a href=/p/computer_programming_1-05/><div class=article-details><h2 class=article-title>程式設計(一)-05：Function</h2></div></a></article><article><a href=/p/computer_programming_1-04/><div class=article-details><h2 class=article-title>程式設計(一)-04：Loop</h2></div></a></article><article><a href=/p/computer_programming_1-03/><div class=article-details><h2 class=article-title>程式設計(一)-03：Condition Control</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#hello-world>Hello World</a></li>
-<li><a href=#makefile>Makefile</a></li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

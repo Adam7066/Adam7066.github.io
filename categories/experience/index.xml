@@ -1,1 +1,505 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Experience on 小十的部落格</title><link>https://blog.smallten.me/categories/experience/</link><description>Recent content in Experience on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 30 Nov 2021 21:13:26 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/categories/experience/index.xml" rel="self" type="application/rss+xml"/><item><title>2021 ICPC 亞洲區 臺北站</title><link>https://blog.smallten.me/p/experience-05/</link><pubDate>Tue, 30 Nov 2021 21:13:26 +0800</pubDate><guid>https://blog.smallten.me/p/experience-05/</guid><description>競賽簡介 ICPC 2021 日期：2021/11/27 ~ 2021/11/29 地點：國立台北商業大學 成績 解題數：3 校內：6 / 8 全體：68 / 103 心得 第一天 因為這一次又是在台北商業大</description></item><item><title>九份、金瓜石二日遊</title><link>https://blog.smallten.me/p/experience-04/</link><pubDate>Mon, 22 Nov 2021 23:01:49 +0800</pubDate><guid>https://blog.smallten.me/p/experience-04/</guid><description>前情提要 由於資工營變成了淨灘活動，然後地點又在基隆的海邊，想說既然都到那麼偏僻的地方了，又剛好跟朋友都有抽到國旅券，那麼就乾脆一起去玩一下吧</description></item><item><title>初階服務學習 - 淨灘</title><link>https://blog.smallten.me/p/experience-03/</link><pubDate>Sun, 21 Nov 2021 23:01:49 +0800</pubDate><guid>https://blog.smallten.me/p/experience-03/</guid><description>前情提要 因為在 5 月時疫情大爆發，然後臺灣也隨之進入了三級警戒的情況，所以暑假的資工營就因此而被取消舉辦了。 後來為了讓我們弄到一半的初階服務學</description></item><item><title>2021 NCPC 初賽</title><link>https://blog.smallten.me/p/experience-02/</link><pubDate>Mon, 04 Oct 2021 09:15:29 +0800</pubDate><guid>https://blog.smallten.me/p/experience-02/</guid><description>競賽簡介 NCPC 初賽日期：2021/10/02 成績 校內：7 / 12 全體：26 / 166 心得文 這段時間真的有點忙過頭了 安排 CTF 讀書會的課表（嘿嘿，還去跟 L紀 教授</description></item><item><title>2021 R2S CTF</title><link>https://blog.smallten.me/p/experience-01/</link><pubDate>Mon, 19 Jul 2021 14:03:54 +0800</pubDate><guid>https://blog.smallten.me/p/experience-01/</guid><description>前情提要 一開始時，學長們在 Messenger 的群組裡問有沒有人要參加這場新手向的 CTF 競賽，我是沒有選擇參加的 (因為我從來沒有深入的去玩、學習這方面的東東，可以</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Experience on 小十的部落格</title><link>https://blog.smallten.me/categories/experience/</link><description>Recent content in Experience on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 30 Nov 2021 21:13:26 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/categories/experience/index.xml" rel="self" type="application/rss+xml"/><item><title>2021 ICPC 亞洲區 臺北站</title><link>https://blog.smallten.me/p/experience-05/</link><pubDate>Tue, 30 Nov 2021 21:13:26 +0800</pubDate><guid>https://blog.smallten.me/p/experience-05/</guid><description>&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://icpc2021.ntub.edu.tw/" target="_blank" rel="noopener"
+>ICPC 2021&lt;/a>&lt;/li>
+&lt;li>日期：2021/11/27 ~ 2021/11/29&lt;/li>
+&lt;li>地點：國立台北商業大學&lt;/li>
+&lt;/ul>
+&lt;h1 id="成績">&lt;a href="#%e6%88%90%e7%b8%be" class="header-anchor">&lt;/a>成績
+&lt;/h1>&lt;ul>
+&lt;li>解題數：3&lt;/li>
+&lt;li>校內：6 / 8&lt;/li>
+&lt;li>全體：68 / 103&lt;/li>
+&lt;/ul>
+&lt;h1 id="心得">&lt;a href="#%e5%bf%83%e5%be%97" class="header-anchor">&lt;/a>心得
+&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-01.jpg"
+width="2048"
+height="1579"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-01_hu14128013149573059050.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-01_hu8218617030413721332.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="129"
+data-flex-basis="311px"
+>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-02.jpg"
+width="2048"
+height="1365"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-02_hu16759873014537662687.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-02_hu848906673335374184.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="150"
+data-flex-basis="360px"
+>&lt;/p>
+&lt;h2 id="第一天">&lt;a href="#%e7%ac%ac%e4%b8%80%e5%a4%a9" class="header-anchor">&lt;/a>第一天
+&lt;/h2>&lt;p>  因為這一次又是在台北商業大學比賽，所以算是比較熟門熟路了，然後第一天是中午左右才開幕，因此我們就相約去吃了麥，善導寺捷運站旁這間麥當當還蠻大間的呢~~而這段期間有那個振興優惠的套餐，再配合甜心卡的威力，我們就獲得了一堆的薯條，&amp;#x1f602;&amp;#x1f602;。&lt;/p>
+&lt;p>  吃飽後當然就是去賽場報到 $\rArr$ 領衣服 $\rArr$ 換衣服 $\rArr$ 拍照 $\rArr$ 上樓進會場 $\rArr$ 開幕 $\rArr$ 講解規則及注意事項&amp;hellip;，之後就是測機，然後放東西給檢查，離場。&lt;/p>
+&lt;ul>
+&lt;li>補充：
+&lt;ul>
+&lt;li>這一次我們名單的海報終於沒在地板上了，顆顆&lt;/li>
+&lt;li>然後今年的衣服跟去年幾乎一樣呀，傻眼眼&lt;/li>
+&lt;li>第一天當然是給餐盒呀，然後給一些餅乾在測機時吃~~&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="第二天">&lt;a href="#%e7%ac%ac%e4%ba%8c%e5%a4%a9" class="header-anchor">&lt;/a>第二天
+&lt;/h2>&lt;p>  這一天一早就要集合比賽，所以蠻早就得出門了，累呀（攤&amp;hellip;，早餐不外乎就是跑去吃永和豆漿呀，真的還算不錯，買一籠湯包還送奶茶，（但湯包份量不大，還得加點就是了）。之後跟 壯壯權 在北商裡等 文元 出現，而後就是去報到，領行李牌 $\rArr$ 放行李 $\rArr$ 進考場，然後在主考官說開始動前，都不能動桌面上的任何東西，我的小十呀!!!&lt;/p>
+&lt;p>  這裡有個小插曲，就是我突然發現我們桌上沒看到我們這組的 CodeBook ，竟然是因為頁碼的問題被收走全部，還好有發現，加上有爭取，所以還是有拿回其中一份，雖然比賽都沒用到就是了，&amp;#x1f604;&amp;#x1f604;&lt;/p>
+&lt;p>  這次比賽的情況來說，整隊的解題氛圍還算蠻不錯了，我水題開的也依然又快又穩，但最後輸在第三題的時間花了有點久，我們的銅牌呀&amp;#x1f622;&amp;#x1f622;，然後其中卡住的一題竟然是 數位 DP ，這真的沒有想到呀，還有一題是分析的時候太複雜化了，實際上沒那麼多情況要考慮呀，攤~~&lt;/p>
+&lt;p>  比賽後拍拍照，我們就相約走去北車吃了小火鍋，算是自行舉辦的晚宴??之後在同學的陪同下，第一次從北車搭公車回公館去（平常都是搭捷運）&lt;/p>
+&lt;ul>
+&lt;li>補充：
+&lt;ul>
+&lt;li>這次因為疫情，比賽時候也沒有後面的餐點了，我的蛋糕、水果呀&amp;hellip;&lt;/li>
+&lt;li>比賽結束也沒有晚宴了，像去年露天流水席也還能接受嘛，到底為什麼要拿掉啦，:face_with_symbols_over_mouth::face_with_symbols_over_mouth:&lt;/li>
+&lt;li>少了這麼多東西，報名費也沒變少呀!!!&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="後記">&lt;a href="#%e5%be%8c%e8%a8%98" class="header-anchor">&lt;/a>後記
+&lt;/h1>&lt;p>  這一次系上經費似乎比較多的感覺，所以補助了一題 600 呢，開心 &amp;#x1f604;&amp;#x1f604;&lt;/p>
+&lt;p>  然後雖然這一次依然是萬年老二的狀態（跟得獎差一點點的意思），但也是有進步呢，就再繼續再接再勵吧，相信下一次獎牌就會到手了，加油~~&lt;/p>
+&lt;h1 id="照片牆">&lt;a href="#%e7%85%a7%e7%89%87%e7%89%86" class="header-anchor">&lt;/a>照片牆
+&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-03.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-03_hu5076300374645454574.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-03_hu9528311588138522334.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-04.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-04_hu17227959419960890826.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-04_hu11263567677944192182.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-05.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-05_hu1767660932791454528.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-05_hu2140396524050993649.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-06.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-06_hu8385668544585175913.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-06_hu14566052373591147239.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-07.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-07_hu11961850969809709232.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-07_hu2371891686586532324.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-08.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-05/experience-05-08_hu17843941460475944107.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-08_hu17273798450886955450.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p></description></item><item><title>九份、金瓜石二日遊</title><link>https://blog.smallten.me/p/experience-04/</link><pubDate>Mon, 22 Nov 2021 23:01:49 +0800</pubDate><guid>https://blog.smallten.me/p/experience-04/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+&lt;/h1>&lt;p>  由於資工營變成了&lt;a class="link" href="../experience-03/" >淨灘活動&lt;/a>，然後地點又在基隆的海邊，想說既然都到那麼&lt;del>偏僻&lt;/del>的地方了，又剛好跟朋友都有抽到國旅券，那麼就乾脆一起去玩一下吧！&lt;/p>
+&lt;h1 id="活動簡介">&lt;a href="#%e6%b4%bb%e5%8b%95%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>活動簡介
+&lt;/h1>&lt;ul>
+&lt;li>時間：2021/11/20 ~ 2021/11/21&lt;/li>
+&lt;li>地點：九份、金瓜石&lt;/li>
+&lt;/ul>
+&lt;h1 id="心得">&lt;a href="#%e5%bf%83%e5%be%97" class="header-anchor">&lt;/a>心得
+&lt;/h1>&lt;h2 id="第一天">&lt;a href="#%e7%ac%ac%e4%b8%80%e5%a4%a9" class="header-anchor">&lt;/a>第一天
+&lt;/h2>&lt;p>  淨灘後我們就搭著計程車前往瑞芳火車站，到達地點之後，我們在 壯壯權 的帶領下，去吃了許多的小吃，我吃了煎餃（還不錯吃，外皮相當的酥脆），而他們去吃牛肉湯麵，之後又去買了超大杯的飲料，而我點了仙草鮮奶茶（仙草茶 + 鮮奶的概念）&amp;hellip;之後就走去搭公車前往九份的民宿了，但在這途中還看到了一間建築奇妙的圖書館（新北市立圖書館瑞芳分館），他的一樓是一個空曠的區域，而不直接是門口&amp;hellip;&lt;/p>
+&lt;p>  民宿的部分我們是住在 &lt;a class="link" href="https://ninebb.mmweb.tw/" target="_blank" rel="noopener"
+>琚九屋民宿&lt;/a>，原因不外乎就是當初訂的時候看起來還不錯，然後也不到太貴，外加當日還有空房&amp;hellip;等因素，而實際的情況我個人是覺得也還蠻不錯的就是了。&lt;/p>
+&lt;p>  放完行李之後，我們去逛了一下老街，還配著漂亮的夜景，吃著芋圓冰，之後回程逛逛時，還買了草仔粿吃，之後便回民宿休息了，畢竟淨灘後大家也都蠻累的了。（雖然，半夜還跟饅頭頭去 7-11 買了宵夜來吃，哈哈）&lt;/p>
+&lt;h2 id="第二天">&lt;a href="#%e7%ac%ac%e4%ba%8c%e5%a4%a9" class="header-anchor">&lt;/a>第二天
+&lt;/h2>&lt;p>  一早起床後，去找 壯壯權 時，才發現他竟然已經叫了外送的早餐吃了，還說這裡山上都沒有店家，還是從山下叫上來的，&amp;#x1f602;&amp;#x1f602;，之後退完房間，我們去老街找早午餐吃，途中 饅頭頭（&lt;del>大胖胖&lt;/del>） 還買了一份油蔥粿吃，吃飽喝足且看完風景後，我們就出發前往 &lt;a class="link" href="https://www.gep.ntpc.gov.tw/" target="_blank" rel="noopener"
+>黃金博物館&lt;/a>，這裡我們除了逛逛外，還買了淘金體驗券，玩了一把金沙呢！&lt;/p>
+&lt;p>  離開博物館之後，在 壯壯權 的帶領下，去吃了份蠻不錯的炒飯後，還去爬了一下山路，途中經過了 壯壯權 的母校（&lt;del>監獄&lt;/del>）時雨高中，還經過了 祈堂老街 ，最終到了 金瓜石勸濟堂 搭公車回去瑞芳火車站，而搭台鐵回到北車後，饅頭頭 又不受控的轉了扭蛋，哈哈。&lt;/p>
+&lt;h1 id="後記">&lt;a href="#%e5%be%8c%e8%a8%98" class="header-anchor">&lt;/a>後記
+&lt;/h1>&lt;p>  隔天禮拜一的下午竟然要考 資料結構 的期中考，我們完全的裸考，哈哈，還好考完的結果沒有爆掉，可喜可賀呀！&amp;#x1f604;&amp;#x1f604;&lt;/p>
+&lt;p>  最後依然要感謝這群願意陪我瘋、陪我玩的朋朋們。&lt;/p>
+&lt;h1 id="照片牆">&lt;a href="#%e7%85%a7%e7%89%87%e7%89%86" class="header-anchor">&lt;/a>照片牆
+&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-01.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-01_hu5107860854333033854.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-01_hu16096856819843403706.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-02.jpg"
+width="1450"
+height="2473"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-02_hu6062498178871183556.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-02_hu3611247160212719698.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="58"
+data-flex-basis="140px"
+>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-03.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-03_hu15524321587178613795.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-03_hu6984839340179966807.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-04.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-04_hu256418150766378292.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-04_hu7423338475624715299.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-05.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-05_hu9727642031238411839.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-05_hu12985130007848069164.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-06.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-06_hu2849153615108333132.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-06_hu8461899701742486948.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-07.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-07_hu833859084723426469.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-07_hu7863497376061262324.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-08.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-08_hu177535166836878377.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-08_hu17443941932507378815.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-09.jpg"
+width="12516"
+height="3764"
+srcset="https://blog.smallten.me/p/experience-04/experience-04-09_hu6807626184308899633.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-09_hu16432342244658736647.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="332"
+data-flex-basis="798px"
+>&lt;/p></description></item><item><title>初階服務學習 - 淨灘</title><link>https://blog.smallten.me/p/experience-03/</link><pubDate>Sun, 21 Nov 2021 23:01:49 +0800</pubDate><guid>https://blog.smallten.me/p/experience-03/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+&lt;/h1>&lt;p>  因為在 5 月時疫情大爆發，然後臺灣也隨之進入了三級警戒的情況，所以暑假的資工營就因此而被取消舉辦了。&lt;/p>
+&lt;p>  後來為了讓我們弄到一半的初階服務學習課程能繼續完成並拿到學分，因此最後變成了淨灘的活動。&lt;/p>
+&lt;h1 id="活動簡介">&lt;a href="#%e6%b4%bb%e5%8b%95%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>活動簡介
+&lt;/h1>&lt;ul>
+&lt;li>第一次淨灘
+&lt;ul>
+&lt;li>時間：2021/10/24 (日)&lt;/li>
+&lt;li>地點：基隆大武崙澳底沙灘&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>第二次淨灘
+&lt;ul>
+&lt;li>時間：2021/11/20 (六)&lt;/li>
+&lt;li>地點：基隆和平島公園&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="心得">&lt;a href="#%e5%bf%83%e5%be%97" class="header-anchor">&lt;/a>心得
+&lt;/h1>&lt;h2 id="第一次淨灘">&lt;a href="#%e7%ac%ac%e4%b8%80%e6%ac%a1%e6%b7%a8%e7%81%98" class="header-anchor">&lt;/a>第一次淨灘
+&lt;/h2>&lt;p>  因為地點在基隆海邊的緣故，所以就得特別的早就起床，然而一早起床後，就看到外面下著暴雨，因此心情就有那麼一點不美麗&amp;hellip;當然也就少不了抱怨就是了。&lt;/p>
+&lt;p>  然後輾轉了公車以及捷運，來到了臺北車站吃早餐，先去陪同學去全家買了輕便雨衣，然後我也順便買了杯咖啡，後來去便去麥當當吃了早餐，可惜地點不方便的緣故，就沒吃我最愛的鬆餅了 &amp;#x1f622;&amp;#x1f622;&lt;/p>
+&lt;p>  接著我們便搭火車前往基隆火車站，到站後因為人生地不熟的緣故，還在雨中找了公車站牌找了好一陣子，之後又因為不確定公車的方向與班次，還去問了遊客服務中心，好在於服務中心的人員熱情的協助之下，我們順利的抵達了活動地點。&lt;/p>
+&lt;p>  只是因為時間還有些早的緣故，我們便在旁邊的熱炒店吃了一下午餐，雖然我大部分的海產類都沒有很愛吃就是了，顆顆；後來因為沙灘大部分的垃圾都已被處理過了的緣故，所以我們就用手撿了剩餘細小的塑膠碎片，這部分當下是真的有被震撼到就是了。&lt;/p>
+&lt;p>  淨灘結束後的回程，我們先是爬了好一段山路才到公車站牌，其中看到了小小的瀑布或噴泉??(好啦，其實是下大雨然後山壁的流水而已啦)途中也看到了路邊有著大大小小的落石，感覺蠻危險的(怕///)，之後到了公車站牌，我們便去看路線的方向，而當我們看半天時，有一位好心的大媽就直接告訴我們是在對面，然後到了對面，又準備看路線圖時，有一位大爺，直接告訴我們來的這班車就是了，因此我們也順利的回到了北車，之後還順路逛了一下地下街才回學校。&lt;/p>
+&lt;p>  補充：這一整天穿著一雙濕球鞋，還好回去沒有得香港腳，但也踩了濕濕的襪子走了不少的路，回去腳底整個痛爆 &amp;#x1f622;&amp;#x1f622;&lt;/p>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-01.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-01_hu4917913692361974951.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-01_hu14548373500969615017.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-02.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-02_hu15586992035680886756.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-02_hu8700938061472447318.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h2 id="第二次淨灘">&lt;a href="#%e7%ac%ac%e4%ba%8c%e6%ac%a1%e6%b7%a8%e7%81%98" class="header-anchor">&lt;/a>第二次淨灘
+&lt;/h2>&lt;p>  這一次也是跟上一次差不多的過程前往了基隆的和平島公園，唯一的不同就是沒有一早就下雨，這點對心情的影響真的蠻大的 &amp;#x1f604;&amp;#x1f604;。之後在等待集合的過程中，在附近走走逛逛，還看到了超大艘的貨輪出海，嘿嘿。&lt;/p>
+&lt;p>  然後，這次淨灘地過程還蠻歡樂的，但也撿了不少保麗龍、浮標、以及寶特瓶之類的物品，而且還撿到了不知誰用過的假 X (算是一種玩具?)，這些東西真的不要再亂丟了呀，唉&amp;hellip;&lt;/p>
+&lt;p>  結束的時候也剛好開始下雨，便在雨中拍了一下附近美麗的風景後，我們就用手機叫計程車前往下一個行程了&amp;hellip;詳情可以查看 &lt;a class="link" href="../experience-04/" >九份、金瓜石二日遊&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-03.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-03_hu8961621466872540292.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-03_hu8439425258993365458.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-04.jpg"
+width="4224"
+height="2376"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-04_hu13910998926217931075.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-04_hu2097052324414803856.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-05.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-05_hu14067801048228500642.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-05_hu4084833095910634295.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-06.jpg"
+width="2026"
+height="2740"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-06_hu12942463722388477072.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-06_hu15788436229197282889.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="73"
+data-flex-basis="177px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-07.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-07_hu17448975713632363569.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-07_hu16323246629515798981.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-08.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-08_hu14659712803138927666.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-08_hu16183858520871148559.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-09.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-09_hu11053609717985501480.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-09_hu6276975231170371721.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-10.jpg"
+width="4032"
+height="3024"
+srcset="https://blog.smallten.me/p/experience-03/experience-03-10_hu13186467760170855652.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-10_hu4389477296950756192.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h2 id="後記">&lt;a href="#%e5%be%8c%e8%a8%98" class="header-anchor">&lt;/a>後記
+&lt;/h2>&lt;p>  其實說實話一開始準備幾乎都完成的資工營被取消變成淨灘活動時，心裡是有那麼一點不開心的，但是後來在經歷淨灘以及相關的課程後，我是覺得蠻棒的，畢竟不只對我們周遭的環境盡了一部分的心力外，也學習到了不少環保的相關知識。&lt;/p>
+&lt;p>  最後也要感謝這一次陪我一起行動的 饅頭頭 和 壯壯權，以及途中給予我們許多幫助的人們，再次感謝還好有你們!!&lt;/p></description></item><item><title>2021 NCPC 初賽</title><link>https://blog.smallten.me/p/experience-02/</link><pubDate>Mon, 04 Oct 2021 09:15:29 +0800</pubDate><guid>https://blog.smallten.me/p/experience-02/</guid><description>&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://ncpc.nsysu.edu.tw/" target="_blank" rel="noopener"
+>NCPC&lt;/a>&lt;/li>
+&lt;li>初賽日期：2021/10/02&lt;/li>
+&lt;/ul>
+&lt;h1 id="成績">&lt;a href="#%e6%88%90%e7%b8%be" class="header-anchor">&lt;/a>成績
+&lt;/h1>&lt;ul>
+&lt;li>校內：7 / 12&lt;/li>
+&lt;li>全體：26 / 166&lt;/li>
+&lt;/ul>
+&lt;h1 id="心得文">&lt;a href="#%e5%bf%83%e5%be%97%e6%96%87" class="header-anchor">&lt;/a>心得文
+&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-02/experience-02-01.jpg"
+width="2048"
+height="1536"
+srcset="https://blog.smallten.me/p/experience-02/experience-02-01_hu3913765137687419753.jpg 480w, https://blog.smallten.me/p/experience-02/experience-02-01_hu13379748831262984423.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>這段時間真的有點忙過頭了&lt;/p>
+&lt;ol>
+&lt;li>安排 CTF 讀書會的課表（嘿嘿，還去跟 L紀 教授要到了一堂課，希望到時他不會有突發的事情，而是能正常的出席講課），也跟學長一起參加了社團幹部培訓的研習。&lt;/li>
+&lt;li>協助以前的高中辦理了學科能力競賽的校內初賽，不只從報名簡章到表單，還有競賽的平台以及題目，這裡要特別的感謝一起陪我瘋狂的朋朋 &lt;a class="link" href="https://kutsunasubarya.github.io/" target="_blank" rel="noopener"
+>蘇子權&lt;/a>，但不得不說，學弟們還得多多加油呀，有機會、時間的話再回去辦研習課程吧！&lt;/li>
+&lt;li>我要小小的抱怨一下，學校的選課系統
+&lt;ul>
+&lt;li>到底要多久才有機會看到它更新？(有時間去弄那一點都不友善的手機版，不如去重構整個系統。)&lt;/li>
+&lt;li>不要再人工分流了，很智障。&lt;/li>
+&lt;li>好好做防 Bot 不行嗎？用那讓人很無言的驗證碼設計，整個傻眼。（打英文還會比打數字的多打幾個字）&lt;/li>
+&lt;li>系統分發的部份，到底為什麼要那麼久才公佈，又不是用上古年代的電腦，有內幕嗎？（求八卦&lt;/li>
+&lt;li>二階選課以前是不是直接搶課的呀，教程一階生，最高能選 6 學分，但用志願分發的，但志願只能填到 6 學分，這樣根本分不到呀，傻眼～～&lt;/li>
+&lt;li>最重要的是，我第一個選課，比我晚搶課的同學都一一搶到（他們在不同的 server 上，就智障的人工分流問題），我卻只能看你寫登記中，然後慢慢等，直到最後跟我說滿額，是想怎樣啦 &amp;#x1f621;&amp;#x1f621; ，但感謝身旁的朋朋們願意跟我一起去修早八的課程（把大學念到變高中）。&lt;/li>
+&lt;li>我真的變學分孤兒了&amp;#x1f62d;&amp;#x1f62d;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>終於搶到疫苗了，但週日回臺南，禮拜一打疫苗，禮拜三一退燒就又重回北部，週六又打 NCPC 的初賽，整個瘋了～～&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>終於要來認真打該有的心得文了，這次的競賽我們隊伍終於好不容易組成了（文元原本因為身心狀態問題沒有要打了），但到比賽的前一天，我們的子權朋朋卻腸胃炎(尷尬)，而文元本來就是被我們抓來一起玩的而已(畢竟他依然得吃葡萄口味的曼陀珠？)，而我前一晚也想到一堆不想去想的東西，也沒睡到特別好&amp;hellip;唉，整個發芬（文元語，咦？&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>好啦，雖然這次又跟 NCPC 的決賽擦身而過，我是不是真的有萬年老二的命呀？（初賽校內取到第六名），但是這一次的競賽是真的打的非常的開心（賽前測機部份、沒有印表機以及點心除外），水題我依舊是穩穩的 1 try 就解掉費時也不長，其中有一題文元提出模運算，我想到如何搭配前綴和使用，就 AC 了，撒花（但有些隊伍有寫過一樣的題目了，所以非常的早就解出來了 QAQ)，有一題我的想法是對的了，但子權刻後半的部份時一個迴圈寫錯了，最後也有除錯除出來，棒棒的～～（這次有看的所有題目都有好好的解出來呢！）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>整體來說，這次競賽讓我享受到了不只有緊張的氣氛，還有團隊解出題時的愉悅，所以雖然沒有進決賽一樣很可惜，但我們志在參與嘛（弱者的發言&amp;#x1f62d;&amp;#x1f62d;），不久後的 TOPC 也得繼續加油呢！&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="後記">&lt;a href="#%e5%be%8c%e8%a8%98" class="header-anchor">&lt;/a>後記
+&lt;/h1>&lt;ul>
+&lt;li>到底為什麼要在生日當天打比賽呢，生日不就應該好好的躺在床上耍廢到極致嗎？真是的。好啦，這邊也要感謝我家饅頭頭的生日禮物，雖然遲了一天，原因是卡片沒寫好，（咦～），但都是我喜歡的東西呢(有最可愛的小十，還有史萊姆)，太開心了吧！！我自己也送了自己不少東西（單純找理由買東西，誤///）其中有大小兩隻可愛的小十呦，開心～～&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-02/experience-02-02.jpg"
+width="1170"
+height="2080"
+srcset="https://blog.smallten.me/p/experience-02/experience-02-02_hu4370072108795156260.jpg 480w, https://blog.smallten.me/p/experience-02/experience-02-02_hu6212275531632994419.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="56"
+data-flex-basis="135px"
+>&lt;img src="https://blog.smallten.me/p/experience-02/experience-02-03.jpg"
+width="1169"
+height="2024"
+srcset="https://blog.smallten.me/p/experience-02/experience-02-03_hu2330472098947146064.jpg 480w, https://blog.smallten.me/p/experience-02/experience-02-03_hu18039431024427293935.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="57"
+data-flex-basis="138px"
+>&lt;/p></description></item><item><title>2021 R2S CTF</title><link>https://blog.smallten.me/p/experience-01/</link><pubDate>Mon, 19 Jul 2021 14:03:54 +0800</pubDate><guid>https://blog.smallten.me/p/experience-01/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+&lt;/h1>&lt;p>  一開始時，學長們在 Messenger 的群組裡問有沒有人要參加這場新手向的 CTF 競賽，我是沒有選擇參加的 (因為我從來沒有深入的去玩、學習這方面的東東，可以算是個純正的小萌新~~)，然而到最後因為人數的關係學長們組成了兩隊，然後還能再多 2 個人，因此我也加入想說去見見世面也好。(其中還得感謝學長們的鼓勵，以及願意帶我這個什麼都不會的新手)&amp;#x1f606;&amp;#x1f606;&lt;/p>
+&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://ctf.r2s.tw/" target="_blank" rel="noopener"
+>R2S CTF&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://quals.r2s.tw/" target="_blank" rel="noopener"
+>競賽網站&lt;/a>&lt;/li>
+&lt;li>Online Qualification : 7/16 - 18&lt;/li>
+&lt;li>Flag 樣式：&lt;code>R2S{}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h1 id="成績">&lt;a href="#%e6%88%90%e7%b8%be" class="header-anchor">&lt;/a>成績
+&lt;/h1>&lt;ul>
+&lt;li>All: 7 / 81&lt;/li>
+&lt;li>Offical Only: 4 / 43&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.smallten.me/p/experience-01/experience-01-01.jpg"
+width="1389"
+height="657"
+srcset="https://blog.smallten.me/p/experience-01/experience-01-01_hu15385362630743503328.jpg 480w, https://blog.smallten.me/p/experience-01/experience-01-01_hu3716362217014567324.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="211"
+data-flex-basis="507px"
+> &lt;img src="https://blog.smallten.me/p/experience-01/experience-01-02.jpg"
+width="1388"
+height="659"
+srcset="https://blog.smallten.me/p/experience-01/experience-01-02_hu5337331145363799582.jpg 480w, https://blog.smallten.me/p/experience-01/experience-01-02_hu4400043348555431056.jpg 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="210"
+data-flex-basis="505px"
+>&lt;/p>
+&lt;h1 id="解題紀錄">&lt;a href="#%e8%a7%a3%e9%a1%8c%e7%b4%80%e9%8c%84" class="header-anchor">&lt;/a>解題紀錄
+&lt;/h1>&lt;ul>
+&lt;li>以下是我解的題目，其他題目我無能為力，就只能看有沒有學長寫題解了(顆顆&lt;/li>
+&lt;/ul>
+&lt;h3 id="welcome">&lt;a href="#welcome" class="header-anchor">&lt;/a>Welcome
+&lt;/h3>&lt;ul>
+&lt;li>Welcome to R2S CTF o((&amp;gt;ω&amp;lt; ))o
+&lt;ul>
+&lt;li>在 R2S Discord 群組中的 challenge-announcement 頻道中，有黑黑的訊息要點開就能到 Flag 了。&lt;/li>
+&lt;li>一開始覺得很酷，事後知道了這叫暴雷標籤 &lt;code>||暴雷訊息||&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="forensics">&lt;a href="#forensics" class="header-anchor">&lt;/a>Forensics
+&lt;/h3>&lt;ul>
+&lt;li>Headache
+&lt;ul>
+&lt;li>這題依照 CRC32 找出圖片的長寬，並用 hex editor 把 png 的 header 改成正確的就行了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="crypto">&lt;a href="#crypto" class="header-anchor">&lt;/a>Crypto
+&lt;/h3>&lt;ul>
+&lt;li>Base1024
+&lt;ul>
+&lt;li>這題將那堆 emoji 解碼後就得到 Flag 了。&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/keith-turner/ecoji" target="_blank" rel="noopener"
+>ecoji&lt;/a>、&lt;a class="link" href="https://ecoji.io/" target="_blank" rel="noopener"
+>ecoji 線上工具&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>BiGGG_RSA
+&lt;ul>
+&lt;li>一開始不知道怎麼分解 N，對於 &lt;a class="link" href="http://factordb.com/" target="_blank" rel="noopener"
+>Factordb&lt;/a> 來說也太大了，解不出來。之後到了這個 &lt;a class="link" href="https://github.com/elliptic-shiho/primefac-fork" target="_blank" rel="noopener"
+>primefac-fork&lt;/a>，再寫個簡單的程式就解決了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Seeeeed
+&lt;ul>
+&lt;li>也是 RSA 相關題。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="misc">&lt;a href="#misc" class="header-anchor">&lt;/a>Misc
+&lt;/h3>&lt;ul>
+&lt;li>Time Traveler
+&lt;ul>
+&lt;li>&lt;code>nc time-traveler.misc.quals.r2s.tw 5487&lt;/code>&lt;/li>
+&lt;li>依照格式輸入並計算一下，弄到 1937 年就有 Flag 了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Fat7z
+&lt;ul>
+&lt;li>依照給的 code 反著寫，就能得到 Flag 了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="reverse">&lt;a href="#reverse" class="header-anchor">&lt;/a>Reverse
+&lt;/h3>&lt;ul>
+&lt;li>What is this!?
+&lt;ul>
+&lt;li>JavaSript aaencode&lt;/li>
+&lt;li>將言文字轉回 js，再執行裡面的 function 就行了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="web">&lt;a href="#web" class="header-anchor">&lt;/a>Web
+&lt;/h3>&lt;ul>
+&lt;li>Chatroom
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://chat.web.quals.r2s.tw/" target="_blank" rel="noopener"
+>chatroom&lt;/a>&lt;/li>
+&lt;li>一樣是 JavaSript aaencode&lt;/li>
+&lt;li>複製下來，F12 丟 console，Flag 就噴出來了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="心得">&lt;a href="#%e5%bf%83%e5%be%97" class="header-anchor">&lt;/a>心得
+&lt;/h1>&lt;p>  這次是我第一次參加 CTF 相關的競賽，雖然幾乎都不太會寫，主要的題目還都是學長們解開的，但這場比賽中我依然學到了不少新的技巧，也對 CTF 有了更多的興趣，未來繼續努力吧!&lt;/p></description></item></channel></rss>

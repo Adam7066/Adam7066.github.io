@@ -1,59 +1,14 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; } 我們可以怎"><title>程式設計(二)-07：Some Tricks</title>
-<link rel=canonical href=https://blog.smallten.me/p/computer_programming_2-07/>
-<link rel=stylesheet href=/scss/style.min.7b8cb8fa5c406df3cf5354584c5cbdb3b331e5fd452f9fe1168d563c1504f6de.css><meta property="og:title" content="程式設計(二)-07：Some Tricks">
-<meta property="og:description" content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; } 我們可以怎">
-<meta property="og:url" content="https://blog.smallten.me/p/computer_programming_2-07/">
-<meta property="og:site_name" content="小十的部落格">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="C"><meta property="article:tag" content="Note"><meta property="article:published_time" content="2021-07-13T21:39:10+08:00"><meta property="article:modified_time" content="2021-07-13T21:39:10+08:00">
-<meta name=twitter:title content="程式設計(二)-07：Some Tricks">
-<meta name=twitter:description content="Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;line: %d \n&amp;#34;, __LINE__); printf(&amp;#34;file: %s \n&amp;#34;, __FILE__); printf(&amp;#34;function: %s \n&amp;#34;, __FUNCTION__); // gcc printf(&amp;#34;function: %s \n&amp;#34;, __func__); // C99 printf(&amp;#34;time: %s \n&amp;#34;, __TIME__); printf(&amp;#34;date: %s \n&amp;#34;, __DATE__); printf(&amp;#34;STDC: %d \n&amp;#34;, __STDC__); printf(&amp;#34;STDC_VERSION: %ld \n&amp;#34;, __STDC_VERSION__); printf(&amp;#34;TIMESTAMP: %s \n&amp;#34;, __TIMESTAMP__); return 0; } 我們可以怎">
-<link rel="shortcut icon" href=/image/favicon.png>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-9L51K4B2CR',{anonymize_ip:!1})}</script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>
-程式設計(二)
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/computer_programming_2-07/>程式設計(二)-07：Some Tricks</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Jul 13, 2021</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-3 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=predefined-macros>Predefined Macros</h1>
-<h2 id=standard-predefined-macros>Standard Predefined Macros</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include <stdio.h> int main() { printf("line: %d \\n", __LINE__); printf("file: %s \\n", __FILE__); printf("function: %s \\n", __FUNCTION__); // gcc printf("function: %s \\n", __func__); // C99 printf("time: %s \\n", __TIME__); printf("date: %s \\n", __DATE__); printf("STDC: %d \\n", __STDC__); printf("STDC_VERSION: %ld \\n", __STDC_VERSION__); printf("TIMESTAMP: %s \\n", __TIMESTAMP__); return 0; } 我們可以怎麼使用這些 Macros ? fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__); Define when Compiling gcc -D__DEBUG__ debug.c 1 2 3 4 5 6 7 8 #include <stdio.h> int main() { printf("Hello World!!\\n"); #ifdef __DEBUG__ printf("debug!!\\n"); #endif return 0; } Other GCC Predefined MACROs Common Predefined Macros Comparing Unsigned Integers When comparisons between signed and unsigned integers, C will force the signed type to unsigned. C99 and C11 section 6.3.1.8. It is hard to debug since it looks so nature. Call Functions at Program Termination atexit int atexit(void (*function)(void));\n'><title>程式設計(二)-07：Some Tricks</title>
+<link rel=canonical href=https://blog.smallten.me/p/computer_programming_2-07/><link rel=stylesheet href=/scss/style.min.14c8dd7a5184c7bde0c496d7bd72d867c041f2ea72f238426b3c03c02cceecfd.css><meta property='og:title' content="程式設計(二)-07：Some Tricks"><meta property='og:description' content='Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include <stdio.h> int main() { printf("line: %d \\n", __LINE__); printf("file: %s \\n", __FILE__); printf("function: %s \\n", __FUNCTION__); // gcc printf("function: %s \\n", __func__); // C99 printf("time: %s \\n", __TIME__); printf("date: %s \\n", __DATE__); printf("STDC: %d \\n", __STDC__); printf("STDC_VERSION: %ld \\n", __STDC_VERSION__); printf("TIMESTAMP: %s \\n", __TIMESTAMP__); return 0; } 我們可以怎麼使用這些 Macros ? fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__); Define when Compiling gcc -D__DEBUG__ debug.c 1 2 3 4 5 6 7 8 #include <stdio.h> int main() { printf("Hello World!!\\n"); #ifdef __DEBUG__ printf("debug!!\\n"); #endif return 0; } Other GCC Predefined MACROs Common Predefined Macros Comparing Unsigned Integers When comparisons between signed and unsigned integers, C will force the signed type to unsigned. C99 and C11 section 6.3.1.8. It is hard to debug since it looks so nature. Call Functions at Program Termination atexit int atexit(void (*function)(void));\n'><meta property='og:url' content='https://blog.smallten.me/p/computer_programming_2-07/'><meta property='og:site_name' content='小十的部落格'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='C'><meta property='article:tag' content='Note'><meta property='article:published_time' content='2021-07-13T21:39:10+08:00'><meta property='article:modified_time' content='2021-07-13T21:39:10+08:00'><meta name=twitter:title content="程式設計(二)-07：Some Tricks"><meta name=twitter:description content='Predefined Macros Standard Predefined Macros 1 2 3 4 5 6 7 8 9 10 11 12 13 #include <stdio.h> int main() { printf("line: %d \\n", __LINE__); printf("file: %s \\n", __FILE__); printf("function: %s \\n", __FUNCTION__); // gcc printf("function: %s \\n", __func__); // C99 printf("time: %s \\n", __TIME__); printf("date: %s \\n", __DATE__); printf("STDC: %d \\n", __STDC__); printf("STDC_VERSION: %ld \\n", __STDC_VERSION__); printf("TIMESTAMP: %s \\n", __TIMESTAMP__); return 0; } 我們可以怎麼使用這些 Macros ? fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__); Define when Compiling gcc -D__DEBUG__ debug.c 1 2 3 4 5 6 7 8 #include <stdio.h> int main() { printf("Hello World!!\\n"); #ifdef __DEBUG__ printf("debug!!\\n"); #endif return 0; } Other GCC Predefined MACROs Common Predefined Macros Comparing Unsigned Integers When comparisons between signed and unsigned integers, C will force the signed type to unsigned. C99 and C11 section 6.3.1.8. It is hard to debug since it looks so nature. Call Functions at Program Termination atexit int atexit(void (*function)(void));\n'><link rel="shortcut icon" href=/image/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-9L51K4B2CR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-9L51K4B2CR")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11372239997511506855.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>小十的部落格</a></h1><h2 class=site-description>教學、資訊分享、生活記趣</h2></div></header><ol class=menu-social><li><a href=https://github.com/Adam7066 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#predefined-macros>Predefined Macros</a><ul><li><a href=#standard-predefined-macros>Standard Predefined Macros</a></li></ul></li><li><a href=#comparing-unsigned-integers>Comparing Unsigned Integers</a></li><li><a href=#call-functions-at-program-termination>Call Functions at Program Termination</a><ul><li><ul><li><a href=#atexit>atexit</a></li></ul></li></ul></li><li><a href=#system-and-more>system and more</a><ul><li><ul><li><a href=#system-execute-a-shell-command>System: Execute a Shell Command</a></li><li><a href=#popen>popen</a></li></ul></li></ul></li><li><a href=#assert>assert</a></li><li><a href=#qsort>qsort</a></li><li><a href=#libcurl>libcurl</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E4%BA%8C/>程式設計(二)</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/computer_programming_2-07/>程式設計(二)-07：Some Tricks</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 13, 2021</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>5 minute read</time></div></footer></div></header><section class=article-content><h1 id=predefined-macros><a href=#predefined-macros class=header-anchor></a>Predefined Macros</h1><h2 id=standard-predefined-macros><a href=#standard-predefined-macros class=header-anchor></a>Standard Predefined Macros</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -66,34 +21,20 @@ extended">
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;line: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__LINE__</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;file: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__FILE__</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;function: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__FUNCTION__</span><span class=p>);</span> <span class=c1>// gcc
-</span><span class=c1></span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;function: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__func__</span><span class=p>);</span> <span class=c1>// C99
-</span><span class=c1></span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;time: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__TIME__</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;date: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__DATE__</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;STDC: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__STDC__</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;STDC_VERSION: %ld </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__STDC_VERSION__</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;TIMESTAMP: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__TIMESTAMP__</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>我們可以怎麼使用這些 Macros ?
-<ul>
-<li><code>fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__);</code></li>
-<li>Define when Compiling
-<ul>
-<li><code>gcc -D__DEBUG__ debug.c</code></li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;line: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__LINE__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;file: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__FILE__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;function: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__FUNCTION__</span><span class=p>);</span> <span class=c1>// gcc
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;function: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__func__</span><span class=p>);</span> <span class=c1>// C99
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;time: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__TIME__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;date: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__DATE__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;STDC: %d </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__STDC__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;STDC_VERSION: %ld </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__STDC_VERSION__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;TIMESTAMP: %s </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>__TIMESTAMP__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>我們可以怎麼使用這些 Macros ?<ul><li><code>fprintf(stderr, "Internal␣error: at %s, line %d. ver %s %s", __FILE__, __LINE__, __DATE__, __TIME__);</code></li><li>Define when Compiling<ul><li><code>gcc -D__DEBUG__ debug.c</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -101,44 +42,15 @@ extended">
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Hello World!!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-<span class=cp>#ifdef __DEBUG__
-</span><span class=cp></span>    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;debug!!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-<span class=cp>#endif
-</span><span class=cp></span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-<li>Other GCC Predefined MACROs
-<ul>
-<li><a class=link href=https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html target=_blank rel=noopener>Common Predefined Macros</a></li>
-</ul>
-</li>
-</ul>
-<h1 id=comparing-unsigned-integers>Comparing Unsigned Integers</h1>
-<ul>
-<li>When comparisons between signed and unsigned integers, C will force the signed type to unsigned.</li>
-<li>C99 and C11 section 6.3.1.8.</li>
-<li>It is hard to debug since it looks so nature.</li>
-</ul>
-<h1 id=call-functions-at-program-termination>Call Functions at Program Termination</h1>
-<h3 id=atexit>atexit</h3>
-<p><code>int atexit(void (*function)(void));</code></p>
-<ul>
-<li>Register a Function to be Called at Normal Process Termination</li>
-<li>The atexit() function registers the given function to be called at normal process termination, either via exit(3) or via return from the program’s main(). Functions so registered are called in the reverse order of their registration; no arguments are passed.</li>
-<li>The atexit() function returns the value 0 if successful; otherwise it returns a nonzero value.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Hello World!!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=cp>#ifdef __DEBUG__
+</span></span></span><span class=line><span class=cl><span class=cp></span>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;debug!!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=cp>#endif
+</span></span></span><span class=line><span class=cl><span class=cp></span>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li>Other GCC Predefined MACROs<ul><li><a class=link href=https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html target=_blank rel=noopener>Common Predefined Macros</a></li></ul></li></ul><h1 id=comparing-unsigned-integers><a href=#comparing-unsigned-integers class=header-anchor></a>Comparing Unsigned Integers</h1><ul><li>When comparisons between signed and unsigned integers, C will force the signed type to unsigned.</li><li>C99 and C11 section 6.3.1.8.</li><li>It is hard to debug since it looks so nature.</li></ul><h1 id=call-functions-at-program-termination><a href=#call-functions-at-program-termination class=header-anchor></a>Call Functions at Program Termination</h1><h3 id=atexit><a href=#atexit class=header-anchor></a>atexit</h3><p><code>int atexit(void (*function)(void));</code></p><ul><li>Register a Function to be Called at Normal Process Termination</li><li>The atexit() function registers the given function to be called at normal process termination, either via exit(3) or via return from the program’s main(). Functions so registered are called in the reverse order of their registration; no arguments are passed.</li><li>The atexit() function returns the value 0 if successful; otherwise it returns a nonzero value.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -151,79 +63,33 @@ extended">
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>void</span> <span class=nf>foo</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Goodbye Foo!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-<span class=p>}</span>
-<span class=kt>void</span> <span class=nf>bar</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Goodbye Bar!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-<span class=p>}</span>
-<span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=n>wchar_t</span><span class=o>*</span> <span class=n>argv</span><span class=p>[])</span> <span class=p>{</span>
-    <span class=n>atexit</span><span class=p>(</span><span class=n>bar</span><span class=p>);</span>
-    <span class=n>atexit</span><span class=p>(</span><span class=n>foo</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id=system-and-more>system and more</h1>
-<h3 id=system-execute-a-shell-command>System: Execute a Shell Command</h3>
-<p><code>int system(const char *command);</code></p>
-<ul>
-<li>The system() library function uses fork(2) to create a child process that executes the shell command specified in command.</li>
-<li>system() returns after the command has been completed.</li>
-</ul>
-<h4 id=fork>fork</h4>
-<ul>
-<li>fork() creates a new process by duplicating the calling process.</li>
-<li>This is an important function. However, I will not talk too much about this function but you will learn more in System Programming.
-<img src=/p/computer_programming_2-07/computer_programming_2-07-01.jpg width=599 height=429 srcset="/p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_480x0_resize_q75_box.jpg 480w, /p/computer_programming_2-07/computer_programming_2-07-01_hu58d3ef6e379e47a9e3ed9a35c4d45175_58420_1024x0_resize_q75_box.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=139 data-flex-basis=335px></li>
-</ul>
-<hr>
-<ul>
-<li>system() is a <font color=red>blocking</font> function.
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>void</span> <span class=nf>foo</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Goodbye Foo!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>bar</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Goodbye Bar!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>wchar_t</span><span class=o>*</span> <span class=n>argv</span><span class=p>[])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>atexit</span><span class=p>(</span><span class=n>bar</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>atexit</span><span class=p>(</span><span class=n>foo</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=system-and-more><a href=#system-and-more class=header-anchor></a>system and more</h1><h3 id=system-execute-a-shell-command><a href=#system-execute-a-shell-command class=header-anchor></a>System: Execute a Shell Command</h3><p><code>int system(const char *command);</code></p><ul><li>The system() library function uses fork(2) to create a child process that executes the shell command specified in command.</li><li>system() returns after the command has been completed.</li></ul><h4 id=fork><a href=#fork class=header-anchor></a>fork</h4><ul><li>fork() creates a new process by duplicating the calling process.</li><li>This is an important function. However, I will not talk too much about this function but you will learn more in System Programming.
+<img src=/p/computer_programming_2-07/computer_programming_2-07-01.jpg width=599 height=429 srcset="/p/computer_programming_2-07/computer_programming_2-07-01_hu7770491627571627118.jpg 480w, /p/computer_programming_2-07/computer_programming_2-07-01_hu2663075692407547203.jpg 1024w" loading=lazy class=gallery-image data-flex-grow=139 data-flex-basis=335px></li></ul><hr><ul><li>system() is a <font color=red>blocking</font> function.<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>system</span><span class=p>(</span><span class=s>&#34;while true; do echo &#39;Hit CTRL+C&#39;; sleep 1; done&#34;</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>The system() returns <code>-1</code> means <font color=blue>your system cannot fork another process instead of your command fails.</font>
-<ul>
-<li>You can try a command to delete a non-existing file.</li>
-</ul>
-</li>
-<li>Every system call is <font color=red>independent</font>.
-<ul>
-<li>So you cannot setup an environment variable and hope other other system calls use this variable.</li>
-</ul>
-</li>
-</ul>
-<h3 id=popen>popen</h3>
-<p><code>FILE *popen(const char *command, const char *type);</code></p>
-<ul>
-<li>The popen() function opens a process by creating a pipe, forking, and invoking the shell.</li>
-<li>The popen() function returns NULL if the fork(2) or pipe(2) calls fail, or if it cannot allocate memory.</li>
-<li>別忘了使用 <code>pclose</code>.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>system</span><span class=p>(</span><span class=s>&#34;while true; do echo &#39;Hit CTRL+C&#39;; sleep 1; done&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li>The system() returns <code>-1</code> means <font color=blue>your system cannot fork another process instead of your command fails.</font><ul><li>You can try a command to delete a non-existing file.</li></ul></li><li>Every system call is <font color=red>independent</font>.<ul><li>So you cannot setup an environment variable and hope other other system calls use this variable.</li></ul></li></ul><h3 id=popen><a href=#popen class=header-anchor></a>popen</h3><p><code>FILE *popen(const char *command, const char *type);</code></p><ul><li>The popen() function opens a process by creating a pipe, forking, and invoking the shell.</li><li>The popen() function returns NULL if the fork(2) or pipe(2) calls fail, or if it cannot allocate memory.</li><li>別忘了使用 <code>pclose</code>.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -243,45 +109,27 @@ extended">
 </span><span class=lnt>18
 </span><span class=lnt>19
 </span><span class=lnt>20
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=kt>char</span>        <span class=n>buffer</span><span class=p>[</span><span class=mi>512</span><span class=p>];</span>
-    <span class=n>FILE</span>        <span class=o>*</span><span class=n>pPing</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
-    <span class=kt>uint32_t</span>    <span class=n>counter</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=n>pPing</span> <span class=o>=</span> <span class=n>popen</span><span class=p>(</span><span class=s>&#34;ping -c 4 www.google.com&#34;</span><span class=p>,</span> <span class=s>&#34;r&#34;</span><span class=p>);</span>
-    <span class=k>if</span><span class=p>(</span><span class=n>pPing</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
-        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;error end</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-        <span class=n>exit</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
-    <span class=p>}</span>
-    <span class=k>while</span><span class=p>(</span><span class=n>fgets</span><span class=p>(</span><span class=n>buffer</span><span class=p>,</span> <span class=mi>512</span><span class=p>,</span> <span class=n>pPing</span><span class=p>))</span> <span class=p>{</span>
-        <span class=n>counter</span><span class=o>++</span><span class=p>;</span>
-        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;--- %d ---</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>counter</span><span class=p>);</span>
-        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%s&#34;</span><span class=p>,</span> <span class=n>buffer</span><span class=p>);</span>
-    <span class=p>}</span>
-    <span class=n>pclose</span><span class=p>(</span><span class=n>pPing</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id=assert>assert</h1>
-<ul>
-<li>In computer programming, an assertion is a statement that a <font color=red>predicate</font> (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.</li>
-<li>It can <strong>help</strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.</li>
-<li>If the assertion check is not in fact true, an assertion failure, <font color=blue>the program considers itself to be broken</font> and typically deliberately <strong>crashes</strong> or throws an assertion failure exception.</li>
-</ul>
-<hr>
-<p><code>void assert(scalar expression);</code></p>
-<ul>
-<li>The macro assert() prints an error message to standard error and terminates the program by calling abort(3) if expression is false.</li>
-<li>The purpose of this macro is to help programmers find bugs in their programs.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdint.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>char</span>        <span class=n>buffer</span><span class=p>[</span><span class=mi>512</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>FILE</span>        <span class=o>*</span><span class=n>pPing</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>uint32_t</span>    <span class=n>counter</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>pPing</span> <span class=o>=</span> <span class=nf>popen</span><span class=p>(</span><span class=s>&#34;ping -c 4 www.google.com&#34;</span><span class=p>,</span> <span class=s>&#34;r&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>pPing</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;error end</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>exit</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=nf>fgets</span><span class=p>(</span><span class=n>buffer</span><span class=p>,</span> <span class=mi>512</span><span class=p>,</span> <span class=n>pPing</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>counter</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;--- %d ---</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>counter</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%s&#34;</span><span class=p>,</span> <span class=n>buffer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nf>pclose</span><span class=p>(</span><span class=n>pPing</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=assert><a href=#assert class=header-anchor></a>assert</h1><ul><li>In computer programming, an assertion is a statement that a <font color=red>predicate</font> (Boolean-valued function, i.e. a true-false expression) is always true at that point in code execution.</li><li>It can <strong>help</strong> a programmer read the code, help a compiler compile it, or help the program detect its own defects.</li><li>If the assertion check is not in fact true, an assertion failure, <font color=blue>the program considers itself to be broken</font> and typically deliberately <strong>crashes</strong> or throws an assertion failure exception.</li></ul><hr><p><code>void assert(scalar expression);</code></p><ul><li>The macro assert() prints an error message to standard error and terminates the program by calling abort(3) if expression is false.</li><li>The purpose of this macro is to help programmers find bugs in their programs.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -290,41 +138,16 @@ extended">
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
-</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>FILE</span> <span class=o>*</span><span class=n>fd</span><span class=p>;</span>
-    <span class=n>fd</span> <span class=o>=</span> <span class=n>fopen</span> <span class=p>(</span><span class=s>&#34;file.txt&#34;</span><span class=p>,</span> <span class=s>&#34;r&#34;</span><span class=p>);</span>
-    <span class=n>assert</span> <span class=p>(</span><span class=n>fd</span><span class=p>);</span>
-    <span class=n>fclose</span> <span class=p>(</span><span class=n>fd</span><span class=p>);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>我可以簡單的使用 <code>if-else</code> 去確認並回傳值。那為什麼還要使用 <code>assert</code>?
-<ul>
-<li>這取決於您是否可以優雅地處理錯誤。</li>
-</ul>
-</li>
-<li>Note:
-<ul>
-<li>一般來說，<code>assert</code> 被用在開發階段。</li>
-<li>當發佈時，請移除所有 <code>assert</code>。</li>
-</ul>
-</li>
-</ul>
-<h1 id=qsort>qsort</h1>
-<p><code>void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));</code></p>
-<ul>
-<li>The qsort() function sorts an array with nmemb elements of size size. The base argument points to the start of the array.</li>
-<li>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. If two members compare as equal, their order in the sorted array is undefined.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;assert.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>FILE</span> <span class=o>*</span><span class=n>fd</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>fd</span> <span class=o>=</span> <span class=nf>fopen</span> <span class=p>(</span><span class=s>&#34;file.txt&#34;</span><span class=p>,</span> <span class=s>&#34;r&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>assert</span> <span class=p>(</span><span class=n>fd</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>fclose</span> <span class=p>(</span><span class=n>fd</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>我可以簡單的使用 <code>if-else</code> 去確認並回傳值。那為什麼還要使用 <code>assert</code>?<ul><li>這取決於您是否可以優雅地處理錯誤。</li></ul></li><li>Note:<ul><li>一般來說，<code>assert</code> 被用在開發階段。</li><li>當發佈時，請移除所有 <code>assert</code>。</li></ul></li></ul><h1 id=qsort><a href=#qsort class=header-anchor></a>qsort</h1><p><code>void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));</code></p><ul><li>The qsort() function sorts an array with nmemb elements of size size. The base argument points to the start of the array.</li><li>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. If two members compare as equal, their order in the sorted array is undefined.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -342,201 +165,44 @@ extended">
 </span><span class=lnt>16
 </span><span class=lnt>17
 </span><span class=lnt>18
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
-</span><span class=cp></span>
-<span class=kt>int</span> <span class=n>values</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>88</span><span class=p>,</span> <span class=mi>56</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>25</span><span class=p>};</span>
-<span class=kt>int</span> <span class=nf>cmpfunc</span> <span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span> <span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
-   <span class=k>return</span> <span class=p>(</span><span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>a</span> <span class=o>-</span> <span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>);</span>
-<span class=p>}</span>
-<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=kt>int</span> <span class=n>n</span><span class=p>;</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;Before sorting the list is:&#34;</span><span class=p>);</span>
-    <span class=k>for</span><span class=p>(</span><span class=n>n</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>n</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>;</span> <span class=n>n</span><span class=o>++</span><span class=p>)</span>
-        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span> <span class=n>values</span><span class=p>[</span><span class=n>n</span><span class=p>]);</span>
-    <span class=n>qsort</span><span class=p>(</span><span class=n>values</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>),</span> <span class=n>cmpfunc</span><span class=p>);</span>
-    <span class=n>printf</span><span class=p>(</span><span class=s>&#34;After sorting the list is:&#34;</span><span class=p>);</span>
-    <span class=k>for</span><span class=p>(</span> <span class=n>n</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>n</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>;</span> <span class=n>n</span><span class=o>++</span> <span class=p>)</span>
-        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span> <span class=n>values</span><span class=p>[</span><span class=n>n</span><span class=p>]);</span>
-    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id=libcurl>libcurl</h1>
-<ul>
-<li>安裝: <code>sudo apt-get install libcurl4 libcurl4-openssl-dev</code></li>
-<li>使用: <a class=link href=https://curl.se/libcurl/c/example.html target=_blank rel=noopener>Example codes</a></li>
-<li>編譯: <code>gcc -I curl-7.63.0/include -L curl-7.63.0/lib/.libs/ opendata.c -lcurl</code> (需依照情況自行修改)
-<ul>
-<li>Makefile:
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>values</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>88</span><span class=p>,</span> <span class=mi>56</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>25</span><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>cmpfunc</span> <span class=p>(</span><span class=k>const</span> <span class=kt>void</span> <span class=o>*</span> <span class=n>a</span><span class=p>,</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>   <span class=k>return</span> <span class=p>(</span><span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>a</span> <span class=o>-</span> <span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>b</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Before sorting the list is:&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=n>n</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>n</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>;</span> <span class=n>n</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span> <span class=n>values</span><span class=p>[</span><span class=n>n</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>qsort</span><span class=p>(</span><span class=n>values</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>),</span> <span class=n>cmpfunc</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;After sorting the list is:&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span> <span class=n>n</span> <span class=o>=</span> <span class=mi>0</span> <span class=p>;</span> <span class=n>n</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>;</span> <span class=n>n</span><span class=o>++</span> <span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span> <span class=n>values</span><span class=p>[</span><span class=n>n</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=libcurl><a href=#libcurl class=header-anchor></a>libcurl</h1><ul><li>安裝: <code>sudo apt-get install libcurl4 libcurl4-openssl-dev</code></li><li>使用: <a class=link href=https://curl.se/libcurl/c/example.html target=_blank rel=noopener>Example codes</a></li><li>編譯: <code>gcc -I curl-7.63.0/include -L curl-7.63.0/lib/.libs/ opendata.c -lcurl</code> (需依照情況自行修改)<ul><li>Makefile:<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=nv>CFLAGS</span> <span class=o>=</span> -O3 -Wall
-<span class=nv>INCLUDE</span> <span class=o>=</span> -I curl-7.63.0/include
-<span class=nv>LIB</span> <span class=o>=</span> -L curl-7.63.0/lib/.libs/
-<span class=nf>all</span><span class=o>:</span> <span class=n>opendata</span>.<span class=n>c</span>
-    gcc <span class=si>${</span><span class=nv>CFLAGS</span><span class=si>}</span> <span class=si>${</span><span class=nv>INCLUDE</span><span class=si>}</span> <span class=si>${</span><span class=nv>LIB</span><span class=si>}</span> opendata.c -o opendata -lcurl
-<span class=nf>clean</span><span class=o>:</span>
-    rm -f opendata
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/c/>C</a>
-<a href=/tags/note/>Note</a>
-</section>
-</footer>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article>
-<a href=/p/computer_programming_2-08/>
-<div class=article-details>
-<h2 class=article-title>程式設計(二)-08：Linux List</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_2-06/>
-<div class=article-details>
-<h2 class=article-title>程式設計(二)-06：Macro</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_2-05/>
-<div class=article-details>
-<h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_2-04/>
-<div class=article-details>
-<h2 class=article-title>程式設計(二)-04：File Processing-02</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/p/computer_programming_2-03/>
-<div class=article-details>
-<h2 class=article-title>程式設計(二)-03：File Processing-01</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=line><span class=cl><span class=nv>CFLAGS</span> <span class=o>=</span> -O3 -Wall
+</span></span><span class=line><span class=cl><span class=nv>INCLUDE</span> <span class=o>=</span> -I curl-7.63.0/include
+</span></span><span class=line><span class=cl><span class=nv>LIB</span> <span class=o>=</span> -L curl-7.63.0/lib/.libs/
+</span></span><span class=line><span class=cl><span class=nf>all</span><span class=o>:</span> <span class=n>opendata</span>.<span class=n>c</span>
+</span></span><span class=line><span class=cl>    gcc <span class=si>${</span><span class=nv>CFLAGS</span><span class=si>}</span> <span class=si>${</span><span class=nv>INCLUDE</span><span class=si>}</span> <span class=si>${</span><span class=nv>LIB</span><span class=si>}</span> opendata.c -o opendata -lcurl
+</span></span><span class=line><span class=cl><span class=nf>clean</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    rm -f opendata
+</span></span></code></pre></td></tr></table></div></div></li></ul></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/c/>C</a>
+<a href=/tags/note/>Note</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/computer_programming_2-08/><div class=article-details><h2 class=article-title>程式設計(二)-08：Linux List</h2></div></a></article><article><a href=/p/computer_programming_2-06/><div class=article-details><h2 class=article-title>程式設計(二)-06：Macro</h2></div></a></article><article><a href=/p/computer_programming_2-05/><div class=article-details><h2 class=article-title>程式設計(二)-05：Variable Length Arguments List</h2></div></a></article><article><a href=/p/computer_programming_2-04/><div class=article-details><h2 class=article-title>程式設計(二)-04：File Processing-02</h2></div></a></article><article><a href=/p/computer_programming_2-03/><div class=article-details><h2 class=article-title>程式設計(二)-03：File Processing-01</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
 2020 -
-2023 小十的部落格
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.8.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2024 小十的部落格</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.27.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#predefined-macros>Predefined Macros</a>
-<ul>
-<li><a href=#standard-predefined-macros>Standard Predefined Macros</a></li>
-</ul>
-</li>
-<li><a href=#comparing-unsigned-integers>Comparing Unsigned Integers</a></li>
-<li><a href=#call-functions-at-program-termination>Call Functions at Program Termination</a>
-<ul>
-<li>
-<ul>
-<li><a href=#atexit>atexit</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href=#system-and-more>system and more</a>
-<ul>
-<li>
-<ul>
-<li><a href=#system-execute-a-shell-command>System: Execute a Shell Command</a></li>
-<li><a href=#popen>popen</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href=#assert>assert</a></li>
-<li><a href=#qsort>qsort</a></li>
-<li><a href=#libcurl>libcurl</a></li>
-</ul>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
