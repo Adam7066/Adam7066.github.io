@@ -3,6 +3,8 @@ languageCode: en-us
 title: 小十的部落格
 theme: hugo-theme-stack
 
+enableGitInfo: true
+
 services:
     googleAnalytics:
         ID: G-9L51K4B2CR
