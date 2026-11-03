@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arduino on 小十的部落格</title><link>https://blog.smallten.me/tags/arduino/</link><description>Recent content in Arduino on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 14 Feb 2022 20:23:38 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/arduino/index.xml" rel="self" type="application/rss+xml"/><item><title>簡易氣象站-02</title><link>https://blog.smallten.me/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://blog.smallten.me/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arduino on 小十的部落格</title><link>https://adam7066.github.io/tags/arduino/</link><description>Recent content in Arduino on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 14 Feb 2022 20:23:38 +0800</lastBuildDate><atom:link href="https://adam7066.github.io/tags/arduino/index.xml" rel="self" type="application/rss+xml"/><item><title>簡易氣象站-02</title><link>https://adam7066.github.io/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://adam7066.github.io/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。&lt;/li>
 &lt;/ul>
@@ -155,16 +155,16 @@
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>最終成果圖
-&lt;img src="https://blog.smallten.me/p/weather-02/weather-02-01.png"
+&lt;img src="https://adam7066.github.io/p/weather-02/weather-02-01.png"
 width="1204"
 height="667"
-srcset="https://blog.smallten.me/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://blog.smallten.me/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
+srcset="https://adam7066.github.io/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://adam7066.github.io/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="180"
 data-flex-basis="433px"
 >&lt;/li>
-&lt;/ul></description></item><item><title>簡易氣象站-01</title><link>https://blog.smallten.me/p/weather-01/</link><pubDate>Sun, 12 Jul 2020 09:02:34 +0800</pubDate><guid>https://blog.smallten.me/p/weather-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>簡易氣象站-01</title><link>https://adam7066.github.io/p/weather-01/</link><pubDate>Sun, 12 Jul 2020 09:02:34 +0800</pubDate><guid>https://adam7066.github.io/p/weather-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作由Arduino抓取感測器數值的部分。&lt;/li>
 &lt;/ul>
@@ -176,10 +176,10 @@ data-flex-basis="433px"
 &lt;/ul>
 &lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
 &lt;/h1>&lt;h2 id="連結電路">&lt;a href="#%e9%80%a3%e7%b5%90%e9%9b%bb%e8%b7%af" class="header-anchor">&lt;/a>連結電路
-&lt;/h2>&lt;p>&lt;img src="https://blog.smallten.me/p/weather-01/weather-01-01.jpg"
+&lt;/h2>&lt;p>&lt;img src="https://adam7066.github.io/p/weather-01/weather-01-01.jpg"
 width="370"
 height="279"
-srcset="https://blog.smallten.me/p/weather-01/weather-01-01_hu16665600860933128514.jpg 480w, https://blog.smallten.me/p/weather-01/weather-01-01_hu4824901043659104543.jpg 1024w"
+srcset="https://adam7066.github.io/p/weather-01/weather-01-01_hu16665600860933128514.jpg 480w, https://adam7066.github.io/p/weather-01/weather-01-01_hu4824901043659104543.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="132"
@@ -314,7 +314,7 @@ data-flex-basis="318px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Arduino-05：HC-05 AT命令</title><link>https://blog.smallten.me/p/arduino-05/</link><pubDate>Sun, 10 May 2020 21:56:45 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-05/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>Arduino-05：HC-05 AT命令</title><link>https://adam7066.github.io/p/arduino-05/</link><pubDate>Sun, 10 May 2020 21:56:45 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-05/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令&lt;/li>
 &lt;/ul>
@@ -409,7 +409,7 @@ data-flex-basis="318px"
 &lt;li>修改名稱 -&amp;gt; AT+NAME=你要的名字&lt;/li>
 &lt;li>查看密碼 -&amp;gt; AT+PSWD?&lt;/li>
 &lt;li>修改密碼 -&amp;gt; AT+PSWD=你要的密碼&lt;/li>
-&lt;/ul></description></item><item><title>Arduino-04：藍芽遙控車</title><link>https://blog.smallten.me/p/arduino-04/</link><pubDate>Sun, 03 May 2020 16:29:01 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Arduino-04：藍芽遙控車</title><link>https://adam7066.github.io/p/arduino-04/</link><pubDate>Sun, 03 May 2020 16:29:01 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將帶領大家製作藍芽的遙控車，並且用Blynk的Joystick操控它&lt;/li>
 &lt;/ul>
@@ -432,10 +432,10 @@ data-flex-basis="318px"
 &lt;li>依照下方圖示連接腳位，並且設定Blynk App內的物件&lt;/li>
 &lt;/ol>
 &lt;h2 id="連接腳位">&lt;a href="#%e9%80%a3%e6%8e%a5%e8%85%b3%e4%bd%8d" class="header-anchor">&lt;/a>連接腳位
-&lt;/h2>&lt;p>&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-04.jpg"
+&lt;/h2>&lt;p>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-04.jpg"
 width="1668"
 height="996"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-04_hu15702503939703762812.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-04_hu9808252931625683036.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-04_hu15702503939703762812.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-04_hu9808252931625683036.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="167"
@@ -445,26 +445,26 @@ data-flex-basis="401px"
 &lt;/h2>&lt;ul>
 &lt;li>創建3個元件，分別為Button、Bluetooth、Joystick，並且依下圖進行設置&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-01.jpg"
 width="1080"
 height="2022"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-01_hu10928813089281530482.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-01_hu15225631122200308380.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-01_hu10928813089281530482.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-01_hu15225631122200308380.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
 data-flex-basis="128px"
->&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-02.jpg"
 width="907"
 height="196"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-02_hu4484969899802455697.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-02_hu9258451809648679771.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-02_hu4484969899802455697.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-02_hu9258451809648679771.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="462"
 data-flex-basis="1110px"
->&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-03.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-03.jpg"
 width="1080"
 height="2014"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-03_hu4954243871792668875.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-03_hu12466097720183011377.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-03_hu4954243871792668875.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-03_hu12466097720183011377.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
@@ -603,7 +603,7 @@ data-flex-basis="128px"
 &lt;/h1>&lt;ul>
 &lt;li>由於這邊我們將HC-05和Nano板的RX、TX對接，因此自行修改程式碼後要重新上傳時，記得先移除連接Nano板的那兩條線，當然也可使用SoftwareSerial Library來進行，就不用拔除線路了&lt;/li>
 &lt;li>若要自行修改HC-05的設定，可參考下一篇文章 &lt;a class="link" href="../arduino-05" >ARDUINO-05：HC-05 AT命令&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Arduino-03：跑馬燈</title><link>https://blog.smallten.me/p/arduino-03/</link><pubDate>Thu, 09 Apr 2020 14:50:56 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Arduino-03：跑馬燈</title><link>https://adam7066.github.io/p/arduino-03/</link><pubDate>Thu, 09 Apr 2020 14:50:56 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將帶領大家製作點陣跑馬燈，並且用Blynk來操控它&lt;/li>
 &lt;/ul>
@@ -659,26 +659,26 @@ data-flex-basis="128px"
 &lt;/h2>&lt;ul>
 &lt;li>請照下圖拉出三個物件，並設定其相關參數&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/arduino-03/Arduino-03-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/arduino-03/Arduino-03-01.jpg"
 width="1080"
 height="2042"
-srcset="https://blog.smallten.me/p/arduino-03/Arduino-03-01_hu3422397455535229566.jpg 480w, https://blog.smallten.me/p/arduino-03/Arduino-03-01_hu10197709207383843444.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-03/Arduino-03-01_hu3422397455535229566.jpg 480w, https://adam7066.github.io/p/arduino-03/Arduino-03-01_hu10197709207383843444.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="52"
 data-flex-basis="126px"
->&lt;img src="https://blog.smallten.me/p/arduino-03/Arduino-03-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-03/Arduino-03-02.jpg"
 width="1080"
 height="2001"
-srcset="https://blog.smallten.me/p/arduino-03/Arduino-03-02_hu16256380234556306622.jpg 480w, https://blog.smallten.me/p/arduino-03/Arduino-03-02_hu12165815056976763761.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-03/Arduino-03-02_hu16256380234556306622.jpg 480w, https://adam7066.github.io/p/arduino-03/Arduino-03-02_hu12165815056976763761.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
 data-flex-basis="129px"
->&lt;img src="https://blog.smallten.me/p/arduino-03/Arduino-03-03.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-03/Arduino-03-03.jpg"
 width="1080"
 height="2027"
-srcset="https://blog.smallten.me/p/arduino-03/Arduino-03-03_hu12073561837637083438.jpg 480w, https://blog.smallten.me/p/arduino-03/Arduino-03-03_hu3234311251542652045.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-03/Arduino-03-03_hu12073561837637083438.jpg 480w, https://adam7066.github.io/p/arduino-03/Arduino-03-03_hu3234311251542652045.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
@@ -1049,7 +1049,7 @@ data-flex-basis="127px"
 &lt;/h1>&lt;ul>
 &lt;li>若是覺得Blynk的能量太少，可自行架設 &lt;a class="link" href="https://github.com/blynkkk/blynk-server" target="_blank" rel="noopener"
 >Server&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Arduino-02：UNOJOY</title><link>https://blog.smallten.me/p/arduino-02/</link><pubDate>Thu, 09 Apr 2020 08:16:57 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Arduino-02：UNOJOY</title><link>https://adam7066.github.io/p/arduino-02/</link><pubDate>Thu, 09 Apr 2020 08:16:57 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將帶領大家把Arduino手把變成電腦手把&lt;/li>
 &lt;/ul>
@@ -1071,10 +1071,10 @@ data-flex-basis="127px"
 &lt;/h1>&lt;ol>
 &lt;li>將下載好的FLIP安裝至電腦&lt;/li>
 &lt;li>確定電腦已安裝Arduino IDE，並已連接Uno板至電腦，可在裝置管理員查看狀態（如下圖）
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-01.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-01.png"
 width="976"
 height="715"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-01_hu8055806974195292202.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-01_hu11981111970158291490.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-01_hu8055806974195292202.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-01_hu11981111970158291490.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="136"
@@ -1082,20 +1082,20 @@ data-flex-basis="327px"
 >&lt;/li>
 &lt;li>打開剛剛下載的UnoJoy資料夾下的檔案，並將它上傳進Uno板中 &lt;code>UnoJoy-master\UnoJoy\UnoJoyArduinoSample\UnoJoyArduinoSample.ino&lt;/code>&lt;/li>
 &lt;li>關閉Arduino IDE，進入DFU Mode，進入方式：用導線同時接觸下圖框起處的兩根針腳
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-02.jpg"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-02.jpg"
 width="1358"
 height="1014"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-02_hu9559882728592903430.jpg 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-02_hu13777671105090746175.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-02_hu9559882728592903430.jpg 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-02_hu13777671105090746175.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="321px"
 >&lt;/li>
 &lt;li>確認已進入 DFU Mode，如下圖
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-03.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-03.png"
 width="976"
 height="715"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-03_hu5127483976452169237.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-03_hu13052532347998420587.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-03_hu5127483976452169237.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-03_hu13052532347998420587.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="136"
@@ -1106,10 +1106,10 @@ data-flex-basis="327px"
 &lt;/ul>
 &lt;/li>
 &lt;li>打開UnoJoy資料夾，啟動TurnIntoAJoystick的批次檔，檔案路徑 &lt;code>UnoJoy-master\UnoJoy\TurnIntoAJoystick.bat&lt;/code>，執行成功結果如下圖
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-04.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-04.png"
 width="1222"
 height="638"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-04_hu13428892834738455162.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-04_hu14745595881270971363.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-04_hu13428892834738455162.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-04_hu14745595881270971363.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="191"
@@ -1117,10 +1117,10 @@ data-flex-basis="459px"
 >&lt;/li>
 &lt;li>至此已完成將Uno變成電腦搖桿，之後插上Uno板皆為UnoJoy Joystick，可在以下路徑查看 &lt;code>控制台\硬體和音效\裝置和印表機&lt;/code>&lt;/li>
 &lt;li>將搖桿的vrx和vry分別連接至Uno板的A0和A1，在 &lt;code>控制台\硬體和音效\裝置和印表機&lt;/code> 裡的UnoJoy Joystick圖示上右鍵-&amp;gt;遊戲控制器-&amp;gt;內容，可查看搖桿狀態，如下圖
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-05.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-05.png"
 width="595"
 height="651"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-05_hu8827692068071266563.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-05_hu15298610261905498.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-05_hu8827692068071266563.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-05_hu15298610261905498.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="91"
@@ -1158,16 +1158,16 @@ data-flex-basis="219px"
 &lt;li>若是腳位不夠可自行替換成mega板&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Arduino-01：安裝IDE</title><link>https://blog.smallten.me/p/arduino-01/</link><pubDate>Thu, 09 Apr 2020 08:08:43 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-01/</guid><description>&lt;h1 id="官方ide">&lt;a href="#%e5%ae%98%e6%96%b9ide" class="header-anchor">&lt;/a>官方IDE
+&lt;/ul></description></item><item><title>Arduino-01：安裝IDE</title><link>https://adam7066.github.io/p/arduino-01/</link><pubDate>Thu, 09 Apr 2020 08:08:43 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-01/</guid><description>&lt;h1 id="官方ide">&lt;a href="#%e5%ae%98%e6%96%b9ide" class="header-anchor">&lt;/a>官方IDE
 &lt;/h1>&lt;ul>
 &lt;li>此IDE由官方提供，可在此查看&lt;a class="link" href="https://www.arduino.cc/" target="_blank" rel="noopener"
 >官網&lt;/a>&lt;/li>
 &lt;li>下載－&lt;a class="link" href="https://www.arduino.cc/en/software" target="_blank" rel="noopener"
 >官方載點&lt;/a>
-&lt;img src="https://blog.smallten.me/p/arduino-01/arduino-01-01.png"
+&lt;img src="https://adam7066.github.io/p/arduino-01/arduino-01-01.png"
 width="1376"
 height="642"
-srcset="https://blog.smallten.me/p/arduino-01/arduino-01-01_hu8190473566399796293.png 480w, https://blog.smallten.me/p/arduino-01/arduino-01-01_hu1106338615277907444.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-01/arduino-01-01_hu8190473566399796293.png 480w, https://adam7066.github.io/p/arduino-01/arduino-01-01_hu1106338615277907444.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="214"
@@ -1179,10 +1179,10 @@ data-flex-basis="514px"
 &lt;li>先下載 &lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
 >VSCode&lt;/a>&lt;/li>
 &lt;li>再安裝 PlatformIO 的插件
-&lt;img src="https://blog.smallten.me/p/arduino-01/arduino-01-02.png"
+&lt;img src="https://adam7066.github.io/p/arduino-01/arduino-01-02.png"
 width="1920"
 height="1020"
-srcset="https://blog.smallten.me/p/arduino-01/arduino-01-02_hu11484009080322030056.png 480w, https://blog.smallten.me/p/arduino-01/arduino-01-02_hu4791836822261479786.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-01/arduino-01-02_hu11484009080322030056.png 480w, https://adam7066.github.io/p/arduino-01/arduino-01-02_hu4791836822261479786.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="188"

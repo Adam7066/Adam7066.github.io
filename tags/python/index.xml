@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 小十的部落格</title><link>https://blog.smallten.me/tags/python/</link><description>Recent content in Python on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 19 Dec 2020 00:29:29 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Python-04：多線程-ts下載並合併成mp4</title><link>https://blog.smallten.me/p/python-04/</link><pubDate>Sun, 04 Oct 2020 16:36:35 +0800</pubDate><guid>https://blog.smallten.me/p/python-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 小十的部落格</title><link>https://adam7066.github.io/tags/python/</link><description>Recent content in Python on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 19 Dec 2020 00:29:29 +0800</lastBuildDate><atom:link href="https://adam7066.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Python-04：多線程-ts下載並合併成mp4</title><link>https://adam7066.github.io/p/python-04/</link><pubDate>Sun, 04 Oct 2020 16:36:35 +0800</pubDate><guid>https://adam7066.github.io/p/python-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;p>  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。&lt;/p>
 &lt;h1 id="python">&lt;a href="#python" class="header-anchor">&lt;/a>Python
 &lt;/h1>&lt;h2 id="下載m3u8">&lt;a href="#%e4%b8%8b%e8%bc%89m3u8" class="header-anchor">&lt;/a>下載m3u8
@@ -287,7 +287,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">remove&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Python-03：m3u8影片下載</title><link>https://blog.smallten.me/p/python-03/</link><pubDate>Sun, 04 Oct 2020 11:07:24 +0800</pubDate><guid>https://blog.smallten.me/p/python-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>Python-03：m3u8影片下載</title><link>https://adam7066.github.io/p/python-03/</link><pubDate>Sun, 04 Oct 2020 11:07:24 +0800</pubDate><guid>https://adam7066.github.io/p/python-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>現今你時常能在影音媒體網站看到 &lt;code>.m3u8&lt;/code> 的檔案，以及許多 &lt;code>.ts&lt;/code> 的分段媒體，本篇將教你如何簡單的下載成 &lt;code>.mp4&lt;/code> 檔。&lt;/li>
 &lt;li>這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入了解請自行查找資料。&lt;/li>
@@ -336,7 +336,7 @@
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>下一篇將教你如何直接從 m3u8 裡讀取目錄，並使用多線程下載 ts 並合併成 mp4&lt;/li>
-&lt;/ul></description></item><item><title>Python-02：多線程-加速圖片下載</title><link>https://blog.smallten.me/p/python-02/</link><pubDate>Mon, 03 Aug 2020 00:56:43 +0800</pubDate><guid>https://blog.smallten.me/p/python-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Python-02：多線程-加速圖片下載</title><link>https://adam7066.github.io/p/python-02/</link><pubDate>Mon, 03 Aug 2020 00:56:43 +0800</pubDate><guid>https://adam7066.github.io/p/python-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>接續上一篇Python-01：爬蟲-圖片下載的內容，這篇文章將帶領大家使用多線程來加速圖片的下載&lt;/li>
 &lt;/ul>
@@ -526,7 +526,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">browser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">quit&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Python-01：爬蟲-圖片下載</title><link>https://blog.smallten.me/p/python-01/</link><pubDate>Mon, 03 Aug 2020 00:39:24 +0800</pubDate><guid>https://blog.smallten.me/p/python-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>Python-01：爬蟲-圖片下載</title><link>https://adam7066.github.io/p/python-01/</link><pubDate>Mon, 03 Aug 2020 00:39:24 +0800</pubDate><guid>https://adam7066.github.io/p/python-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這一篇將帶領大家透過Python的爬蟲自動化的下載圖片&lt;/li>
 &lt;/ul>
@@ -696,7 +696,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">browser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">quit&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>簡易氣象站-02</title><link>https://blog.smallten.me/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://blog.smallten.me/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>簡易氣象站-02</title><link>https://adam7066.github.io/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://adam7066.github.io/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。&lt;/li>
 &lt;/ul>
@@ -853,10 +853,10 @@
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>最終成果圖
-&lt;img src="https://blog.smallten.me/p/weather-02/weather-02-01.png"
+&lt;img src="https://adam7066.github.io/p/weather-02/weather-02-01.png"
 width="1204"
 height="667"
-srcset="https://blog.smallten.me/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://blog.smallten.me/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
+srcset="https://adam7066.github.io/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://adam7066.github.io/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="180"

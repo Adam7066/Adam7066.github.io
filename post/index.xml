@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 小十的部落格</title><link>https://blog.smallten.me/post/</link><description>Recent content in Posts on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 30 Oct 2023 10:49:37 +0800</lastBuildDate><atom:link href="https://blog.smallten.me/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Factorio-01：使用 LinuxGSM 開伺服器</title><link>https://blog.smallten.me/p/factorio-01/</link><pubDate>Fri, 08 Sep 2023 13:57:15 +0800</pubDate><guid>https://blog.smallten.me/p/factorio-01/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 小十的部落格</title><link>https://adam7066.github.io/post/</link><description>Recent content in Posts on 小十的部落格</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 30 Oct 2023 10:49:37 +0800</lastBuildDate><atom:link href="https://adam7066.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Factorio-01：使用 LinuxGSM 開伺服器</title><link>https://adam7066.github.io/p/factorio-01/</link><pubDate>Fri, 08 Sep 2023 13:57:15 +0800</pubDate><guid>https://adam7066.github.io/p/factorio-01/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
 &lt;/h1>&lt;p>最早玩 Factorio 開 server 是直接使用遊戲內建的方式，然後好友們直接透過 steam 連線進來，但是這樣有個缺點，那就是當自己不玩沒開遊戲時，朋友們也玩不了，因此之後玩時都會開個獨立的 server。&lt;/p>
 &lt;p>之前有使用過以下方法來開 server 也玩了不少次了：&lt;/p>
 &lt;ul>
@@ -104,7 +104,7 @@
 &lt;li>server 裡管理員名單位置：&lt;code>~/serverfiles/server-adminlist.json&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>Caddy-01：第一次架站就上手</title><link>https://blog.smallten.me/p/caddy-01/</link><pubDate>Fri, 28 Apr 2023 10:45:52 +0800</pubDate><guid>https://blog.smallten.me/p/caddy-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ol></description></item><item><title>Caddy-01：第一次架站就上手</title><link>https://adam7066.github.io/p/caddy-01/</link><pubDate>Fri, 28 Apr 2023 10:45:52 +0800</pubDate><guid>https://adam7066.github.io/p/caddy-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>&lt;a class="link" href="https://caddyserver.com" target="_blank" rel="noopener"
 >Caddy Server&lt;/a> 是一個開源的，使用 Golang 編寫，支援 HTTP/2 的 Web 伺服器端。&lt;/li>
@@ -253,7 +253,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">caddy_config&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>程式設計(二)-09：111-2 HW0204 參考作法</title><link>https://blog.smallten.me/p/computer_programming_2-09/</link><pubDate>Tue, 25 Apr 2023 01:56:39 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-09/</guid><description>&lt;h1 id="題目">&lt;a href="#%e9%a1%8c%e7%9b%ae" class="header-anchor">&lt;/a>題目
+&lt;/div></description></item><item><title>程式設計(二)-09：111-2 HW0204 參考作法</title><link>https://adam7066.github.io/p/computer_programming_2-09/</link><pubDate>Tue, 25 Apr 2023 01:56:39 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-09/</guid><description>&lt;h1 id="題目">&lt;a href="#%e9%a1%8c%e7%9b%ae" class="header-anchor">&lt;/a>題目
 &lt;/h1>&lt;ul>
 &lt;li>
 &lt;a class="link" href="./hw02.pdf" download="HW02.pdf">HW02&lt;/a>&lt;/li>
@@ -1180,7 +1180,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Arch Linux-05：Howdy 臉部辨識</title><link>https://blog.smallten.me/p/arch_linux-05/</link><pubDate>Tue, 05 Apr 2022 04:55:18 +0800</pubDate><guid>https://blog.smallten.me/p/arch_linux-05/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
+&lt;/div></description></item><item><title>Arch Linux-05：Howdy 臉部辨識</title><link>https://adam7066.github.io/p/arch_linux-05/</link><pubDate>Tue, 05 Apr 2022 04:55:18 +0800</pubDate><guid>https://adam7066.github.io/p/arch_linux-05/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
 &lt;/h1>&lt;ul>
 &lt;li>Windows 提供了 Windows Hello 來進行臉部辨識的身份認證，但在使用 Arch Linux 時總是要自己手動輸入密碼覺得十分地麻煩，畢竟筆電都有紅外線鏡頭模組幹麻不用它，因此搜尋了一下，找到了 &lt;a class="link" href="https://github.com/boltgolt/howdy" target="_blank" rel="noopener"
 >Howdy&lt;/a> 這個東東。&lt;/li>
@@ -1277,7 +1277,7 @@
 &lt;li>smallten 為當前使用者名稱，自行更改&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>教育概論-05：教育的理論基礎 - 心理學 II</title><link>https://blog.smallten.me/p/introduction_to_education-05/</link><pubDate>Tue, 05 Apr 2022 03:44:06 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-05/</guid><description>&lt;h1 id="新行為主義學派學習理論">&lt;a href="#%e6%96%b0%e8%a1%8c%e7%82%ba%e4%b8%bb%e7%be%a9%e5%ad%b8%e6%b4%be%e5%ad%b8%e7%bf%92%e7%90%86%e8%ab%96" class="header-anchor">&lt;/a>新行為主義學派學習理論
+&lt;/ol></description></item><item><title>教育概論-05：教育的理論基礎 - 心理學 II</title><link>https://adam7066.github.io/p/introduction_to_education-05/</link><pubDate>Tue, 05 Apr 2022 03:44:06 +0800</pubDate><guid>https://adam7066.github.io/p/introduction_to_education-05/</guid><description>&lt;h1 id="新行為主義學派學習理論">&lt;a href="#%e6%96%b0%e8%a1%8c%e7%82%ba%e4%b8%bb%e7%be%a9%e5%ad%b8%e6%b4%be%e5%ad%b8%e7%bf%92%e7%90%86%e8%ab%96" class="header-anchor">&lt;/a>新行為主義學派學習理論
 &lt;/h1>&lt;ul>
 &lt;li>代表人物：班杜拉(A. Bandura)&lt;/li>
 &lt;li>又稱為「新行為主義」&lt;/li>
@@ -1513,7 +1513,7 @@
 &lt;li>&lt;font color=blue>道德教育&lt;/font> (Moral Education)&lt;/li>
 &lt;li>實際學校例子：英國夏山學校 (Summerhill) 、臺灣森林小學、毛毛蟲小學等等&lt;font color=blue>學校型態實驗教育&lt;/font>&lt;/li>
 &lt;li>所受批判：當教師被學生打的時候？&lt;/li>
-&lt;/ul></description></item><item><title>教育概論-04：教育的理論基礎 - 心理學 I</title><link>https://blog.smallten.me/p/introduction_to_education-04/</link><pubDate>Tue, 05 Apr 2022 02:25:06 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-04/</guid><description>&lt;h1 id="發展理論">&lt;a href="#%e7%99%bc%e5%b1%95%e7%90%86%e8%ab%96" class="header-anchor">&lt;/a>發展理論
+&lt;/ul></description></item><item><title>教育概論-04：教育的理論基礎 - 心理學 I</title><link>https://adam7066.github.io/p/introduction_to_education-04/</link><pubDate>Tue, 05 Apr 2022 02:25:06 +0800</pubDate><guid>https://adam7066.github.io/p/introduction_to_education-04/</guid><description>&lt;h1 id="發展理論">&lt;a href="#%e7%99%bc%e5%b1%95%e7%90%86%e8%ab%96" class="header-anchor">&lt;/a>發展理論
 &lt;/h1>&lt;h2 id="身心發展研究">&lt;a href="#%e8%ba%ab%e5%bf%83%e7%99%bc%e5%b1%95%e7%a0%94%e7%a9%b6" class="header-anchor">&lt;/a>身心發展研究
 &lt;/h2>&lt;ul>
 &lt;li>影響人類發展的因素有：&lt;font color=blue>遺傳、環境、成熟、學習&lt;/font>&lt;/li>
@@ -1716,7 +1716,7 @@
 &lt;li>&lt;font color=blue>缺乏師生互動&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>教育概論-03：教育的理論基礎 - 哲學 II</title><link>https://blog.smallten.me/p/introduction_to_education-03/</link><pubDate>Tue, 05 Apr 2022 00:40:30 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-03/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>教育概論-03：教育的理論基礎 - 哲學 II</title><link>https://adam7066.github.io/p/introduction_to_education-03/</link><pubDate>Tue, 05 Apr 2022 00:40:30 +0800</pubDate><guid>https://adam7066.github.io/p/introduction_to_education-03/</guid><description>&lt;ul>
 &lt;li>教師（學科）取向的哲學派別：&lt;a class="link" href="./#%e7%90%86%e6%80%a7%e4%b8%bb%e7%be%a9" >理性主義&lt;/a>、&lt;a class="link" href="./#%e7%b6%93%e9%a9%97%e4%b8%bb%e7%be%a9" >經驗主義&lt;/a>、&lt;a class="link" href="./#%e6%89%b9%e8%a9%95%e4%b8%bb%e7%be%a9" >批評主義&lt;/a>&lt;/li>
 &lt;li>學生（興趣）取向的哲學派別：&lt;a class="link" href="./#%e5%af%a6%e7%94%a8%e4%b8%bb%e7%be%a9" >實用主義&lt;/a>、&lt;a class="link" href="./#%e5%ad%98%e5%9c%a8%e4%b8%bb%e7%be%a9" >存在主義&lt;/a>&lt;/li>
 &lt;li>社會（批判）取向的哲學派別：&lt;a class="link" href="./#%e5%be%8c%e7%8f%be%e4%bb%a3%e4%b8%bb%e7%be%a9" >後現代主義&lt;/a>、&lt;a class="link" href="./#%e6%89%b9%e5%88%a4%e7%90%86%e8%ab%96" >批判理論&lt;/a>&lt;/li>
@@ -1998,7 +1998,7 @@
 &lt;li>教育目的：在於維護人類理性，建構個人與社群間的&lt;font color=red>和諧&lt;/font>關係。&lt;/li>
 &lt;li>課程內容：以人為主體，鼓勵&lt;font color=red>多元參與&lt;/font>，在溝通的歷程中，&lt;font color=blue>拋棄意識型態&lt;/font>。&lt;/li>
 &lt;li>教學方法：提供學生&lt;font color=blue>無宰制的環境&lt;/font>，使學生能達到&lt;font color=blue>質疑、反省、解放與&lt;/font>&lt;font color=red>重構&lt;/font>。&lt;/li>
-&lt;/ul></description></item><item><title>教育概論-02：教育的理論基礎 - 哲學 I</title><link>https://blog.smallten.me/p/introduction_to_education-02/</link><pubDate>Mon, 04 Apr 2022 22:20:40 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-02/</guid><description>&lt;h1 id="哲學探討的議題">&lt;a href="#%e5%93%b2%e5%ad%b8%e6%8e%a2%e8%a8%8e%e7%9a%84%e8%ad%b0%e9%a1%8c" class="header-anchor">&lt;/a>哲學探討的議題
+&lt;/ul></description></item><item><title>教育概論-02：教育的理論基礎 - 哲學 I</title><link>https://adam7066.github.io/p/introduction_to_education-02/</link><pubDate>Mon, 04 Apr 2022 22:20:40 +0800</pubDate><guid>https://adam7066.github.io/p/introduction_to_education-02/</guid><description>&lt;h1 id="哲學探討的議題">&lt;a href="#%e5%93%b2%e5%ad%b8%e6%8e%a2%e8%a8%8e%e7%9a%84%e8%ad%b0%e9%a1%8c" class="header-anchor">&lt;/a>哲學探討的議題
 &lt;/h1>&lt;h2 id="形上學">&lt;a href="#%e5%bd%a2%e4%b8%8a%e5%ad%b8" class="header-anchor">&lt;/a>形上學
 &lt;/h2>&lt;ul>
 &lt;li>人的本質、世界的本質、宇宙的生成、生與死等等 (「物理學之後」 metaphysics)&lt;/li>
@@ -2173,7 +2173,7 @@
 &lt;/h2>&lt;ul>
 &lt;li>民主主義：培養&lt;font color=red>民主&lt;/font>素養的國民。&lt;/li>
 &lt;li>共產主義：培養政治順民。&lt;/li>
-&lt;/ul></description></item><item><title>教育概論-01：教育的相關意涵</title><link>https://blog.smallten.me/p/introduction_to_education-01/</link><pubDate>Mon, 04 Apr 2022 21:12:17 +0800</pubDate><guid>https://blog.smallten.me/p/introduction_to_education-01/</guid><description>&lt;h1 id="教育的意義">&lt;a href="#%e6%95%99%e8%82%b2%e7%9a%84%e6%84%8f%e7%be%a9" class="header-anchor">&lt;/a>教育的意義
+&lt;/ul></description></item><item><title>教育概論-01：教育的相關意涵</title><link>https://adam7066.github.io/p/introduction_to_education-01/</link><pubDate>Mon, 04 Apr 2022 21:12:17 +0800</pubDate><guid>https://adam7066.github.io/p/introduction_to_education-01/</guid><description>&lt;h1 id="教育的意義">&lt;a href="#%e6%95%99%e8%82%b2%e7%9a%84%e6%84%8f%e7%be%a9" class="header-anchor">&lt;/a>教育的意義
 &lt;/h1>&lt;h2 id="中文字義">&lt;a href="#%e4%b8%ad%e6%96%87%e5%ad%97%e7%be%a9" class="header-anchor">&lt;/a>中文字義
 &lt;/h2>&lt;ul>
 &lt;li>說文解字謂：「&lt;font color=red>教&lt;/font>，上所施，下所效（模仿）也；&lt;font color=red>育&lt;/font>，養子使作善也。」&lt;/li>
@@ -2285,7 +2285,7 @@
 &lt;li>教育：若有助於個人生命潛能開展、增進個人的自尊、自信者，皆可稱之為「教育」。&lt;/li>
 &lt;li>&lt;font color=blue>非教育&lt;/font>：若未對個人產生教育之正向或負向作用者，可謂之為「非教育」。&lt;/li>
 &lt;li>&lt;font color=blue>反教育&lt;/font>：不利於個人，甚至阻礙個人發展，未能符合價值、認知、自願者，可稱之為「反教育」&lt;/li>
-&lt;/ul></description></item><item><title>Reverse-01：Qiling framework</title><link>https://blog.smallten.me/p/ctf-01/</link><pubDate>Mon, 07 Mar 2022 23:10:59 +0800</pubDate><guid>https://blog.smallten.me/p/ctf-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Reverse-01：Qiling framework</title><link>https://adam7066.github.io/p/ctf-01/</link><pubDate>Mon, 07 Mar 2022 23:10:59 +0800</pubDate><guid>https://adam7066.github.io/p/ctf-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>活動：2022/03/07 CTF 讀書會&lt;/li>
 &lt;li>講師：asef18766 陳兆閔&lt;/li>
@@ -2310,20 +2310,20 @@
 &lt;h2 id="lab1-解題過程">&lt;a href="#lab1-%e8%a7%a3%e9%a1%8c%e9%81%8e%e7%a8%8b" class="header-anchor">&lt;/a>Lab1 解題過程
 &lt;/h2>&lt;ol>
 &lt;li>先 &lt;code>file&lt;/code> 以及 &lt;code>執行&lt;/code> 看看
-&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-01.png"
+&lt;img src="https://adam7066.github.io/p/ctf-01/ctf-01-01.png"
 width="1882"
 height="709"
-srcset="https://blog.smallten.me/p/ctf-01/ctf-01-01_hu4400085184708088989.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-01_hu16361486709167860636.png 1024w"
+srcset="https://adam7066.github.io/p/ctf-01/ctf-01-01_hu4400085184708088989.png 480w, https://adam7066.github.io/p/ctf-01/ctf-01-01_hu16361486709167860636.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="265"
 data-flex-basis="637px"
 >&lt;/li>
 &lt;li>丟 ghidra 後，可以發現在 &lt;code>lucky&lt;/code> 裡面有那張 ascii art ，而且其中第 24 行 &lt;code>if(local_18 != 0x48763)&lt;/code> 是我們第一個要繞過得部份。
-&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-02.png"
+&lt;img src="https://adam7066.github.io/p/ctf-01/ctf-01-02.png"
 width="769"
 height="687"
-srcset="https://blog.smallten.me/p/ctf-01/ctf-01-02_hu12313073533518399483.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-02_hu6032264369164013165.png 1024w"
+srcset="https://adam7066.github.io/p/ctf-01/ctf-01-02_hu12313073533518399483.png 480w, https://adam7066.github.io/p/ctf-01/ctf-01-02_hu6032264369164013165.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="111"
@@ -2359,10 +2359,10 @@ data-flex-basis="268px"
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;li>之後執行 script 時會發現跑得很慢，觀察到 &lt;code>main&lt;/code> 裡面有 &lt;code>sleep&lt;/code> ，因此我們也將其繞過。
-&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-03.png"
+&lt;img src="https://adam7066.github.io/p/ctf-01/ctf-01-03.png"
 width="764"
 height="692"
-srcset="https://blog.smallten.me/p/ctf-01/ctf-01-03_hu9323495125683517127.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-03_hu13915951650847489425.png 1024w"
+srcset="https://adam7066.github.io/p/ctf-01/ctf-01-03_hu9323495125683517127.png 480w, https://adam7066.github.io/p/ctf-01/ctf-01-03_hu13915951650847489425.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="110"
@@ -2396,10 +2396,10 @@ data-flex-basis="264px"
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;li>最後會發現 &lt;code>flag&lt;/code> 的 decrypt 是在做 &lt;code>xor&lt;/code> 並暫存在 &lt;code>dl&lt;/code> 中，所以取出它並組成字串就得到 flag 了。
-&lt;img src="https://blog.smallten.me/p/ctf-01/ctf-01-04.png"
+&lt;img src="https://adam7066.github.io/p/ctf-01/ctf-01-04.png"
 width="1301"
 height="704"
-srcset="https://blog.smallten.me/p/ctf-01/ctf-01-04_hu12573136774354293211.png 480w, https://blog.smallten.me/p/ctf-01/ctf-01-04_hu10985992275515006497.png 1024w"
+srcset="https://adam7066.github.io/p/ctf-01/ctf-01-04_hu12573136774354293211.png 480w, https://adam7066.github.io/p/ctf-01/ctf-01-04_hu10985992275515006497.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="184"
@@ -2495,7 +2495,7 @@ data-flex-basis="443px"
 &lt;/div>&lt;h2 id="lab1-flag">&lt;a href="#lab1-flag" class="header-anchor">&lt;/a>Lab1 Flag
 &lt;/h2>&lt;ul>
 &lt;li>flag：&lt;code>ntnu{y0R'3r 5uch @ beater}&lt;/code>&lt;/li>
-&lt;/ul></description></item><item><title>2021 ICPC 亞洲區 臺北站</title><link>https://blog.smallten.me/p/experience-05/</link><pubDate>Tue, 30 Nov 2021 21:13:26 +0800</pubDate><guid>https://blog.smallten.me/p/experience-05/</guid><description>&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
+&lt;/ul></description></item><item><title>2021 ICPC 亞洲區 臺北站</title><link>https://adam7066.github.io/p/experience-05/</link><pubDate>Tue, 30 Nov 2021 21:13:26 +0800</pubDate><guid>https://adam7066.github.io/p/experience-05/</guid><description>&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
 &lt;/h1>&lt;ul>
 &lt;li>&lt;a class="link" href="https://icpc2021.ntub.edu.tw/" target="_blank" rel="noopener"
 >ICPC 2021&lt;/a>&lt;/li>
@@ -2509,18 +2509,18 @@ data-flex-basis="443px"
 &lt;li>全體：68 / 103&lt;/li>
 &lt;/ul>
 &lt;h1 id="心得">&lt;a href="#%e5%bf%83%e5%be%97" class="header-anchor">&lt;/a>心得
-&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-01.jpg"
+&lt;/h1>&lt;p>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-01.jpg"
 width="2048"
 height="1579"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-01_hu14128013149573059050.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-01_hu8218617030413721332.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-01_hu14128013149573059050.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-01_hu8218617030413721332.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="129"
 data-flex-basis="311px"
->&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-02.jpg"
 width="2048"
 height="1365"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-02_hu16759873014537662687.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-02_hu848906673335374184.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-02_hu16759873014537662687.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-02_hu848906673335374184.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="150"
@@ -2556,56 +2556,56 @@ data-flex-basis="360px"
 &lt;/h1>&lt;p>  這一次系上經費似乎比較多的感覺，所以補助了一題 600 呢，開心 &amp;#x1f604;&amp;#x1f604;&lt;/p>
 &lt;p>  然後雖然這一次依然是萬年老二的狀態（跟得獎差一點點的意思），但也是有進步呢，就再繼續再接再勵吧，相信下一次獎牌就會到手了，加油~~&lt;/p>
 &lt;h1 id="照片牆">&lt;a href="#%e7%85%a7%e7%89%87%e7%89%86" class="header-anchor">&lt;/a>照片牆
-&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-03.jpg"
+&lt;/h1>&lt;p>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-03.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-03_hu5076300374645454574.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-03_hu9528311588138522334.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-03_hu5076300374645454574.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-03_hu9528311588138522334.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-04.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-04.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-04_hu17227959419960890826.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-04_hu11263567677944192182.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-04_hu17227959419960890826.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-04_hu11263567677944192182.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-05.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-05.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-05_hu1767660932791454528.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-05_hu2140396524050993649.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-05_hu1767660932791454528.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-05_hu2140396524050993649.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-06.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-06.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-06_hu8385668544585175913.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-06_hu14566052373591147239.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-06_hu8385668544585175913.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-06_hu14566052373591147239.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-07.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-07.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-07_hu11961850969809709232.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-07_hu2371891686586532324.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-07_hu11961850969809709232.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-07_hu2371891686586532324.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-05/experience-05-08.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-05/experience-05-08.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-05/experience-05-08_hu17843941460475944107.jpg 480w, https://blog.smallten.me/p/experience-05/experience-05-08_hu17273798450886955450.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-05/experience-05-08_hu17843941460475944107.jpg 480w, https://adam7066.github.io/p/experience-05/experience-05-08_hu17273798450886955450.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;/p></description></item><item><title>九份、金瓜石二日遊</title><link>https://blog.smallten.me/p/experience-04/</link><pubDate>Mon, 22 Nov 2021 23:01:49 +0800</pubDate><guid>https://blog.smallten.me/p/experience-04/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+>&lt;/p></description></item><item><title>九份、金瓜石二日遊</title><link>https://adam7066.github.io/p/experience-04/</link><pubDate>Mon, 22 Nov 2021 23:01:49 +0800</pubDate><guid>https://adam7066.github.io/p/experience-04/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
 &lt;/h1>&lt;p>  由於資工營變成了&lt;a class="link" href="../experience-03/" >淨灘活動&lt;/a>，然後地點又在基隆的海邊，想說既然都到那麼&lt;del>偏僻&lt;/del>的地方了，又剛好跟朋友都有抽到國旅券，那麼就乾脆一起去玩一下吧！&lt;/p>
 &lt;h1 id="活動簡介">&lt;a href="#%e6%b4%bb%e5%8b%95%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>活動簡介
 &lt;/h1>&lt;ul>
@@ -2626,81 +2626,81 @@ data-flex-basis="320px"
 &lt;/h1>&lt;p>  隔天禮拜一的下午竟然要考 資料結構 的期中考，我們完全的裸考，哈哈，還好考完的結果沒有爆掉，可喜可賀呀！&amp;#x1f604;&amp;#x1f604;&lt;/p>
 &lt;p>  最後依然要感謝這群願意陪我瘋、陪我玩的朋朋們。&lt;/p>
 &lt;h1 id="照片牆">&lt;a href="#%e7%85%a7%e7%89%87%e7%89%86" class="header-anchor">&lt;/a>照片牆
-&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-01.jpg"
+&lt;/h1>&lt;p>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-01.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-01_hu5107860854333033854.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-01_hu16096856819843403706.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-01_hu5107860854333033854.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-01_hu16096856819843403706.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-02.jpg"
 width="1450"
 height="2473"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-02_hu6062498178871183556.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-02_hu3611247160212719698.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-02_hu6062498178871183556.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-02_hu3611247160212719698.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="58"
 data-flex-basis="140px"
->&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-03.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-03.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-03_hu15524321587178613795.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-03_hu6984839340179966807.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-03_hu15524321587178613795.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-03_hu6984839340179966807.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-04.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-04.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-04_hu256418150766378292.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-04_hu7423338475624715299.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-04_hu256418150766378292.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-04_hu7423338475624715299.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-05.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-05.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-05_hu9727642031238411839.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-05_hu12985130007848069164.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-05_hu9727642031238411839.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-05_hu12985130007848069164.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-06.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-06.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-06_hu2849153615108333132.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-06_hu8461899701742486948.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-06_hu2849153615108333132.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-06_hu8461899701742486948.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-07.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-07.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-07_hu833859084723426469.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-07_hu7863497376061262324.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-07_hu833859084723426469.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-07_hu7863497376061262324.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-08.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-08.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-08_hu177535166836878377.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-08_hu17443941932507378815.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-08_hu177535166836878377.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-08_hu17443941932507378815.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-04/experience-04-09.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-04/experience-04-09.jpg"
 width="12516"
 height="3764"
-srcset="https://blog.smallten.me/p/experience-04/experience-04-09_hu6807626184308899633.jpg 480w, https://blog.smallten.me/p/experience-04/experience-04-09_hu16432342244658736647.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-04/experience-04-09_hu6807626184308899633.jpg 480w, https://adam7066.github.io/p/experience-04/experience-04-09_hu16432342244658736647.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="332"
 data-flex-basis="798px"
->&lt;/p></description></item><item><title>初階服務學習 - 淨灘</title><link>https://blog.smallten.me/p/experience-03/</link><pubDate>Sun, 21 Nov 2021 23:01:49 +0800</pubDate><guid>https://blog.smallten.me/p/experience-03/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+>&lt;/p></description></item><item><title>初階服務學習 - 淨灘</title><link>https://adam7066.github.io/p/experience-03/</link><pubDate>Sun, 21 Nov 2021 23:01:49 +0800</pubDate><guid>https://adam7066.github.io/p/experience-03/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
 &lt;/h1>&lt;p>  因為在 5 月時疫情大爆發，然後臺灣也隨之進入了三級警戒的情況，所以暑假的資工營就因此而被取消舉辦了。&lt;/p>
 &lt;p>  後來為了讓我們弄到一半的初階服務學習課程能繼續完成並拿到學分，因此最後變成了淨灘的活動。&lt;/p>
 &lt;h1 id="活動簡介">&lt;a href="#%e6%b4%bb%e5%8b%95%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>活動簡介
@@ -2726,18 +2726,18 @@ data-flex-basis="798px"
 &lt;p>  只是因為時間還有些早的緣故，我們便在旁邊的熱炒店吃了一下午餐，雖然我大部分的海產類都沒有很愛吃就是了，顆顆；後來因為沙灘大部分的垃圾都已被處理過了的緣故，所以我們就用手撿了剩餘細小的塑膠碎片，這部分當下是真的有被震撼到就是了。&lt;/p>
 &lt;p>  淨灘結束後的回程，我們先是爬了好一段山路才到公車站牌，其中看到了小小的瀑布或噴泉??(好啦，其實是下大雨然後山壁的流水而已啦)途中也看到了路邊有著大大小小的落石，感覺蠻危險的(怕///)，之後到了公車站牌，我們便去看路線的方向，而當我們看半天時，有一位好心的大媽就直接告訴我們是在對面，然後到了對面，又準備看路線圖時，有一位大爺，直接告訴我們來的這班車就是了，因此我們也順利的回到了北車，之後還順路逛了一下地下街才回學校。&lt;/p>
 &lt;p>  補充：這一整天穿著一雙濕球鞋，還好回去沒有得香港腳，但也踩了濕濕的襪子走了不少的路，回去腳底整個痛爆 &amp;#x1f622;&amp;#x1f622;&lt;/p>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-01.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-01_hu4917913692361974951.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-01_hu14548373500969615017.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-01_hu4917913692361974951.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-01_hu14548373500969615017.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-02.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-02_hu15586992035680886756.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-02_hu8700938061472447318.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-02_hu15586992035680886756.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-02_hu8700938061472447318.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
@@ -2747,67 +2747,67 @@ data-flex-basis="320px"
 &lt;/h2>&lt;p>  這一次也是跟上一次差不多的過程前往了基隆的和平島公園，唯一的不同就是沒有一早就下雨，這點對心情的影響真的蠻大的 &amp;#x1f604;&amp;#x1f604;。之後在等待集合的過程中，在附近走走逛逛，還看到了超大艘的貨輪出海，嘿嘿。&lt;/p>
 &lt;p>  然後，這次淨灘地過程還蠻歡樂的，但也撿了不少保麗龍、浮標、以及寶特瓶之類的物品，而且還撿到了不知誰用過的假 X (算是一種玩具?)，這些東西真的不要再亂丟了呀，唉&amp;hellip;&lt;/p>
 &lt;p>  結束的時候也剛好開始下雨，便在雨中拍了一下附近美麗的風景後，我們就用手機叫計程車前往下一個行程了&amp;hellip;詳情可以查看 &lt;a class="link" href="../experience-04/" >九份、金瓜石二日遊&lt;/a>&lt;/p>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-03.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-03.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-03_hu8961621466872540292.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-03_hu8439425258993365458.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-03_hu8961621466872540292.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-03_hu8439425258993365458.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-04.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-04.jpg"
 width="4224"
 height="2376"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-04_hu13910998926217931075.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-04_hu2097052324414803856.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-04_hu13910998926217931075.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-04_hu2097052324414803856.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="177"
 data-flex-basis="426px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-05.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-05.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-05_hu14067801048228500642.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-05_hu4084833095910634295.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-05_hu14067801048228500642.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-05_hu4084833095910634295.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-06.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-06.jpg"
 width="2026"
 height="2740"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-06_hu12942463722388477072.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-06_hu15788436229197282889.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-06_hu12942463722388477072.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-06_hu15788436229197282889.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="73"
 data-flex-basis="177px"
 >&lt;/p>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-07.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-07.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-07_hu17448975713632363569.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-07_hu16323246629515798981.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-07_hu17448975713632363569.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-07_hu16323246629515798981.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-08.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-08.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-08_hu14659712803138927666.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-08_hu16183858520871148559.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-08_hu14659712803138927666.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-08_hu16183858520871148559.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-09.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-09.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-09_hu11053609717985501480.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-09_hu6276975231170371721.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-09_hu11053609717985501480.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-09_hu6276975231170371721.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
->&lt;img src="https://blog.smallten.me/p/experience-03/experience-03-10.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-03/experience-03-10.jpg"
 width="4032"
 height="3024"
-srcset="https://blog.smallten.me/p/experience-03/experience-03-10_hu13186467760170855652.jpg 480w, https://blog.smallten.me/p/experience-03/experience-03-10_hu4389477296950756192.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-03/experience-03-10_hu13186467760170855652.jpg 480w, https://adam7066.github.io/p/experience-03/experience-03-10_hu4389477296950756192.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
@@ -2815,7 +2815,7 @@ data-flex-basis="320px"
 >&lt;/p>
 &lt;h2 id="後記">&lt;a href="#%e5%be%8c%e8%a8%98" class="header-anchor">&lt;/a>後記
 &lt;/h2>&lt;p>  其實說實話一開始準備幾乎都完成的資工營被取消變成淨灘活動時，心裡是有那麼一點不開心的，但是後來在經歷淨灘以及相關的課程後，我是覺得蠻棒的，畢竟不只對我們周遭的環境盡了一部分的心力外，也學習到了不少環保的相關知識。&lt;/p>
-&lt;p>  最後也要感謝這一次陪我一起行動的 饅頭頭 和 壯壯權，以及途中給予我們許多幫助的人們，再次感謝還好有你們!!&lt;/p></description></item><item><title>2021 NCPC 初賽</title><link>https://blog.smallten.me/p/experience-02/</link><pubDate>Mon, 04 Oct 2021 09:15:29 +0800</pubDate><guid>https://blog.smallten.me/p/experience-02/</guid><description>&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
+&lt;p>  最後也要感謝這一次陪我一起行動的 饅頭頭 和 壯壯權，以及途中給予我們許多幫助的人們，再次感謝還好有你們!!&lt;/p></description></item><item><title>2021 NCPC 初賽</title><link>https://adam7066.github.io/p/experience-02/</link><pubDate>Mon, 04 Oct 2021 09:15:29 +0800</pubDate><guid>https://adam7066.github.io/p/experience-02/</guid><description>&lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
 &lt;/h1>&lt;ul>
 &lt;li>&lt;a class="link" href="https://ncpc.nsysu.edu.tw/" target="_blank" rel="noopener"
 >NCPC&lt;/a>&lt;/li>
@@ -2827,10 +2827,10 @@ data-flex-basis="320px"
 &lt;li>全體：26 / 166&lt;/li>
 &lt;/ul>
 &lt;h1 id="心得文">&lt;a href="#%e5%bf%83%e5%be%97%e6%96%87" class="header-anchor">&lt;/a>心得文
-&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/experience-02/experience-02-01.jpg"
+&lt;/h1>&lt;p>&lt;img src="https://adam7066.github.io/p/experience-02/experience-02-01.jpg"
 width="2048"
 height="1536"
-srcset="https://blog.smallten.me/p/experience-02/experience-02-01_hu3913765137687419753.jpg 480w, https://blog.smallten.me/p/experience-02/experience-02-01_hu13379748831262984423.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-02/experience-02-01_hu3913765137687419753.jpg 480w, https://adam7066.github.io/p/experience-02/experience-02-01_hu13379748831262984423.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
@@ -2871,23 +2871,23 @@ data-flex-basis="320px"
 &lt;/h1>&lt;ul>
 &lt;li>到底為什麼要在生日當天打比賽呢，生日不就應該好好的躺在床上耍廢到極致嗎？真是的。好啦，這邊也要感謝我家饅頭頭的生日禮物，雖然遲了一天，原因是卡片沒寫好，（咦～），但都是我喜歡的東西呢(有最可愛的小十，還有史萊姆)，太開心了吧！！我自己也送了自己不少東西（單純找理由買東西，誤///）其中有大小兩隻可愛的小十呦，開心～～&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-02/experience-02-02.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-02/experience-02-02.jpg"
 width="1170"
 height="2080"
-srcset="https://blog.smallten.me/p/experience-02/experience-02-02_hu4370072108795156260.jpg 480w, https://blog.smallten.me/p/experience-02/experience-02-02_hu6212275531632994419.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-02/experience-02-02_hu4370072108795156260.jpg 480w, https://adam7066.github.io/p/experience-02/experience-02-02_hu6212275531632994419.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="56"
 data-flex-basis="135px"
->&lt;img src="https://blog.smallten.me/p/experience-02/experience-02-03.jpg"
+>&lt;img src="https://adam7066.github.io/p/experience-02/experience-02-03.jpg"
 width="1169"
 height="2024"
-srcset="https://blog.smallten.me/p/experience-02/experience-02-03_hu2330472098947146064.jpg 480w, https://blog.smallten.me/p/experience-02/experience-02-03_hu18039431024427293935.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-02/experience-02-03_hu2330472098947146064.jpg 480w, https://adam7066.github.io/p/experience-02/experience-02-03_hu18039431024427293935.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="57"
 data-flex-basis="138px"
->&lt;/p></description></item><item><title>StarCoder2021暑訓：Week06</title><link>https://blog.smallten.me/p/star_coder-07/</link><pubDate>Wed, 18 Aug 2021 16:02:47 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-07/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
+>&lt;/p></description></item><item><title>StarCoder2021暑訓：Week06</title><link>https://adam7066.github.io/p/star_coder-07/</link><pubDate>Wed, 18 Aug 2021 16:02:47 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-07/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
 &lt;/h1>&lt;ul>
 &lt;li>最短路徑&lt;/li>
 &lt;/ul>
@@ -4322,7 +4322,7 @@ data-flex-basis="138px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Arch Linux-04：基本軟體安裝</title><link>https://blog.smallten.me/p/arch_linux-04/</link><pubDate>Wed, 11 Aug 2021 22:18:09 +0800</pubDate><guid>https://blog.smallten.me/p/arch_linux-04/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
+&lt;/div></description></item><item><title>Arch Linux-04：基本軟體安裝</title><link>https://adam7066.github.io/p/arch_linux-04/</link><pubDate>Wed, 11 Aug 2021 22:18:09 +0800</pubDate><guid>https://adam7066.github.io/p/arch_linux-04/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
 &lt;/h1>&lt;p>  有了&lt;a class="link" href="../arch_linux-03" >桌面環境&lt;/a>，軟體也不可以缺少吧，因此這裡會紀錄一下用到的軟體的安裝方式&lt;/p>
 &lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
 &lt;/h1>&lt;h2 id="yay">&lt;a href="#yay" class="header-anchor">&lt;/a>Yay
@@ -4604,7 +4604,7 @@ data-flex-basis="138px"
 &lt;li>使用：&lt;code>uxplay&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Arch Linux-03：KDE</title><link>https://blog.smallten.me/p/arch_linux-03/</link><pubDate>Wed, 11 Aug 2021 21:55:25 +0800</pubDate><guid>https://blog.smallten.me/p/arch_linux-03/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
+&lt;/ul></description></item><item><title>Arch Linux-03：KDE</title><link>https://adam7066.github.io/p/arch_linux-03/</link><pubDate>Wed, 11 Aug 2021 21:55:25 +0800</pubDate><guid>https://adam7066.github.io/p/arch_linux-03/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
 &lt;/h1>&lt;p>  在安裝完了&lt;a class="link" href="../arch_linux-01" >系統&lt;/a>，也設定了&lt;a class="link" href="../arch_linux-02" >基本配置&lt;/a>後，想當然爾，該來安裝一個桌面環境了吧，因此接下來將告訴你怎麼安裝 &lt;a class="link" href="https://wiki.archlinux.org/title/KDE" target="_blank" rel="noopener"
 >KDE&lt;/a>。&lt;/p>
 &lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
@@ -4697,7 +4697,7 @@ data-flex-basis="138px"
 &lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Arch Linux-02：基本設置</title><link>https://blog.smallten.me/p/arch_linux-02/</link><pubDate>Wed, 11 Aug 2021 17:26:15 +0800</pubDate><guid>https://blog.smallten.me/p/arch_linux-02/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
+&lt;/ul></description></item><item><title>Arch Linux-02：基本設置</title><link>https://adam7066.github.io/p/arch_linux-02/</link><pubDate>Wed, 11 Aug 2021 17:26:15 +0800</pubDate><guid>https://adam7066.github.io/p/arch_linux-02/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
 &lt;/h1>&lt;p>  在 &lt;a class="link" href="../arch_linux-01" >Arch Linux-01：系統安裝&lt;/a> 中，已經介紹了如何完整的安裝一個基礎的 Arch Linux 系統，而這部分將去介紹一些基本的設定或是驅動的安裝。&lt;/p>
 &lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
 &lt;/h1>&lt;h2 id="新增使用者">&lt;a href="#%e6%96%b0%e5%a2%9e%e4%bd%bf%e7%94%a8%e8%80%85" class="header-anchor">&lt;/a>新增使用者
@@ -4757,7 +4757,7 @@ data-flex-basis="138px"
 &lt;li>重新啟動：&lt;code>reboot&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Arch Linux-01：系統安裝</title><link>https://blog.smallten.me/p/arch_linux-01/</link><pubDate>Wed, 11 Aug 2021 13:50:32 +0800</pubDate><guid>https://blog.smallten.me/p/arch_linux-01/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
+&lt;/ul></description></item><item><title>Arch Linux-01：系統安裝</title><link>https://adam7066.github.io/p/arch_linux-01/</link><pubDate>Wed, 11 Aug 2021 13:50:32 +0800</pubDate><guid>https://adam7066.github.io/p/arch_linux-01/</guid><description>&lt;h1 id="前言">&lt;a href="#%e5%89%8d%e8%a8%80" class="header-anchor">&lt;/a>前言
 &lt;/h1>&lt;p>  在被&lt;a class="link" href="https://github.com/jw910731/" target="_blank" rel="noopener"
 >吳文元&lt;/a>朋朋洗腦、推坑、直銷 &lt;a class="link" href="https://archlinux.org/" target="_blank" rel="noopener"
 >Arch Linux&lt;/a> 的各種好之後，我終於也入坑了，而這一系列將紀錄整個的安裝過程，避免未來再踩一次坑。&lt;/p>
@@ -5036,7 +5036,7 @@ data-flex-basis="138px"
 >Linux_console - Fonts&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>StarCoder2021暑訓：Week05</title><link>https://blog.smallten.me/p/star_coder-06/</link><pubDate>Tue, 10 Aug 2021 23:50:17 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-06/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
+&lt;/ul></description></item><item><title>StarCoder2021暑訓：Week05</title><link>https://adam7066.github.io/p/star_coder-06/</link><pubDate>Tue, 10 Aug 2021 23:50:17 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-06/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
 &lt;/h1>&lt;ul>
 &lt;li>最小生成樹&lt;/li>
 &lt;/ul>
@@ -6426,7 +6426,7 @@ data-flex-basis="138px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>StarCoder2021暑訓：Week04</title><link>https://blog.smallten.me/p/star_coder-05/</link><pubDate>Fri, 06 Aug 2021 10:42:11 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-05/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
+&lt;/div></description></item><item><title>StarCoder2021暑訓：Week04</title><link>https://adam7066.github.io/p/star_coder-05/</link><pubDate>Fri, 06 Aug 2021 10:42:11 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-05/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
 &lt;/h1>&lt;ul>
 &lt;li>動態規劃&lt;/li>
 &lt;/ul>
@@ -7685,7 +7685,7 @@ data-flex-basis="138px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>StarCoder2021暑訓：Week03</title><link>https://blog.smallten.me/p/star_coder-04/</link><pubDate>Wed, 28 Jul 2021 05:48:25 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-04/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
+&lt;/div></description></item><item><title>StarCoder2021暑訓：Week03</title><link>https://adam7066.github.io/p/star_coder-04/</link><pubDate>Wed, 28 Jul 2021 05:48:25 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-04/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
 &lt;/h1>&lt;ul>
 &lt;li>圖、狀態搜尋、拓樸排序、尤拉路&lt;/li>
 &lt;/ul>
@@ -8983,7 +8983,7 @@ data-flex-basis="138px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>PlayStation Vita-03：NoPayStation Browser</title><link>https://blog.smallten.me/p/psv-03/</link><pubDate>Mon, 26 Jul 2021 11:50:17 +0800</pubDate><guid>https://blog.smallten.me/p/psv-03/</guid><description>&lt;ol>
+&lt;/div></description></item><item><title>PlayStation Vita-03：NoPayStation Browser</title><link>https://adam7066.github.io/p/psv-03/</link><pubDate>Mon, 26 Jul 2021 11:50:17 +0800</pubDate><guid>https://adam7066.github.io/p/psv-03/</guid><description>&lt;ol>
 &lt;li>下載 &lt;a class="link" href="https://nopaystation.com/" target="_blank" rel="noopener"
 >NPS Clients&lt;/a>，並放到一個資料夾中。&lt;/li>
 &lt;li>下載 &lt;a class="link" href="https://github.com/mmozeiko/pkg2zip/releases" target="_blank" rel="noopener"
@@ -9023,7 +9023,7 @@ data-flex-basis="138px"
 &lt;li>重新啟動 NPS Browser。&lt;/li>
 &lt;li>下載你要的檔案，並將其放進 PSV 對應路徑中。&lt;/li>
 &lt;li>進入 Vita Shell，按下三角形按鈕，選擇 Refresh LiveArea&lt;/li>
-&lt;/ol></description></item><item><title>PlayStation Vita-02：NoNpDrm</title><link>https://blog.smallten.me/p/psv-02/</link><pubDate>Mon, 26 Jul 2021 11:46:32 +0800</pubDate><guid>https://blog.smallten.me/p/psv-02/</guid><description>&lt;ol>
+&lt;/ol></description></item><item><title>PlayStation Vita-02：NoNpDrm</title><link>https://adam7066.github.io/p/psv-02/</link><pubDate>Mon, 26 Jul 2021 11:46:32 +0800</pubDate><guid>https://adam7066.github.io/p/psv-02/</guid><description>&lt;ol>
 &lt;li>在 PSV 執行 Vita Shell，然後按一下 Select 按鈕，最後以 USB 連接 PC。&lt;/li>
 &lt;li>下載 &lt;a class="link" href="https://github.com/TheOfficialFloW/NoNpDrm/releases" target="_blank" rel="noopener"
 >NoNpDrm&lt;/a>，並將 &lt;code>nonpdrm.skprx&lt;/code> 放進 tai 資料夾中。&lt;/li>
@@ -9032,7 +9032,7 @@ data-flex-basis="138px"
 &lt;li>選擇下方新增的空白行，並輸入 &lt;code>ux0:tai/nonpdrm.skprx&lt;/code>，然後儲存離開。&lt;/li>
 &lt;li>到設定中的 HENkaku 設置，選擇 重載 taiHEN config.txt。&lt;/li>
 &lt;li>重新啟動 PSV。&lt;/li>
-&lt;/ol></description></item><item><title>PlayStation Vita-01：H-encore 2</title><link>https://blog.smallten.me/p/psv-01/</link><pubDate>Mon, 26 Jul 2021 11:04:05 +0800</pubDate><guid>https://blog.smallten.me/p/psv-01/</guid><description>&lt;ol>
+&lt;/ol></description></item><item><title>PlayStation Vita-01：H-encore 2</title><link>https://adam7066.github.io/p/psv-01/</link><pubDate>Mon, 26 Jul 2021 11:04:05 +0800</pubDate><guid>https://adam7066.github.io/p/psv-01/</guid><description>&lt;ol>
 &lt;li>下載 &lt;a class="link" href="https://codestation.github.io/qcma/" target="_blank" rel="noopener"
 >Qcma&lt;/a> 並安裝到電腦上。&lt;/li>
 &lt;li>PSV 以 USB 的方式連接到 PC。&lt;/li>
@@ -9046,7 +9046,7 @@ data-flex-basis="138px"
 &lt;/ol>
 &lt;blockquote>
 &lt;p>之後若有重開機的話，得重新進入 h-encore 2 再離開即可。&lt;/p>
-&lt;/blockquote></description></item><item><title>StarCoder2021暑訓：Week02</title><link>https://blog.smallten.me/p/star_coder-03/</link><pubDate>Sat, 24 Jul 2021 08:26:57 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-03/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
+&lt;/blockquote></description></item><item><title>StarCoder2021暑訓：Week02</title><link>https://adam7066.github.io/p/star_coder-03/</link><pubDate>Sat, 24 Jul 2021 08:26:57 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-03/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
 &lt;/h1>&lt;ul>
 &lt;li>STL、併查集&lt;/li>
 &lt;/ul>
@@ -10176,7 +10176,7 @@ data-flex-basis="138px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>2021 R2S CTF</title><link>https://blog.smallten.me/p/experience-01/</link><pubDate>Mon, 19 Jul 2021 14:03:54 +0800</pubDate><guid>https://blog.smallten.me/p/experience-01/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
+&lt;/div></description></item><item><title>2021 R2S CTF</title><link>https://adam7066.github.io/p/experience-01/</link><pubDate>Mon, 19 Jul 2021 14:03:54 +0800</pubDate><guid>https://adam7066.github.io/p/experience-01/</guid><description>&lt;h1 id="前情提要">&lt;a href="#%e5%89%8d%e6%83%85%e6%8f%90%e8%a6%81" class="header-anchor">&lt;/a>前情提要
 &lt;/h1>&lt;p>  一開始時，學長們在 Messenger 的群組裡問有沒有人要參加這場新手向的 CTF 競賽，我是沒有選擇參加的 (因為我從來沒有深入的去玩、學習這方面的東東，可以算是個純正的小萌新~~)，然而到最後因為人數的關係學長們組成了兩隊，然後還能再多 2 個人，因此我也加入想說去見見世面也好。(其中還得感謝學長們的鼓勵，以及願意帶我這個什麼都不會的新手)&amp;#x1f606;&amp;#x1f606;&lt;/p>
 &lt;h1 id="競賽簡介">&lt;a href="#%e7%ab%b6%e8%b3%bd%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>競賽簡介
 &lt;/h1>&lt;ul>
@@ -10192,18 +10192,18 @@ data-flex-basis="138px"
 &lt;li>All: 7 / 81&lt;/li>
 &lt;li>Offical Only: 4 / 43&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/experience-01/experience-01-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/experience-01/experience-01-01.jpg"
 width="1389"
 height="657"
-srcset="https://blog.smallten.me/p/experience-01/experience-01-01_hu15385362630743503328.jpg 480w, https://blog.smallten.me/p/experience-01/experience-01-01_hu3716362217014567324.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-01/experience-01-01_hu15385362630743503328.jpg 480w, https://adam7066.github.io/p/experience-01/experience-01-01_hu3716362217014567324.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="211"
 data-flex-basis="507px"
-> &lt;img src="https://blog.smallten.me/p/experience-01/experience-01-02.jpg"
+> &lt;img src="https://adam7066.github.io/p/experience-01/experience-01-02.jpg"
 width="1388"
 height="659"
-srcset="https://blog.smallten.me/p/experience-01/experience-01-02_hu5337331145363799582.jpg 480w, https://blog.smallten.me/p/experience-01/experience-01-02_hu4400043348555431056.jpg 1024w"
+srcset="https://adam7066.github.io/p/experience-01/experience-01-02_hu5337331145363799582.jpg 480w, https://adam7066.github.io/p/experience-01/experience-01-02_hu4400043348555431056.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="210"
@@ -10288,7 +10288,7 @@ data-flex-basis="505px"
 &lt;/li>
 &lt;/ul>
 &lt;h1 id="心得">&lt;a href="#%e5%bf%83%e5%be%97" class="header-anchor">&lt;/a>心得
-&lt;/h1>&lt;p>  這次是我第一次參加 CTF 相關的競賽，雖然幾乎都不太會寫，主要的題目還都是學長們解開的，但這場比賽中我依然學到了不少新的技巧，也對 CTF 有了更多的興趣，未來繼續努力吧!&lt;/p></description></item><item><title>StarCoder2021暑訓：Week01</title><link>https://blog.smallten.me/p/star_coder-02/</link><pubDate>Thu, 15 Jul 2021 00:07:54 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-02/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
+&lt;/h1>&lt;p>  這次是我第一次參加 CTF 相關的競賽，雖然幾乎都不太會寫，主要的題目還都是學長們解開的，但這場比賽中我依然學到了不少新的技巧，也對 CTF 有了更多的興趣，未來繼續努力吧!&lt;/p></description></item><item><title>StarCoder2021暑訓：Week01</title><link>https://adam7066.github.io/p/star_coder-02/</link><pubDate>Thu, 15 Jul 2021 00:07:54 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-02/</guid><description>&lt;h1 id="主題">&lt;a href="#%e4%b8%bb%e9%a1%8c" class="header-anchor">&lt;/a>主題
 &lt;/h1>&lt;ul>
 &lt;li>搜尋、排序、貪心&lt;/li>
 &lt;/ul>
@@ -11155,7 +11155,7 @@ data-flex-basis="505px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
-&lt;/ul></description></item><item><title>StarCoder2021暑訓</title><link>https://blog.smallten.me/p/star_coder-01/</link><pubDate>Wed, 14 Jul 2021 22:52:11 +0800</pubDate><guid>https://blog.smallten.me/p/star_coder-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>StarCoder2021暑訓</title><link>https://adam7066.github.io/p/star_coder-01/</link><pubDate>Wed, 14 Jul 2021 22:52:11 +0800</pubDate><guid>https://adam7066.github.io/p/star_coder-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;table>
 &lt;thead>
 &lt;tr>
@@ -11774,7 +11774,7 @@ data-flex-basis="505px"
 &lt;/tbody>
 &lt;/table>
 &lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-08：Linux List</title><link>https://blog.smallten.me/p/computer_programming_2-08/</link><pubDate>Tue, 13 Jul 2021 22:25:50 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-08/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>程式設計(二)-08：Linux List</title><link>https://adam7066.github.io/p/computer_programming_2-08/</link><pubDate>Tue, 13 Jul 2021 22:25:50 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-08/</guid><description>&lt;ul>
 &lt;li>linuxlist.h&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -12202,7 +12202,7 @@ data-flex-basis="505px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>程式設計(二)-07：Some Tricks</title><link>https://blog.smallten.me/p/computer_programming_2-07/</link><pubDate>Tue, 13 Jul 2021 21:39:10 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-07/</guid><description>&lt;h1 id="predefined-macros">&lt;a href="#predefined-macros" class="header-anchor">&lt;/a>Predefined Macros
+&lt;/div></description></item><item><title>程式設計(二)-07：Some Tricks</title><link>https://adam7066.github.io/p/computer_programming_2-07/</link><pubDate>Tue, 13 Jul 2021 21:39:10 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-07/</guid><description>&lt;h1 id="predefined-macros">&lt;a href="#predefined-macros" class="header-anchor">&lt;/a>Predefined Macros
 &lt;/h1>&lt;h2 id="standard-predefined-macros">&lt;a href="#standard-predefined-macros" class="header-anchor">&lt;/a>Standard Predefined Macros
 &lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -12333,10 +12333,10 @@ data-flex-basis="505px"
 &lt;/h4>&lt;ul>
 &lt;li>fork() creates a new process by duplicating the calling process.&lt;/li>
 &lt;li>This is an important function. However, I will not talk too much about this function but you will learn more in System Programming.
-&lt;img src="https://blog.smallten.me/p/computer_programming_2-07/computer_programming_2-07-01.jpg"
+&lt;img src="https://adam7066.github.io/p/computer_programming_2-07/computer_programming_2-07-01.jpg"
 width="599"
 height="429"
-srcset="https://blog.smallten.me/p/computer_programming_2-07/computer_programming_2-07-01_hu7770491627571627118.jpg 480w, https://blog.smallten.me/p/computer_programming_2-07/computer_programming_2-07-01_hu2663075692407547203.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-07/computer_programming_2-07-01_hu7770491627571627118.jpg 480w, https://adam7066.github.io/p/computer_programming_2-07/computer_programming_2-07-01_hu2663075692407547203.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="139"
@@ -12557,14 +12557,14 @@ data-flex-basis="335px"
 &lt;/div>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-06：Macro</title><link>https://blog.smallten.me/p/computer_programming_2-06/</link><pubDate>Tue, 13 Jul 2021 20:47:06 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-06/</guid><description>&lt;h1 id="preprocessor-預處理器">&lt;a href="#preprocessor-%e9%a0%90%e8%99%95%e7%90%86%e5%99%a8" class="header-anchor">&lt;/a>Preprocessor 預處理器
+&lt;/ul></description></item><item><title>程式設計(二)-06：Macro</title><link>https://adam7066.github.io/p/computer_programming_2-06/</link><pubDate>Tue, 13 Jul 2021 20:47:06 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-06/</guid><description>&lt;h1 id="preprocessor-預處理器">&lt;a href="#preprocessor-%e9%a0%90%e8%99%95%e7%90%86%e5%99%a8" class="header-anchor">&lt;/a>Preprocessor 預處理器
 &lt;/h1>&lt;ul>
 &lt;li>在編譯器將您的源代碼編譯為組語前，還有一個稱為預處理的附加階段。&lt;/li>
 &lt;li>Objective: Produce a source code file with preprocessing commands properly sorted out.
-&lt;img src="https://blog.smallten.me/p/computer_programming_2-06/computer_programming_2-06-01.jpg"
+&lt;img src="https://adam7066.github.io/p/computer_programming_2-06/computer_programming_2-06-01.jpg"
 width="896"
 height="385"
-srcset="https://blog.smallten.me/p/computer_programming_2-06/computer_programming_2-06-01_hu4112501705419255426.jpg 480w, https://blog.smallten.me/p/computer_programming_2-06/computer_programming_2-06-01_hu18138717548076460322.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-06/computer_programming_2-06-01_hu4112501705419255426.jpg 480w, https://adam7066.github.io/p/computer_programming_2-06/computer_programming_2-06-01_hu18138717548076460322.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="232"
@@ -12745,7 +12745,7 @@ data-flex-basis="558px"
 &lt;hr>
 &lt;ul>
 &lt;li>請自行去了解 &lt;code>#&lt;/code> 及 &lt;code>##&lt;/code> 在巨集中的作用。&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-05：Variable Length Arguments List</title><link>https://blog.smallten.me/p/computer_programming_2-05/</link><pubDate>Mon, 12 Jul 2021 21:57:26 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-05/</guid><description>&lt;h1 id="program-argument">&lt;a href="#program-argument" class="header-anchor">&lt;/a>Program Argument
+&lt;/ul></description></item><item><title>程式設計(二)-05：Variable Length Arguments List</title><link>https://adam7066.github.io/p/computer_programming_2-05/</link><pubDate>Mon, 12 Jul 2021 21:57:26 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-05/</guid><description>&lt;h1 id="program-argument">&lt;a href="#program-argument" class="header-anchor">&lt;/a>Program Argument
 &lt;/h1>&lt;h3 id="argc-argv">&lt;a href="#argc-argv" class="header-anchor">&lt;/a>argc, argv
 &lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -12783,10 +12783,10 @@ data-flex-basis="558px"
 &lt;/ul>
 &lt;/li>
 &lt;li>Simplified C Linking Process
-&lt;img src="https://blog.smallten.me/p/computer_programming_2-05/computer_programming_2-05-01.jpg"
+&lt;img src="https://adam7066.github.io/p/computer_programming_2-05/computer_programming_2-05-01.jpg"
 width="903"
 height="657"
-srcset="https://blog.smallten.me/p/computer_programming_2-05/computer_programming_2-05-01_hu2549156091622310294.jpg 480w, https://blog.smallten.me/p/computer_programming_2-05/computer_programming_2-05-01_hu2642025421943501073.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-05/computer_programming_2-05-01_hu2549156091622310294.jpg 480w, https://adam7066.github.io/p/computer_programming_2-05/computer_programming_2-05-01_hu2642025421943501073.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="137"
@@ -13134,7 +13134,7 @@ data-flex-basis="329px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-04：File Processing-02</title><link>https://blog.smallten.me/p/computer_programming_2-04/</link><pubDate>Sat, 08 May 2021 17:23:11 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-04/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>程式設計(二)-04：File Processing-02</title><link>https://adam7066.github.io/p/computer_programming_2-04/</link><pubDate>Sat, 08 May 2021 17:23:11 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-04/</guid><description>&lt;ul>
 &lt;li>如何顯示 BMP 檔 ?
 &lt;ul>
 &lt;li>有很多 libraries 可以幫助您做到這一點。實際上，您應該使用它們而不是從頭開始開發。&lt;/li>
@@ -13179,18 +13179,18 @@ data-flex-basis="329px"
 &lt;li>軟體開發者可以使用它來編寫高性能的電腦遊戲和其他多媒體應用程式。&lt;/li>
 &lt;li>SDL 架構 / 範例&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-01.jpg"
 width="789"
 height="663"
-srcset="https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-01_hu15376884360290216737.jpg 480w, https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-01_hu2515003578839042156.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-01_hu15376884360290216737.jpg 480w, https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-01_hu2515003578839042156.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="119"
 data-flex-basis="285px"
-> &lt;img src="https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-02.jpg"
+> &lt;img src="https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-02.jpg"
 width="799"
 height="506"
-srcset="https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-02_hu7992973231419426355.jpg 480w, https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-02_hu4098019237280995977.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-02_hu7992973231419426355.jpg 480w, https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-02_hu4098019237280995977.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="157"
@@ -13270,10 +13270,10 @@ data-flex-basis="378px"
 &lt;li>These functions return information about a file, in the buffer pointed to by buf.&lt;/li>
 &lt;/ul>
 &lt;h1 id="mmap">&lt;a href="#mmap" class="header-anchor">&lt;/a>mmap
-&lt;/h1>&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-03.png"
+&lt;/h1>&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-03.png"
 width="504"
 height="373"
-srcset="https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-03_hu10062544659553517583.png 480w, https://blog.smallten.me/p/computer_programming_2-04/computer_programming_2-04-03_hu4603969150392364191.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-03_hu10062544659553517583.png 480w, https://adam7066.github.io/p/computer_programming_2-04/computer_programming_2-04-03_hu4603969150392364191.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="135"
@@ -13287,14 +13287,14 @@ data-flex-basis="324px"
 &lt;li>在使用 mmap 後，請記得要 &lt;code>munmap&lt;/code>。&lt;/li>
 &lt;li>&lt;code>mmap()&lt;/code> 不是標準 C 的函式&lt;/li>
 &lt;li>&lt;code>MapViewOfFile&lt;/code> function is somewhat equivalent to mmap in Windows.&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-03：File Processing-01</title><link>https://blog.smallten.me/p/computer_programming_2-03/</link><pubDate>Fri, 02 Apr 2021 17:58:22 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-03/</guid><description>&lt;h1 id="file">&lt;a href="#file" class="header-anchor">&lt;/a>File
+&lt;/ul></description></item><item><title>程式設計(二)-03：File Processing-01</title><link>https://adam7066.github.io/p/computer_programming_2-03/</link><pubDate>Fri, 02 Apr 2021 17:58:22 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-03/</guid><description>&lt;h1 id="file">&lt;a href="#file" class="header-anchor">&lt;/a>File
 &lt;/h1>&lt;ul>
 &lt;li>C 將每個檔案視為一個連續的 bytes stream&lt;/li>
 &lt;li>每個檔案以 &lt;code>end-of-file&lt;/code> 為結尾，這是由系統提供而不是文件。
-&lt;img src="https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-01.jpg"
+&lt;img src="https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-01.jpg"
 width="812"
 height="100"
-srcset="https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-01_hu7527752010453324051.jpg 480w, https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-01_hu5946345389551410217.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-01_hu7527752010453324051.jpg 480w, https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-01_hu5946345389551410217.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="812"
@@ -13379,10 +13379,10 @@ data-flex-basis="1948px"
 &lt;/ul>
 &lt;h2 id="io-redirection">&lt;a href="#io-redirection" class="header-anchor">&lt;/a>I/O Redirection
 &lt;/h2>&lt;h3 id="stdout">&lt;a href="#stdout" class="header-anchor">&lt;/a>stdout
-&lt;/h3>&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-02.jpg"
+&lt;/h3>&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-02.jpg"
 width="890"
 height="552"
-srcset="https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-02_hu481598910743009187.jpg 480w, https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-02_hu13114987398873744076.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-02_hu481598910743009187.jpg 480w, https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-02_hu13114987398873744076.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="161"
@@ -13488,10 +13488,10 @@ data-flex-basis="386px"
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="file-position-pointer">&lt;a href="#file-position-pointer" class="header-anchor">&lt;/a>File Position Pointer
-&lt;/h2>&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-03.jpg"
+&lt;/h2>&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-03.jpg"
 width="784"
 height="487"
-srcset="https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-03_hu15911136391182091241.jpg 480w, https://blog.smallten.me/p/computer_programming_2-03/computer_programming_2-03-03_hu5253341277596996956.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-03_hu15911136391182091241.jpg 480w, https://adam7066.github.io/p/computer_programming_2-03/computer_programming_2-03-03_hu5253341277596996956.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="160"
@@ -13797,7 +13797,7 @@ data-flex-basis="386px"
 &lt;/h4>&lt;ul>
 &lt;li>Bless Hex Editor&lt;/li>
 &lt;li>GHex&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-02：Structure</title><link>https://blog.smallten.me/p/computer_programming_2-02/</link><pubDate>Fri, 02 Apr 2021 16:24:46 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-02/</guid><description>&lt;h1 id="structure">&lt;a href="#structure" class="header-anchor">&lt;/a>Structure
+&lt;/ul></description></item><item><title>程式設計(二)-02：Structure</title><link>https://adam7066.github.io/p/computer_programming_2-02/</link><pubDate>Fri, 02 Apr 2021 16:24:46 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-02/</guid><description>&lt;h1 id="structure">&lt;a href="#structure" class="header-anchor">&lt;/a>Structure
 &lt;/h1>&lt;ul>
 &lt;li>Structures 就是將一堆相關的變數整合在一個名字下。
 &lt;ul>
@@ -13949,18 +13949,18 @@ data-flex-basis="386px"
 &lt;/ul>
 &lt;/li>
 &lt;li>傳值 vs 傳址
-&lt;img src="https://blog.smallten.me/p/computer_programming_2-02/computer_programming_2-02-01.jpg"
+&lt;img src="https://adam7066.github.io/p/computer_programming_2-02/computer_programming_2-02-01.jpg"
 width="790"
 height="610"
-srcset="https://blog.smallten.me/p/computer_programming_2-02/computer_programming_2-02-01_hu851014184626278754.jpg 480w, https://blog.smallten.me/p/computer_programming_2-02/computer_programming_2-02-01_hu3295406105675429986.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-02/computer_programming_2-02-01_hu851014184626278754.jpg 480w, https://adam7066.github.io/p/computer_programming_2-02/computer_programming_2-02-01_hu3295406105675429986.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="129"
 data-flex-basis="310px"
-> &lt;img src="https://blog.smallten.me/p/computer_programming_2-02/computer_programming_2-02-02.jpg"
+> &lt;img src="https://adam7066.github.io/p/computer_programming_2-02/computer_programming_2-02-02.jpg"
 width="790"
 height="610"
-srcset="https://blog.smallten.me/p/computer_programming_2-02/computer_programming_2-02-02_hu16044435402397742674.jpg 480w, https://blog.smallten.me/p/computer_programming_2-02/computer_programming_2-02-02_hu12024670068913066820.jpg 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-02/computer_programming_2-02-02_hu16044435402397742674.jpg 480w, https://adam7066.github.io/p/computer_programming_2-02/computer_programming_2-02-02_hu12024670068913066820.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="129"
@@ -14125,7 +14125,7 @@ data-flex-basis="310px"
 &lt;li>但他們有什麼不同呢?&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>程式設計(二)-01：String</title><link>https://blog.smallten.me/p/computer_programming_2-01/</link><pubDate>Fri, 02 Apr 2021 14:40:30 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_2-01/</guid><description>&lt;h1 id="字元">&lt;a href="#%e5%ad%97%e5%85%83" class="header-anchor">&lt;/a>字元
+&lt;/ul></description></item><item><title>程式設計(二)-01：String</title><link>https://adam7066.github.io/p/computer_programming_2-01/</link><pubDate>Fri, 02 Apr 2021 14:40:30 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_2-01/</guid><description>&lt;h1 id="字元">&lt;a href="#%e5%ad%97%e5%85%83" class="header-anchor">&lt;/a>字元
 &lt;/h1>&lt;ul>
 &lt;li>在講字串之前我們先來看什麼是字元。&lt;/li>
 &lt;/ul>
@@ -14161,10 +14161,10 @@ data-flex-basis="310px"
 &lt;li>這樣看起來很像陣列對吧? Yes!&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_2-01/computer_programming_2-01-01.png"
+&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_2-01/computer_programming_2-01-01.png"
 width="600"
 height="106"
-srcset="https://blog.smallten.me/p/computer_programming_2-01/computer_programming_2-01-01_hu9585700847095969493.png 480w, https://blog.smallten.me/p/computer_programming_2-01/computer_programming_2-01-01_hu10578424752242740559.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_2-01/computer_programming_2-01-01_hu9585700847095969493.png 480w, https://adam7066.github.io/p/computer_programming_2-01/computer_programming_2-01-01_hu10578424752242740559.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="566"
@@ -14383,7 +14383,7 @@ data-flex-basis="1358px"
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>&lt;code>strerror&lt;/code> 搭配 &lt;code>errno&lt;/code> 使用 (&lt;code>#include &amp;lt;errno.h&amp;gt;&lt;/code>)&lt;/li>
-&lt;/ul></description></item><item><title>Hugo-02：優化 Blog</title><link>https://blog.smallten.me/p/hugo-02/</link><pubDate>Sun, 07 Feb 2021 04:06:17 +0800</pubDate><guid>https://blog.smallten.me/p/hugo-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Hugo-02：優化 Blog</title><link>https://adam7066.github.io/p/hugo-02/</link><pubDate>Sun, 07 Feb 2021 04:06:17 +0800</pubDate><guid>https://adam7066.github.io/p/hugo-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這部份是紀錄我修改的主題內容，並將 codeblocks 區塊美化，以及支援 &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
 >KaTex&lt;/a> 和 Google Analytics&lt;/li>
@@ -14720,7 +14720,7 @@ data-flex-basis="1358px"
 &lt;li>這裡的 &lt;code>if&lt;/code> 是避免在 local 測試時的數據也被紀錄下來&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item><item><title>Hugo-01：建立一個Hugo Blog</title><link>https://blog.smallten.me/p/hugo-01/</link><pubDate>Sun, 07 Feb 2021 03:22:22 +0800</pubDate><guid>https://blog.smallten.me/p/hugo-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ol></description></item><item><title>Hugo-01：建立一個Hugo Blog</title><link>https://adam7066.github.io/p/hugo-01/</link><pubDate>Sun, 07 Feb 2021 03:22:22 +0800</pubDate><guid>https://adam7066.github.io/p/hugo-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將快速帶你建立一個 Hugo Blog 並將其部屬到 GitHub 上&lt;/li>
 &lt;/ul>
@@ -14859,7 +14859,7 @@ data-flex-basis="1358px"
 &lt;/ul>
 &lt;/li>
 &lt;li>這樣就完成了，之後只要 push 時，便會自動更新網站了&lt;/li>
-&lt;/ol></description></item><item><title>程式設計(一)-08：Pointer</title><link>https://blog.smallten.me/p/computer_programming_1-08/</link><pubDate>Wed, 23 Dec 2020 19:38:14 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-08/</guid><description>&lt;h1 id="pointer">&lt;a href="#pointer" class="header-anchor">&lt;/a>Pointer
+&lt;/ol></description></item><item><title>程式設計(一)-08：Pointer</title><link>https://adam7066.github.io/p/computer_programming_1-08/</link><pubDate>Wed, 23 Dec 2020 19:38:14 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-08/</guid><description>&lt;h1 id="pointer">&lt;a href="#pointer" class="header-anchor">&lt;/a>Pointer
 &lt;/h1>&lt;ul>
 &lt;li>許多人不喜歡C是因為有「指標」&lt;/li>
 &lt;li>這可能是C中最困難的一個部分&lt;/li>
@@ -14867,10 +14867,10 @@ data-flex-basis="1358px"
 &lt;hr>
 &lt;ul>
 &lt;li>指標是一個變數，其值為記憶體位置
-&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-01.png"
+&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-01.png"
 width="624"
 height="482"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-01_hu10239324899219864129.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-01_hu2725014591566561077.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-01_hu10239324899219864129.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-01_hu2725014591566561077.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="129"
@@ -14889,10 +14889,10 @@ data-flex-basis="310px"
 &lt;/ul>
 &lt;/li>
 &lt;li>indirection operator &lt;code>*&lt;/code>：也被稱為dereferencing operator，返回指向對象的值
-&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-02.png"
+&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-02.png"
 width="560"
 height="482"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-02_hu9893268616403783829.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-02_hu12946903521331953612.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-02_hu9893268616403783829.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-02_hu12946903521331953612.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="116"
@@ -14923,30 +14923,30 @@ data-flex-basis="278px"
 &lt;li>為了避免模棱兩可(搞混)，我較喜歡&lt;code>&amp;amp;(array[0])&lt;/code>而不是&lt;code>array&lt;/code>、&lt;code>&amp;amp;array&lt;/code>&lt;/li>
 &lt;li>然而你不能寫出 &lt;code>array = &amp;amp;a&lt;/code>&lt;/li>
 &lt;li>int32_t
-&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-03.png"
+&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-03.png"
 width="1376"
 height="525"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-03_hu11414209631372358286.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-03_hu8730481397378728669.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-03_hu11414209631372358286.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-03_hu8730481397378728669.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="262"
 data-flex-basis="629px"
 >&lt;/li>
 &lt;li>int16_t
-&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-04.png"
+&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-04.png"
 width="1376"
 height="525"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-04_hu7466818830848826975.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-04_hu12017319852796587965.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-04_hu7466818830848826975.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-04_hu12017319852796587965.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="262"
 data-flex-basis="629px"
 >&lt;/li>
 &lt;li>int8_t
-&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-05.png"
+&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-05.png"
 width="1376"
 height="525"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-05_hu8369396309401679804.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-05_hu4168175412342961283.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-05_hu8369396309401679804.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-05_hu4168175412342961283.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="262"
@@ -14961,10 +14961,10 @@ data-flex-basis="629px"
 &lt;li>事實上，&lt;code>array[n] = *(ptr + n)&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="endian-issue">&lt;a href="#endian-issue" class="header-anchor">&lt;/a>Endian Issue
-&lt;/h3>&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-06.png"
+&lt;/h3>&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-06.png"
 width="868"
 height="368"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-06_hu6343136376056633573.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-06_hu10875924417879093718.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-06_hu6343136376056633573.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-06_hu10875924417879093718.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="235"
@@ -15103,10 +15103,10 @@ data-flex-basis="566px"
 &lt;li>記憶體被初始化成 &lt;code>0&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h4 id="free">&lt;a href="#free" class="header-anchor">&lt;/a>free
-&lt;/h4>&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-07.png"
+&lt;/h4>&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-07.png"
 width="600"
 height="313"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-07_hu5108118448464950708.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-07_hu8234317116073716682.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-07_hu5108118448464950708.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-07_hu8234317116073716682.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="191"
@@ -15117,10 +15117,10 @@ data-flex-basis="460px"
 &lt;li>此外，若已經 &lt;code>free(ptr)&lt;/code>，再次使用會發生未定義行為。&lt;/li>
 &lt;/ul>
 &lt;h3 id="double-pointer">&lt;a href="#double-pointer" class="header-anchor">&lt;/a>Double Pointer
-&lt;/h3>&lt;p>&lt;img src="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-08.png"
+&lt;/h3>&lt;p>&lt;img src="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-08.png"
 width="751"
 height="683"
-srcset="https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-08_hu6297739127714055848.png 480w, https://blog.smallten.me/p/computer_programming_1-08/computer_programming_1-08-08_hu6087289841606029318.png 1024w"
+srcset="https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-08_hu6297739127714055848.png 480w, https://adam7066.github.io/p/computer_programming_1-08/computer_programming_1-08-08_hu6087289841606029318.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="109"
@@ -15245,11 +15245,11 @@ data-flex-basis="263px"
 &lt;li>&lt;code>vmstat -n 1&lt;/code> ( &lt;code>-n 1&lt;/code> 為一秒輸出一次 )&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>First Hugo Blog</title><link>https://blog.smallten.me/p/first-hugo-blog/</link><pubDate>Fri, 18 Dec 2020 01:16:06 +0800</pubDate><guid>https://blog.smallten.me/p/first-hugo-blog/</guid><description>&lt;h1 id="第一個-hugo-blog">&lt;a href="#%e7%ac%ac%e4%b8%80%e5%80%8b-hugo-blog" class="header-anchor">&lt;/a>第一個 Hugo Blog
+&lt;/ul></description></item><item><title>First Hugo Blog</title><link>https://adam7066.github.io/p/first-hugo-blog/</link><pubDate>Fri, 18 Dec 2020 01:16:06 +0800</pubDate><guid>https://adam7066.github.io/p/first-hugo-blog/</guid><description>&lt;h1 id="第一個-hugo-blog">&lt;a href="#%e7%ac%ac%e4%b8%80%e5%80%8b-hugo-blog" class="header-anchor">&lt;/a>第一個 Hugo Blog
 &lt;/h1>&lt;p>  由於秉持著「人生總折騰」的道理，我來轉移 Blog 了(誤///)，好啦，其實是單純希望有個穩定且又能全天候供應的 Blog 而已，由於我的隊友兩人分別使用了 Hexo 及 Hugo ，因此一開始讓我有點難抉擇，但最終我還是選擇了 Hugo 。&lt;/p>
 &lt;p>  至於第二個選擇的難關就是主題了，挑了好久都沒看到順眼的，差點就要聽吳文元說的沒有喜歡的就自己寫呀(怕///)，最終還是挑到了一個稍微滿意的主題 &lt;a class="link" href="https://themes.gohugo.io/hugo-theme-stack/" target="_blank" rel="noopener"
 >Stack&lt;/a>。&lt;/p>
-&lt;p>  至於架設的過程到目前為止還算是蠻順利的，希望之後也不會遇到什麼大坑。&lt;/p></description></item><item><title>演算法-01：蓄水池抽樣法</title><link>https://blog.smallten.me/p/algorithm-01/</link><pubDate>Tue, 08 Dec 2020 16:02:25 +0800</pubDate><guid>https://blog.smallten.me/p/algorithm-01/</guid><description>&lt;h1 id="蓄水池抽樣法-reservoir-sampling">&lt;a href="#%e8%93%84%e6%b0%b4%e6%b1%a0%e6%8a%bd%e6%a8%a3%e6%b3%95-reservoir-sampling" class="header-anchor">&lt;/a>蓄水池抽樣法 (Reservoir Sampling)
+&lt;p>  至於架設的過程到目前為止還算是蠻順利的，希望之後也不會遇到什麼大坑。&lt;/p></description></item><item><title>演算法-01：蓄水池抽樣法</title><link>https://adam7066.github.io/p/algorithm-01/</link><pubDate>Tue, 08 Dec 2020 16:02:25 +0800</pubDate><guid>https://adam7066.github.io/p/algorithm-01/</guid><description>&lt;h1 id="蓄水池抽樣法-reservoir-sampling">&lt;a href="#%e8%93%84%e6%b0%b4%e6%b1%a0%e6%8a%bd%e6%a8%a3%e6%b3%95-reservoir-sampling" class="header-anchor">&lt;/a>蓄水池抽樣法 (Reservoir Sampling)
 &lt;/h1>&lt;ul>
 &lt;li>從 N 個樣本中，隨機抽取 K 個樣本，其中 N 非常大(不能將所有數據都放進記憶體或是一個未知數)，而每個被抽出來的機率要相等。&lt;/li>
 &lt;/ul>
@@ -15307,7 +15307,7 @@ data-flex-basis="263px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>程式設計(一)-07：Array</title><link>https://blog.smallten.me/p/computer_programming_1-07/</link><pubDate>Mon, 07 Dec 2020 19:38:14 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-07/</guid><description>&lt;h1 id="array">&lt;a href="#array" class="header-anchor">&lt;/a>Array
+&lt;/div></description></item><item><title>程式設計(一)-07：Array</title><link>https://adam7066.github.io/p/computer_programming_1-07/</link><pubDate>Mon, 07 Dec 2020 19:38:14 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-07/</guid><description>&lt;h1 id="array">&lt;a href="#array" class="header-anchor">&lt;/a>Array
 &lt;/h1>&lt;ul>
 &lt;li>陣列是一種可以儲存大量相同型別資料的方法。&lt;/li>
 &lt;li>連續的記憶體位置。&lt;/li>
@@ -15435,7 +15435,7 @@ data-flex-basis="263px"
 &lt;/ul>
 &lt;/li>
 &lt;li>我的建議：當考試的時候不要使用這功能( &lt;code>a[n]&lt;/code> )，因為你不知道編譯器的版本。&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(一)-06：Makefile</title><link>https://blog.smallten.me/p/computer_programming_1-06/</link><pubDate>Wed, 02 Dec 2020 21:45:51 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-06/</guid><description>&lt;h1 id="makefile-for-程設一">&lt;a href="#makefile-for-%e7%a8%8b%e8%a8%ad%e4%b8%80" class="header-anchor">&lt;/a>Makefile for 程設一
+&lt;/ul></description></item><item><title>程式設計(一)-06：Makefile</title><link>https://adam7066.github.io/p/computer_programming_1-06/</link><pubDate>Wed, 02 Dec 2020 21:45:51 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-06/</guid><description>&lt;h1 id="makefile-for-程設一">&lt;a href="#makefile-for-%e7%a8%8b%e8%a8%ad%e4%b8%80" class="header-anchor">&lt;/a>Makefile for 程設一
 &lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -15480,7 +15480,7 @@ data-flex-basis="263px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -&lt;span class="k">$(&lt;/span>RM&lt;span class="k">)&lt;/span> &lt;span class="k">$(&lt;/span>TARGETS&lt;span class="k">)&lt;/span> &lt;span class="k">$(&lt;/span>foreach targ,&lt;span class="k">$(&lt;/span>TARGETS&lt;span class="k">)&lt;/span>,&lt;span class="k">$(&lt;/span>foreach obj, &lt;span class="k">$($(&lt;/span>targ&lt;span class="k">)&lt;/span>_OBJ&lt;span class="k">)&lt;/span>, &lt;span class="k">$(&lt;/span>obj&lt;span class="k">)))&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>程式設計(一)-05：Function</title><link>https://blog.smallten.me/p/computer_programming_1-05/</link><pubDate>Sat, 21 Nov 2020 21:48:47 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-05/</guid><description>&lt;h1 id="function">&lt;a href="#function" class="header-anchor">&lt;/a>Function
+&lt;/div></description></item><item><title>程式設計(一)-05：Function</title><link>https://adam7066.github.io/p/computer_programming_1-05/</link><pubDate>Sat, 21 Nov 2020 21:48:47 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-05/</guid><description>&lt;h1 id="function">&lt;a href="#function" class="header-anchor">&lt;/a>Function
 &lt;/h1>&lt;h2 id="函式">&lt;a href="#%e5%87%bd%e5%bc%8f" class="header-anchor">&lt;/a>函式
 &lt;/h2>&lt;h4 id="double">&lt;a href="#double" class="header-anchor">&lt;/a>double
 &lt;/h4>&lt;ul>
@@ -15693,7 +15693,7 @@ data-flex-basis="263px"
 &lt;li>性能效率可能比迭代差。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>程式設計(一)-04：Loop</title><link>https://blog.smallten.me/p/computer_programming_1-04/</link><pubDate>Sun, 18 Oct 2020 20:33:18 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-04/</guid><description>&lt;h1 id="loop">&lt;a href="#loop" class="header-anchor">&lt;/a>Loop
+&lt;/ul></description></item><item><title>程式設計(一)-04：Loop</title><link>https://adam7066.github.io/p/computer_programming_1-04/</link><pubDate>Sun, 18 Oct 2020 20:33:18 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-04/</guid><description>&lt;h1 id="loop">&lt;a href="#loop" class="header-anchor">&lt;/a>Loop
 &lt;/h1>&lt;pre>&lt;code>- `while`
 - `for`
 - `do while`
@@ -15770,7 +15770,7 @@ data-flex-basis="263px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="nf">sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sec&lt;/span>&lt;span class="p">);&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>程式設計(一)-03：Condition Control</title><link>https://blog.smallten.me/p/computer_programming_1-03/</link><pubDate>Thu, 15 Oct 2020 20:53:14 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-03/</guid><description>&lt;h1 id="condition-control">&lt;a href="#condition-control" class="header-anchor">&lt;/a>Condition Control
+&lt;/div></description></item><item><title>程式設計(一)-03：Condition Control</title><link>https://adam7066.github.io/p/computer_programming_1-03/</link><pubDate>Thu, 15 Oct 2020 20:53:14 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-03/</guid><description>&lt;h1 id="condition-control">&lt;a href="#condition-control" class="header-anchor">&lt;/a>Condition Control
 &lt;/h1>&lt;h2 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h2>&lt;ul>
 &lt;li>我們想要讓電腦去做基礎的判斷
@@ -15894,7 +15894,7 @@ data-flex-basis="263px"
 &lt;li>結果： &lt;code>else01 if02&lt;/code>&lt;/li>
 &lt;li>請使用 &lt;code>sizeof()&lt;/code> 查看發生了什麼!(&lt;code>IEEE 754&lt;/code>)&lt;/li>
 &lt;li>結論：&lt;strong>浮點數的比較是相當危險的!!&lt;/strong>&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(一)-02：Arithmetic</title><link>https://blog.smallten.me/p/computer_programming_1-02/</link><pubDate>Thu, 15 Oct 2020 11:19:09 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-02/</guid><description>&lt;h1 id="arithmetic">&lt;a href="#arithmetic" class="header-anchor">&lt;/a>Arithmetic
+&lt;/ul></description></item><item><title>程式設計(一)-02：Arithmetic</title><link>https://adam7066.github.io/p/computer_programming_1-02/</link><pubDate>Thu, 15 Oct 2020 11:19:09 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-02/</guid><description>&lt;h1 id="arithmetic">&lt;a href="#arithmetic" class="header-anchor">&lt;/a>Arithmetic
 &lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -15988,7 +15988,7 @@ data-flex-basis="263px"
 &lt;hr>
 &lt;ul>
 &lt;li>最後也最重要的技能：RTFM and STFG&lt;/li>
-&lt;/ul></description></item><item><title>Python-04：多線程-ts下載並合併成mp4</title><link>https://blog.smallten.me/p/python-04/</link><pubDate>Sun, 04 Oct 2020 16:36:35 +0800</pubDate><guid>https://blog.smallten.me/p/python-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Python-04：多線程-ts下載並合併成mp4</title><link>https://adam7066.github.io/p/python-04/</link><pubDate>Sun, 04 Oct 2020 16:36:35 +0800</pubDate><guid>https://adam7066.github.io/p/python-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;p>  這篇將帶你下載m3u8檔並分析出ts的檔案，再透過多線程來加速下載，之後再由FFmpeg合併成mp4。&lt;/p>
 &lt;h1 id="python">&lt;a href="#python" class="header-anchor">&lt;/a>Python
 &lt;/h1>&lt;h2 id="下載m3u8">&lt;a href="#%e4%b8%8b%e8%bc%89m3u8" class="header-anchor">&lt;/a>下載m3u8
@@ -16277,7 +16277,7 @@ data-flex-basis="263px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">remove&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Python-03：m3u8影片下載</title><link>https://blog.smallten.me/p/python-03/</link><pubDate>Sun, 04 Oct 2020 11:07:24 +0800</pubDate><guid>https://blog.smallten.me/p/python-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>Python-03：m3u8影片下載</title><link>https://adam7066.github.io/p/python-03/</link><pubDate>Sun, 04 Oct 2020 11:07:24 +0800</pubDate><guid>https://adam7066.github.io/p/python-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>現今你時常能在影音媒體網站看到 &lt;code>.m3u8&lt;/code> 的檔案，以及許多 &lt;code>.ts&lt;/code> 的分段媒體，本篇將教你如何簡單的下載成 &lt;code>.mp4&lt;/code> 檔。&lt;/li>
 &lt;li>這篇並不詳加敘述 HLS 之類的觀念，若有興趣深入了解請自行查找資料。&lt;/li>
@@ -16326,7 +16326,7 @@ data-flex-basis="263px"
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>下一篇將教你如何直接從 m3u8 裡讀取目錄，並使用多線程下載 ts 並合併成 mp4&lt;/li>
-&lt;/ul></description></item><item><title>程式設計(一)-01：Your first program</title><link>https://blog.smallten.me/p/computer_programming_1-01/</link><pubDate>Sun, 04 Oct 2020 11:00:48 +0800</pubDate><guid>https://blog.smallten.me/p/computer_programming_1-01/</guid><description>&lt;h1 id="hello-world">&lt;a href="#hello-world" class="header-anchor">&lt;/a>Hello World
+&lt;/ul></description></item><item><title>程式設計(一)-01：Your first program</title><link>https://adam7066.github.io/p/computer_programming_1-01/</link><pubDate>Sun, 04 Oct 2020 11:00:48 +0800</pubDate><guid>https://adam7066.github.io/p/computer_programming_1-01/</guid><description>&lt;h1 id="hello-world">&lt;a href="#hello-world" class="header-anchor">&lt;/a>Hello World
 &lt;/h1>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -16412,7 +16412,7 @@ data-flex-basis="263px"
 &lt;li>中間縮排應為Tab而不是Space&lt;/li>
 &lt;li>&lt;code>make clean&lt;/code>&lt;/li>
 &lt;li>預設可執行的檔名為 &lt;code>makefile，Makefile，GNUmakefile&lt;/code>，若為其他可下 &lt;code>-f&lt;/code> 的參數&lt;/li>
-&lt;/ul></description></item><item><title>Python-02：多線程-加速圖片下載</title><link>https://blog.smallten.me/p/python-02/</link><pubDate>Mon, 03 Aug 2020 00:56:43 +0800</pubDate><guid>https://blog.smallten.me/p/python-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Python-02：多線程-加速圖片下載</title><link>https://adam7066.github.io/p/python-02/</link><pubDate>Mon, 03 Aug 2020 00:56:43 +0800</pubDate><guid>https://adam7066.github.io/p/python-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>接續上一篇Python-01：爬蟲-圖片下載的內容，這篇文章將帶領大家使用多線程來加速圖片的下載&lt;/li>
 &lt;/ul>
@@ -16602,7 +16602,7 @@ data-flex-basis="263px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">browser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">quit&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Python-01：爬蟲-圖片下載</title><link>https://blog.smallten.me/p/python-01/</link><pubDate>Mon, 03 Aug 2020 00:39:24 +0800</pubDate><guid>https://blog.smallten.me/p/python-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>Python-01：爬蟲-圖片下載</title><link>https://adam7066.github.io/p/python-01/</link><pubDate>Mon, 03 Aug 2020 00:39:24 +0800</pubDate><guid>https://adam7066.github.io/p/python-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這一篇將帶領大家透過Python的爬蟲自動化的下載圖片&lt;/li>
 &lt;/ul>
@@ -16772,7 +16772,7 @@ data-flex-basis="263px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">browser&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">quit&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>簡易氣象站-02</title><link>https://blog.smallten.me/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://blog.smallten.me/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>簡易氣象站-02</title><link>https://adam7066.github.io/p/weather-02/</link><pubDate>Sun, 12 Jul 2020 09:31:38 +0800</pubDate><guid>https://adam7066.github.io/p/weather-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作在Raspberry pi用Python讀取Arduino Serial的數值，並且製作一個簡易的UI實時顯示出數值。&lt;/li>
 &lt;/ul>
@@ -16929,16 +16929,16 @@ data-flex-basis="263px"
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>最終成果圖
-&lt;img src="https://blog.smallten.me/p/weather-02/weather-02-01.png"
+&lt;img src="https://adam7066.github.io/p/weather-02/weather-02-01.png"
 width="1204"
 height="667"
-srcset="https://blog.smallten.me/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://blog.smallten.me/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
+srcset="https://adam7066.github.io/p/weather-02/weather-02-01_hu11175431540610576068.png 480w, https://adam7066.github.io/p/weather-02/weather-02-01_hu10364560669476692956.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="180"
 data-flex-basis="433px"
 >&lt;/li>
-&lt;/ul></description></item><item><title>簡易氣象站-01</title><link>https://blog.smallten.me/p/weather-01/</link><pubDate>Sun, 12 Jul 2020 09:02:34 +0800</pubDate><guid>https://blog.smallten.me/p/weather-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>簡易氣象站-01</title><link>https://adam7066.github.io/p/weather-01/</link><pubDate>Sun, 12 Jul 2020 09:02:34 +0800</pubDate><guid>https://adam7066.github.io/p/weather-01/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這系列主題將帶領大家建立一個簡易的氣象觀測站，而這一小節將製作由Arduino抓取感測器數值的部分。&lt;/li>
 &lt;/ul>
@@ -16950,10 +16950,10 @@ data-flex-basis="433px"
 &lt;/ul>
 &lt;h1 id="教學開始">&lt;a href="#%e6%95%99%e5%ad%b8%e9%96%8b%e5%a7%8b" class="header-anchor">&lt;/a>教學開始
 &lt;/h1>&lt;h2 id="連結電路">&lt;a href="#%e9%80%a3%e7%b5%90%e9%9b%bb%e8%b7%af" class="header-anchor">&lt;/a>連結電路
-&lt;/h2>&lt;p>&lt;img src="https://blog.smallten.me/p/weather-01/weather-01-01.jpg"
+&lt;/h2>&lt;p>&lt;img src="https://adam7066.github.io/p/weather-01/weather-01-01.jpg"
 width="370"
 height="279"
-srcset="https://blog.smallten.me/p/weather-01/weather-01-01_hu16665600860933128514.jpg 480w, https://blog.smallten.me/p/weather-01/weather-01-01_hu4824901043659104543.jpg 1024w"
+srcset="https://adam7066.github.io/p/weather-01/weather-01-01_hu16665600860933128514.jpg 480w, https://adam7066.github.io/p/weather-01/weather-01-01_hu4824901043659104543.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="132"
@@ -17088,7 +17088,7 @@ data-flex-basis="318px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Arduino-05：HC-05 AT命令</title><link>https://blog.smallten.me/p/arduino-05/</link><pubDate>Sun, 10 May 2020 21:56:45 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-05/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/div></description></item><item><title>Arduino-05：HC-05 AT命令</title><link>https://adam7066.github.io/p/arduino-05/</link><pubDate>Sun, 10 May 2020 21:56:45 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-05/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將教大家透過Arduino的序列埠設定HC-05的AT命令&lt;/li>
 &lt;/ul>
@@ -17183,7 +17183,7 @@ data-flex-basis="318px"
 &lt;li>修改名稱 -&amp;gt; AT+NAME=你要的名字&lt;/li>
 &lt;li>查看密碼 -&amp;gt; AT+PSWD?&lt;/li>
 &lt;li>修改密碼 -&amp;gt; AT+PSWD=你要的密碼&lt;/li>
-&lt;/ul></description></item><item><title>Arduino-04：藍芽遙控車</title><link>https://blog.smallten.me/p/arduino-04/</link><pubDate>Sun, 03 May 2020 16:29:01 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Arduino-04：藍芽遙控車</title><link>https://adam7066.github.io/p/arduino-04/</link><pubDate>Sun, 03 May 2020 16:29:01 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-04/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將帶領大家製作藍芽的遙控車，並且用Blynk的Joystick操控它&lt;/li>
 &lt;/ul>
@@ -17206,10 +17206,10 @@ data-flex-basis="318px"
 &lt;li>依照下方圖示連接腳位，並且設定Blynk App內的物件&lt;/li>
 &lt;/ol>
 &lt;h2 id="連接腳位">&lt;a href="#%e9%80%a3%e6%8e%a5%e8%85%b3%e4%bd%8d" class="header-anchor">&lt;/a>連接腳位
-&lt;/h2>&lt;p>&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-04.jpg"
+&lt;/h2>&lt;p>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-04.jpg"
 width="1668"
 height="996"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-04_hu15702503939703762812.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-04_hu9808252931625683036.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-04_hu15702503939703762812.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-04_hu9808252931625683036.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="167"
@@ -17219,26 +17219,26 @@ data-flex-basis="401px"
 &lt;/h2>&lt;ul>
 &lt;li>創建3個元件，分別為Button、Bluetooth、Joystick，並且依下圖進行設置&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-01.jpg"
 width="1080"
 height="2022"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-01_hu10928813089281530482.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-01_hu15225631122200308380.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-01_hu10928813089281530482.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-01_hu15225631122200308380.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
 data-flex-basis="128px"
->&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-02.jpg"
 width="907"
 height="196"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-02_hu4484969899802455697.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-02_hu9258451809648679771.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-02_hu4484969899802455697.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-02_hu9258451809648679771.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="462"
 data-flex-basis="1110px"
->&lt;img src="https://blog.smallten.me/p/arduino-04/Arduino-04-03.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-04/Arduino-04-03.jpg"
 width="1080"
 height="2014"
-srcset="https://blog.smallten.me/p/arduino-04/Arduino-04-03_hu4954243871792668875.jpg 480w, https://blog.smallten.me/p/arduino-04/Arduino-04-03_hu12466097720183011377.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-04/Arduino-04-03_hu4954243871792668875.jpg 480w, https://adam7066.github.io/p/arduino-04/Arduino-04-03_hu12466097720183011377.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
@@ -17377,7 +17377,7 @@ data-flex-basis="128px"
 &lt;/h1>&lt;ul>
 &lt;li>由於這邊我們將HC-05和Nano板的RX、TX對接，因此自行修改程式碼後要重新上傳時，記得先移除連接Nano板的那兩條線，當然也可使用SoftwareSerial Library來進行，就不用拔除線路了&lt;/li>
 &lt;li>若要自行修改HC-05的設定，可參考下一篇文章 &lt;a class="link" href="../arduino-05" >ARDUINO-05：HC-05 AT命令&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Arduino-03：跑馬燈</title><link>https://blog.smallten.me/p/arduino-03/</link><pubDate>Thu, 09 Apr 2020 14:50:56 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Arduino-03：跑馬燈</title><link>https://adam7066.github.io/p/arduino-03/</link><pubDate>Thu, 09 Apr 2020 14:50:56 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-03/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將帶領大家製作點陣跑馬燈，並且用Blynk來操控它&lt;/li>
 &lt;/ul>
@@ -17433,26 +17433,26 @@ data-flex-basis="128px"
 &lt;/h2>&lt;ul>
 &lt;li>請照下圖拉出三個物件，並設定其相關參數&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://blog.smallten.me/p/arduino-03/Arduino-03-01.jpg"
+&lt;p>&lt;img src="https://adam7066.github.io/p/arduino-03/Arduino-03-01.jpg"
 width="1080"
 height="2042"
-srcset="https://blog.smallten.me/p/arduino-03/Arduino-03-01_hu3422397455535229566.jpg 480w, https://blog.smallten.me/p/arduino-03/Arduino-03-01_hu10197709207383843444.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-03/Arduino-03-01_hu3422397455535229566.jpg 480w, https://adam7066.github.io/p/arduino-03/Arduino-03-01_hu10197709207383843444.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="52"
 data-flex-basis="126px"
->&lt;img src="https://blog.smallten.me/p/arduino-03/Arduino-03-02.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-03/Arduino-03-02.jpg"
 width="1080"
 height="2001"
-srcset="https://blog.smallten.me/p/arduino-03/Arduino-03-02_hu16256380234556306622.jpg 480w, https://blog.smallten.me/p/arduino-03/Arduino-03-02_hu12165815056976763761.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-03/Arduino-03-02_hu16256380234556306622.jpg 480w, https://adam7066.github.io/p/arduino-03/Arduino-03-02_hu12165815056976763761.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
 data-flex-basis="129px"
->&lt;img src="https://blog.smallten.me/p/arduino-03/Arduino-03-03.jpg"
+>&lt;img src="https://adam7066.github.io/p/arduino-03/Arduino-03-03.jpg"
 width="1080"
 height="2027"
-srcset="https://blog.smallten.me/p/arduino-03/Arduino-03-03_hu12073561837637083438.jpg 480w, https://blog.smallten.me/p/arduino-03/Arduino-03-03_hu3234311251542652045.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-03/Arduino-03-03_hu12073561837637083438.jpg 480w, https://adam7066.github.io/p/arduino-03/Arduino-03-03_hu3234311251542652045.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="53"
@@ -17823,7 +17823,7 @@ data-flex-basis="127px"
 &lt;/h1>&lt;ul>
 &lt;li>若是覺得Blynk的能量太少，可自行架設 &lt;a class="link" href="https://github.com/blynkkk/blynk-server" target="_blank" rel="noopener"
 >Server&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Arduino-02：UNOJOY</title><link>https://blog.smallten.me/p/arduino-02/</link><pubDate>Thu, 09 Apr 2020 08:16:57 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
+&lt;/ul></description></item><item><title>Arduino-02：UNOJOY</title><link>https://adam7066.github.io/p/arduino-02/</link><pubDate>Thu, 09 Apr 2020 08:16:57 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-02/</guid><description>&lt;h1 id="簡介">&lt;a href="#%e7%b0%a1%e4%bb%8b" class="header-anchor">&lt;/a>簡介
 &lt;/h1>&lt;ul>
 &lt;li>這篇內容將帶領大家把Arduino手把變成電腦手把&lt;/li>
 &lt;/ul>
@@ -17845,10 +17845,10 @@ data-flex-basis="127px"
 &lt;/h1>&lt;ol>
 &lt;li>將下載好的FLIP安裝至電腦&lt;/li>
 &lt;li>確定電腦已安裝Arduino IDE，並已連接Uno板至電腦，可在裝置管理員查看狀態（如下圖）
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-01.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-01.png"
 width="976"
 height="715"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-01_hu8055806974195292202.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-01_hu11981111970158291490.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-01_hu8055806974195292202.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-01_hu11981111970158291490.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="136"
@@ -17856,20 +17856,20 @@ data-flex-basis="327px"
 >&lt;/li>
 &lt;li>打開剛剛下載的UnoJoy資料夾下的檔案，並將它上傳進Uno板中 &lt;code>UnoJoy-master\UnoJoy\UnoJoyArduinoSample\UnoJoyArduinoSample.ino&lt;/code>&lt;/li>
 &lt;li>關閉Arduino IDE，進入DFU Mode，進入方式：用導線同時接觸下圖框起處的兩根針腳
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-02.jpg"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-02.jpg"
 width="1358"
 height="1014"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-02_hu9559882728592903430.jpg 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-02_hu13777671105090746175.jpg 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-02_hu9559882728592903430.jpg 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-02_hu13777671105090746175.jpg 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="321px"
 >&lt;/li>
 &lt;li>確認已進入 DFU Mode，如下圖
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-03.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-03.png"
 width="976"
 height="715"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-03_hu5127483976452169237.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-03_hu13052532347998420587.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-03_hu5127483976452169237.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-03_hu13052532347998420587.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="136"
@@ -17880,10 +17880,10 @@ data-flex-basis="327px"
 &lt;/ul>
 &lt;/li>
 &lt;li>打開UnoJoy資料夾，啟動TurnIntoAJoystick的批次檔，檔案路徑 &lt;code>UnoJoy-master\UnoJoy\TurnIntoAJoystick.bat&lt;/code>，執行成功結果如下圖
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-04.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-04.png"
 width="1222"
 height="638"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-04_hu13428892834738455162.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-04_hu14745595881270971363.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-04_hu13428892834738455162.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-04_hu14745595881270971363.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="191"
@@ -17891,10 +17891,10 @@ data-flex-basis="459px"
 >&lt;/li>
 &lt;li>至此已完成將Uno變成電腦搖桿，之後插上Uno板皆為UnoJoy Joystick，可在以下路徑查看 &lt;code>控制台\硬體和音效\裝置和印表機&lt;/code>&lt;/li>
 &lt;li>將搖桿的vrx和vry分別連接至Uno板的A0和A1，在 &lt;code>控制台\硬體和音效\裝置和印表機&lt;/code> 裡的UnoJoy Joystick圖示上右鍵-&amp;gt;遊戲控制器-&amp;gt;內容，可查看搖桿狀態，如下圖
-&lt;img src="https://blog.smallten.me/p/arduino-02/Arduino-02-05.png"
+&lt;img src="https://adam7066.github.io/p/arduino-02/Arduino-02-05.png"
 width="595"
 height="651"
-srcset="https://blog.smallten.me/p/arduino-02/Arduino-02-05_hu8827692068071266563.png 480w, https://blog.smallten.me/p/arduino-02/Arduino-02-05_hu15298610261905498.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-02/Arduino-02-05_hu8827692068071266563.png 480w, https://adam7066.github.io/p/arduino-02/Arduino-02-05_hu15298610261905498.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="91"
@@ -17932,16 +17932,16 @@ data-flex-basis="219px"
 &lt;li>若是腳位不夠可自行替換成mega板&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Arduino-01：安裝IDE</title><link>https://blog.smallten.me/p/arduino-01/</link><pubDate>Thu, 09 Apr 2020 08:08:43 +0800</pubDate><guid>https://blog.smallten.me/p/arduino-01/</guid><description>&lt;h1 id="官方ide">&lt;a href="#%e5%ae%98%e6%96%b9ide" class="header-anchor">&lt;/a>官方IDE
+&lt;/ul></description></item><item><title>Arduino-01：安裝IDE</title><link>https://adam7066.github.io/p/arduino-01/</link><pubDate>Thu, 09 Apr 2020 08:08:43 +0800</pubDate><guid>https://adam7066.github.io/p/arduino-01/</guid><description>&lt;h1 id="官方ide">&lt;a href="#%e5%ae%98%e6%96%b9ide" class="header-anchor">&lt;/a>官方IDE
 &lt;/h1>&lt;ul>
 &lt;li>此IDE由官方提供，可在此查看&lt;a class="link" href="https://www.arduino.cc/" target="_blank" rel="noopener"
 >官網&lt;/a>&lt;/li>
 &lt;li>下載－&lt;a class="link" href="https://www.arduino.cc/en/software" target="_blank" rel="noopener"
 >官方載點&lt;/a>
-&lt;img src="https://blog.smallten.me/p/arduino-01/arduino-01-01.png"
+&lt;img src="https://adam7066.github.io/p/arduino-01/arduino-01-01.png"
 width="1376"
 height="642"
-srcset="https://blog.smallten.me/p/arduino-01/arduino-01-01_hu8190473566399796293.png 480w, https://blog.smallten.me/p/arduino-01/arduino-01-01_hu1106338615277907444.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-01/arduino-01-01_hu8190473566399796293.png 480w, https://adam7066.github.io/p/arduino-01/arduino-01-01_hu1106338615277907444.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="214"
@@ -17953,10 +17953,10 @@ data-flex-basis="514px"
 &lt;li>先下載 &lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
 >VSCode&lt;/a>&lt;/li>
 &lt;li>再安裝 PlatformIO 的插件
-&lt;img src="https://blog.smallten.me/p/arduino-01/arduino-01-02.png"
+&lt;img src="https://adam7066.github.io/p/arduino-01/arduino-01-02.png"
 width="1920"
 height="1020"
-srcset="https://blog.smallten.me/p/arduino-01/arduino-01-02_hu11484009080322030056.png 480w, https://blog.smallten.me/p/arduino-01/arduino-01-02_hu4791836822261479786.png 1024w"
+srcset="https://adam7066.github.io/p/arduino-01/arduino-01-02_hu11484009080322030056.png 480w, https://adam7066.github.io/p/arduino-01/arduino-01-02_hu4791836822261479786.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="188"
